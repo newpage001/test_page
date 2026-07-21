@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AVE 社区交易赛 · 周赛</title>
+<style>
+  :root{
+    --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
+    --bg:#e9f2ff; --card:#ffffff;
+    --ink:#1b2a3d; --ink2:#5a6b7d; --muted:#9aa8b8; --line:#e6eefb;
+    --gold-1:#ffd01e; --gold-2:#ff8f17;
+    --sans:"DM Sans",system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Arial,sans-serif;
+    --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:var(--sans); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;
+    background:linear-gradient(180deg,#dcebff 0%,#eaf3ff 22%,#f3f8ff 100%); background-attachment:fixed;
+    padding-bottom:92px;
+  }
+  .app{max-width:500px; margin:0 auto; padding:14px 14px 30px}
+
+  .tab{display:inline-block; position:relative; color:#fff; font-weight:700; font-size:15px;
+    padding:7px 22px 7px 16px; border-radius:10px 4px 12px 4px;
+    background:linear-gradient(135deg,var(--blue-light),var(--blue)); box-shadow:0 4px 12px rgba(22,119,255,.28);
+    margin:0 0 -10px 6px; z-index:2}
+  .tab::after{content:""; position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    width:6px; height:6px; border-radius:1px; background:rgba(255,255,255,.85)}
+  .card{background:var(--card); border-radius:16px; padding:20px 18px 18px; box-shadow:0 8px 26px rgba(22,89,214,.09); position:relative}
+  section{margin-top:20px}
+
+  /* hero */
+  .hero{border-radius:20px; overflow:hidden; padding:18px 18px 22px;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(74,151,255,.35), transparent 55%),
+      linear-gradient(160deg,#cfe4ff 0%,#eaf3ff 60%,#ffffff 100%);
+    box-shadow:0 12px 34px rgba(22,89,214,.16); position:relative}
+  .hero::after{content:""; position:absolute; right:-30px; bottom:-30px; width:180px; height:180px;
+    border-radius:50%; border:22px solid rgba(22,119,255,.14); pointer-events:none}
+  .logos{display:flex; align-items:center; gap:8px; font-weight:800; font-size:18px; color:var(--ink)}
+  .logos svg{display:block}
+  .logos .x{color:var(--ink2); font-weight:500; margin:0 2px; font-size:15px}
+  .logos .co{color:var(--blue); font-weight:800}
+  .badge{display:inline-block; margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.5px;
+    color:var(--blue-deep); background:rgba(22,119,255,.12); border:1px solid rgba(22,119,255,.25);
+    padding:4px 11px; border-radius:999px}
+  .htitle{margin:10px 0 0; font-size:clamp(30px,8vw,40px); line-height:1.05; font-weight:900; letter-spacing:-.5px;
+    color:#0a2a6e;
+    background:linear-gradient(165deg,#153fb0 0%,#071d55 95%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    text-shadow:0 1px 1px rgba(10,35,110,.14)}
+  .prizePill{display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+    background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; font-weight:700; font-size:14px;
+    padding:9px 16px; border-radius:999px; box-shadow:0 6px 16px rgba(14,86,214,.3)}
+  .prizePill b{font-family:var(--mono); font-weight:600; font-size:19px;
+    background:linear-gradient(92deg,var(--gold-1),var(--gold-2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .hsub{margin-top:12px; color:var(--ink2); font-size:13px}
+
+  /* time */
+  .trow{display:flex; justify-content:space-between; font-size:14px; color:var(--ink2); padding:3px 0}
+  .trow b{color:var(--ink); font-family:var(--mono); font-weight:500}
+  .clock{display:flex; gap:8px; margin-top:14px}
+  .seg{flex:1; text-align:center; background:#f2f7ff; border:1px solid var(--line); border-radius:11px; padding:9px 2px}
+  .seg b{display:block; font-family:var(--mono); font-weight:600; font-size:22px; color:var(--blue-deep)}
+  .seg small{display:block; font-size:10px; color:var(--muted); letter-spacing:.5px; margin-top:2px}
+
+  /* rewards */
+  .bonusNote{font-size:13px; color:var(--blue-deep); background:linear-gradient(92deg,rgba(22,119,255,.09),rgba(74,151,255,.04));
+    border:1px dashed rgba(22,119,255,.35); border-radius:11px; padding:10px 13px; margin-bottom:14px}
+  .bonusNote b{font-weight:800}
+  .ptable{border:1px solid var(--line); border-radius:12px; overflow:hidden}
+  .ph{display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:8px; padding:10px 14px; font-size:11.5px; font-weight:700;
+    color:var(--ink2); background:#eef4ff; letter-spacing:.2px}
+  .ph .r{text-align:right; color:var(--blue-deep)}
+  .pr{display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:8px; padding:11px 14px; align-items:center; border-top:1px solid var(--line)}
+  .pr.top{background:linear-gradient(92deg,rgba(255,208,30,.09),rgba(255,143,23,.02))}
+  .pr .nm{font-weight:700; font-size:14px; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:9px}
+  .pr .dot{width:9px; height:9px; border-radius:50%; flex-shrink:0; background:#c4d2e6}
+  .pr .dot.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
+  .pr .dot.g2{background:linear-gradient(135deg,#e7edf4,#b9c5d4)}
+  .pr .dot.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a)}
+  .pr .a{font-family:var(--mono); font-weight:600; font-size:14.5px; color:var(--blue-deep); text-align:right; white-space:nowrap}
+  .pr .a.gold{background:linear-gradient(92deg,#e8a200,var(--gold-2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-weight:700}
+
+  /* leaderboard */
+  .lbTabs{display:flex; gap:8px; margin-bottom:12px}
+  .lbtab{flex:1; border:1px solid var(--line); background:#f4f8ff; color:var(--ink2); font-weight:700; font-size:14px;
+    padding:9px; border-radius:11px; cursor:pointer; font-family:var(--sans)}
+  .lbtab.on{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; border-color:transparent; box-shadow:0 5px 14px rgba(22,119,255,.28)}
+  .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:4px}
+  .lbSub .t{font-weight:700; font-size:13.5px; color:var(--ink)}
+  .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
+  .lbHead{display:grid; grid-template-columns:44px 1fr 108px; gap:10px; font-size:11px; color:var(--muted); padding:6px 6px 8px; letter-spacing:.5px}
+  .lbHead .r{text-align:right}
+  .lrow{display:grid; grid-template-columns:44px 1fr 108px; gap:10px; align-items:center; padding:11px 6px; border-top:1px solid var(--line)}
+  .rk{display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:9px;
+    font-family:var(--mono); font-weight:600; font-size:13px; color:var(--ink2); background:#eef3fb}
+  .rk.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#3a2400}
+  .rk.g2{background:linear-gradient(135deg,#eef2f7,#c4cfdb); color:#2a3340}
+  .rk.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); color:#3a1e08}
+  .who{min-width:0}
+  .who .nm{font-weight:700; font-size:14.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .who .mt{font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:1px}
+  .bar{height:4px; border-radius:3px; margin-top:6px; background:#eaf0f9; overflow:hidden}
+  .bar i{display:block; height:100%; border-radius:3px}
+  .bar.spot i{background:linear-gradient(90deg,var(--blue-light),var(--blue))}
+  .bar.perp i{background:linear-gradient(90deg,#12b886,#0e56d6)}
+  .vc{text-align:right}
+  .vol{font-family:var(--mono); font-weight:600; font-size:14.5px; color:var(--ink)}
+  .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
+
+  /* rules */
+  ol.rules{margin:0; padding-left:20px; font-size:13.5px; color:var(--ink); line-height:1.7}
+  ol.rules li{margin-bottom:6px}
+  ol.rules b{color:var(--blue)}
+  .note h4{color:var(--blue); font-size:14px; margin:12px 0 4px}
+  .note h4:first-child{margin-top:0}
+  .note p{margin:0; font-size:13px; color:var(--ink2)}
+  .fine{margin-top:12px; font-size:11.5px; color:var(--muted); line-height:1.6}
+
+  /* sticky cta + share */
+  .cta{position:fixed; left:0; right:0; bottom:0; padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(233,242,255,0),#e9f2ff 40%); display:flex; justify-content:center}
+  .cta button{max-width:472px; width:100%; border:0; cursor:pointer; color:#fff; font-weight:700; font-size:16px;
+    padding:15px; border-radius:14px; background:linear-gradient(135deg,var(--blue-light),var(--blue-deep)); box-shadow:0 8px 22px rgba(14,86,214,.36)}
+  .share{position:fixed; right:16px; bottom:86px; width:44px; height:44px; border-radius:50%; background:var(--blue);
+    display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(22,119,255,.4); cursor:pointer}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="logos">
+      <!-- 官方 Ave.ai logo (ave.ai/_nuxt/logo.svg) -->
+      <svg width="29" height="26" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ave.ai">
+        <path d="M22.3697 19.6773L21.2397 17.7737H5.00039L13.1327 3.70339L11.0092 0H8.26898C7.68056 0.0013206 7.10303 0.158808 6.59539 0.456374C6.08775 0.75394 5.6682 1.18092 5.37958 1.6937L0.465319 10.3644C0.179582 10.8649 0.0292969 11.4313 0.0292969 12.0076C0.0292969 12.5839 0.179582 13.1502 0.465319 13.6507L3.90581 19.7177L5.37958 22.3164C5.63219 22.7621 5.98456 23.1434 6.40909 23.4302C6.83362 23.717 7.31879 23.9016 7.8266 23.9697C7.97233 23.99 8.11931 24.0001 8.26646 24H17.9863C18.5745 24.0003 19.1523 23.8447 19.6608 23.5489C20.1692 23.2532 20.5902 22.8279 20.8807 22.3164L22.3444 19.7177L22.3697 19.6773Z" fill="url(#av0)"/>
+        <path d="M21.2397 17.7744H5.03076L5.09902 17.734L10.5391 14.4629C11.3784 13.9169 12.0103 13.5983 12.6044 13.4947C12.6178 13.4935 12.6314 13.4935 12.6448 13.4947L12.7611 13.4795L12.9634 13.4644H13.0847C13.1819 13.467 13.2789 13.4746 13.3754 13.4871C13.9947 13.5705 14.6596 13.8789 15.5646 14.4022L21.2094 17.7542L21.2397 17.7744Z" fill="url(#av1)"/>
+        <path d="M22.3696 19.679L22.3418 19.727L20.8756 22.3156C20.5863 22.827 20.1663 23.2524 19.6587 23.5482C19.151 23.844 18.5738 23.9996 17.9862 23.9992H8.26641C8.11927 23.9993 7.97229 23.9892 7.82655 23.9688C7.31791 23.9014 6.83181 23.717 6.40638 23.4301C5.98094 23.1433 5.62774 22.7618 5.37448 22.3156L3.90576 19.7194L5.02816 17.778L5.0863 17.7426L10.5365 14.4563C11.3783 13.9103 12.0077 13.5892 12.6043 13.4881C12.6178 13.4869 12.6313 13.4869 12.6448 13.4881L12.761 13.4729L12.9633 13.4578H13.0846C13.1818 13.4604 13.2789 13.468 13.3753 13.4805C13.9947 13.5639 14.657 13.8749 15.562 14.3956L21.2093 17.7552L21.2422 17.7754L22.3696 19.679Z" fill="url(#av2)"/>
+        <path d="M25.7905 13.6507L22.3449 19.7177L22.3727 19.6697L21.2402 17.7738L13.1509 3.6857V3.70339L11.0098 0H17.9893C18.578 0.00165486 19.1558 0.159258 19.6638 0.456768C20.1717 0.754277 20.5918 1.18107 20.8813 1.6937L25.7905 10.3644C26.075 10.8653 26.2246 11.4315 26.2246 12.0076C26.2246 12.5836 26.075 13.1498 25.7905 13.6507Z" fill="url(#av4)"/>
+        <path d="M0.436022 13.6507L3.88409 19.7177L3.85629 19.6697L4.98626 17.7662L13.0756 3.67811V3.69581L15.2218 0H8.23969C7.65126 0.0013206 7.07373 0.158808 6.5661 0.456374C6.05846 0.75394 5.6389 1.18092 5.35028 1.6937L0.436022 10.3644C0.150285 10.8649 0 11.4313 0 12.0076C0 12.5839 0.150285 13.1502 0.436022 13.6507Z" fill="url(#av5)"/>
+        <defs>
+          <linearGradient id="av0" x1="2.58" y1="6" x2="21.45" y2="17.28" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
+          <linearGradient id="av1" x1="6.88" y1="14.54" x2="9.60" y2="21.10" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
+          <linearGradient id="av2" x1="6.01" y1="16.09" x2="15.35" y2="26.60" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
+          <linearGradient id="av4" x1="12.75" y1="4.92" x2="26.75" y2="11.87" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
+          <linearGradient id="av5" x1="1.74" y1="4.92" x2="15.74" y2="11.87" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
+        </defs>
+      </svg>
+      <span>Ave.ai</span><span class="x">×</span><span class="co">社区赛</span>
+    </div>
+    <div class="badge" id="badge">额外奖励 · 叠加常规返佣</div>
+    <h1 class="htitle" id="title">AVE 社区交易赛<br>周赛</h1>
+    <div class="prizePill">额外奖池 <b id="prize">500 USDT</b></div>
+    <div class="hsub" id="subtitle">现货 + 合约双榜 · 冲榜瓜分额外奖励</div>
+  </div>
+
+  <!-- 活动时间 -->
+  <section>
+    <span class="tab">活动时间</span>
+    <div class="card">
+      <div class="trow"><span>开始时间</span><b id="startT">—</b></div>
+      <div class="trow"><span>结束时间</span><b id="endT">—</b></div>
+      <div class="clock">
+        <div class="seg"><b id="dd">--</b><small>天 DAYS</small></div>
+        <div class="seg"><b id="hh">--</b><small>时 HRS</small></div>
+        <div class="seg"><b id="mm">--</b><small>分 MIN</small></div>
+        <div class="seg"><b id="ss">--</b><small>秒 SEC</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 奖励分配规则 -->
+  <section>
+    <span class="tab">奖励分配规则</span>
+    <div class="card">
+      <div class="bonusNote"><b>额外奖励</b>：本周额外奖池 <b>500 USDT</b>，为社区长常规现货 / 合约返佣之外的加码，现货、合约<b>分别排名、分别发奖</b>。</div>
+      <div class="ptable">
+        <div class="ph"><span>名次</span><span class="r">现货榜 · 250U</span><span class="r">合约榜 · 250U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">70 U</span><span class="a gold">70 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">50 U</span><span class="a gold">50 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">35 U</span><span class="a gold">35 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">25 U</span><span class="a">25 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">20 U</span><span class="a">20 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 6–10 名</span><span class="a">各 10 U</span><span class="a">各 10 U</span></div>
+      </div>
+      <div class="fine" style="margin-top:10px">共计 500 U：现货榜 250 U + 合约榜 250 U，两榜各自排名、分别发奖。</div>
+    </div>
+  </section>
+
+  <!-- 交易排行榜 -->
+  <section>
+    <span class="tab">交易排行榜</span>
+    <div class="card">
+      <div class="lbTabs">
+        <button class="lbtab on" data-b="spot">现货榜</button>
+        <button class="lbtab" data-b="perp">合约榜</button>
+      </div>
+      <div class="lbSub"><span class="t" id="lbTitle">现货榜 · 按社区现货交易量</span><span class="upd" id="updated">更新于 —</span></div>
+      <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r">交易量 (USDT)</span></div>
+      <div id="board"></div>
+    </div>
+  </section>
+
+  <!-- 参赛规则 -->
+  <section>
+    <span class="tab">参赛规则</span>
+    <div class="card">
+      <ol class="rules">
+        <li>社区长在本页登记专属邀请码，名下用户的<b>现货</b>与<b>合约</b>交易量分别实时计入对应榜单。</li>
+        <li>仅统计活动期间（7/20 00:00–7/26 23:59）新增的有效交易量，按成交时汇率折算为 USDT。</li>
+        <li><b>排名计算：</b>同一社区名下所有邀请用户的累计成交额为排名依据；并列时按先达到该交易量的时间顺序排名（先到者优先）。</li>
+        <li>活动结束后经 Ave.ai 系统与人工审核，对对敲、脚本、僵尸账号等刷量行为，一经发现即取消资格。</li>
+        <li>奖励为<b>额外加码</b>，叠加于常规返佣之上，于活动结束后 5 个工作日内发放。</li>
+      </ol>
+      <div class="fine">注：本活动最终解释权归 Ave.ai 所有；交易记录实时上链，排名数据防篡改。</div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section>
+    <span class="tab">注意事项</span>
+    <div class="card note">
+      <h4>合规声明</h4>
+      <p>用户需遵守当地法律法规，平台不承担因参赛导致的税务或合规风险。</p>
+      <h4>数据隐私</h4>
+      <p>榜单仅展示社区维度数据；个人交易数据仅用于排名统计，未经允许不向第三方披露。</p>
+    </div>
+  </section>
+</div>
+
+<div class="share" id="shareBtn" title="分享" role="button" tabindex="0">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+</div>
+<div class="cta"><button id="joinBtn">立即参加</button></div>
+
+<script>
+(function(){
+  var FALLBACK={
+    activity:{name:"AVE 社区交易赛<br>周赛",subtitle:"现货 + 合约双榜 · 冲榜瓜分额外奖励",prizePool:500,currency:"USDT",extra:true,
+      start:"2026-07-20T00:00:00+08:00",end:"2026-07-26T23:59:59+08:00",status:"RACING ON"},
+    pools:{spot:250,perp:250},
+    updated:"2026-07-20T10:00:00+08:00",
+    boards:{
+      spot:[
+        {rank:1,name:"链上密码",code:"chainmima",volume:268400,traders:142},
+        {rank:2,name:"Alpha Hunter",code:"alphahunter",volume:211900,traders:118},
+        {rank:3,name:"宇神团队",code:"yushen3994",volume:176500,traders:96},
+        {rank:4,name:"财富密码",code:"wealthcode",volume:141200,traders:74},
+        {rank:5,name:"搞钱兄",code:"gaoqianx",volume:118700,traders:63},
+        {rank:6,name:"半仙社区",code:"banxian",volume:92300,traders:51},
+        {rank:7,name:"小太阳",code:"xty1888",volume:74600,traders:42},
+        {rank:8,name:"韭阿哥",code:"jiuage153",volume:58100,traders:33},
+        {rank:9,name:"仙哥社区",code:"xiange8",volume:41900,traders:27},
+        {rank:10,name:"王者归来",code:"ggzhian",volume:30500,traders:21}
+      ],
+      perp:[
+        {rank:1,name:"尼古丁社区",code:"nicotine88",volume:512800,traders:88},
+        {rank:2,name:"链上密码",code:"chainmima",volume:447300,traders:102},
+        {rank:3,name:"Alpha Hunter",code:"alphahunter",volume:361400,traders:79},
+        {rank:4,name:"搞钱兄",code:"gaoqianx",volume:254600,traders:58},
+        {rank:5,name:"宇神团队",code:"yushen3994",volume:198200,traders:47},
+        {rank:6,name:"半仙社区",code:"banxian",volume:143700,traders:39},
+        {rank:7,name:"财富密码",code:"wealthcode",volume:111500,traders:31},
+        {rank:8,name:"韭阿哥",code:"jiuage153",volume:82300,traders:24},
+        {rank:9,name:"小太阳",code:"xty1888",volume:60900,traders:19},
+        {rank:10,name:"仙哥社区",code:"xiange8",volume:44200,traders:15}
+      ]
+    }
+  };
+  var DATA=FALLBACK, END=null, cur="spot";
+  function fmt(n){return (n||0).toLocaleString("en-US");}
+  function fmtVol(n){if(n>=1e6)return (n/1e6).toFixed(2)+"M";if(n>=1e3)return (n/1e3).toFixed(1)+"K";return fmt(n);}
+  function pad(n){return String(n).padStart(2,"0");}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function dstr(x){var t=new Date(x);return t.getFullYear()+"/"+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes())+" (UTC+8)";}
+
+  function renderBoard(){
+    var b=(DATA.boards&&DATA.boards[cur])||[];
+    document.getElementById("lbTitle").textContent=(cur==="spot"?"现货榜 · 按社区现货交易量":"合约榜 · 按社区合约交易量");
+    var max=b.reduce(function(m,r){return Math.max(m,r.volume||0)},1);
+    var host=document.getElementById("board"); host.innerHTML="";
+    b.forEach(function(r){
+      var pct=Math.max(4,Math.round((r.volume||0)/max*100));
+      var cls=r.rank<=3?" g"+r.rank:"";
+      var row=document.createElement("div"); row.className="lrow";
+      row.innerHTML='<span class="rk'+cls+'">'+r.rank+'</span>'+
+        '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
+          '<div class="mt">'+esc(r.code||"")+(r.traders?' · '+fmt(r.traders)+' 人':'')+'</div>'+
+          '<div class="bar '+cur+'"><i style="width:'+pct+'%"></i></div></div>'+
+        '<div class="vc"><div class="vol">'+fmtVol(r.volume)+'<small>USDT</small></div></div>';
+      host.appendChild(row);
+    });
+  }
+  function renderMeta(){
+    var a=DATA.activity||{};
+    if(a.name) document.getElementById("title").innerHTML=a.name;
+    if(a.subtitle) document.getElementById("subtitle").textContent=a.subtitle;
+    if(a.prizePool) document.getElementById("prize").textContent=fmt(a.prizePool)+" "+(a.currency||"USDT");
+    if(a.start) document.getElementById("startT").textContent=dstr(a.start);
+    if(a.end){document.getElementById("endT").textContent=dstr(a.end); END=new Date(a.end).getTime();}
+    if(DATA.updated){var u=new Date(DATA.updated);document.getElementById("updated").textContent="更新于 "+pad(u.getHours())+":"+pad(u.getMinutes());}
+  }
+  function tick(){
+    if(!END)return; var diff=END-Date.now(); if(diff<0)diff=0;
+    document.getElementById("dd").textContent=pad(Math.floor(diff/864e5));
+    document.getElementById("hh").textContent=pad(Math.floor(diff%864e5/36e5));
+    document.getElementById("mm").textContent=pad(Math.floor(diff%36e5/6e4));
+    document.getElementById("ss").textContent=pad(Math.floor(diff%6e4/1e3));
+  }
+
+  renderMeta(); renderBoard(); tick(); setInterval(tick,1000);
+
+  Array.prototype.forEach.call(document.querySelectorAll(".lbtab"),function(btn){
+    btn.addEventListener("click",function(){
+      document.querySelectorAll(".lbtab").forEach(function(x){x.classList.remove("on");});
+      btn.classList.add("on"); cur=btn.getAttribute("data-b"); renderBoard();
+    });
+  });
+
+  fetch("leaderboard.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null;})
+    .then(function(j){if(j&&j.boards){DATA=j; renderMeta(); renderBoard(); tick();}}).catch(function(){});
+
+  document.getElementById("joinBtn").addEventListener("click",function(){alert("报名入口占位：接入邀请码登记 / 钱包绑定后跳转。");});
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(function(){});}
+    else{alert("分享链接："+location.href);}
+  });
+})();
+</script>
+</body>
+</html>
