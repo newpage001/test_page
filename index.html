@@ -60,7 +60,9 @@
   /* time */
   .trow{display:flex; justify-content:space-between; font-size:14px; color:var(--ink2); padding:3px 0}
   .trow b{color:var(--ink); font-family:var(--mono); font-weight:500}
-  .clock{display:flex; gap:8px; margin-top:14px}
+  .cdLabel{margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.5px; color:var(--blue-deep)}
+  .cdLabel.ended{color:var(--muted)}
+  .clock{display:flex; gap:8px; margin-top:7px}
   .seg{flex:1; text-align:center; background:#f2f7ff; border:1px solid var(--line); border-radius:11px; padding:9px 2px}
   .seg b{display:block; font-family:var(--mono); font-weight:600; font-size:22px; color:var(--blue-deep)}
   .seg small{display:block; font-size:10px; color:var(--muted); letter-spacing:.5px; margin-top:2px}
@@ -91,9 +93,9 @@
   .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:4px}
   .lbSub .t{font-weight:700; font-size:13.5px; color:var(--ink)}
   .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
-  .lbHead{display:grid; grid-template-columns:44px 1fr 108px; gap:10px; font-size:11px; color:var(--muted); padding:6px 6px 8px; letter-spacing:.5px}
+  .lbHead{display:grid; grid-template-columns:44px 1fr 132px; gap:10px; font-size:11px; color:var(--muted); padding:6px 6px 8px; letter-spacing:.5px}
   .lbHead .r{text-align:right}
-  .lrow{display:grid; grid-template-columns:44px 1fr 108px; gap:10px; align-items:center; padding:11px 6px; border-top:1px solid var(--line)}
+  .lrow{display:grid; grid-template-columns:44px 1fr 132px; gap:10px; align-items:center; padding:11px 6px; border-top:1px solid var(--line)}
   .rk{display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:9px;
     font-family:var(--mono); font-weight:600; font-size:13px; color:var(--ink2); background:#eef3fb}
   .rk.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#3a2400}
@@ -109,6 +111,15 @@
   .vc{text-align:right}
   .vol{font-family:var(--mono); font-weight:600; font-size:14.5px; color:var(--ink)}
   .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
+  .empty{padding:42px 18px; text-align:center; color:var(--muted)}
+  .empty .big{font-size:14px; font-weight:700; color:var(--ink2); margin-bottom:5px}
+  .empty .sm{font-size:12px; line-height:1.7}
+  /* 榜单下拉滚动（不一次性铺满） */
+  #board{max-height:440px; overflow-y:auto; overscroll-behavior:contain; border-radius:8px}
+  #board::-webkit-scrollbar{width:6px}
+  #board::-webkit-scrollbar-thumb{background:#c4d2e6; border-radius:3px}
+  #board::-webkit-scrollbar-track{background:transparent}
+  .lrow:first-child{border-top:none}
 
   /* rules */
   ol.rules{margin:0; padding-left:20px; font-size:13.5px; color:var(--ink); line-height:1.7}
@@ -155,7 +166,7 @@
     <div class="badge" id="badge">额外奖励 · 叠加常规返佣</div>
     <h1 class="htitle" id="title">AVE 社区交易赛<br>周赛</h1>
     <div class="prizePill">额外奖池 <b id="prize">500 USDT</b></div>
-    <div class="hsub" id="subtitle">现货 + 合约双榜 · 冲榜瓜分额外奖励</div>
+    <div class="hsub" id="subtitle">现货 / 合约双榜 · 500U 奖池</div>
   </div>
 
   <!-- 活动时间 -->
@@ -164,6 +175,7 @@
     <div class="card">
       <div class="trow"><span>开始时间</span><b id="startT">—</b></div>
       <div class="trow"><span>结束时间</span><b id="endT">—</b></div>
+      <div class="cdLabel" id="cdLabel">距开赛</div>
       <div class="clock">
         <div class="seg"><b id="dd">--</b><small>天 DAYS</small></div>
         <div class="seg"><b id="hh">--</b><small>时 HRS</small></div>
@@ -193,14 +205,14 @@
 
   <!-- 交易排行榜 -->
   <section>
-    <span class="tab">交易排行榜</span>
+    <span class="tab">实时榜单</span>
     <div class="card">
       <div class="lbTabs">
-        <button class="lbtab on" data-b="spot">现货榜</button>
-        <button class="lbtab" data-b="perp">合约榜</button>
+        <button class="lbtab on" data-b="spot">现货榜 · 250U</button>
+        <button class="lbtab" data-b="perp">合约榜 · 250U</button>
       </div>
-      <div class="lbSub"><span class="t" id="lbTitle">现货榜 · 按社区现货交易量</span><span class="upd" id="updated">更新于 —</span></div>
-      <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r">交易量 (USDT)</span></div>
+      <div class="lbSub"><span class="t" id="lbTitle">现货榜 · 按社区现货交易量</span><span class="upd" id="updated">尚未开赛</span></div>
+      <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r" id="volCol">交易量 (USDT)</span></div>
       <div id="board"></div>
     </div>
   </section>
@@ -210,9 +222,9 @@
     <span class="tab">参赛规则</span>
     <div class="card">
       <ol class="rules">
-        <li>社区长在本页登记专属邀请码，名下用户的<b>现货</b>与<b>合约</b>交易量分别实时计入对应榜单。</li>
-        <li>仅统计活动期间（7/20 00:00–7/26 23:59）新增的有效交易量，按成交时汇率折算为 USDT。</li>
-        <li><b>排名计算：</b>同一社区名下所有邀请用户的累计成交额为排名依据；并列时按先达到该交易量的时间顺序排名（先到者优先）。</li>
+        <li>社区长名下用户的<b>现货</b>与<b>合约</b>交易量分别计入对应榜单，同一社区可<b>同时上榜</b>、分别获奖。</li>
+        <li>仅统计活动期间（<b>7/28 18:00 – 8/4 18:00</b>）新增的有效交易量，按成交时汇率折算为 USDT。</li>
+        <li><b>排名计算：</b>同一社区名下所有邀请用户在赛期内的累计成交额为排名依据；并列时按先达到该交易量的时间顺序排名（先到者优先）。</li>
         <li>活动结束后经 Ave.ai 系统与人工审核，对对敲、脚本、僵尸账号等刷量行为，一经发现即取消资格。</li>
         <li>奖励为<b>额外加码</b>，叠加于常规返佣之上，于活动结束后 5 个工作日内发放。</li>
       </ol>
@@ -239,59 +251,44 @@
 
 <script>
 (function(){
-  var FALLBACK={
-    activity:{name:"AVE 社区交易赛<br>周赛",subtitle:"现货 + 合约双榜 · 冲榜瓜分额外奖励",prizePool:500,currency:"USDT",extra:true,
-      start:"2026-07-20T00:00:00+08:00",end:"2026-07-26T23:59:59+08:00",status:"RACING ON"},
-    pools:{spot:250,perp:250},
-    updated:"2026-07-20T10:00:00+08:00",
-    boards:{
-      spot:[
-        {rank:1,name:"链上密码",code:"chainmima",volume:268400,traders:142},
-        {rank:2,name:"Alpha Hunter",code:"alphahunter",volume:211900,traders:118},
-        {rank:3,name:"宇神团队",code:"yushen3994",volume:176500,traders:96},
-        {rank:4,name:"财富密码",code:"wealthcode",volume:141200,traders:74},
-        {rank:5,name:"搞钱兄",code:"gaoqianx",volume:118700,traders:63},
-        {rank:6,name:"半仙社区",code:"banxian",volume:92300,traders:51},
-        {rank:7,name:"小太阳",code:"xty1888",volume:74600,traders:42},
-        {rank:8,name:"韭阿哥",code:"jiuage153",volume:58100,traders:33},
-        {rank:9,name:"仙哥社区",code:"xiange8",volume:41900,traders:27},
-        {rank:10,name:"王者归来",code:"ggzhian",volume:30500,traders:21}
-      ],
-      perp:[
-        {rank:1,name:"尼古丁社区",code:"nicotine88",volume:512800,traders:88},
-        {rank:2,name:"链上密码",code:"chainmima",volume:447300,traders:102},
-        {rank:3,name:"Alpha Hunter",code:"alphahunter",volume:361400,traders:79},
-        {rank:4,name:"搞钱兄",code:"gaoqianx",volume:254600,traders:58},
-        {rank:5,name:"宇神团队",code:"yushen3994",volume:198200,traders:47},
-        {rank:6,name:"半仙社区",code:"banxian",volume:143700,traders:39},
-        {rank:7,name:"财富密码",code:"wealthcode",volume:111500,traders:31},
-        {rank:8,name:"韭阿哥",code:"jiuage153",volume:82300,traders:24},
-        {rank:9,name:"小太阳",code:"xty1888",volume:60900,traders:19},
-        {rank:10,name:"仙哥社区",code:"xiange8",volume:44200,traders:15}
-      ]
-    }
-  };
-  var DATA=FALLBACK, END=null, cur="spot";
+  var FALLBACK={"activity": {"name": "AVE 社区交易赛<br>周赛", "subtitle": "现货 / 合约双榜 · 500U 奖池", "prizePool": 500, "currency": "USDT", "start": "2026-07-28T18:00:00+08:00", "end": "2026-08-04T18:00:00+08:00", "status": "UPCOMING"}, "updated": null, "metric": "volume", "boards": {"spot": [], "perp": []}};
+  // 客服 / TG 群链接：留空则「立即参加」按钮自动隐藏（不出现占位弹窗）
+  var TG_URL="";
+  var DATA=FALLBACK, START=null, END=null, cur="spot";
   function fmt(n){return (n||0).toLocaleString("en-US");}
+  // 邀请码打码：保留前 4 位，其余以 **** 代替
+  function maskCode(s){s=String(s||"");if(!s)return"";var head=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,head)+"****";}
   function fmtVol(n){if(n>=1e6)return (n/1e6).toFixed(2)+"M";if(n>=1e3)return (n/1e3).toFixed(1)+"K";return fmt(n);}
+  function fmtAmt(n){return Number(n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
   function pad(n){return String(n).padStart(2,"0");}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
   function dstr(x){var t=new Date(x);return t.getFullYear()+"/"+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes())+" (UTC+8)";}
 
   function renderBoard(){
     var b=(DATA.boards&&DATA.boards[cur])||[];
-    document.getElementById("lbTitle").textContent=(cur==="spot"?"现货榜 · 按社区现货交易量":"合约榜 · 按社区合约交易量");
-    var max=b.reduce(function(m,r){return Math.max(m,r.volume||0)},1);
+    var m=(DATA.metric||"volume");
+    var phrase=m==="commission"?"按累计总分佣":(m==="delta"?"按本期分佣":"按交易量");
+    var col=m==="commission"?"累计分佣 (USDT)":(m==="delta"?"本期分佣 (USDT)":"交易量 (USDT)");
+    document.getElementById("lbTitle").textContent=(m==="commission"?"全部社区":(cur==="spot"?"现货社区":"合约社区"))+" · "+phrase;
+    var _vc=document.getElementById("volCol"); if(_vc) _vc.textContent=col;
     var host=document.getElementById("board"); host.innerHTML="";
+    if(!b.length){
+      var pre=START&&Date.now()<START;
+      host.innerHTML='<div class="empty"><div class="big">'+(pre?"尚未开赛":"暂无数据")+'</div>'+
+        '<div class="sm">'+(pre?"开赛后按 24 小时节奏更新榜单，<br>赛期内产生的交易量才计入排名。"
+                               :"本榜暂未产生有效交易量，<br>下一次更新后刷新查看。")+'</div></div>';
+      return;
+    }
+    var max=b.reduce(function(m,r){return Math.max(m,r.volume||0)},1);
     b.forEach(function(r){
       var pct=Math.max(4,Math.round((r.volume||0)/max*100));
       var cls=r.rank<=3?" g"+r.rank:"";
       var row=document.createElement("div"); row.className="lrow";
       row.innerHTML='<span class="rk'+cls+'">'+r.rank+'</span>'+
         '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-          '<div class="mt">'+esc(r.code||"")+(r.traders?' · '+fmt(r.traders)+' 人':'')+'</div>'+
+          '<div class="mt">'+esc(maskCode(r.code))+(r.traders?' · '+fmt(r.traders)+' 人':'')+'</div>'+
           '<div class="bar '+cur+'"><i style="width:'+pct+'%"></i></div></div>'+
-        '<div class="vc"><div class="vol">'+fmtVol(r.volume)+'<small>USDT</small></div></div>';
+        '<div class="vc"><div class="vol">'+((m==="commission"||m==="delta")?fmtAmt(r.volume):fmtVol(r.volume))+'<small>USDT</small></div></div>';
       host.appendChild(row);
     });
   }
@@ -300,12 +297,18 @@
     if(a.name) document.getElementById("title").innerHTML=a.name;
     if(a.subtitle) document.getElementById("subtitle").textContent=a.subtitle;
     if(a.prizePool) document.getElementById("prize").textContent=fmt(a.prizePool)+" "+(a.currency||"USDT");
-    if(a.start) document.getElementById("startT").textContent=dstr(a.start);
+    if(a.start){document.getElementById("startT").textContent=dstr(a.start); START=new Date(a.start).getTime();}
     if(a.end){document.getElementById("endT").textContent=dstr(a.end); END=new Date(a.end).getTime();}
-    if(DATA.updated){var u=new Date(DATA.updated);document.getElementById("updated").textContent="更新于 "+pad(u.getHours())+":"+pad(u.getMinutes());}
+    var up=document.getElementById("updated");
+    if(DATA.updated){var u=new Date(DATA.updated);up.textContent="更新于 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());}
+    else up.textContent=(START&&Date.now()<START)?"尚未开赛":"暂无数据";
   }
   function tick(){
-    if(!END)return; var diff=END-Date.now(); if(diff<0)diff=0;
+    if(!END)return;
+    var now=Date.now(), lab=document.getElementById("cdLabel"), diff;
+    if(START&&now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
+    else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
+    else {diff=0; lab.textContent="已结束 · 结算中"; lab.className="cdLabel ended";}
     document.getElementById("dd").textContent=pad(Math.floor(diff/864e5));
     document.getElementById("hh").textContent=pad(Math.floor(diff%864e5/36e5));
     document.getElementById("mm").textContent=pad(Math.floor(diff%36e5/6e4));
@@ -324,7 +327,9 @@
   fetch("leaderboard.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null;})
     .then(function(j){if(j&&j.boards){DATA=j; renderMeta(); renderBoard(); tick();}}).catch(function(){});
 
-  document.getElementById("joinBtn").addEventListener("click",function(){alert("报名入口占位：接入邀请码登记 / 钱包绑定后跳转。");});
+  if(TG_URL){document.getElementById("joinBtn").addEventListener("click",function(){window.open(TG_URL,"_blank","noopener");});}
+  else{var c=document.querySelector(".cta"); if(c)c.style.display="none"; document.body.style.paddingBottom="30px";
+       var sh=document.getElementById("shareBtn"); if(sh)sh.style.bottom="24px";}
   document.getElementById("shareBtn").addEventListener("click",function(){
     if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(function(){});}
     else{alert("分享链接："+location.href);}
