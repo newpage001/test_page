@@ -71,6 +71,10 @@
   .bonusNote{font-size:13px; color:var(--blue-deep); background:linear-gradient(92deg,rgba(22,119,255,.09),rgba(74,151,255,.04));
     border:1px dashed rgba(22,119,255,.35); border-radius:11px; padding:10px 13px; margin-bottom:14px}
   .bonusNote b{font-weight:800}
+  .ptTitle{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--ink2); margin:0 0 8px 2px}
+  .ptTitle .pill{display:inline-block; font-size:11.5px; font-weight:800; color:#fff; padding:3px 10px; border-radius:999px;
+    background:linear-gradient(135deg,var(--blue-light),var(--blue))}
+  .ptTitle .pill.alt{background:linear-gradient(135deg,#2fc79a,#12b886)}
   .ptable{border:1px solid var(--line); border-radius:12px; overflow:hidden}
   .ph{display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:8px; padding:10px 14px; font-size:11.5px; font-weight:700;
     color:var(--ink2); background:#eef4ff; letter-spacing:.2px}
@@ -93,6 +97,9 @@
   .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:4px}
   .lbSub .t{font-weight:700; font-size:13.5px; color:var(--ink)}
   .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
+  .lbHint{font-size:11.5px; color:var(--ink2); background:rgba(18,184,134,.07); border:1px solid rgba(18,184,134,.22);
+    border-radius:9px; padding:7px 10px; margin:8px 0 2px; line-height:1.6}
+  .lbHint b{color:#0d8f68}
   .lbHead{display:grid; grid-template-columns:44px 1fr 132px; gap:10px; font-size:11px; color:var(--muted); padding:6px 6px 8px; letter-spacing:.5px}
   .lbHead .r{text-align:right}
   .lrow{display:grid; grid-template-columns:44px 1fr 132px; gap:10px; align-items:center; padding:11px 6px; border-top:1px solid var(--line)}
@@ -189,17 +196,31 @@
   <section>
     <span class="tab">奖励分配规则</span>
     <div class="card">
-      <div class="bonusNote"><b>额外奖励</b>：本周额外奖池 <b>500 USDT</b>，为社区长常规现货 / 合约返佣之外的加码，现货、合约<b>分别排名、分别发奖</b>。</div>
+      <div class="bonusNote"><b>额外奖励</b>：本期奖池 <b>500 USDT</b>，为常规返佣之外的加码。分 <b>现货 300U</b> / <b>合约 200U</b>，每边再分 <b>社区榜</b> 与 <b>个人交易榜</b>——社区长与群成员<b>都能拿奖</b>。</div>
+
+      <div class="ptTitle"><span class="pill">社区榜</span> 按社区名下总交易量 · 300 U</div>
       <div class="ptable">
-        <div class="ph"><span>名次</span><span class="r">现货榜 · 250U</span><span class="r">合约榜 · 250U</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">70 U</span><span class="a gold">70 U</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">50 U</span><span class="a gold">50 U</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">35 U</span><span class="a gold">35 U</span></div>
-        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">25 U</span><span class="a">25 U</span></div>
-        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">20 U</span><span class="a">20 U</span></div>
-        <div class="pr"><span class="nm"><i class="dot"></i>第 6–10 名</span><span class="a">各 10 U</span><span class="a">各 10 U</span></div>
+        <div class="ph"><span>名次</span><span class="r">现货 · 180U</span><span class="r">合约 · 120U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">50 U</span><span class="a gold">45 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">35 U</span><span class="a gold">30 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">25 U</span><span class="a gold">20 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">20 U</span><span class="a">15 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">15 U</span><span class="a">10 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 6–10 名</span><span class="a">各 7 U</span><span class="a">—</span></div>
       </div>
-      <div class="fine" style="margin-top:10px">共计 500 U：现货榜 250 U + 合约榜 250 U，两榜各自排名、分别发奖。</div>
+
+      <div class="ptTitle" style="margin-top:16px"><span class="pill alt">个人交易榜</span> 按个人账户交易量 · 200 U</div>
+      <div class="ptable">
+        <div class="ph"><span>名次</span><span class="r">现货 · 120U</span><span class="r">合约 · 80U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">30 U</span><span class="a gold">30 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">22 U</span><span class="a gold">20 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">16 U</span><span class="a gold">14 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">12 U</span><span class="a">10 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">10 U</span><span class="a">6 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 6–10 名</span><span class="a">各 6 U</span><span class="a">—</span></div>
+      </div>
+
+      <div class="fine" style="margin-top:12px">共计 500 U ＝ 现货 300 U（社区 180 ＋ 个人 120）＋ 合约 200 U（社区 120 ＋ 个人 80）。四个榜单各自排名、分别发奖，<b>同一人可同时获得社区榜与个人榜奖励</b>。</div>
     </div>
   </section>
 
@@ -208,10 +229,11 @@
     <span class="tab">实时榜单</span>
     <div class="card">
       <div class="lbTabs">
-        <button class="lbtab on" data-b="spot">现货榜 · 250U</button>
-        <button class="lbtab" data-b="perp">合约榜 · 250U</button>
+        <button class="lbtab on" data-b="spot">现货 · 300U</button>
+        <button class="lbtab" data-b="perp">合约 · 200U</button>
       </div>
-      <div class="lbSub"><span class="t" id="lbTitle">现货榜 · 按社区现货交易量</span><span class="upd" id="updated">尚未开赛</span></div>
+      <div class="lbSub"><span class="t" id="lbTitle">社区榜 · 现货</span><span class="upd" id="updated">尚未开赛</span></div>
+      <div class="lbHint">当前展示<b>社区榜</b>（按社区名下总交易量）。<b>个人交易榜</b>开赛后开放，同样计入奖励。</div>
       <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r" id="volCol">交易量 (USDT)</span></div>
       <div id="board"></div>
     </div>
@@ -222,11 +244,14 @@
     <span class="tab">参赛规则</span>
     <div class="card">
       <ol class="rules">
-        <li><b>无需报名：</b>平台已按邀请码为大部分社区长完成自动登记，开赛后交易量自动累计。如未查到所属社区，可在社群联系 <b>Alex</b> 添加，添加后同样自动累计。</li>
-        <li>社区长名下用户的<b>现货</b>与<b>合约</b>交易量分别计入对应榜单，同一社区可<b>同时上榜</b>、分别获奖。</li>
-        <li>仅统计活动期间（<b>7/28 18:00 – 8/4 18:00</b>）新增的有效交易量，按成交时汇率折算为 USDT。</li>
-        <li><b>排名计算：</b>同一社区名下所有邀请用户在赛期内的累计成交额为排名依据；并列时按先达到该交易量的时间顺序排名（先到者优先）。</li>
-        <li>活动结束后经 Ave.ai 系统与人工审核，对对敲、脚本、僵尸账号等刷量行为，一经发现即取消资格。</li>
+        <li><b>无需报名：</b>平台已按邀请码为大部分社区长完成自动登记，开赛后交易量自动累计。如未查到所属社区，可在社群联系 <b>Alex</b> 添加，添加后同样自动累计。群成员<b>无需任何操作</b>，通过社区邀请码注册即自动参与个人交易榜。</li>
+        <li><b>两类榜单，都能拿奖：</b><br>
+          · <b>社区榜</b>——按社区长名下<b>全部下级（含一级、二级）</b>在赛期内的交易量合计排名；<br>
+          · <b>个人交易榜</b>——按<b>个人账户自身</b>在赛期内的交易量排名，任何群成员均可上榜。</li>
+        <li>现货与合约<b>分别排名、分别发奖</b>；同一人可<b>同时</b>获得社区榜与个人榜奖励，两者不冲突。</li>
+        <li>仅统计活动期间（<b>7/28 18:00 – 8/4 18:00</b>）新增的有效交易量，按成交时汇率折算为 USDT。现货口径含<b>现货与闪兑</b>成交额。</li>
+        <li><b>并列处理：</b>交易量相同的，按先达到该交易量的时间顺序排名（先到者优先）。</li>
+        <li>活动结束后经 Ave.ai 系统与人工审核，对对敲、脚本、自成交、僵尸账号等刷量行为，一经发现即取消资格，奖励顺延给下一名。</li>
         <li>奖励为<b>额外加码</b>，叠加于常规返佣之上，于活动结束后 5 个工作日内发放。</li>
       </ol>
       <div class="fine">注：本活动最终解释权归 Ave.ai 所有；交易记录实时上链，排名数据防篡改。</div>
@@ -270,7 +295,7 @@
     var m=(DATA.metric||"volume");
     var phrase=m==="commission"?"按累计总分佣":(m==="delta"?"按本期分佣":"按交易量");
     var col=m==="commission"?"累计分佣 (USDT)":(m==="delta"?"本期分佣 (USDT)":"交易量 (USDT)");
-    document.getElementById("lbTitle").textContent=(m==="commission"?"全部社区":(cur==="spot"?"现货社区":"合约社区"))+" · "+phrase;
+    document.getElementById("lbTitle").textContent="社区榜 · "+(cur==="spot"?"现货":"合约");
     var _vc=document.getElementById("volCol"); if(_vc) _vc.textContent=col;
     var host=document.getElementById("board"); host.innerHTML="";
     if(!b.length){
