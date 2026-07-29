@@ -22,7 +22,7 @@
   }
   .app{max-width:500px; margin:0 auto; padding:14px 14px 30px}
 
-  .tab{display:inline-block; position:relative; color:#fff; font-weight:700; font-size:15px;
+  .tab{display:inline-block; position:relative; color:#fff; font-weight:800; font-size:16.5px;
     padding:7px 22px 7px 16px; border-radius:10px 4px 12px 4px;
     background:linear-gradient(135deg,var(--blue-light),var(--blue)); box-shadow:0 4px 12px rgba(22,119,255,.28);
     margin:0 0 -10px 6px; z-index:2}
@@ -46,7 +46,7 @@
   .cobrand img{width:29px; height:29px; border-radius:50%; display:block; flex-shrink:0;
     box-shadow:0 2px 8px rgba(180,120,0,.35)}
   .cobrand .x{color:var(--ink2); font-weight:500; font-size:14px; margin:0 1px}
-  .badge{display:inline-block; margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.4px;
+  .badge{display:inline-block; margin-top:14px; font-size:12.5px; font-weight:700; letter-spacing:.4px;
     color:var(--blue-deep); background:rgba(22,119,255,.12); border:1px solid rgba(22,119,255,.25);
     padding:4px 11px; border-radius:999px}
   .htitle{margin:10px 0 0; font-size:clamp(27px,7.2vw,35px); line-height:1.12; font-weight:900; letter-spacing:-.4px;
@@ -54,73 +54,73 @@
     -webkit-text-fill-color:transparent; color:#0a2a6e}
   .prizeWrap{display:flex; flex-wrap:wrap; gap:8px; margin-top:15px}
   .prizePill{display:inline-flex; align-items:center; gap:7px;
-    background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; font-weight:700; font-size:13px;
-    padding:9px 15px; border-radius:999px; box-shadow:0 6px 16px rgba(14,86,214,.28)}
-  .prizePill b{font-family:var(--mono); font-weight:700; font-size:17px;
+    background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; font-weight:700; font-size:14px;
+    padding:10px 17px; border-radius:999px; box-shadow:0 6px 16px rgba(14,86,214,.28)}
+  .prizePill b{font-family:var(--mono); font-weight:700; font-size:19px;
     background:linear-gradient(92deg,var(--gold-1),var(--gold-2)); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent}
   .prizePill.alt{background:linear-gradient(135deg,#8a5b00,#5c3a00)}
-  .prizePill.alt b{font-size:15px}
-  .hsub{margin-top:13px; color:var(--ink2); font-size:12.5px; line-height:1.7}
+  .prizePill.alt b{font-size:16.5px}
+  .hsub{margin-top:14px; color:var(--ink2); font-size:13.5px; line-height:1.75}
 
   /* time */
-  .trow{display:flex; justify-content:space-between; font-size:14px; color:var(--ink2); padding:3px 0}
-  .trow b{color:var(--ink); font-family:var(--mono); font-weight:600; font-size:13px}
-  .cdLabel{margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.5px; color:var(--blue-deep)}
+  .trow{display:flex; justify-content:space-between; font-size:15px; color:var(--ink2); padding:3px 0}
+  .trow b{color:var(--ink); font-family:var(--mono); font-weight:600; font-size:14.5px}
+  .cdLabel{margin-top:15px; font-size:12.5px; font-weight:700; letter-spacing:.5px; color:var(--blue-deep)}
   .cdLabel.ended{color:var(--muted)}
   .clock{display:flex; gap:8px; margin-top:7px}
-  .seg{flex:1; text-align:center; background:#f2f7ff; border:1px solid var(--line); border-radius:11px; padding:9px 2px}
-  .seg b{display:block; font-family:var(--mono); font-weight:700; font-size:22px; color:var(--blue-deep)}
-  .seg small{display:block; font-size:10px; color:var(--muted); letter-spacing:.5px; margin-top:2px}
+  .seg{flex:1; text-align:center; background:#f2f7ff; border:1px solid var(--line); border-radius:12px; padding:11px 2px}
+  .seg b{display:block; font-family:var(--mono); font-weight:700; font-size:25px; color:var(--blue-deep)}
+  .seg small{display:block; font-size:10.5px; color:var(--muted); letter-spacing:.5px; margin-top:2px}
 
   /* steps */
   .steps{counter-reset:s; margin:0; padding:0; list-style:none}
-  .steps li{counter-increment:s; position:relative; padding:0 0 14px 34px; font-size:13.5px; line-height:1.65}
+  .steps li{counter-increment:s; position:relative; padding:0 0 15px 36px; font-size:14.5px; line-height:1.7}
   .steps li:last-child{padding-bottom:0}
-  .steps li::before{content:counter(s); position:absolute; left:0; top:1px; width:22px; height:22px; border-radius:7px;
+  .steps li::before{content:counter(s); position:absolute; left:0; top:2px; width:24px; height:24px; border-radius:8px;
     background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff;
-    font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; font-family:var(--mono)}
+    font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; font-family:var(--mono)}
   .steps li::after{content:""; position:absolute; left:10.5px; top:26px; bottom:4px; width:1.5px; background:var(--line)}
   .steps li:last-child::after{display:none}
   .steps b{color:var(--blue-deep)}
 
   .chips{display:flex; flex-wrap:wrap; gap:7px; margin-top:4px}
-  .chip{font-size:12.5px; font-weight:600; color:var(--blue-deep); background:#eef4ff;
-    border:1px solid rgba(22,119,255,.2); border-radius:9px; padding:6px 11px}
-  .chip i{font-style:normal; color:var(--muted); font-weight:400; font-size:11.5px}
+  .chip{font-size:13.5px; font-weight:600; color:var(--blue-deep); background:#eef4ff;
+    border:1px solid rgba(22,119,255,.2); border-radius:10px; padding:8px 13px}
+  .chip i{font-style:normal; color:var(--muted); font-weight:400; font-size:12.5px}
 
   .calc{margin:0; padding:0; list-style:none}
-  .calc li{position:relative; padding:8px 0 8px 22px; font-size:13.5px; border-top:1px solid var(--line)}
+  .calc li{position:relative; padding:10px 0 10px 24px; font-size:14.5px; border-top:1px solid var(--line)}
   .calc li:first-child{border-top:none}
   .calc li::before{content:"＋"; position:absolute; left:0; top:8px; color:var(--blue); font-weight:800; font-size:13px}
   .calc li:first-child::before{content:"　"}
 
   /* prize tables */
-  .ptTitle{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--ink2); margin:0 0 8px 2px}
-  .ptTitle .pill{display:inline-block; font-size:11.5px; font-weight:800; color:#fff; padding:3px 10px; border-radius:999px;
+  .ptTitle{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink2); margin:0 0 10px 2px}
+  .ptTitle .pill{display:inline-block; font-size:12.5px; font-weight:800; color:#fff; padding:4px 12px; border-radius:999px;
     background:linear-gradient(135deg,var(--blue-light),var(--blue))}
   .ptTitle .pill.alt{background:linear-gradient(135deg,var(--gold-2),#d97706)}
   .ptable{border:1px solid var(--line); border-radius:12px; overflow:hidden}
-  .ph{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:10px 14px; font-size:11.5px; font-weight:700;
+  .ph{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:12px 15px; font-size:12.5px; font-weight:700;
     color:var(--ink2); background:#eef4ff; letter-spacing:.2px}
   .ph .r{text-align:right; color:var(--blue-deep)}
-  .pr{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:11px 14px; align-items:center; border-top:1px solid var(--line)}
+  .pr{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:15px 15px; align-items:center; border-top:1px solid var(--line)}
   .pr.top{background:linear-gradient(92deg,rgba(255,208,30,.1),rgba(255,143,23,.02))}
-  .pr .nm{font-weight:700; font-size:13.5px; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:9px}
-  .pr .dot{width:9px; height:9px; border-radius:50%; flex-shrink:0; background:#c4d2e6}
+  .pr .nm{font-weight:700; font-size:15px; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:9px}
+  .pr .dot{width:10px; height:10px; border-radius:50%; flex-shrink:0; background:#c4d2e6}
   .pr .dot.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
   .pr .dot.g2{background:linear-gradient(135deg,#e7edf4,#b9c5d4)}
   .pr .dot.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a)}
-  .pr .a{font-family:var(--mono); font-weight:700; font-size:13.5px; color:var(--blue-deep); text-align:right; white-space:nowrap}
+  .pr .a{font-family:var(--mono); font-weight:800; font-size:15.5px; color:var(--blue-deep); text-align:right; white-space:nowrap}
   .pr .a.gold{background:linear-gradient(92deg,#e8a200,var(--gold-2)); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent}
-  .pr .a.phone{color:var(--gold-deep); font-family:var(--sans); font-weight:800; font-size:12.5px}
+  .pr .a.phone{color:var(--gold-deep); font-family:var(--sans); font-weight:800; font-size:14px}
 
-  .gate{margin-top:12px; font-size:12.5px; color:var(--blue-deep);
+  .gate{margin-top:14px; font-size:13.5px; color:var(--blue-deep);
     background:linear-gradient(92deg,rgba(22,119,255,.08),rgba(74,151,255,.03));
-    border:1px dashed rgba(22,119,255,.35); border-radius:11px; padding:10px 13px; line-height:1.7}
+    border:1px dashed rgba(22,119,255,.35); border-radius:11px; padding:12px 14px; line-height:1.75}
   .gate b{font-weight:800}
-  .fine{margin-top:12px; font-size:11.5px; color:var(--muted); line-height:1.65}
+  .fine{margin-top:13px; font-size:12.5px; color:var(--muted); line-height:1.7}
 
   /* leaderboard */
   .lbTabs{display:flex; gap:8px; margin-bottom:12px}
@@ -129,7 +129,7 @@
   .lbtab.on{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; border-color:transparent;
     box-shadow:0 5px 14px rgba(22,119,255,.28)}
   .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:4px}
-  .lbSub .t{font-weight:700; font-size:13.5px; color:var(--ink)}
+  .lbSub .t{font-weight:700; font-size:14.5px; color:var(--ink)}
   .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
   .lbHead{display:grid; grid-template-columns:44px 1fr 128px; gap:10px; font-size:11px; color:var(--muted);
     padding:6px 6px 8px; letter-spacing:.5px}
@@ -143,37 +143,51 @@
   .rk.g2{background:linear-gradient(135deg,#eef2f7,#c4cfdb); color:#2a3340}
   .rk.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); color:#3a1e08}
   .who{min-width:0}
-  .who .nm{font-weight:700; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .who .nm{font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
   .who .mt{font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:1px}
   .bar{height:4px; border-radius:3px; margin-top:6px; background:#eaf0f9; overflow:hidden}
   .bar i{display:block; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--blue-light),var(--blue))}
   .vc{text-align:right}
-  .vol{font-family:var(--mono); font-weight:700; font-size:14px; color:var(--ink)}
+  .vol{font-family:var(--mono); font-weight:700; font-size:15px; color:var(--ink)}
   .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
   #board{max-height:420px; overflow-y:auto; overscroll-behavior:contain; border-radius:8px}
   #board::-webkit-scrollbar{width:6px}
   #board::-webkit-scrollbar-thumb{background:#c4d2e6; border-radius:3px}
   .empty{padding:38px 18px; text-align:center; color:var(--muted)}
-  .empty .big{font-size:14px; font-weight:700; color:var(--ink2); margin-bottom:5px}
-  .empty .sm{font-size:12px; line-height:1.7}
+  .empty .big{font-size:15px; font-weight:700; color:var(--ink2); margin-bottom:5px}
+  .empty .sm{font-size:13px; line-height:1.75}
 
   /* rules */
-  ol.rules{margin:0; padding-left:20px; font-size:13px; color:var(--ink); line-height:1.75}
-  ol.rules li{margin-bottom:6px}
+  ol.rules{margin:0; padding-left:22px; font-size:14.5px; color:var(--ink); line-height:1.85}
+  ol.rules li{margin-bottom:9px}
   ol.rules b{color:var(--blue)}
 
   /* copy box */
-  .copyBox{background:#f5f9ff; border:1px solid var(--line); border-radius:12px; padding:14px;
-    font-size:12.5px; line-height:1.85; color:var(--ink); white-space:pre-wrap; word-break:break-word;
-    max-height:290px; overflow-y:auto}
+  .lnkLabel{display:block; font-size:12.5px; font-weight:700; color:var(--ink2); margin:0 0 6px 2px}
+  .lnkInput{width:100%; font-family:var(--mono); font-size:13.5px; color:var(--ink);
+    background:#fff; border:1.5px solid var(--line); border-radius:11px; padding:12px 13px; outline:none;
+    transition:border-color .15s}
+  .lnkInput:focus{border-color:var(--blue)}
+  .lnkInput::placeholder{color:#c3cfdd}
+  .lnkTip{font-size:11.5px; color:var(--muted); margin:7px 0 0 2px; line-height:1.6}
+  .lnkTip.ok{color:#0d8f68}
+  .lnkTip.warn{color:#c98a00}
+  .fmtTabs{display:flex; gap:8px; margin:14px 0 10px}
+  .fmtTab{flex:1; border:1px solid var(--line); background:#f4f8ff; color:var(--ink2); font-weight:700;
+    font-size:12.5px; padding:9px 6px; border-radius:10px; cursor:pointer; font-family:var(--sans)}
+  .fmtTab.on{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; border-color:transparent;
+    box-shadow:0 4px 12px rgba(22,119,255,.26)}
+  .copyBox{background:#f5f9ff; border:1px solid var(--line); border-radius:12px; padding:15px;
+    font-size:13.5px; line-height:1.9; color:var(--ink); white-space:pre-wrap; word-break:break-word;
+    max-height:320px; overflow-y:auto}
   .copyBtn{width:100%; margin-top:11px; border:0; cursor:pointer; color:#fff; font-weight:700; font-size:14px;
     padding:12px; border-radius:11px; font-family:var(--sans);
     background:linear-gradient(135deg,var(--blue-light),var(--blue-deep)); box-shadow:0 6px 16px rgba(14,86,214,.28)}
   .copyBtn.ok{background:linear-gradient(135deg,#2fc79a,#12b886); box-shadow:0 6px 16px rgba(18,184,134,.3)}
 
-  .note h4{color:var(--blue); font-size:13.5px; margin:12px 0 4px}
+  .note h4{color:var(--blue); font-size:14.5px; margin:14px 0 5px}
   .note h4:first-child{margin-top:0}
-  .note p{margin:0; font-size:12.5px; color:var(--ink2); line-height:1.7}
+  .note p{margin:0; font-size:13.5px; color:var(--ink2); line-height:1.75}
 
   /* sticky cta */
   .cta{position:fixed; left:0; right:0; bottom:0; padding:12px 14px calc(12px + env(safe-area-inset-bottom));
@@ -328,22 +342,21 @@
   <section>
     <span class="tab">社区推广文案</span>
     <div class="card">
-      <div class="fine" style="margin:0 0 10px">社区长可直接复制以下文案发到群里，把中括号部分换成自己的专属链接。</div>
-      <div class="copyBox" id="promo">AVE × ALD 社区专属福利来了！
+      <div class="fine" style="margin:0 0 11px">填入你的社区专属邀请链接，下方文案会自动生成，复制后直接发群。</div>
 
-本次社区将参与 AVE 专属交易活动，完成现货、链钱包或 Bot 钱包交易，都可以计入我们社区的活动成绩。
+      <label class="lnkLabel" for="lnk">你的社区专属邀请链接</label>
+      <input class="lnkInput" id="lnk" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+             placeholder="https://ave.ai/register?ref=你的邀请码" />
+      <div class="lnkTip" id="lnkTip">未填写时，文案中会保留【社区专属邀请链接】占位符。</div>
 
-社区进入前 5 名，不仅社区长可以获得 ALD 空投，社区内交易量前 3 名还可以获得手机和 ALD 奖励。
+      <div class="fmtTabs">
+        <button class="fmtTab on" data-f="tg">Telegram 格式（带加粗）</button>
+        <button class="fmtTab" data-f="plain">纯文本</button>
+      </div>
 
-活动奖池：
-· 2,000U 等值 ALD
-· 5 部手机
-
-通过社区专属链接注册并开始交易即可参与：
-【社区专属邀请链接】
-
-活动时间：8月2日 18:00 — 8月9日 23:59（UTC+8）</div>
+      <div class="copyBox" id="promo"></div>
       <button class="copyBtn" id="copyBtn">复制推广文案</button>
+      <div class="fine" id="fmtNote" style="margin-top:9px"></div>
     </div>
   </section>
 
@@ -426,9 +439,82 @@
 
   document.getElementById("joinBtn").addEventListener("click",function(){window.open(TG_URL,"_blank","noopener");});
 
+  // ---- 推广文案生成 ----
+  var PLACEHOLDER="【社区专属邀请链接】";
+  var fmt="tg";
+  var lnkEl=document.getElementById("lnk"),
+      tipEl=document.getElementById("lnkTip"),
+      promoEl=document.getElementById("promo"),
+      noteEl=document.getElementById("fmtNote");
+
+  function cleanLink(v){
+    v=String(v||"").trim();
+    if(!v) return "";
+    // 只接受 http/https，挡掉 javascript: 之类
+    if(!/^https?:\/\//i.test(v)){
+      if(/^[\w.-]+\.[a-z]{2,}(\/|$)/i.test(v)) v="https://"+v;
+      else return null;
+    }
+    return /^https?:\/\/[^\s]+$/i.test(v) ? v : null;
+  }
+
+  function buildPlain(link){
+    return "AVE × ALD 社区专属福利来了！\n\n"+
+      "本次社区将参与 AVE 专属交易活动，完成现货、链钱包或 Bot 钱包交易，都可以计入我们社区的活动成绩。\n\n"+
+      "社区进入前 5 名，不仅社区长可以获得 ALD 空投，社区内交易量前 3 名还可以获得 webkey 手机和 ALD 奖励。\n\n"+
+      "活动奖池\n· 2,000U 等值 ALD\n· 5 部 webkey 手机\n\n"+
+      "社区长奖励（按社区总交易量排名）\n"+
+      "第 1 名 600U ｜ 第 2 名 400U ｜ 第 3 名 250U ｜ 第 4 名 150U ｜ 第 5 名 100U（等值 ALD）\n\n"+
+      "社区用户奖励\n"+
+      "前 5 名社区，每个社区内交易量第 1 名得 webkey 手机一部，第 2 名 60U、第 3 名 40U 等值 ALD\n\n"+
+      "通过社区专属链接注册并开始交易即可参与：\n"+link+"\n\n"+
+      "活动时间：8月2日 18:00 — 8月9日 23:59（UTC+8）";
+  }
+
+  function buildTG(link){
+    var cta=(link===PLACEHOLDER)?PLACEHOLDER:"["+"点此注册并开始交易"+"]("+link+")";
+    return "**AVE × ALD 社区专属福利来了！**\n\n"+
+      "本次社区将参与 AVE 专属交易活动，完成**现货**、**链钱包**或 **Bot 钱包**交易，都可以计入我们社区的活动成绩。\n\n"+
+      "社区进入**前 5 名**，不仅社区长可以获得 ALD 空投，社区内交易量**前 3 名**还可以获得 **webkey 手机**和 ALD 奖励。\n\n"+
+      "**活动奖池**\n· **2,000U** 等值 ALD\n· **5 部 webkey 手机**\n\n"+
+      "**社区长奖励**（按社区总交易量排名）\n"+
+      "第 1 名 `600U` ｜ 第 2 名 `400U` ｜ 第 3 名 `250U` ｜ 第 4 名 `150U` ｜ 第 5 名 `100U`\n\n"+
+      "**社区用户奖励**\n"+
+      "前 5 名社区，每个社区内：第 1 名 **webkey 手机一部**，第 2 名 `60U`，第 3 名 `40U` 等值 ALD\n\n"+
+      cta+"\n\n"+
+      "**活动时间** 8月2日 18:00 — 8月9日 23:59（UTC+8）";
+  }
+
+  function render(){
+    var raw=lnkEl.value, link=cleanLink(raw);
+    if(!raw.trim()){
+      link=PLACEHOLDER;
+      tipEl.textContent="未填写时，文案中会保留【社区专属邀请链接】占位符。"; tipEl.className="lnkTip";
+    } else if(link===null){
+      link=PLACEHOLDER;
+      tipEl.textContent="链接格式不对，需要以 http:// 或 https:// 开头。"; tipEl.className="lnkTip warn";
+    } else {
+      tipEl.textContent="✓ 已填入文案"; tipEl.className="lnkTip ok";
+    }
+    // textContent 而非 innerHTML —— 用户输入不解析为 HTML
+    promoEl.textContent=(fmt==="tg")?buildTG(link):buildPlain(link);
+    noteEl.textContent=(fmt==="tg")
+      ? "Telegram 电脑版粘贴后会自动识别加粗和链接；手机版若不识别，改用「纯文本」。"
+      : "无格式纯文本，任何平台粘贴都一样。";
+  }
+
+  lnkEl.addEventListener("input",render);
+  Array.prototype.forEach.call(document.querySelectorAll(".fmtTab"),function(btn){
+    btn.addEventListener("click",function(){
+      document.querySelectorAll(".fmtTab").forEach(function(x){x.classList.remove("on");});
+      btn.classList.add("on"); fmt=btn.getAttribute("data-f"); render();
+    });
+  });
+  render();
+
   var cb=document.getElementById("copyBtn");
   cb.addEventListener("click",function(){
-    var txt=document.getElementById("promo").textContent;
+    var txt=promoEl.textContent;
     function done(){cb.textContent="✓ 已复制，去群里发吧";cb.className="copyBtn ok";
       setTimeout(function(){cb.textContent="复制推广文案";cb.className="copyBtn";},2400);}
     if(navigator.clipboard&&navigator.clipboard.writeText){
