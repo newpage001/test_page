@@ -50,15 +50,17 @@
   .htitle{margin:10px 0 0; max-width:75%; font-size:clamp(27px,7.2vw,35px); line-height:1.12; font-weight:900; letter-spacing:-.4px;
     background:linear-gradient(165deg,#153fb0 0%,#071d55 95%); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent; color:#0a2a6e}
-  .prizeWrap{display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; max-width:80%}
-  .prizePill{display:inline-flex; align-items:center; gap:7px;
-    background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; font-weight:700; font-size:14px;
-    padding:10px 17px; border-radius:999px; box-shadow:0 6px 16px rgba(14,86,214,.28)}
-  .prizePill b{font-family:var(--mono); font-weight:700; font-size:19px;
+  .prizeWrap{display:flex; margin-top:15px}
+  .prizePill{display:inline-flex; align-items:center; gap:6px; white-space:nowrap; flex:0 0 auto;
+    background:linear-gradient(135deg,var(--blue),var(--blue-deep)); color:#fff; font-weight:700; font-size:13.5px;
+    padding:10px 18px; border-radius:999px; box-shadow:0 6px 18px rgba(14,86,214,.32)}
+  .prizePill b{font-family:var(--mono); font-weight:700; font-size:20px; white-space:nowrap;
     background:linear-gradient(92deg,var(--gold-1),var(--gold-2)); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent}
-  .prizePill.alt{background:linear-gradient(135deg,#8a5b00,#5c3a00)}
-  .prizePill.alt b{font-size:16.5px}
+  .prizePill .plus{margin:0 3px; font-weight:600; opacity:.75; font-size:15px}
+  .prizePill b.hph{font-family:var(--sans); font-size:14.5px; font-weight:800; white-space:nowrap;
+    background:linear-gradient(92deg,#ffdf6b,#ffb02e); -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent}
   .hsub{margin-top:15px; max-width:66%; color:#33465e; font-size:13.5px; line-height:1.75; font-weight:500}
 
   /* time */
@@ -225,8 +227,7 @@
     <div class="badge">社区专属交易活动 · ALD 空投加码</div>
     <h1 class="htitle">AVE × ALD<br>社区交易赛</h1>
     <div class="prizeWrap">
-      <div class="prizePill">奖池 <b>2,000 U</b> 等值 ALD</div>
-      <div class="prizePill alt">＋ <b>5 部手机</b></div>
+      <div class="prizePill">奖池 <b>2,000 U</b><span class="plus">＋</span><b class="hph">5 部 WebKey 手机</b></div>
     </div>
     <div class="hsub" id="hsub">8月2日 18:00 — 8月9日 23:59（UTC+8）<br>社区长与社区用户<b>都能拿奖</b> · 返佣可叠加</div>
   </div>
@@ -289,25 +290,25 @@
       <div class="ptTitle"><span class="pill">社区长奖励</span> 按社区总交易量排名 · 1,500 U ALD</div>
       <div class="ptable">
         <div class="ph"><span>名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">600 U 等值 ALD</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">400 U 等值 ALD</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">250 U 等值 ALD</span></div>
-        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">150 U 等值 ALD</span></div>
-        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">100 U 等值 ALD</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">600 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">400 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">250 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">150 U</span></div>
+        <div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">100 U</span></div>
       </div>
       <div class="gate"><b>获奖门槛</b>（两项须同时满足）：社区有效交易用户 <b>≥ 5 人</b>；社区总交易量 <b>≥ 10,000 U</b>。</div>
 
       <div class="ptTitle" style="margin-top:20px"><span class="pill alt">社区用户奖励</span> 500 U ALD ＋ 5 部手机</div>
-      <div class="fine" style="margin:0 0 9px">排名前 5 的获奖社区，<b>每个社区</b>获得 100 U 等值 ALD 用户奖池，在该社区内按个人交易量排名：</div>
+      <div class="fine" style="margin:0 0 9px">排名前 5 的获奖社区，<b>每个社区</b>获得 100 U 用户奖池，在该社区内按个人交易量排名：</div>
       <div class="ptable">
         <div class="ph"><span>社区内名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a phone">webkey 手机 一部</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">60 U 等值 ALD</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">40 U 等值 ALD</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a phone">WebKey 手机 一部</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">60 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">40 U</span></div>
       </div>
       <div class="gate"><b>有效用户</b>：通过社区专属链接注册，且活动期间完成<b>不少于 100 U</b> 的有效交易。<br><b>社区长本人不参与</b>社区用户奖励排名。</div>
 
-      <div class="fine">奖池合计 2,000 U 等值 ALD ＝ 社区长 1,500 U ＋ 社区用户 500 U（5 个获奖社区 × 100 U）；另设 5 部手机，由 5 个获奖社区的用户榜第 1 名各得一部。</div>
+      <div class="fine">奖池合计 2,000 U ＝ 社区长 1,500 U ＋ 社区用户 500 U（5 个获奖社区 × 100 U）；另设 5 部 WebKey 手机，由 5 个获奖社区的用户榜第 1 名各得一部。<br><b>所有 U 奖励均以 ALD 代币发放</b>，按活动结束时约定价格折算等值。</div>
     </div>
   </section>
 
@@ -460,12 +461,12 @@
   function buildPlain(link){
     return "AVE × ALD 社区专属福利来了！\n\n"+
       "本次社区将参与 AVE 专属交易活动，完成现货、链钱包或 Bot 钱包交易，都可以计入我们社区的活动成绩。\n\n"+
-      "社区进入前 5 名，不仅社区长可以获得 ALD 空投，社区内交易量前 3 名还可以获得 webkey 手机和 ALD 奖励。\n\n"+
-      "活动奖池\n· 2,000U 等值 ALD\n· 5 部 webkey 手机\n\n"+
+      "社区进入前 5 名，不仅社区长可以获得 ALD 空投，社区内交易量前 3 名还可以获得 WebKey 手机和 ALD 奖励。\n\n"+
+      "活动奖池\n· 2,000U（以 ALD 发放）\n· 5 部 WebKey 手机\n\n"+
       "社区长奖励（按社区总交易量排名）\n"+
-      "第 1 名 600U ｜ 第 2 名 400U ｜ 第 3 名 250U ｜ 第 4 名 150U ｜ 第 5 名 100U（等值 ALD）\n\n"+
+      "第 1 名 600U ｜ 第 2 名 400U ｜ 第 3 名 250U ｜ 第 4 名 150U ｜ 第 5 名 100U\n\n"+
       "社区用户奖励\n"+
-      "前 5 名社区，每个社区内交易量第 1 名得 webkey 手机一部，第 2 名 60U、第 3 名 40U 等值 ALD\n\n"+
+      "前 5 名社区，每个社区内交易量第 1 名得 WebKey 手机一部，第 2 名 60U、第 3 名 40U\n\n"+
       "通过社区专属链接注册并开始交易即可参与：\n"+link+"\n\n"+
       "活动时间：8月2日 18:00 — 8月9日 23:59（UTC+8）";
   }
@@ -474,12 +475,12 @@
     var cta=(link===PLACEHOLDER)?PLACEHOLDER:"["+"点此注册并开始交易"+"]("+link+")";
     return "**AVE × ALD 社区专属福利来了！**\n\n"+
       "本次社区将参与 AVE 专属交易活动，完成**现货**、**链钱包**或 **Bot 钱包**交易，都可以计入我们社区的活动成绩。\n\n"+
-      "社区进入**前 5 名**，不仅社区长可以获得 ALD 空投，社区内交易量**前 3 名**还可以获得 **webkey 手机**和 ALD 奖励。\n\n"+
-      "**活动奖池**\n· **2,000U** 等值 ALD\n· **5 部 webkey 手机**\n\n"+
+      "社区进入**前 5 名**，不仅社区长可以获得 ALD 空投，社区内交易量**前 3 名**还可以获得 **WebKey 手机**和 ALD 奖励。\n\n"+
+      "**活动奖池**\n· **2,000U**（以 ALD 发放）\n· **5 部 WebKey 手机**\n\n"+
       "**社区长奖励**（按社区总交易量排名）\n"+
       "第 1 名 `600U` ｜ 第 2 名 `400U` ｜ 第 3 名 `250U` ｜ 第 4 名 `150U` ｜ 第 5 名 `100U`\n\n"+
       "**社区用户奖励**\n"+
-      "前 5 名社区，每个社区内：第 1 名 **webkey 手机一部**，第 2 名 `60U`，第 3 名 `40U` 等值 ALD\n\n"+
+      "前 5 名社区，每个社区内：第 1 名 **WebKey 手机一部**，第 2 名 `60U`，第 3 名 `40U`\n\n"+
       cta+"\n\n"+
       "**活动时间** 8月2日 18:00 — 8月9日 23:59（UTC+8）";
   }
