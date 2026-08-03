@@ -346,8 +346,8 @@
 
       <label class="lnkLabel" for="lnk">你的社区专属邀请链接</label>
       <input class="lnkInput" id="lnk" type="url" inputmode="url" autocomplete="off" spellcheck="false"
-             placeholder="https://ave.ai/register?ref=你的邀请码" />
-      <div class="lnkTip" id="lnkTip">未填写时，文案中会保留【社区专属邀请链接】占位符。</div>
+             placeholder="https://share.ave.ai?lang=zh-cn&amp;code=你的邀请码" />
+      <div class="lnkTip" id="lnkTip">格式：https://share.ave.ai?lang=zh-cn&amp;code=你的邀请码</div>
 
       <div class="fmtTabs">
         <button class="fmtTab on" data-f="tg">Telegram 格式（带加粗）</button>
@@ -452,7 +452,7 @@
     if(!v) return "";
     // 只接受 http/https，挡掉 javascript: 之类
     if(!/^https?:\/\//i.test(v)){
-      if(/^[\w.-]+\.[a-z]{2,}(\/|$)/i.test(v)) v="https://"+v;
+      if(/^[\w.-]+\.[a-z]{2,}([\/?#]|$)/i.test(v)) v="https://"+v;
       else return null;
     }
     return /^https?:\/\/[^\s]+$/i.test(v) ? v : null;
@@ -489,7 +489,7 @@
     var raw=lnkEl.value, link=cleanLink(raw);
     if(!raw.trim()){
       link=PLACEHOLDER;
-      tipEl.textContent="未填写时，文案中会保留【社区专属邀请链接】占位符。"; tipEl.className="lnkTip";
+      tipEl.textContent="格式：https://share.ave.ai?lang=zh-cn&amp;code=你的邀请码"; tipEl.className="lnkTip";
     } else if(link===null){
       link=PLACEHOLDER;
       tipEl.textContent="链接格式不对，需要以 http:// 或 https:// 开头。"; tipEl.className="lnkTip warn";
