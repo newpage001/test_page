@@ -131,6 +131,9 @@
   .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:4px}
   .lbSub .t{font-weight:700; font-size:14.5px; color:var(--ink)}
   .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
+  .lbHint{font-size:11.5px; color:var(--ink2); background:rgba(22,119,255,.06); border:1px solid rgba(22,119,255,.18);
+    border-radius:9px; padding:8px 10px; margin:8px 0 2px; line-height:1.65}
+  .lbHint b{color:var(--blue-deep)}
   .lbHead{display:grid; grid-template-columns:44px 1fr 128px; gap:10px; font-size:11px; color:var(--muted);
     padding:6px 6px 8px; letter-spacing:.5px}
   .lbHead .r{text-align:right}
@@ -153,6 +156,10 @@
   #board{max-height:420px; overflow-y:auto; overscroll-behavior:contain; border-radius:8px}
   #board::-webkit-scrollbar{width:6px}
   #board::-webkit-scrollbar-thumb{background:#c4d2e6; border-radius:3px}
+  .gtag{display:inline-block; margin-left:7px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px;
+    vertical-align:middle; letter-spacing:.2px}
+  .gtag.on{color:#0d7a5a; background:rgba(18,184,134,.13); border:1px solid rgba(18,184,134,.3)}
+  .gtag.off{color:#b07800; background:rgba(255,176,46,.13); border:1px solid rgba(255,176,46,.35)}
   .empty{padding:38px 18px; text-align:center; color:var(--muted)}
   .empty .big{font-size:15px; font-weight:700; color:var(--ink2); margin-bottom:5px}
   .empty .sm{font-size:13px; line-height:1.75}
@@ -317,6 +324,7 @@
     <span class="tab">实时榜单</span>
     <div class="card">
       <div class="lbSub"><span class="t" id="lbTitle">社区榜 · 总交易量</span><span class="upd" id="updated">尚未开赛</span></div>
+      <div class="lbHint">「达标」＝ 同时满足 <b>总交易量 ≥ 10,000 U</b> 且 <b>有效交易用户 ≥ 5 人</b>，仅达标社区参与前 5 名奖励排名。</div>
       <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r">总交易量 (USDT)</span></div>
       <div id="board"></div>
     </div>
@@ -384,7 +392,7 @@
   var TG_URL="https://t.me/+d99e2mM58UU4NmJl";
   var START=new Date("2026-08-02T18:00:00+08:00").getTime();
   var END=new Date("2026-08-09T23:59:59+08:00").getTime();
-  var DATA={updated:null,boards:{community:[]}};
+  var DATA={"updated": "2026-08-04T11:12:00+08:00", "boards": {"community": [{"rank": 1, "name": "尼古丁龙一 KOL", "code": "3969217435", "volume": 369334.71, "invites": 53, "gate": true}, {"rank": 2, "name": "搞钱兄", "code": "3937443878", "volume": 209802.87, "invites": 17, "gate": true}, {"rank": 3, "name": "33591364", "code": "33591364", "volume": 77694.16, "invites": 0, "gate": false}, {"rank": 4, "name": "龙一", "code": "AAA141319", "volume": 37671.67, "invites": 3, "gate": false}, {"rank": 5, "name": "BTC356888", "code": "BTC356888", "volume": 17403.73, "invites": 0, "gate": false}, {"rank": 6, "name": "11490989", "code": "11490989", "volume": 6663.36, "invites": 0, "gate": false}, {"rank": 7, "name": "社区长", "code": "ksco1111", "volume": 3191.15, "invites": 0, "gate": false}, {"rank": 8, "name": "晨鑫", "code": "chenxin666", "volume": 1301.66, "invites": 0, "gate": false}, {"rank": 9, "name": "18039928086", "code": "18039928086", "volume": 530.05, "invites": 0, "gate": false}]}};
 
   function pad(n){return String(n).padStart(2,"0");}
   function fmtAmt(n){return Number(n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
@@ -412,6 +420,7 @@
     var up=document.getElementById("updated");
     if(DATA.updated){var u=new Date(DATA.updated);up.textContent="更新于 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());}
     else up.textContent=(Date.now()<START)?"尚未开赛":"暂无数据";
+    if(DATA.updated) up.textContent+="（8/2–8/4）";
     if(!b.length){
       var pre=Date.now()<START;
       host.innerHTML='<div class="empty"><div class="big">'+(pre?"尚未开赛":"暂无数据")+'</div><div class="sm">'+
@@ -424,8 +433,9 @@
       var cls=r.rank<=3?" g"+r.rank:"";
       var row=document.createElement("div"); row.className="lrow";
       row.innerHTML='<span class="rk'+cls+'">'+r.rank+'</span>'+
-        '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-          '<div class="mt">'+esc(maskCode(r.code))+'</div>'+
+        '<div class="who"><div class="nm">'+esc(r.name)+
+            (r.gate===undefined?'':'<span class="gtag '+(r.gate?'on':'off')+'">'+(r.gate?'达标':'未达标')+'</span>')+'</div>'+
+          '<div class="mt">'+esc(maskCode(r.code))+(r.invites!==undefined?' · 邀请 '+r.invites+' 人':'')+'</div>'+
           '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
         '<div class="vc"><div class="vol">'+fmtAmt(r.volume)+'<small>USDT</small></div></div>';
       host.appendChild(row);
