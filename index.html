@@ -400,7 +400,7 @@
   var START=new Date("2026-08-02T18:00:00+08:00").getTime();
   var END=new Date("2026-08-09T23:59:59+08:00").getTime();
   var PRIZE=[600,400,250,150,100];   // 社区长奖励档位（与「奖励分配」表一致）
-  var DATA={"updated": "2026-08-05T12:00:00+08:00", "boards": {"community": [{"rank": 1, "name": "尼古丁顶流社区", "code": "3969217435", "volume": 559992.56, "invites": 53, "gate": true}, {"rank": 2, "name": "蒋先生", "code": "jxs2688", "volume": 477417.27, "invites": 9, "gate": true}, {"rank": 3, "name": "搞钱兄", "code": "3937443878", "volume": 351491.78, "invites": 17, "gate": true}, {"rank": 4, "name": "半仙道场", "code": "18553631353", "volume": 239907.58, "invites": 0, "gate": false}, {"rank": 5, "name": "33591364", "code": "33591364", "volume": 124967.09, "invites": 0, "gate": false}, {"rank": 6, "name": "晨鑫", "code": "chenxin666", "volume": 60448.06, "invites": 0, "gate": false}, {"rank": 7, "name": "龙一", "code": "AAA141319", "volume": 58226.22, "invites": 3, "gate": false}, {"rank": 8, "name": "BTC356888", "code": "BTC356888", "volume": 49406.13, "invites": 0, "gate": false}, {"rank": 9, "name": "Beauty", "code": "wanzi93", "volume": 49280.13, "invites": 1, "gate": false}, {"rank": 10, "name": "11490989", "code": "11490989", "volume": 10979.82, "invites": 0, "gate": false}, {"rank": 11, "name": "欲言", "code": "ksco1111", "volume": 10689.65, "invites": 0, "gate": false}, {"rank": 12, "name": "18039928086", "code": "18039928086", "volume": 928.81, "invites": 0, "gate": false}]}};
+  var DATA={"updated": "2026-08-06T12:54:00+08:00", "boards": {"community": [{"rank": 1, "name": "尼古丁顶流社区", "code": "3969217435", "volume": 635240.44, "invites": 53, "gate": true}, {"rank": 2, "name": "蒋先生", "code": "jxs2688", "volume": 568890.41, "invites": 9, "gate": true}, {"rank": 3, "name": "搞钱兄", "code": "3937443878", "volume": 400736.76, "invites": 17, "gate": true}, {"rank": 4, "name": "半仙道场", "code": "18553631353", "volume": 266808.88, "invites": 0, "gate": false}, {"rank": 5, "name": "晨鑫", "code": "chenxin666", "volume": 194019.21, "invites": 0, "gate": false}, {"rank": 6, "name": "33591364", "code": "33591364", "volume": 151420.41, "invites": 0, "gate": false}, {"rank": 7, "name": "BTC356888", "code": "BTC356888", "volume": 103308.06, "invites": 0, "gate": false}, {"rank": 8, "name": "龙一", "code": "AAA141319", "volume": 85185.34, "invites": 3, "gate": false}, {"rank": 9, "name": "Beauty", "code": "wanzi93", "volume": 58151.53, "invites": 1, "gate": false}, {"rank": 10, "name": "11490989", "code": "11490989", "volume": 13143.06, "invites": 0, "gate": false}, {"rank": 11, "name": "欲言", "code": "ksco1111", "volume": 13124.62, "invites": 0, "gate": false}, {"rank": 12, "name": "18039928086", "code": "18039928086", "volume": 1616.72, "invites": 0, "gate": false}]}};
 
   function pad(n){return String(n).padStart(2,"0");}
   function fmtAmt(n){return Number(n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
@@ -428,7 +428,7 @@
     var up=document.getElementById("updated");
     if(DATA.updated){var u=new Date(DATA.updated);up.textContent="更新于 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());}
     else up.textContent=(Date.now()<START)?"尚未开赛":"暂无数据";
-    if(DATA.updated) up.textContent+="（8/2–8/5）";
+    if(DATA.updated) up.textContent+="（8/2–8/6）";
     if(!b.length){
       var pre=Date.now()<START;
       host.innerHTML='<div class="empty"><div class="big">'+(pre?"尚未开赛":"暂无数据")+'</div><div class="sm">'+
