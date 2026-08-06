@@ -153,9 +153,16 @@
   .vc{text-align:right}
   .vol{font-family:var(--mono); font-weight:700; font-size:15px; color:var(--ink)}
   .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
-  #board{max-height:420px; overflow-y:auto; overscroll-behavior:contain; border-radius:8px}
-  #board::-webkit-scrollbar{width:6px}
-  #board::-webkit-scrollbar-thumb{background:#c4d2e6; border-radius:3px}
+  #board{border-radius:8px}
+  .prz{display:inline-block; margin-top:6px; font-size:11px; font-weight:800; letter-spacing:.2px;
+    padding:3px 8px; border-radius:7px; white-space:nowrap; font-family:var(--sans)}
+  .prz.p1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#3a2400;
+    box-shadow:0 2px 8px rgba(230,168,45,.4)}
+  .prz.p2{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff;
+    box-shadow:0 2px 8px rgba(22,119,255,.3)}
+  .prz.p0{color:#b07800; background:rgba(255,176,46,.09); border:1px dashed rgba(255,176,46,.6); font-weight:700}
+  .lrow.w1{background:linear-gradient(90deg,rgba(255,199,64,.15),rgba(255,255,255,0) 66%)}
+  .lrow.w2{background:linear-gradient(90deg,rgba(22,119,255,.07),rgba(255,255,255,0) 66%)}
   .gtag{display:inline-block; margin-left:7px; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px;
     vertical-align:middle; letter-spacing:.2px}
   .gtag.on{color:#0d7a5a; background:rgba(18,184,134,.13); border:1px solid rgba(18,184,134,.3)}
@@ -324,7 +331,7 @@
     <span class="tab">实时榜单</span>
     <div class="card">
       <div class="lbSub"><span class="t" id="lbTitle">社区榜 · 总交易量</span><span class="upd" id="updated">尚未开赛</span></div>
-      <div class="lbHint">「达标」＝ 同时满足 <b>总交易量 ≥ 10,000 U</b> 且 <b>有效交易用户 ≥ 5 人</b>，仅达标社区参与前 5 名奖励排名。</div>
+      <div class="lbHint">「达标」＝ 同时满足 <b>总交易量 ≥ 10,000 U</b> 且 <b>有效交易用户 ≥ 5 人</b>，<b>仅达标社区</b>参与前 5 名奖励排名。<br>榜内「预计奖励」按当前数据试算，<b>以活动结束时最终排名为准</b>。</div>
       <div class="lbHead"><span>#</span><span>社区 / KOL</span><span class="r">总交易量 (USDT)</span></div>
       <div id="board"></div>
     </div>
@@ -392,6 +399,7 @@
   var TG_URL="https://t.me/+d99e2mM58UU4NmJl";
   var START=new Date("2026-08-02T18:00:00+08:00").getTime();
   var END=new Date("2026-08-09T23:59:59+08:00").getTime();
+  var PRIZE=[600,400,250,150,100];   // 社区长奖励档位（与「奖励分配」表一致）
   var DATA={"updated": "2026-08-05T12:00:00+08:00", "boards": {"community": [{"rank": 1, "name": "尼古丁顶流社区", "code": "3969217435", "volume": 559992.56, "invites": 53, "gate": true}, {"rank": 2, "name": "蒋先生", "code": "jxs2688", "volume": 477417.27, "invites": 9, "gate": true}, {"rank": 3, "name": "搞钱兄", "code": "3937443878", "volume": 351491.78, "invites": 17, "gate": true}, {"rank": 4, "name": "半仙道场", "code": "18553631353", "volume": 239907.58, "invites": 0, "gate": false}, {"rank": 5, "name": "33591364", "code": "33591364", "volume": 124967.09, "invites": 0, "gate": false}, {"rank": 6, "name": "晨鑫", "code": "chenxin666", "volume": 60448.06, "invites": 0, "gate": false}, {"rank": 7, "name": "龙一", "code": "AAA141319", "volume": 58226.22, "invites": 3, "gate": false}, {"rank": 8, "name": "BTC356888", "code": "BTC356888", "volume": 49406.13, "invites": 0, "gate": false}, {"rank": 9, "name": "Beauty", "code": "wanzi93", "volume": 49280.13, "invites": 1, "gate": false}, {"rank": 10, "name": "11490989", "code": "11490989", "volume": 10979.82, "invites": 0, "gate": false}, {"rank": 11, "name": "欲言", "code": "ksco1111", "volume": 10689.65, "invites": 0, "gate": false}, {"rank": 12, "name": "18039928086", "code": "18039928086", "volume": 928.81, "invites": 0, "gate": false}]}};
 
   function pad(n){return String(n).padStart(2,"0");}
@@ -428,16 +436,28 @@
       return;
     }
     var max=b.reduce(function(m,r){return Math.max(m,r.volume||0)},1);
+    var qual=0;                       // 已达标社区计数：奖励名次只在达标社区之间排
     b.forEach(function(r){
       var pct=Math.max(4,Math.round((r.volume||0)/max*100));
       var cls=r.rank<=3?" g"+r.rank:"";
-      var row=document.createElement("div"); row.className="lrow";
+      var prz="", tint="";
+      if(r.gate===true){
+        qual++;
+        if(qual<=PRIZE.length){
+          prz='<span class="prz '+(qual<=3?'p1':'p2')+'">预计 '+PRIZE[qual-1]+' U</span>';
+          tint=qual<=3?" w1":" w2";
+        }
+      }else if(r.gate===false&&r.rank<=PRIZE.length){
+        // 量已在前 5 但未达标：给一个保守的目标值，别当成承诺
+        prz='<span class="prz p0">达标可争 '+PRIZE[r.rank-1]+' U</span>';
+      }
+      var row=document.createElement("div"); row.className="lrow"+tint;
       row.innerHTML='<span class="rk'+cls+'">'+r.rank+'</span>'+
         '<div class="who"><div class="nm">'+esc(r.name)+
             (r.gate===undefined?'':'<span class="gtag '+(r.gate?'on':'off')+'">'+(r.gate?'达标':'未达标')+'</span>')+'</div>'+
           '<div class="mt">'+esc(maskCode(r.code))+(r.invites!==undefined?' · 邀请 '+r.invites+' 人':'')+'</div>'+
           '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
-        '<div class="vc"><div class="vol">'+fmtAmt(r.volume)+'<small>USDT</small></div></div>';
+        '<div class="vc"><div class="vol">'+fmtAmt(r.volume)+'<small>USDT</small></div>'+prz+'</div>';
       host.appendChild(row);
     });
   }
