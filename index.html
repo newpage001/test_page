@@ -160,8 +160,8 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
     <div class="pool"><b>30</b><span>套 AVE 专属美容 10 件套 · 奖池</span></div>
     <div class="timer">
       <span><span class="k">开始</span> <span class="t">08-28 18:00</span></span>
-      <span><span class="k" id="cLbl">已进行</span> <span class="t" id="clock">--</span></span>
-      <span class="k">· 7×24 不间断</span>
+      <span><span class="k">结束</span> <span class="t">09-04 18:00</span></span>
+      <span><span class="k" id="cLbl">距结束</span> <span class="t" id="clock">--</span></span>
     </div>
     <a class="cta" href="#join">立即报名参赛 →</a>
   </section>
@@ -237,7 +237,7 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
       <ul>
         <li>参赛对象：返佣 Builder 群社区长及各社区成员；报名并绑定邀请码即视为参赛。</li>
         <li>代币范围：全部代币，活动期内经 AVE 的交易量累计。</li>
-        <li>赛制：8/28 18:00 起 7×24 不间断进行，每周结算一轮，榜单每日更新。</li>
+        <li>赛制：本期 8/28 18:00 – 9/4 18:00（7×24 不间断，共 7 天），每周一轮，榜单每日更新。</li>
         <li>反刷量：对敲、同址循环、从未登录下级等异常交易不计入，刷量取消资格。</li>
         <li>发奖：赛后公示中奖名单；中奖后 48 小时内私信提交收件信息。</li>
       </ul>
@@ -251,12 +251,14 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
 <script>
 (function(){
   var start=new Date('2026-08-28T18:00:00+08:00').getTime();
+  var end=new Date('2026-09-04T18:00:00+08:00').getTime();
   var lbl=document.getElementById('cLbl'),clk=document.getElementById('clock'),live=document.getElementById('liveTxt');
   function two(n){return(n<10?'0':'')+n;}
   function tick(){
-    var now=Date.now(),diff,before=now<start;
-    if(before){diff=start-now;lbl.textContent='距开赛';live.textContent='即将开始';}
-    else{diff=now-start;lbl.textContent='已进行';live.textContent='7×24 进行中';}
+    var now=Date.now(),diff;
+    if(now<start){diff=start-now;lbl.textContent='距开赛';live.textContent='即将开始';}
+    else if(now<end){diff=end-now;lbl.textContent='距结束';live.textContent='进行中';}
+    else{lbl.textContent='已结束';live.textContent='已结束';clk.textContent='00:00:00';return;}
     var s=Math.floor(diff/1000),d=Math.floor(s/86400);s-=d*86400;
     var h=Math.floor(s/3600);s-=h*3600;var m=Math.floor(s/60);s-=m*60;
     clk.textContent=(d>0?d+'天 ':'')+two(h)+':'+two(m)+':'+two(s);
