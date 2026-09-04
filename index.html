@@ -100,6 +100,7 @@ header .name i{font-style:normal;color:var(--blue)}
 .vol{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink2)}
 .emptyhint{text-align:center;font-size:12.5px;color:var(--muted);padding:12px 16px;background:#fbfdff}
 .prizeline{text-align:center;font-size:11px;font-weight:800;color:var(--gold-deep);background:linear-gradient(90deg,#fff9ec,#fff5e0);padding:7px 16px;border-top:1px solid #ffe9bf;border-bottom:1px solid #ffe9bf;letter-spacing:.3px}
+.winb{display:inline-block;margin-left:7px;font-size:10px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--gold-1),var(--gold-2));padding:1px 7px;border-radius:999px;vertical-align:middle;letter-spacing:.5px}
 
 .reg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:680px){.reg{grid-template-columns:1fr}}
@@ -190,12 +191,12 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
   </section>
 
   <section class="sec">
-    <h2>实时榜单 · 全部代币累计交易量</h2>
+    <h2>最终榜单 · 全部代币累计交易量（已收官）</h2>
     <div class="boards">
       <div class="board">
         <div class="bh"><b>🏆 社区长榜</b><span class="pill">Top 5 各 1 套</span></div>
         <div class="rows" id="bLeader"></div>
-        <div class="emptyhint">榜单每日更新 · 数据截至 09/04 15:47 · 冲进 Top 5 赢好礼</div>
+        <div class="emptyhint">🎉 活动已收官 · 最终数据截至 09/04 20:49 · Top 5 社区长获奖，稍后私信收件信息</div>
       </div>
     </div>
   </section>
@@ -260,17 +261,17 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
   }
   tick();setInterval(tick,1000);
   var leaders=[
-    {n:'蒋先生',v:'862,216 U'},
-    {n:'搞钱兄',v:'622,258 U'},
-    {n:'蒋先生直推',v:'336,965 U'},
-    {n:'森森',v:'212,898 U'},
-    {n:'gj bhc',v:'103,684 U'},
-    {n:'beauty',v:'78,093 U'},
-    {n:'搞钱兄直推',v:'66,932 U'},
-    {n:'Aello kishu',v:'28,720 U'},
-    {n:'陈鑫',v:'13,925 U'},
-    {n:'禾目',v:'6,019 U'},
-    {n:'BTC356888',v:'220 U'},
+    {n:'蒋先生',v:'846,007 U'},
+    {n:'搞钱兄',v:'601,414 U'},
+    {n:'蒋先生直推',v:'342,889 U'},
+    {n:'森森',v:'208,824 U'},
+    {n:'gj bhc',v:'103,617 U'},
+    {n:'beauty',v:'75,586 U'},
+    {n:'搞钱兄直推',v:'63,299 U'},
+    {n:'Aello kishu',v:'27,923 U'},
+    {n:'陈鑫',v:'17,510 U'},
+    {n:'禾目',v:'5,507 U'},
+    {n:'BTC356888',v:'1,023 U'},
     {n:'加密月芽',v:'0 U'}
   ];
   function render(el,list){
@@ -278,9 +279,9 @@ footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:26px}
     for(var i=0;i<list.length;i++){
       var it=list[i],top=i<3?' top':'';
       html+='<div class="row'+top+'"><div class="rk">'+(i+1)+'</div>'
-        +'<div class="who">'+it.n+'</div>'
+        +'<div class="who">'+it.n+(i<5?'<span class="winb">获奖</span>':'')+'</div>'
         +'<div class="vol">'+it.v+'</div></div>';
-      if(i===4) html+='<div class="prizeline">↑ Top 5 奖励区 · 各得 AVE 美容 10 件套 1 套</div>';
+      if(i===4) html+='<div class="prizeline">🏆 以上 5 位社区长获奖 · 各得 AVE 美容 10 件套 1 套</div>';
     }
     el.innerHTML=html;
   }
