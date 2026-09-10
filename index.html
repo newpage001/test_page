@@ -376,11 +376,24 @@
     host.innerHTML=html;
   }
 
+  // 主源：自有服务端中转（密码留在服务端、已剥离 PII、实时读上游）
+  // 兜底：仓库内静态 JSON，中转不可用时榜单不至于空白
+  var FEED="https://studio.ave.ai/race-board";
   renderBoard(null);
-  fetch("leaderboard.json",{cache:"no-store"})
-    .then(function(r){return r.ok?r.json():null;})
-    .then(function(j){if(j) renderBoard(j);})
-    .catch(function(){});
+  fetch(FEED,{cache:"no-store"})
+    .then(function(r){if(!r.ok) throw 0; return r.json();})
+    .then(function(j){renderBoard(j);})
+    .catch(function(){
+      return fetch("leaderboard.json",{cache:"no-store"})
+        .then(function(r){return r.ok?r.json():null;})
+        .then(function(j){if(j) renderBoard(j);})
+        .catch(function(){});
+    });
+  // 页面停留期间每 5 分钟自动刷新一次
+  setInterval(function(){
+    fetch(FEED,{cache:"no-store"}).then(function(r){return r.ok?r.json():null;})
+      .then(function(j){if(j) renderBoard(j);}).catch(function(){});
+  }, 300000);
 
   document.getElementById("joinBtn").addEventListener("click",function(){
     window.open(TG_URL,"_blank","noopener");
