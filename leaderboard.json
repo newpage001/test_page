@@ -1,11 +1,26 @@
 {
-  "updated": "2026-09-10T21:04:26+08:00",
+  "updated": "2026-09-10T21:09:36+08:00",
   "sourceUpdated": "2026-09-10 12:56:07",
   "gate": {
     "user": 100,
-    "team": 1000
+    "team": 0
   },
   "boards": {
-    "community": []
+    "community": [
+      {
+        "rank": 1,
+        "name": "Beauty",
+        "code": "wanzi93",
+        "volume": 0.0,
+        "users": 0
+      },
+      {
+        "rank": 2,
+        "name": "5763620428",
+        "code": "5763620428",
+        "volume": 0.0,
+        "users": 0
+      }
+    ]
   }
 }
