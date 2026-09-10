@@ -268,7 +268,7 @@
       </ul>
       <div class="hl">这一期<b>不看你过去积累了多少</b>。老下级做得再多也不计分，
         所有社区的起点都是 <b>0</b>——小社区同样有机会拿第一。</div>
-      <div class="gate">单个新用户赛期交易量需达 <b>100 U</b> 才计入；社区合计低于 <b>1,000 U</b> 不入榜。</div>
+      <div class="gate">单个新用户赛期交易量需达 <b>100 U</b> 才计入成绩。<br>所有已报名社区均展示在榜单上，无最低门槛。</div>
     </div>
   </section>
 
@@ -291,7 +291,7 @@
       <div id="board">
         <div class="empty">
           <div class="big">榜单加载中</div>
-          <div class="sm">按赛期内新拉用户的交易量排名，每 30 分钟更新。</div>
+          <div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。</div>
         </div>
       </div>
     </div>
@@ -368,8 +368,8 @@
     }
     if(!b.length){
       host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
-        '</div><div class="sm">按赛期内新拉用户的交易量排名，每 30 分钟更新。<br>'+
-        '社区新增用户交易量合计满 1,000 U 即可上榜。</div></div>';
+        '</div><div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。<br>'+
+        '所有已报名社区均在榜，开始拉新即可计分。</div></div>';
       return;
     }
     var max=b.reduce(function(m,r){return Math.max(m,r.volume||0);},1), html="";
