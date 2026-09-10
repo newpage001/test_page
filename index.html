@@ -118,6 +118,27 @@
   .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
   .lbSub .t{font-weight:700; font-size:14.5px}
   .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
+  .lrow{display:grid; grid-template-columns:34px 1fr 118px; gap:10px; align-items:center;
+    padding:12px 4px; border-top:1px solid var(--line)}
+  .lrow:first-child{border-top:none}
+  .lrow.win{background:linear-gradient(92deg,rgba(255,208,30,.10),rgba(255,143,23,.02))}
+  .rk{width:28px; height:28px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:800; font-size:13.5px; color:var(--ink2); background:#eef3fb}
+  .rk.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#4a2c00}
+  .rk.g2{background:linear-gradient(135deg,#eef2f7,#c4cfdb); color:#2a3340}
+  .rk.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); color:#3a1e08}
+  .who{min-width:0}
+  .who .nm{font-weight:700; font-size:14.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .who .mt{font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:2px}
+  .bar{height:4px; border-radius:3px; margin-top:6px; background:#eaf0f9; overflow:hidden}
+  .bar i{display:block; height:100%; border-radius:3px;
+    background:linear-gradient(90deg,var(--blue-light),var(--blue))}
+  .vc{text-align:right}
+  .vol{font-family:var(--mono); font-weight:800; font-size:15px; color:var(--ink)}
+  .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
+  .prz{display:inline-block; margin-top:6px; font-size:10.5px; font-weight:800; padding:3px 8px;
+    border-radius:7px; white-space:nowrap; color:#4a2c00;
+    background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
   .empty{padding:30px 10px; text-align:center}
   .empty .big{font-size:15px; font-weight:800; color:var(--ink2)}
   .empty .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
@@ -267,10 +288,11 @@
     <span class="tab">实时榜单</span>
     <div class="card">
       <div class="lbSub"><span class="t">社区榜 · 新增用户交易量</span><span class="upd" id="updated">尚未开赛</span></div>
-      <div class="empty" id="board">
-        <div class="big">开赛后开始计分</div>
-        <div class="sm">榜单按赛期内新拉用户的交易量排名，每日更新。<br>
-          现在报名绑定邀请码，开赛即可计分。</div>
+      <div id="board">
+        <div class="empty">
+          <div class="big">榜单加载中</div>
+          <div class="sm">按赛期内新拉用户的交易量排名，每 30 分钟更新。</div>
+        </div>
       </div>
     </div>
   </section>
@@ -317,6 +339,48 @@
     document.getElementById("ss").textContent=pad(Math.floor(diff%6e4/1e3));
   }
   tick(); setInterval(tick,1000);
+
+  // ---- 榜单：读同目录 leaderboard.json（后端 feed 由本地脚本剥离 PII 后生成）----
+  var PRIZE=[150,120,90,80,60];
+  function fmt(n){return (n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function mask(s){s=String(s||"");if(!s)return"";var h=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,h)+"****";}
+  function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+
+  function renderBoard(d){
+    var b=(d&&d.boards&&d.boards.community)||[], host=document.getElementById("board"),
+        up=document.getElementById("updated");
+    if(d&&d.updated){
+      var t=new Date(d.updated);
+      up.textContent="更新于 "+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes());
+    }
+    if(!b.length){
+      host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
+        '</div><div class="sm">按赛期内新拉用户的交易量排名，每 30 分钟更新。<br>'+
+        '社区新增用户交易量合计满 1,000 U 即可上榜。</div></div>';
+      return;
+    }
+    var max=b.reduce(function(m,r){return Math.max(m,r.volume||0);},1), html="";
+    b.forEach(function(r){
+      var pct=Math.max(4,Math.round((r.volume||0)/max*100)),
+          cls=r.rank<=3?" g"+r.rank:"",
+          prz=r.rank<=PRIZE.length?'<span class="prz">'+PRIZE[r.rank-1]+' U</span>':"";
+      html+='<div class="lrow'+(r.rank<=PRIZE.length?" win":"")+'">'+
+        '<span class="rk'+cls+'">'+r.rank+'</span>'+
+        '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
+          '<div class="mt">'+esc(mask(r.code))+' · 新增 '+(r.users||0)+' 人</div>'+
+          '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
+        '<div class="vc"><div class="vol">'+fmt(r.volume)+'<small>USDT</small></div>'+prz+'</div>'+
+        '</div>';
+    });
+    host.innerHTML=html;
+  }
+
+  renderBoard(null);
+  fetch("leaderboard.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(j){if(j) renderBoard(j);})
+    .catch(function(){});
 
   document.getElementById("joinBtn").addEventListener("click",function(){
     window.open(TG_URL,"_blank","noopener");
