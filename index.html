@@ -350,9 +350,17 @@
   function renderBoard(d){
     var b=(d&&d.boards&&d.boards.community)||[], host=document.getElementById("board"),
         up=document.getElementById("updated");
-    if(d&&d.updated){
-      var t=new Date(d.updated);
-      up.textContent="更新于 "+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes());
+    // 显示「数据统计到的时间」而不是「接口响应时间」——后者永远是刚刚，会让人
+    // 误以为最新交易已计入。超过 1 小时未更新时明确标出，不粉饰。
+    if(d&&d.sourceUpdated){
+      var t=new Date(String(d.sourceUpdated).replace(" ","T")+"+08:00");
+      var txt="数据截至 "+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes());
+      var lag=Math.floor((Date.now()-t.getTime())/6e4);
+      if(lag>=60) txt+="（"+Math.floor(lag/60)+" 小时前）";
+      up.textContent=txt;
+    } else if(d&&d.updated){
+      var u=new Date(d.updated);
+      up.textContent="数据截至 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());
     }
     if(!b.length){
       host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
