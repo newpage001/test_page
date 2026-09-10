@@ -353,10 +353,14 @@
     // 显示「数据统计到的时间」而不是「接口响应时间」——后者永远是刚刚，会让人
     // 误以为最新交易已计入。超过 1 小时未更新时明确标出，不粉饰。
     if(d&&d.sourceUpdated){
-      var t=new Date(String(d.sourceUpdated).replace(" ","T")+"+08:00");
-      var txt="数据截至 "+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes());
+      // 上游 updated_at 是 UTC。页面其余时间均以 UTC+8 标注，这里统一换算成
+      // UTC+8 固定显示，避免海外访问者看到与赛期时间对不上的本地时间。
+      var t=new Date(String(d.sourceUpdated).replace(" ","T")+"Z");
+      var b=new Date(t.getTime()+8*36e5);
+      var txt="数据截至 "+pad(b.getUTCMonth()+1)+"/"+pad(b.getUTCDate())+" "+
+              pad(b.getUTCHours())+":"+pad(b.getUTCMinutes())+"（UTC+8）";
       var lag=Math.floor((Date.now()-t.getTime())/6e4);
-      if(lag>=60) txt+="（"+Math.floor(lag/60)+" 小时前）";
+      if(lag>=60) txt+=" · "+Math.floor(lag/60)+" 小时前";
       up.textContent=txt;
     } else if(d&&d.updated){
       var u=new Date(d.updated);
