@@ -356,9 +356,9 @@
       // 上游 updated_at 是 UTC。页面其余时间均以 UTC+8 标注，这里统一换算成
       // UTC+8 固定显示，避免海外访问者看到与赛期时间对不上的本地时间。
       var t=new Date(String(d.sourceUpdated).replace(" ","T")+"Z");
-      var b=new Date(t.getTime()+8*36e5);
-      var txt="数据截至 "+pad(b.getUTCMonth()+1)+"/"+pad(b.getUTCDate())+" "+
-              pad(b.getUTCHours())+":"+pad(b.getUTCMinutes())+"（UTC+8）";
+      var bj=new Date(t.getTime()+8*36e5);          // 注意别用 b：b 是上面的榜单数组
+      var txt="数据截至 "+pad(bj.getUTCMonth()+1)+"/"+pad(bj.getUTCDate())+" "+
+              pad(bj.getUTCHours())+":"+pad(bj.getUTCMinutes())+"（UTC+8）";
       var lag=Math.floor((Date.now()-t.getTime())/6e4);
       if(lag>=60) txt+=" · "+Math.floor(lag/60)+" 小时前";
       up.textContent=txt;
