@@ -13,14 +13,20 @@
     --gold-1:#ffd01e; --gold-2:#ff8f17; --gold-deep:#c98a00;
     --dead:#a8b6c6;
     --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Arial,sans-serif;
+    /* 记分牌数字：iOS/macOS 自带 DIN Alternate，Windows 自带 Bahnschrift，其余回落系统字体，零下载 */
+    --num:"DIN Alternate","Bahnschrift",-apple-system,"SF Pro Display",system-ui,Roboto,"Segoe UI",sans-serif;
     --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --out:cubic-bezier(.2,.8,.2,1);
   }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
     font-family:var(--sans); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;
-    background:linear-gradient(180deg,#dcebff 0%,#eaf3ff 22%,#f3f8ff 100%); background-attachment:fixed;
-    padding-bottom:92px;
+    background:
+      radial-gradient(520px 380px at 100% -60px,rgba(22,119,255,.20),transparent 70%),
+      radial-gradient(420px 360px at -80px 34%,rgba(255,208,30,.10),transparent 70%),
+      linear-gradient(180deg,#dcebff 0%,#eaf3ff 22%,#f3f8ff 100%);
+    background-attachment:fixed; padding-bottom:96px; min-height:100vh;
   }
   .app{max-width:500px; margin:0 auto; padding:14px 14px 30px}
   .brand{display:flex; align-items:center; gap:8px; padding:2px 4px 14px}
@@ -37,47 +43,80 @@
   .card{background:var(--card); border-radius:16px; padding:20px 18px 18px; box-shadow:0 8px 26px rgba(22,89,214,.09); position:relative}
   section{margin-top:20px}
 
-  /* hero */
-  .hero{border-radius:20px; overflow:hidden; padding:22px 18px 24px; position:relative; min-height:330px;
+  /* ---------- 主视觉 ---------- */
+  .hero{border-radius:22px; overflow:hidden; padding:22px 18px 24px; position:relative; min-height:340px;
     background:linear-gradient(135deg,#eaf3ff 0%,#f7fbff 46%,#fff6e6 100%);
-    box-shadow:0 12px 34px rgba(22,89,214,.18)}
+    box-shadow:0 14px 36px rgba(22,89,214,.18), inset 0 0 0 1px rgba(255,255,255,.7)}
+  .hero::before{content:""; position:absolute; top:0; right:0; bottom:0; left:0; pointer-events:none;   /* 行情图底纹 */
+    background-image:linear-gradient(rgba(14,86,214,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(14,86,214,.06) 1px,transparent 1px);
+    background-size:22px 22px;
+    -webkit-mask-image:linear-gradient(115deg,transparent 35%,#000 80%); mask-image:linear-gradient(115deg,transparent 35%,#000 80%)}
   .hero .art{position:absolute; right:-6px; bottom:6px; width:220px; height:238px; z-index:0}
   .hero > *:not(.art){position:relative; z-index:1}
   .hbadge{display:inline-block; font-size:12.5px; font-weight:700; color:var(--blue-deep);
     background:rgba(255,255,255,.82); border:1px solid #cfe0fb; padding:5px 13px; border-radius:999px}
-  .hero h1{margin:14px 0 0; font-size:31px; line-height:1.2; font-weight:900; letter-spacing:-1px; color:var(--blue-ink)}
+  .hero h1{margin:14px 0 0; font-size:32px; line-height:1.2; font-weight:900; letter-spacing:-1px; color:var(--blue-ink)}
   .hero h1 em{font-style:normal; display:block}
-  .prizePill{display:inline-flex; align-items:center; margin-top:16px; color:#fff;
-    background:linear-gradient(135deg,var(--blue-light),var(--blue-deep));
-    padding:10px 18px; border-radius:999px; box-shadow:0 6px 18px rgba(14,86,214,.32); font-size:14px; font-weight:600}
-  .prizePill b{font-family:var(--mono); font-weight:700; font-size:20px; margin-left:6px; white-space:nowrap;
-    background:linear-gradient(92deg,var(--gold-1),var(--gold-2)); -webkit-background-clip:text; background-clip:text;
+  .prize{position:relative; overflow:hidden; display:inline-flex; align-items:baseline; gap:7px; margin-top:16px;
+    padding:8px 20px 9px 16px; border-radius:16px; color:#fff;
+    background:linear-gradient(135deg,#2a7bff 0%,#0e56d6 55%,#0a3a9c 100%);
+    box-shadow:0 10px 24px rgba(14,86,214,.35), inset 0 1px 0 rgba(255,255,255,.28)}
+  .prize .pl{font-size:13.5px; font-weight:700; opacity:.92}
+  .prize .pv{font-family:var(--num); font-weight:700; font-size:40px; line-height:1; min-width:2.2ch; text-align:right;
+    font-variant-numeric:tabular-nums; color:var(--gold-1);
+    background:linear-gradient(180deg,#fff4b8 0%,#ffd01e 48%,#ff9a1f 100%); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent}
+  .prize .pu{font-family:var(--num); font-weight:700; font-size:20px; color:var(--gold-1)}
+  .prize::after{content:""; position:absolute; top:-10%; bottom:-10%; left:-45%; width:32%; pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+    transform:skewX(-20deg); animation:sweep 5s 1.8s ease-in-out infinite}
   .hdate{margin-top:14px; font-family:var(--mono); font-size:13.5px; color:var(--ink2); font-weight:600}
   .hsub{margin-top:9px; max-width:62%; color:#33465e; font-size:13.5px; line-height:1.75; font-weight:500}
 
-  /* 时间 */
+  .hero .a-bars rect{transform-box:fill-box; transform-origin:50% 100%; animation:grow .8s var(--out) both}
+  .hero .a-bars .b2{animation-delay:.12s} .hero .a-bars .b3{animation-delay:.24s}
+  .hero .a-line{stroke-dasharray:100; animation:draw .9s .4s ease-out both}
+  .hero .a-head{transform-box:fill-box; transform-origin:center; animation:pop .4s 1.2s var(--out) both}
+  .hero .a-cup{animation:float 3.4s 1.3s ease-in-out infinite}
+  .hero .a-glow{transform-box:fill-box; transform-origin:center; animation:breathe 4.2s ease-in-out infinite}
+  .hero .tw{animation:twinkle 2.6s ease-in-out infinite} .hero .t2{animation-delay:.9s} .hero .t3{animation-delay:1.7s}
+
+  /* ---------- 活动时间 ---------- */
   .trow{display:flex; justify-content:space-between; font-size:15px; color:var(--ink2); padding:3px 0}
   .trow b{color:var(--ink); font-family:var(--mono); font-weight:600; font-size:14.5px}
   .cdLabel{margin-top:15px; font-size:12.5px; font-weight:700; letter-spacing:.5px; color:var(--blue-deep)}
   .cdLabel.ended{color:var(--muted)}
   .clock{display:flex; gap:8px; margin-top:7px}
-  .seg{flex:1; text-align:center; background:#f2f7ff; border:1px solid var(--line); border-radius:12px; padding:11px 2px}
-  .seg b{display:block; font-family:var(--mono); font-weight:700; font-size:25px; color:var(--blue-deep)}
-  .seg small{display:block; font-size:10.5px; color:var(--muted); letter-spacing:.5px; margin-top:2px}
+  .seg{flex:1; text-align:center; border-radius:14px; padding:10px 2px 8px; overflow:hidden;
+    background:linear-gradient(180deg,#f8fbff,#eaf2ff); border:1px solid #dbe8fb; box-shadow:inset 0 1px 0 #fff}
+  .seg b{display:block; font-family:var(--num); font-weight:700; font-size:30px; line-height:1.15;
+    font-variant-numeric:tabular-nums; color:var(--blue-deep)}
+  .seg b.tk{animation:tk .38s var(--out)}
+  .seg small{display:block; font-size:11px; color:var(--muted); margin-top:1px}
+  .race{margin-top:15px}
+  .race .rtop{display:flex; justify-content:space-between; align-items:baseline; font-size:12.5px; color:var(--ink2); font-weight:600}
+  .race .rtop b{font-family:var(--num); font-weight:700; color:var(--blue-deep); font-size:15px}
+  .rbar{height:8px; border-radius:99px; background:#e6eefb; overflow:hidden; margin-top:6px}
+  .rbar i{display:block; height:100%; width:0; border-radius:99px; transition:width 1.2s var(--out);
+    background:linear-gradient(90deg,var(--blue-light),var(--blue))}
+  .race.on .rbar i{background-image:
+      linear-gradient(45deg,rgba(255,255,255,.22) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.22) 50%,rgba(255,255,255,.22) 75%,transparent 75%),
+      linear-gradient(90deg,var(--blue-light),var(--blue));
+    background-size:16px 16px,100% 100%; animation:stripes 1s linear infinite}
 
-  /* 步骤 */
+  /* ---------- 参与方式 ---------- */
   .steps{counter-reset:s; margin:0; padding:0; list-style:none}
   .steps li{counter-increment:s; position:relative; padding:0 0 15px 36px; font-size:14.5px; line-height:1.7}
   .steps li:last-child{padding-bottom:0}
   .steps li::before{content:counter(s); position:absolute; left:0; top:2px; width:24px; height:24px; border-radius:8px;
-    background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; font-size:13px; font-weight:800;
-    display:flex; align-items:center; justify-content:center; font-family:var(--mono)}
+    background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; font-family:var(--num);
+    box-shadow:0 3px 8px rgba(22,119,255,.28)}
   .steps li::after{content:""; position:absolute; left:11.5px; top:28px; bottom:4px; width:1.5px; background:var(--line)}
   .steps li:last-child::after{display:none}
   .steps b{color:var(--blue-deep)}
 
-  /* 成绩怎么算：计入 / 不计入 */
+  /* ---------- 成绩怎么算 ---------- */
   .calc{margin:0; padding:0; list-style:none}
   .calc li{position:relative; padding:11px 0 11px 26px; font-size:14.5px; border-top:1px solid var(--line); line-height:1.65}
   .calc li:first-child{border-top:none}
@@ -90,8 +129,11 @@
   .hl{margin-top:14px; font-size:13.5px; color:var(--blue-deep); line-height:1.75;
     background:#f2f7ff; border:1px solid #d8e8ff; border-radius:12px; padding:12px 14px}
   .hl b{font-weight:800}
+  .gate{margin-top:14px; font-size:13.5px; color:var(--blue-deep); line-height:1.75;
+    background:#f2f7ff; border:1px dashed #b9d5ff; border-radius:12px; padding:12px 14px}
+  .gate b{font-weight:800}
 
-  /* 奖励表 */
+  /* ---------- 奖励表 ---------- */
   .ptTitle{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink2); margin:0 0 10px 2px}
   .ptTitle .pill{display:inline-block; font-size:12.5px; font-weight:800; color:#fff; padding:4px 12px; border-radius:999px;
     background:linear-gradient(135deg,var(--blue-light),var(--blue))}
@@ -99,66 +141,170 @@
   .ph{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:12px 15px; font-size:12.5px; font-weight:700;
     color:var(--ink2); background:#f7fbff}
   .ph .r{text-align:right; color:var(--blue-deep)}
-  .pr{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:14px 15px; align-items:center; border-top:1px solid var(--line)}
-  .pr.top{background:linear-gradient(92deg,rgba(255,208,30,.1),rgba(255,143,23,.02))}
+  .pr{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:13px 15px; align-items:center; border-top:1px solid var(--line)}
+  .pr.top{background:linear-gradient(92deg,rgba(255,208,30,.12),rgba(255,143,23,.02))}
   .pr .nm{font-weight:700; font-size:15px; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:9px}
   .pr .dot{width:10px; height:10px; border-radius:50%; flex-shrink:0; background:#c4d2e6}
-  .pr .dot.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
-  .pr .dot.g2{background:linear-gradient(135deg,#e7edf4,#b9c5d4)}
-  .pr .dot.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a)}
-  .pr .a{font-family:var(--mono); font-weight:800; font-size:15.5px; color:var(--blue-deep); text-align:right}
-  .pr .a.gold{background:linear-gradient(92deg,#e8a200,var(--gold-2)); -webkit-background-clip:text; background-clip:text;
+  .pr .dot.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 0 0 3px rgba(255,208,30,.22)}
+  .pr .dot.g2{background:linear-gradient(135deg,#e7edf4,#b9c5d4); box-shadow:0 0 0 3px rgba(185,197,212,.25)}
+  .pr .dot.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); box-shadow:0 0 0 3px rgba(224,149,90,.2)}
+  .pr .a{font-family:var(--num); font-weight:700; font-size:20px; line-height:1; color:var(--blue-deep); text-align:right}
+  .pr .a small{font-size:13px}
+  .pr .a.gold{color:#e8a200; background:linear-gradient(180deg,#ffc21a,#ff8a12); -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent}
-  .gate{margin-top:14px; font-size:13.5px; color:var(--blue-deep); line-height:1.75;
-    background:#f2f7ff; border:1px dashed #b9d5ff; border-radius:12px; padding:12px 14px}
-  .gate b{font-weight:800}
   .fine{margin-top:13px; font-size:12.5px; color:var(--muted); line-height:1.7}
 
-  /* 榜单 */
-  .lbSub{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
-  .lbSub .t{font-weight:700; font-size:14.5px}
-  .lbSub .upd{font-size:11px; color:var(--muted); font-family:var(--mono)}
-  .lrow{display:grid; grid-template-columns:34px 1fr 118px; gap:10px; align-items:center;
-    padding:12px 4px; border-top:1px solid var(--line)}
-  .lrow:first-child{border-top:none}
-  .lrow.win{background:linear-gradient(92deg,rgba(255,208,30,.10),rgba(255,143,23,.02))}
+  /* ---------- 实时榜单 ---------- */
+  .lbHead{display:flex; align-items:center; justify-content:space-between; gap:10px}
+  .lbHead .t{font-weight:800; font-size:16px}
+  .lbHead .t small{font-weight:600; font-size:12.5px; color:var(--muted); margin-left:6px}
+  .live{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; color:var(--blue-deep);
+    background:#eaf3ff; border:1px solid #d3e4ff; padding:3px 9px 3px 8px; border-radius:999px; white-space:nowrap}
+  .live i{position:relative; width:7px; height:7px; border-radius:50%; background:var(--blue)}
+  .live i::after{content:""; position:absolute; top:0; right:0; bottom:0; left:0; border-radius:50%; background:var(--blue); animation:ping 1.6s ease-out infinite}
+  .live.stale{color:var(--ink2); background:#f1f4f8; border-color:#e3e8ef}
+  .live.stale i{background:var(--dead)} .live.stale i::after{display:none}
+  .lbSum{margin:7px 0 0; font-size:12.5px; color:var(--ink2); line-height:1.6}
+  .lbSum b{font-family:var(--num); font-weight:700; color:var(--blue-deep); font-size:14px}
+  .lbSum .nw{white-space:nowrap}
+  .upd{display:block; margin-top:2px; font-size:11.5px; color:var(--muted)}
+
+  .podium{display:grid; grid-template-columns:1fr 1.14fr 1fr; gap:8px; align-items:end; margin:14px 0 2px; padding-top:22px}
+  .pd{position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0}
+  .pd.p2{order:1} .pd.p1{order:2} .pd.p3{order:3}
+  .pd .av{position:relative; width:50px; height:50px; margin-bottom:8px; flex-shrink:0}
+  .pd .av::before{content:""; position:absolute; top:0; right:0; bottom:0; left:0; border-radius:50%; background:var(--ring)}
+  .pd .av span{position:absolute; top:3px; right:3px; bottom:3px; left:3px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--face); color:var(--faceInk); font-weight:800; font-size:19px; line-height:1}
+  .p1{--ring:conic-gradient(#ffd01e,#fff6c8,#ff8f17,#ffd01e,#fff6c8,#ff8f17,#ffd01e);
+      --face:linear-gradient(160deg,#fff3c4,#ffd23f); --faceInk:#7a4a00}
+  .p2{--ring:linear-gradient(160deg,#f4f7fb,#aebccd); --face:linear-gradient(160deg,#ffffff,#e3e9f1); --faceInk:#3b4757}
+  .p3{--ring:linear-gradient(160deg,#ffe0c2,#d98548); --face:linear-gradient(160deg,#fff4ea,#ffd9b8); --faceInk:#7a3f12}
+  @supports not (background:conic-gradient(red,red)){ .p1{--ring:linear-gradient(160deg,#fff3b0,#ffd01e 50%,#ff8f17)} }
+  .p1 .av{width:62px; height:62px}
+  .p1 .av span{font-size:24px; top:3.5px; right:3.5px; bottom:3.5px; left:3.5px}
+  .p1 .av::before{animation:spin 6s linear infinite, halo 2.4s ease-out infinite}
+  .crown{position:absolute; top:-21px; left:50%; width:34px; height:24px; margin-left:-17px; transform:rotate(-9deg); z-index:2;
+    filter:drop-shadow(0 2px 3px rgba(201,138,0,.35))}
+  .pd .pn{width:100%; font-weight:800; font-size:13.5px; line-height:1.3; color:var(--ink);
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; word-break:break-all}
+  .pd .pv{margin-top:4px; font-family:var(--num); font-weight:700; font-size:16px; line-height:1.1; color:var(--ink);
+    font-variant-numeric:tabular-nums; white-space:nowrap}
+  .pd .pv small{font-size:11px; color:var(--muted); margin-left:2px}
+  .pd.p1 .pv{font-size:19px; color:#b86e00}
+  .pd .pv.long{font-size:13px} .pd.p1 .pv.long{font-size:15px}
+  .pd .pm{font-size:11px; color:var(--muted); margin-top:2px}
+  .pd .prz{margin-top:6px}
+  .plinth{align-self:stretch; position:relative; overflow:hidden; margin-top:9px; border-radius:12px 12px 4px 4px;
+    display:flex; justify-content:center; padding-top:7px; transform-origin:50% 100%}
+  .plinth b{font-family:var(--num); font-weight:700; font-size:26px; line-height:1; color:#fff; text-shadow:0 2px 6px rgba(0,0,0,.14)}
+  .p1 .plinth{height:66px; background:linear-gradient(180deg,#ffd84a,#ff9a1f); box-shadow:0 8px 18px rgba(255,154,31,.3)}
+  .p2 .plinth{height:48px; background:linear-gradient(180deg,#e6ecf3,#aab9ca)}
+  .p3 .plinth{height:38px; background:linear-gradient(180deg,#ffcb98,#d9864a)}
+  .p1 .plinth::after{content:""; position:absolute; top:-20%; bottom:-20%; left:-45%; width:34%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg);
+    animation:sweep 4s 2.2s ease-in-out infinite}
+  .pd.vacant .av span{color:#b3c0cf; background:#f3f6fa} .pd.vacant .pn{color:var(--muted); font-weight:600}
+  .pd.vacant .plinth{opacity:.45}
+
+  .rows{margin-top:10px; border-top:1px solid var(--line)}
+  .lrow{display:grid; grid-template-columns:30px 1fr auto; gap:10px; align-items:center;
+    padding:11px 6px; border-top:1px solid var(--line)}
+  .rows > .lrow:first-child{border-top:none}
+  .lrow.win{background:linear-gradient(92deg,rgba(255,208,30,.11),rgba(255,143,23,.02))}
   .rk{width:28px; height:28px; border-radius:9px; display:flex; align-items:center; justify-content:center;
-    font-family:var(--mono); font-weight:800; font-size:13.5px; color:var(--ink2); background:#eef3fb}
-  .rk.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); color:#4a2c00}
-  .rk.g2{background:linear-gradient(135deg,#eef2f7,#c4cfdb); color:#2a3340}
-  .rk.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); color:#3a1e08}
+    font-family:var(--num); font-weight:700; font-size:15px; color:var(--ink2); background:#eef3fb}
   .who{min-width:0}
   .who .nm{font-weight:700; font-size:14.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .who .mt{font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:2px}
+  .who .mt{font-size:11px; color:var(--muted); margin-top:1px}
+  .who .mt .cd{font-family:var(--mono); margin-right:8px}
   .bar{height:4px; border-radius:3px; margin-top:6px; background:#eaf0f9; overflow:hidden}
-  .bar i{display:block; height:100%; border-radius:3px;
+  .bar i{display:block; height:100%; border-radius:3px; transform-origin:0 50%;
     background:linear-gradient(90deg,var(--blue-light),var(--blue))}
   .vc{text-align:right}
-  .vol{font-family:var(--mono); font-weight:800; font-size:15px; color:var(--ink)}
-  .vol small{display:block; font-size:10px; color:var(--muted); font-weight:400}
-  .prz{display:inline-block; margin-top:6px; font-size:10.5px; font-weight:800; padding:3px 8px;
+  .vol{font-family:var(--num); font-weight:700; font-size:16.5px; line-height:1.15; color:var(--ink); font-variant-numeric:tabular-nums}
+  .vol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
+  .prz{display:inline-block; margin-top:5px; font-size:10.5px; font-weight:800; padding:3px 8px;
     border-radius:7px; white-space:nowrap; color:#4a2c00;
-    background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
+    background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 2px 6px rgba(255,143,23,.25)}
+  .lrow.zero{padding:8px 4px}
+  .lrow.zero .rk{width:24px; height:24px; font-size:13px; border-radius:8px; background:#f3f6fa; color:var(--muted)}
+  .lrow.zero .nm{font-weight:600; font-size:14px; color:#3b4a5c}
+  .lrow.zero .vol{font-size:14px; color:var(--dead)}
+  .lrow.zero .vol small{display:none}
+  .sep{display:flex; align-items:center; gap:10px; margin:14px 0 4px; font-size:11.5px; color:var(--muted)}
+  .sep::before,.sep::after{content:""; flex:1; height:1px; background:var(--line)}
+  .sep + .lrow{border-top:none}
+  .dlt{display:block; font-style:normal; font-family:var(--num); font-size:12px; font-weight:700; color:var(--blue);
+    animation:dlt 7s ease-out forwards}
+  .lrow.bump,.pd.bump .pn{animation:bump 2.6s ease-out}
+
+  .skel .skp{display:grid; grid-template-columns:1fr 1.14fr 1fr; gap:8px; align-items:end; margin:18px 0 14px}
+  .sk{display:block; border-radius:10px; background:linear-gradient(90deg,#eef3fa 0%,#f8fbff 45%,#eef3fa 90%);
+    background-size:220% 100%; animation:skel 1.3s linear infinite}
+  .skr{height:44px; margin-top:10px}
   .empty{padding:30px 10px; text-align:center}
   .empty .big{font-size:15px; font-weight:800; color:var(--ink2)}
   .empty .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
 
-  /* 注意事项 */
+  /* 榜单入场：台阶从地面升起（3→2→1），皇冠最后落下；只在第一次滚到榜单时播放 */
+  #board.pending .pd, #board.pending .rows{opacity:0}
+  #board.go .plinth{animation:rise .75s cubic-bezier(.22,1,.36,1) both}
+  #board.go .p3 .plinth{animation-delay:.05s} #board.go .p2 .plinth{animation-delay:.2s} #board.go .p1 .plinth{animation-delay:.38s}
+  #board.go .pd > :not(.plinth):not(.crown){animation:fadeUp .5s var(--out) both}
+  #board.go .p3 > :not(.plinth){animation-delay:.3s} #board.go .p2 > :not(.plinth){animation-delay:.45s}
+  #board.go .p1 > :not(.plinth):not(.crown){animation-delay:.62s}
+  #board.go .crown{animation:drop .6s 1s cubic-bezier(.3,1.6,.5,1) both}
+  #board.go .rows{animation:fadeUp .5s .85s var(--out) both}
+  #board.go .bar i{animation:barGrow 1.1s 1s var(--out) both}
+
+  /* ---------- 注意事项 ---------- */
   .note h4{color:var(--blue); font-size:14.5px; margin:14px 0 5px}
   .note h4:first-child{margin-top:0}
   .note p{margin:0; font-size:13.5px; color:var(--ink2); line-height:1.75}
 
-  /* 固定底栏 */
+  /* ---------- 固定底栏 ---------- */
   .cta{position:fixed; left:0; right:0; bottom:0; z-index:20; padding:12px 14px calc(12px + env(safe-area-inset-bottom));
     background:linear-gradient(180deg,rgba(233,242,255,0),#e9f2ff 40%); display:flex; justify-content:center}
-  .cta button{max-width:472px; width:100%; border:0; cursor:pointer; color:#fff; font-weight:700; font-size:16px;
+  .cta button{position:relative; overflow:hidden; max-width:472px; width:100%; border:0; cursor:pointer; color:#fff;
+    font-family:var(--sans); font-weight:800; font-size:16.5px; letter-spacing:.5px;
     padding:15px; border-radius:14px; background:linear-gradient(135deg,var(--blue-light),var(--blue-deep));
-    box-shadow:0 8px 22px rgba(14,86,214,.36)}
+    box-shadow:0 8px 22px rgba(14,86,214,.36), inset 0 1px 0 rgba(255,255,255,.25); transition:transform .15s}
+  .cta button::after{content:""; position:absolute; top:0; bottom:0; left:-35%; width:26%; pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent); transform:skewX(-20deg);
+    animation:sweepWide 5.5s 3s ease-in-out infinite}
+  .cta button:active{transform:scale(.985)}
   .cta button:focus-visible{outline:3px solid #ffd01e; outline-offset:2px}
   .share{position:fixed; right:16px; bottom:86px; z-index:21; width:44px; height:44px; border-radius:50%; background:var(--blue);
-    display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(22,119,255,.4); cursor:pointer; border:0}
+    display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(22,119,255,.4); cursor:pointer; border:0;
+    transition:transform .2s}
+  .share:focus-visible{outline:3px solid #ffd01e; outline-offset:2px}
+
+  @keyframes grow{from{transform:scaleY(0)}}
+  @keyframes draw{from{stroke-dashoffset:100}}
+  @keyframes pop{from{opacity:0; transform:scale(.3)}}
+  @keyframes float{50%{transform:translateY(-6px)}}
+  @keyframes breathe{50%{opacity:.65; transform:scale(1.07)}}
+  @keyframes twinkle{50%{opacity:.2}}
+  @keyframes sweep{0%{transform:translateX(0) skewX(-20deg)} 30%,100%{transform:translateX(480%) skewX(-20deg)}}
+  @keyframes sweepWide{0%{transform:translateX(0) skewX(-20deg)} 32%,100%{transform:translateX(620%) skewX(-20deg)}}
+  @keyframes tk{from{transform:translateY(-38%); opacity:.15}}
+  @keyframes stripes{from{background-position:16px 0,0 0} to{background-position:0 0,0 0}}
+  @keyframes ping{from{transform:scale(1); opacity:.7} to{transform:scale(2.8); opacity:0}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,184,28,.55)} 100%{box-shadow:0 0 0 12px rgba(255,184,28,0)}}
+  @keyframes rise{from{transform:scaleY(0)}}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(10px)}}
+  @keyframes drop{from{opacity:0; transform:translateY(-16px) rotate(-30deg) scale(.6)}}
+  @keyframes barGrow{from{transform:scaleX(0)}}
+  @keyframes bump{0%{background-color:rgba(22,119,255,.18)} 100%{background-color:rgba(22,119,255,0)}}
+  @keyframes dlt{0%{opacity:0; transform:translateY(4px)} 8%,75%{opacity:1; transform:none} 100%{opacity:0}}
+  @keyframes skel{to{background-position:-220% 0}}
+
   @media(max-width:400px){ .hsub{max-width:100%} .hero .art{opacity:.55} }
-  @media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+  @media(max-width:360px){ .pd .av{width:44px; height:44px} .p1 .av{width:54px; height:54px} .pd .pn{font-size:12.5px}
+    .pd .pv{font-size:14px} .pd.p1 .pv{font-size:16px} .seg b{font-size:26px} }
+  @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important; transition:none!important} }
 </style>
 </head>
 <body>
@@ -187,36 +333,34 @@
         <linearGradient id="arw" x1="0" y1="1" x2="1" y2="0">
           <stop offset="0" stop-color="#4a97ff"/><stop offset="1" stop-color="#0e56d6"/></linearGradient>
         <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stop-color="#ffd01e" stop-opacity=".38"/><stop offset="1" stop-color="#ffd01e" stop-opacity="0"/></radialGradient>
+          <stop offset="0" stop-color="#ffd01e" stop-opacity=".42"/><stop offset="1" stop-color="#ffd01e" stop-opacity="0"/></radialGradient>
       </defs>
-      <circle cx="128" cy="118" r="96" fill="url(#glow)"/>
-      <!-- 上升柱：从 0 起跑 -->
-      <g opacity=".95">
-        <rect x="36" y="196" width="26" height="34" rx="6" fill="#cfe0fb"/>
-        <rect x="70" y="172" width="26" height="58" rx="6" fill="#a8c8f7"/>
-        <rect x="104" y="140" width="26" height="90" rx="6" fill="url(#arw)"/>
+      <circle class="a-glow" cx="128" cy="118" r="96" fill="url(#glow)"/>
+      <g class="a-bars" opacity=".95">
+        <rect class="b1" x="36" y="196" width="26" height="34" rx="6" fill="#cfe0fb"/>
+        <rect class="b2" x="70" y="172" width="26" height="58" rx="6" fill="#a8c8f7"/>
+        <rect class="b3" x="104" y="140" width="26" height="90" rx="6" fill="url(#arw)"/>
       </g>
-      <path d="M40 128 L74 106 L108 74 L146 40" fill="none" stroke="#0e56d6" stroke-width="4"
+      <path class="a-line" pathLength="100" d="M40 128 L74 106 L108 74 L146 40" fill="none" stroke="#0e56d6" stroke-width="4"
             stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-      <path d="M132 34 L152 36 L150 56 Z" fill="#0e56d6"/>
-      <!-- 奖杯 -->
-      <g transform="translate(146,120)">
+      <path class="a-head" d="M132 34 L152 36 L150 56 Z" fill="#0e56d6"/>
+      <g class="a-cup"><g transform="translate(146,120)">
         <path d="M6 0 h60 v20 a30 30 0 0 1 -60 0 Z" fill="url(#cup)"/>
         <path d="M2 2 h8 v14 a10 10 0 0 1 -8 -14 Z" fill="#ffc94d"/>
         <path d="M62 2 h8 a10 10 0 0 1 -8 14 Z" fill="#ffc94d"/>
+        <path d="M18 8 q4 -4 10 -4" stroke="#fff6c8" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
         <rect x="30" y="44" width="12" height="16" fill="#e8a200"/>
         <rect x="18" y="58" width="36" height="9" rx="3" fill="#d98f00"/>
-      </g>
-      <!-- 金币 -->
+      </g></g>
       <g>
         <ellipse cx="196" cy="206" rx="20" ry="7" fill="#ffc94d"/>
         <ellipse cx="196" cy="200" rx="20" ry="7" fill="#ffd01e"/>
         <ellipse cx="176" cy="214" rx="15" ry="5.5" fill="#ffc94d"/>
-        <circle cx="214" cy="82" r="7" fill="#ffd01e" opacity=".8"/>
-        <circle cx="60"  cy="58" r="5" fill="#4a97ff" opacity=".6"/>
-        <circle cx="196" cy="150" r="4" fill="#ff8f17" opacity=".7"/>
+        <circle class="tw" cx="214" cy="82" r="7" fill="#ffd01e" opacity=".8"/>
+        <circle class="tw t2" cx="60" cy="58" r="5" fill="#4a97ff" opacity=".6"/>
+        <circle class="tw t3" cx="196" cy="150" r="4" fill="#ff8f17" opacity=".7"/>
+        <path class="tw t2" d="M92 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd01e"/>
       </g>
-      <!-- 起跑线 -->
       <g opacity=".5">
         <rect x="24" y="236" width="200" height="4" rx="2" fill="#0e56d6" opacity=".25"/>
         <rect x="24" y="236" width="16" height="4" fill="#0e56d6"/>
@@ -227,7 +371,7 @@
     </svg>
     <span class="hbadge">社区专属交易活动 · 拉新增量赛</span>
     <h1>所有人<em>从 0 开始</em></h1>
-    <div class="prizePill">奖池 <b>500 U</b></div>
+    <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">500</b><span class="pu">U</span></div>
     <div class="hdate">9月10日 18:00 — 9月24日 18:00</div>
     <p class="hsub">只算你赛期内新拉来的用户。他们做多少交易量，你的成绩就是多少。</p>
   </section>
@@ -239,10 +383,14 @@
       <div class="trow"><span>结束时间</span><b id="endT">--</b></div>
       <div class="cdLabel" id="cdLabel">距开赛</div>
       <div class="clock">
-        <div class="seg"><b id="dd">00</b><small>天 DAYS</small></div>
-        <div class="seg"><b id="hh">00</b><small>时 HRS</small></div>
-        <div class="seg"><b id="mm">00</b><small>分 MIN</small></div>
-        <div class="seg"><b id="ss">00</b><small>秒 SEC</small></div>
+        <div class="seg"><b id="dd">00</b><small>天</small></div>
+        <div class="seg"><b id="hh">00</b><small>时</small></div>
+        <div class="seg"><b id="mm">00</b><small>分</small></div>
+        <div class="seg"><b id="ss">00</b><small>秒</small></div>
+      </div>
+      <div class="race" id="race">
+        <div class="rtop"><span id="rDay">赛程进度</span><b id="rPct">0%</b></div>
+        <div class="rbar"><i id="rFill"></i></div>
       </div>
     </div>
   </section>
@@ -278,7 +426,7 @@
       <div class="ptTitle"><span class="pill">社区长奖励</span> 按新增用户交易量排名 · 共 500 U</div>
       <div class="ptable">
         <div class="ph"><span>名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">150 U</span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">120 U</span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90 U</span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">80 U</span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">60 U</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">150<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">120<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">80<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">60<small> U</small></span></div>
       </div>
       <div class="fine">奖励于活动结束后 7 个工作日内发放。同一社区长的多个邀请码合并计算，一人只占一个名次。</div>
     </div>
@@ -287,11 +435,12 @@
   <section>
     <span class="tab">实时榜单</span>
     <div class="card">
-      <div class="lbSub"><span class="t">社区榜 · 新增用户交易量</span><span class="upd" id="updated">尚未开赛</span></div>
+      <div class="lbHead"><span class="t">社区榜<small>按新增用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
+      <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
-        <div class="empty">
-          <div class="big">榜单加载中</div>
-          <div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。</div>
+        <div class="skel" aria-label="榜单加载中">
+          <div class="skp"><i class="sk" style="height:92px"></i><i class="sk" style="height:118px"></i><i class="sk" style="height:80px"></i></div>
+          <i class="sk skr"></i><i class="sk skr"></i><i class="sk skr"></i>
         </div>
       </div>
     </div>
@@ -321,98 +470,232 @@
 <script>
 (function(){
   var START=new Date("2026-09-10T18:00:00+08:00").getTime(), END=new Date("2026-09-24T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl";
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board", PRIZE=[150,120,90,80,60];
+  var DAYS=Math.round((END-START)/864e5);
+  var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function $(id){return document.getElementById(id);}
   function pad(n){return (n<10?"0":"")+n;}
   function dstr(x){var t=new Date(x);
     return t.getFullYear()+"/"+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes())+"（UTC+8）";}
-  document.getElementById("startT").textContent=dstr(START);
-  document.getElementById("endT").textContent=dstr(END);
-
-  function tick(){
-    var now=Date.now(), lab=document.getElementById("cdLabel"), diff;
-    if(now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
-    else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
-    else{diff=0; lab.textContent="已结束 · 结算中"; lab.className="cdLabel ended";}
-    document.getElementById("dd").textContent=pad(Math.floor(diff/864e5));
-    document.getElementById("hh").textContent=pad(Math.floor(diff%864e5/36e5));
-    document.getElementById("mm").textContent=pad(Math.floor(diff%36e5/6e4));
-    document.getElementById("ss").textContent=pad(Math.floor(diff%6e4/1e3));
-  }
-  tick(); setInterval(tick,1000);
-
-  // ---- 榜单：读同目录 leaderboard.json（后端 feed 由本地脚本剥离 PII 后生成）----
-  var PRIZE=[150,120,90,80,60];
-  function fmt(n){return (n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
-  function mask(s){s=String(s||"");if(!s)return"";var h=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,h)+"****";}
+  function fmt(n){return (+n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function mask(s){s=String(s||"");if(!s)return"";if(s.indexOf("*")>=0)return s;
+    var h=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,h)+"****";}
   function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 
-  function renderBoard(d){
-    var b=(d&&d.boards&&d.boards.community)||[], host=document.getElementById("board"),
-        up=document.getElementById("updated");
-    // 显示「数据统计到的时间」而不是「接口响应时间」——后者永远是刚刚，会让人
-    // 误以为最新交易已计入。超过 1 小时未更新时明确标出，不粉饰。
-    if(d&&d.sourceUpdated){
-      // 上游 updated_at 是 UTC。页面其余时间均以 UTC+8 标注，这里统一换算成
-      // UTC+8 固定显示，避免海外访问者看到与赛期时间对不上的本地时间。
+  // 数字滚动：from → to，缓出。减少动态效果时直接落到终值。
+  function roll(el,from,to,dur,f){
+    f=f||fmt;
+    if(REDUCED||!window.requestAnimationFrame){el.textContent=f(to);return;}
+    var t0=0;
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=f(from+(to-from)*e);
+      if(p<1) window.requestAnimationFrame(step);
+    }
+    el.textContent=f(from);
+    window.requestAnimationFrame(step);
+  }
+
+  $("startT").textContent=dstr(START);
+  $("endT").textContent=dstr(END);
+  roll($("pool"),0,500,1300,function(v){return String(Math.round(v));});   // 奖池也「从 0 开始」
+
+  // ---- 倒计时 + 赛程进度 ----
+  var firstTick=true;
+  function setSeg(el,v){
+    if(el.textContent===v) return;
+    el.textContent=v;
+    if(firstTick||REDUCED) return;
+    el.classList.remove("tk"); void el.offsetWidth; el.classList.add("tk");
+  }
+  function tick(){
+    var now=Date.now(), lab=$("cdLabel"), diff;
+    if(now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
+    else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
+    else{diff=0; lab.textContent="已结束，结算中"; lab.className="cdLabel ended";}
+    setSeg($("dd"),pad(Math.floor(diff/864e5)));
+    setSeg($("hh"),pad(Math.floor(diff%864e5/36e5)));
+    setSeg($("mm"),pad(Math.floor(diff%36e5/6e4)));
+    setSeg($("ss"),pad(Math.floor(diff%6e4/1e3)));
+    var pct=now<START?0:(now>=END?100:(now-START)/(END-START)*100), w=pct.toFixed(3)+"%";
+    $("rPct").textContent=(pct>0&&pct<10?pct.toFixed(1):Math.floor(pct))+"%";
+    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"赛程已结束":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
+    $("race").className="race"+(now>=START&&now<END?" on":"");
+    if(firstTick&&!REDUCED&&window.requestAnimationFrame){
+      window.requestAnimationFrame(function(){window.requestAnimationFrame(function(){$("rFill").style.width=w;});});
+    } else {
+      $("rFill").style.width=w;
+    }
+    firstTick=false;
+  }
+  tick(); setInterval(tick,1000);
+
+  // ---- 榜单 ----
+  var CROWN='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><defs>'+
+    '<linearGradient id="crownG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/>'+
+    '<stop offset="1" stop-color="#ff9a1f"/></linearGradient></defs>'+
+    '<path d="M5 29 L2 8 L14 17 L24 3 L34 17 L46 8 L43 29 Z" fill="url(#crownG)" stroke="#e08a00" stroke-width="1.6" stroke-linejoin="round"/>'+
+    '<rect x="5" y="25" width="38" height="4" fill="#e08a00" opacity=".45"/>'+
+    '<circle cx="2" cy="8" r="2.8" fill="#ffd01e"/><circle cx="24" cy="3" r="2.8" fill="#ffd01e"/><circle cx="46" cy="8" r="2.8" fill="#ffd01e"/></svg>';
+  var prevVol=null, revealState=0;   // revealState: 0 未绑定入场 / 1 等待滚到榜单 / 2 已播放
+
+  function keyOf(r){return String(r.name||"")+"|"+String(r.code||"");}
+  function initial(name){
+    var m=String(name||"").replace(/^\s+/,"").match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\S/);
+    return m?m[0].toUpperCase():"?";
+  }
+  function prizeTag(r){
+    return (r.rank<=PRIZE.length&&(+r.volume||0)>0)?'<span class="prz">预计 '+PRIZE[r.rank-1]+' U</span>':"";
+  }
+  function podiumSlot(r,pos){
+    if(!r){
+      return '<div class="pd p'+pos+' vacant"><div class="av"><span>?</span></div><div class="pn">虚位以待</div>'+
+             '<div class="plinth"><b>'+pos+'</b></div></div>';
+    }
+    var v=+r.volume||0, s=fmt(v);
+    return '<div class="pd p'+pos+'" data-k="'+esc(keyOf(r))+'">'+(pos===1?CROWN:"")+
+      '<div class="av"><span>'+esc(initial(r.name))+'</span></div>'+
+      '<div class="pn">'+esc(r.name)+'</div>'+
+      '<div class="pv'+(s.length>9?" long":"")+'"><span class="n" data-v="'+v+'">'+s+'</span><small>U</small></div>'+
+      '<div class="pm">新增 '+(r.users|0)+' 人</div>'+prizeTag(r)+
+      '<div class="plinth"><b>'+pos+'</b></div></div>';
+  }
+  function rowHtml(r,top){
+    var v=+r.volume||0, zero=v<=0, win=!zero&&r.rank<=PRIZE.length;
+    return '<div class="lrow'+(win?" win":"")+(zero?" zero":"")+'" data-k="'+esc(keyOf(r))+'">'+
+      '<span class="rk">'+r.rank+'</span>'+
+      '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
+        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>新增 '+(r.users|0)+' 人</div>'+
+        (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
+      '</div>'+
+      '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
+    '</div>';
+  }
+
+  function renderStamp(d,fallback){
+    var up=$("updated"), live=$("live"), lag=null;
+    if(d.sourceUpdated){
+      // 上游 updated_at 是 UTC，页面统一以 UTC+8 显示
       var t=new Date(String(d.sourceUpdated).replace(" ","T")+"Z");
-      var bj=new Date(t.getTime()+8*36e5);          // 注意别用 b：b 是上面的榜单数组
+      var bj=new Date(t.getTime()+8*36e5);
       var txt="数据截至 "+pad(bj.getUTCMonth()+1)+"/"+pad(bj.getUTCDate())+" "+
               pad(bj.getUTCHours())+":"+pad(bj.getUTCMinutes())+"（UTC+8）";
-      var lag=Math.floor((Date.now()-t.getTime())/6e4);
-      if(lag>=60) txt+=" · "+Math.floor(lag/60)+" 小时前";
+      lag=Math.floor((Date.now()-t.getTime())/6e4);
+      if(lag>=60) txt+="，"+Math.floor(lag/60)+" 小时前";
       up.textContent=txt;
-    } else if(d&&d.updated){
+    } else if(d.updated){
       var u=new Date(d.updated);
       up.textContent="数据截至 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());
     }
-    if(!b.length){
+    var stale=!!fallback||!!d.stale||(lag!==null&&lag>=60);
+    live.className="live"+(stale?" stale":"");
+    live.lastChild.nodeValue=stale?"延迟":"实时";
+  }
+
+  function reveal(host){
+    if(revealState!==1) return;
+    revealState=2;
+    host.classList.remove("pending"); host.classList.add("go");
+    var nums=host.querySelectorAll(".pd .n[data-v], .rows .lrow:not(.zero) .n[data-v]");
+    for(var i=0;i<nums.length;i++){ roll(nums[i],0,+nums[i].getAttribute("data-v"),1300); }
+    setTimeout(function(){host.classList.remove("go");},2600);
+  }
+  function armReveal(host){
+    if(revealState!==0) return;
+    if(REDUCED){revealState=2; return;}
+    revealState=1;
+    host.classList.add("pending");
+    function near(){ var r=host.getBoundingClientRect(); return r.top<(window.innerHeight||800)*0.85 && r.bottom>0; }
+    if("IntersectionObserver" in window){
+      var io=new IntersectionObserver(function(ents){
+        for(var i=0;i<ents.length;i++){ if(ents[i].isIntersecting){ io.disconnect(); reveal(host); return; } }
+      },{rootMargin:"0px 0px -15% 0px"});
+      io.observe(host);
+    }
+    // 兜底：个别内置浏览器 IntersectionObserver 不触发时，滚动到位也会播放
+    function onScroll(){ if(revealState!==1){window.removeEventListener("scroll",onScroll);return;} if(near()) reveal(host); }
+    window.addEventListener("scroll",onScroll,{passive:true});
+    if(near()) setTimeout(function(){reveal(host);},60);
+  }
+
+  function renderBoard(d,fallback){
+    var host=$("board");
+    if(!d) return;
+    renderStamp(d,fallback);
+    var list=(d.boards&&d.boards.community)||[];
+    if(!list.length){
       host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
-        '</div><div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。<br>'+
-        '所有已报名社区均在榜，开始拉新即可计分。</div></div>';
+        '</div><div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。<br>所有已报名社区均在榜，开始拉新即可计分。</div></div>';
       return;
     }
-    var max=b.reduce(function(m,r){return Math.max(m,r.volume||0);},1), html="";
-    b.forEach(function(r){
-      var pct=Math.max(4,Math.round((r.volume||0)/max*100)),
-          cls=r.rank<=3?" g"+r.rank:"",
-          prz=r.rank<=PRIZE.length?'<span class="prz">'+PRIZE[r.rank-1]+' U</span>':"";
-      html+='<div class="lrow'+(r.rank<=PRIZE.length?" win":"")+'">'+
-        '<span class="rk'+cls+'">'+r.rank+'</span>'+
-        '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-          '<div class="mt">'+esc(mask(r.code))+' · 新增 '+(r.users||0)+' 人</div>'+
-          '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
-        '<div class="vc"><div class="vol">'+fmt(r.volume)+'<small>USDT</small></div>'+prz+'</div>'+
-        '</div>';
-    });
+    var top=1, users=0, total=0, i;
+    for(i=0;i<list.length;i++){
+      var vi=+list[i].volume||0;
+      if(vi>top) top=vi;
+      total+=vi; users+=(list[i].users|0);
+    }
+    $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+
+      '</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>';
+
+    var html='<div class="podium">'+podiumSlot(list[0],1)+podiumSlot(list[1],2)+podiumSlot(list[2],3)+'</div>';
+    if(list.length>3){
+      var anyVol=total>0, sepDone=false;
+      html+='<div class="rows">';
+      for(i=3;i<list.length;i++){
+        if(anyVol&&!sepDone&&!((+list[i].volume||0)>0)){
+          html+='<div class="sep">以下社区暂未产生新增交易量</div>'; sepDone=true;
+        }
+        html+=rowHtml(list[i],top);
+      }
+      html+='</div>';
+    }
     host.innerHTML=html;
+
+    // 刷新时：交易量上涨的社区闪一下，并显示本次增量
+    if(prevVol){
+      var els=host.querySelectorAll("[data-k]");
+      for(i=0;i<els.length;i++){
+        var el=els[i], n=el.querySelector(".n[data-v]");
+        if(!n) continue;
+        var k=el.getAttribute("data-k"), now=+n.getAttribute("data-v"), was=prevVol[k];
+        if(typeof was==="number"&&now>was+0.004){
+          el.classList.add("bump");
+          var tag=document.createElement("em"); tag.className="dlt"; tag.textContent="+"+fmt(now-was);
+          var anchor=el.querySelector(".vol")||el.querySelector(".pv");
+          anchor.parentNode.insertBefore(tag,anchor.nextSibling);
+          (function(t){ setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },7200); })(tag);
+          if(revealState===2) roll(n,was,now,900);
+        }
+      }
+    }
+    prevVol={};
+    for(i=0;i<list.length;i++) prevVol[keyOf(list[i])]=+list[i].volume||0;
+    armReveal(host);
   }
 
   // 主源：自有服务端中转（密码留在服务端、已剥离 PII、实时读上游）
   // 兜底：仓库内静态 JSON，中转不可用时榜单不至于空白
-  var FEED="https://studio.ave.ai/race-board";
-  renderBoard(null);
-  fetch(FEED,{cache:"no-store"})
-    .then(function(r){if(!r.ok) throw 0; return r.json();})
-    .then(function(j){renderBoard(j);})
-    .catch(function(){
-      return fetch("leaderboard.json",{cache:"no-store"})
-        .then(function(r){return r.ok?r.json():null;})
-        .then(function(j){if(j) renderBoard(j);})
-        .catch(function(){});
-    });
-  // 页面停留期间每 5 分钟自动刷新一次
-  setInterval(function(){
-    fetch(FEED,{cache:"no-store"}).then(function(r){return r.ok?r.json():null;})
-      .then(function(j){if(j) renderBoard(j);}).catch(function(){});
-  }, 300000);
+  function load(){
+    return fetch(FEED,{cache:"no-store"})
+      .then(function(r){if(!r.ok) throw 0; return r.json();})
+      .then(function(j){renderBoard(j,false);});
+  }
+  load().catch(function(){
+    return fetch("leaderboard.json",{cache:"no-store"})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){if(j) renderBoard(j,true);})
+      .catch(function(){});
+  });
+  setInterval(function(){ load().catch(function(){}); }, 300000);   // 停留期间每 5 分钟刷新
 
-  document.getElementById("joinBtn").addEventListener("click",function(){
+  $("joinBtn").addEventListener("click",function(){
     window.open(TG_URL,"_blank","noopener");
   });
-  document.getElementById("shareBtn").addEventListener("click",function(){
-    var u=location.href, b=this;
-    function done(){b.style.transform="scale(1.12)"; setTimeout(function(){b.style.transform="";},260);}
+  $("shareBtn").addEventListener("click",function(){
+    var u=location.href, btn=this;
+    function done(){btn.style.transform="scale(1.12)"; setTimeout(function(){btn.style.transform="";},260);}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}
     else{var t=document.createElement("textarea"); t.value=u; document.body.appendChild(t); t.select();
       try{document.execCommand("copy");}catch(e){} document.body.removeChild(t); done();}
