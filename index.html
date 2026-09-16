@@ -641,11 +641,15 @@
 
     var html='<div class="podium">'+podiumSlot(list[0],1)+podiumSlot(list[1],2)+podiumSlot(list[2],3)+'</div>';
     if(list.length>3){
-      var anyVol=total>0, sepDone=false;
+      // 两段分隔：「有新用户但还没交易」在前，「还没邀请到新用户」在后（排序保证）；某段为空就不出现它的分隔线
+      var anyVol=total>0, anyInv=users>0, sepVol=false, sepInv=false;
       html+='<div class="rows">';
       for(i=3;i<list.length;i++){
-        if(anyVol&&!sepDone&&!((+list[i].volume||0)>0)){
-          html+='<div class="sep">以下社区暂未产生新增交易量</div>'; sepDone=true;
+        var noVol=!((+list[i].volume||0)>0), noInv=!((list[i].users|0)>0);
+        if(noVol&&noInv&&!sepInv&&(anyVol||anyInv)){
+          html+='<div class="sep">以下社区暂未邀请到新用户</div>'; sepInv=true; sepVol=true;
+        } else if(noVol&&!sepVol&&anyVol){
+          html+='<div class="sep">以下社区暂未产生新增交易量</div>'; sepVol=true;
         }
         html+=rowHtml(list[i],top);
       }
