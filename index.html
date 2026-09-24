@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>AVE 社区交易赛 · 拉新增量赛</title>
+<title>AVE 社区交易赛 · 双榜同赛</title>
 <style>
-  :root{
+:root{
     --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
     --card:#ffffff;
     --ink:#1b2a3d; --ink2:#5a6b7d; --muted:#9aa8b8; --line:#e6eefb;
@@ -305,6 +305,35 @@
   @media(max-width:360px){ .pd .av{width:44px; height:44px} .p1 .av{width:54px; height:54px} .pd .pn{font-size:12.5px}
     .pd .pv{font-size:14px} .pd.p1 .pv{font-size:16px} .seg b{font-size:26px} }
   @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important; transition:none!important} }
+
+  /* 榜单切换 */
+  .swt{display:flex; gap:8px; margin:12px 0 2px}
+  .swt button{flex:1; border:1px solid var(--line); background:#f7fafd; color:var(--ink2); cursor:pointer;
+    font-family:var(--sans); font-size:14px; font-weight:700; padding:9px 6px; border-radius:11px; transition:.18s}
+  .swt button small{display:block; font-size:11px; font-weight:600; color:var(--muted); margin-top:1px}
+  .swt button.on{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; border-color:transparent;
+    box-shadow:0 5px 14px rgba(22,119,255,.26)}
+  .swt button.on small{color:rgba(255,255,255,.85)}
+  .swt button:focus-visible{outline:3px solid #ffd01e; outline-offset:2px}
+  /* 奖池三块 */
+  .pots{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px}
+  .pot{border:1px solid var(--line); border-radius:12px; padding:11px 8px; text-align:center; background:#fbfdff}
+  .pot b{display:block; font-family:var(--num); font-weight:700; font-size:21px; color:var(--blue-deep); line-height:1.2}
+  .pot span{display:block; font-size:12px; font-weight:700; color:var(--ink); margin-top:2px}
+  .pot small{display:block; font-size:10.5px; color:var(--muted); margin-top:1px}
+  .pot.g{background:linear-gradient(160deg,#fffaf0,#fff4dd); border-color:#ffe2ad}
+  .pot.g b{color:#c8860a}
+  /* 抽奖 */
+  .draw{margin-top:14px; border:1px dashed #ffd9a6; background:linear-gradient(160deg,#fffdf7,#fff7e8);
+    border-radius:12px; padding:13px 15px}
+  .draw h4{margin:0 0 4px; font-size:14.5px; color:#a86b00}
+  .draw p{margin:0; font-size:13.5px; color:var(--ink2); line-height:1.75}
+  .draw b{color:#a86b00}
+  /* 待切换窗口提示 */
+  .pend{padding:26px 14px; text-align:center}
+  .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
+  .pend .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
+
 </style>
 </head>
 <body>
@@ -369,11 +398,11 @@
         <rect x="120" y="236" width="16" height="4" fill="#0e56d6"/>
       </g>
     </svg>
-    <span class="hbadge">社区专属交易活动 · 拉新增量赛</span>
-    <h1>所有人<em>从 0 开始</em></h1>
-    <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">500</b><span class="pu">U</span></div>
-    <div class="hdate">9月10日 18:00 — 9月24日 18:00</div>
-    <p class="hsub">只算你赛期内新拉来的用户。他们做多少交易量，你的成绩就是多少。</p>
+    <span class="hbadge">社区专属交易活动 · 双榜同赛</span>
+    <h1>拉新算一榜<em>老盘子算一榜</em></h1>
+    <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">1500</b><span class="pu">U</span></div>
+    <div class="hdate">9月24日 18:00 — 10月7日 18:00</div>
+    <p class="hsub">新客交易量和存量交易量分开排名，两个榜都能拿奖，另有 300 U 面向下级用户抽奖。</p>
   </section>
 
   <section>
@@ -396,13 +425,32 @@
   </section>
 
   <section>
-    <span class="tab">参与方式</span>
+    <span class="tab g">奖励分配</span>
     <div class="card">
-      <ol class="steps">
-        <li><b>社区长报名</b>，私信 Alex 绑定本社区的专属邀请链接。</li>
-        <li><b>赛期内拉新用户</b>，让新朋友通过你的专属链接注册 AVE。</li>
-        <li><b>新用户下场交易</b>，他们的交易量自动累计为你的成绩。</li>
-      </ol>
+      <div class="pots">
+        <div class="pot"><b>700</b><span>增量榜</span><small>前 10 名</small></div>
+        <div class="pot"><b>500</b><span>存量榜</span><small>前 10 名</small></div>
+        <div class="pot g"><b>300</b><span>用户抽奖</span><small>30 名各 10 U</small></div>
+      </div>
+
+      <div class="ptTitle"><span class="pill">增量榜</span> 新注册用户交易量 · 共 700 U</div>
+      <div class="ptable">
+        <div class="ph"><span>名次</span><span class="r">奖励</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">140<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">110<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">75<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">50<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">30<small> U</small></span></div>
+      </div>
+
+      <div class="ptTitle" style="margin-top:18px"><span class="pill">存量榜</span> 社区长本人＋老下级交易量 · 共 500 U</div>
+      <div class="ptable">
+        <div class="ph"><span>名次</span><span class="r">奖励</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">25<small> U</small></span></div>
+      </div>
+
+      <div class="draw">
+        <h4>用户抽奖 300 U</h4>
+        <p>赛期内<b>个人交易量满 500 U</b> 的下级用户，自动获得抽奖资格。赛后抽 <b>30 名</b>，每名 <b>10 U</b>。
+        名单编号公示，以赛期结束后的区块哈希为随机种子抽取，结果可复核。</p>
+      </div>
+      <div class="fine">奖励于活动结束后 7 个工作日内，自动发放至获奖社区长与中奖用户的 AVE 钱包，无需提交任何信息。</div>
     </div>
   </section>
 
@@ -410,32 +458,24 @@
     <span class="tab">成绩怎么算</span>
     <div class="card">
       <ul class="calc">
-        <li class="yes"><b>赛期内</b>通过你的专属链接<b>新注册</b>的用户，在赛期内产生的交易量</li>
-        <li class="no"><s>活动前就已经在你名下的老下级，他们的交易量</s></li>
-        <li class="no"><s>社区长本人的交易量</s></li>
+        <li class="yes"><b>增量榜</b>：赛期内通过你的专属链接<b>新注册</b>的用户，在赛期内产生的交易量</li>
+        <li class="yes"><b>存量榜</b>：赛期内<b>社区长本人 ＋ 老下级</b>产生的交易量</li>
+        <li class="no"><s>同一笔交易在两个榜重复计分</s></li>
       </ul>
-      <div class="hl">这一期<b>不看你过去积累了多少</b>。老下级做得再多也不计分，
-        所有社区的起点都是 <b>0</b>——小社区同样有机会拿第一。</div>
-      <div class="gate">单个新用户赛期交易量需达 <b>100 U</b> 才计入成绩。<br>所有已报名社区均展示在榜单上，无最低门槛。<br>赛期已于 9/24 18:00 结束，奖励将自动发放至获奖社区长的 AVE 钱包。</div>
+      <div class="hl">存量成绩 ＝ 社区总交易量 − 新用户交易量，<b>每一 U 只计一次</b>。
+        既拉来新客、又守住老盘子的社区，<b>两个榜的奖金可以同时拿</b>。</div>
+      <div class="gate">所有已报名社区均展示在榜单上，<b>无最低门槛</b>。赛期内新报名的社区同样计分。</div>
     </div>
   </section>
 
   <section>
-    <span class="tab g">奖励分配</span>
+    <span class="tab">实时榜单</span>
     <div class="card">
-      <div class="ptTitle"><span class="pill">社区长奖励</span> 按新增用户交易量排名 · 共 500 U</div>
-      <div class="ptable">
-        <div class="ph"><span>名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">150<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">120<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">80<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">60<small> U</small></span></div>
+      <div class="lbHead"><span class="t">社区榜<small id="boardSub">新注册用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
+      <div class="swt">
+        <button id="btnInc" class="on" type="button">增量榜<small>新用户交易量</small></button>
+        <button id="btnStk" type="button">存量榜<small>本人＋老下级</small></button>
       </div>
-      <div class="fine">奖励于活动结束后 7 个工作日内发放。同一社区长的多个邀请码合并计算，一人只占一个名次。</div>
-    </div>
-  </section>
-
-  <section>
-    <span class="tab">最终榜单</span>
-    <div class="card">
-      <div class="lbHead"><span class="t">社区榜<small>最终成绩 · 按新增用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
         <div class="skel" aria-label="榜单加载中">
@@ -447,10 +487,21 @@
   </section>
 
   <section>
+    <span class="tab">参与方式</span>
+    <div class="card">
+      <ol class="steps">
+        <li><b>社区长报名</b>，私信 Alex 绑定本社区的专属邀请链接；上一期已报名的社区自动继承。</li>
+        <li><b>赛期内拉新用户</b>，新朋友通过你的专属链接注册 AVE，其交易量计入增量榜。</li>
+        <li><b>动员老下级交易</b>，本人与老下级的交易量计入存量榜，两个榜分别排名。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
     <span class="tab">注意事项</span>
     <div class="card note">
       <h4>交易量口径</h4>
-      <p>按买入与卖出的绝对值相加计算。单个新用户最多计入该社区总量的 40%，超出部分不计。</p>
+      <p>按买入与卖出的绝对值相加计算，两个榜单不重复计分。</p>
       <h4>异常交易</h4>
       <p>异常刷量、关联地址对敲等交易不计入活动数据，经识别后从成绩中剔除。</p>
       <h4>最终解释</h4>
@@ -469,8 +520,9 @@
 
 <script>
 (function(){
-  var START=new Date("2026-09-10T18:00:00+08:00").getTime(), END=new Date("2026-09-24T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", PRIZE=[150,120,90,80,60];   // 赛期已结束，榜单数据内嵌，不再需要接口地址
+  var START=new Date("2026-09-24T18:00:00+08:00").getTime(), END=new Date("2026-10-07T18:00:00+08:00").getTime();
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board";
+  var PRIZE={inc:[140, 110, 90, 75, 65, 55, 50, 45, 40, 30], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25]};
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function $(id){return document.getElementById(id);}
@@ -482,8 +534,6 @@
     var h=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,h)+"****";}
   function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
-
-  // 数字滚动：from → to，缓出。减少动态效果时直接落到终值。
   function roll(el,from,to,dur,f){
     f=f||fmt;
     if(REDUCED||!window.requestAnimationFrame){el.textContent=f(to);return;}
@@ -494,15 +544,13 @@
       el.textContent=f(from+(to-from)*e);
       if(p<1) window.requestAnimationFrame(step);
     }
-    el.textContent=f(from);
-    window.requestAnimationFrame(step);
+    el.textContent=f(from); window.requestAnimationFrame(step);
   }
 
   $("startT").textContent=dstr(START);
   $("endT").textContent=dstr(END);
-  roll($("pool"),0,500,1300,function(v){return String(Math.round(v));});   // 奖池也「从 0 开始」
+  roll($("pool"),0,1500,1300,function(v){return String(Math.round(v));});
 
-  // ---- 倒计时 + 赛程进度 ----
   var firstTick=true;
   function setSeg(el,v){
     if(el.textContent===v) return;
@@ -525,29 +573,31 @@
     $("race").className="race"+(now>=START&&now<END?" on":"");
     if(firstTick&&!REDUCED&&window.requestAnimationFrame){
       window.requestAnimationFrame(function(){window.requestAnimationFrame(function(){$("rFill").style.width=w;});});
-    } else {
-      $("rFill").style.width=w;
-    }
+    } else { $("rFill").style.width=w; }
     firstTick=false;
   }
   tick(); setInterval(tick,1000);
 
-  // ---- 榜单 ----
+  // ---- 双榜 ----
   var CROWN='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><defs>'+
     '<linearGradient id="crownG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/>'+
     '<stop offset="1" stop-color="#ff9a1f"/></linearGradient></defs>'+
     '<path d="M5 29 L2 8 L14 17 L24 3 L34 17 L46 8 L43 29 Z" fill="url(#crownG)" stroke="#e08a00" stroke-width="1.6" stroke-linejoin="round"/>'+
     '<rect x="5" y="25" width="38" height="4" fill="#e08a00" opacity=".45"/>'+
     '<circle cx="2" cy="8" r="2.8" fill="#ffd01e"/><circle cx="24" cy="3" r="2.8" fill="#ffd01e"/><circle cx="46" cy="8" r="2.8" fill="#ffd01e"/></svg>';
-  var prevVol=null, revealState=0;   // revealState: 0 未绑定入场 / 1 等待滚到榜单 / 2 已播放
-
+  var DATA=null, which="inc", prevVol={inc:null,stock:null}, revealed=false;
   function keyOf(r){return String(r.name||"")+"|"+String(r.code||"");}
   function initial(name){
     var m=String(name||"").replace(/^\s+/,"").match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\S/);
     return m?m[0].toUpperCase():"?";
   }
+  function meta(r){
+    return which==="inc" ? ('新增 '+(r.users|0)+' 人')
+                         : (r.self>0 ? ('本人 '+fmt(r.self)+' U') : '老下级交易量');
+  }
   function prizeTag(r){
-    return (r.rank<=PRIZE.length&&(+r.volume||0)>0)?'<span class="prz">获得 '+PRIZE[r.rank-1]+' U</span>':"";
+    var p=PRIZE[which];
+    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">预计 '+p[r.rank-1]+' U</span>':"";
   }
   function podiumSlot(r,pos){
     if(!r){
@@ -559,25 +609,23 @@
       '<div class="av"><span>'+esc(initial(r.name))+'</span></div>'+
       '<div class="pn">'+esc(r.name)+'</div>'+
       '<div class="pv'+(s.length>9?" long":"")+'"><span class="n" data-v="'+v+'">'+s+'</span><small>U</small></div>'+
-      '<div class="pm">新增 '+(r.users|0)+' 人</div>'+prizeTag(r)+
+      '<div class="pm">'+esc(meta(r))+'</div>'+prizeTag(r)+
       '<div class="plinth"><b>'+pos+'</b></div></div>';
   }
   function rowHtml(r,top){
-    var v=+r.volume||0, zero=v<=0, win=!zero&&r.rank<=PRIZE.length;
+    var v=+r.volume||0, zero=v<=0, win=!zero&&r.rank<=PRIZE[which].length;
     return '<div class="lrow'+(win?" win":"")+(zero?" zero":"")+'" data-k="'+esc(keyOf(r))+'">'+
       '<span class="rk">'+r.rank+'</span>'+
       '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>新增 '+(r.users|0)+' 人</div>'+
+        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>'+esc(meta(r))+'</div>'+
         (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
       '</div>'+
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
     '</div>';
   }
-
   function renderStamp(d,fallback){
     var up=$("updated"), live=$("live"), lag=null;
     if(d.sourceUpdated){
-      // 上游 updated_at 是 UTC，页面统一以 UTC+8 显示
       var t=new Date(String(d.sourceUpdated).replace(" ","T")+"Z");
       var bj=new Date(t.getTime()+8*36e5);
       var txt="数据截至 "+pad(bj.getUTCMonth()+1)+"/"+pad(bj.getUTCDate())+" "+
@@ -585,49 +633,51 @@
       lag=Math.floor((Date.now()-t.getTime())/6e4);
       if(lag>=60) txt+="，"+Math.floor(lag/60)+" 小时前";
       up.textContent=txt;
-    } else if(d.updated){
-      var u=new Date(d.updated);
-      up.textContent="数据截至 "+pad(u.getMonth()+1)+"/"+pad(u.getDate())+" "+pad(u.getHours())+":"+pad(u.getMinutes());
     }
     var stale=!!fallback||!!d.stale||(lag!==null&&lag>=60);
     live.className="live"+(stale?" stale":"");
     live.lastChild.nodeValue=stale?"延迟":"实时";
   }
-
   function reveal(host){
-    if(revealState!==1) return;
-    revealState=2;
+    if(revealed!==1) return;
+    revealed=2;
     host.classList.remove("pending"); host.classList.add("go");
     var nums=host.querySelectorAll(".pd .n[data-v], .rows .lrow:not(.zero) .n[data-v]");
     for(var i=0;i<nums.length;i++){ roll(nums[i],0,+nums[i].getAttribute("data-v"),1300); }
     setTimeout(function(){host.classList.remove("go");},2600);
   }
   function armReveal(host){
-    if(revealState!==0) return;
-    if(REDUCED){revealState=2; return;}
-    revealState=1;
+    if(revealed!==false) return;
+    if(REDUCED){revealed=2; return;}
+    revealed=1;
     host.classList.add("pending");
-    function near(){ var r=host.getBoundingClientRect(); return r.top<(window.innerHeight||800)*0.85 && r.bottom>0; }
+    function near(){var r=host.getBoundingClientRect(); return r.top<(window.innerHeight||800)*0.85&&r.bottom>0;}
     if("IntersectionObserver" in window){
-      var io=new IntersectionObserver(function(ents){
-        for(var i=0;i<ents.length;i++){ if(ents[i].isIntersecting){ io.disconnect(); reveal(host); return; } }
+      var io=new IntersectionObserver(function(es){
+        for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ io.disconnect(); reveal(host); return; } }
       },{rootMargin:"0px 0px -15% 0px"});
       io.observe(host);
     }
-    // 兜底：个别内置浏览器 IntersectionObserver 不触发时，滚动到位也会播放
-    function onScroll(){ if(revealState!==1){window.removeEventListener("scroll",onScroll);return;} if(near()) reveal(host); }
+    function onScroll(){ if(revealed!==1){window.removeEventListener("scroll",onScroll);return;} if(near()) reveal(host); }
     window.addEventListener("scroll",onScroll,{passive:true});
     if(near()) setTimeout(function(){reveal(host);},60);
   }
-
-  function renderBoard(d,fallback){
+  function render(){
     var host=$("board");
-    if(!d) return;
-    renderStamp(d,fallback);
-    var list=(d.boards&&d.boards.community)||[];
+    if(!DATA) return;
+    renderStamp(DATA,DATA.fallback);
+    $("boardSub").textContent = which==="inc" ? "新注册用户交易量" : "社区长本人＋老下级交易量";
+    if(DATA.pending){
+      host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+
+        '<div class="sm">赛事已开始，后端正在切换统计窗口。<br>窗口切换完成后本页会自动开始显示新一期数据，无需刷新。</div></div>';
+      $("summary").textContent="";
+      return;
+    }
+    var list=(DATA.boards&&DATA.boards[which==="inc"?"community":"stock"])||[];
     if(!list.length){
       host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
-        '</div><div class="sm">按赛期内新拉用户的交易量排名，赛期已结束。<br>所有已报名社区均在榜，开始拉新即可计分。</div></div>';
+        '</div><div class="sm">所有已报名社区均在榜，产生交易量即可计分。</div></div>';
+      $("summary").textContent="";
       return;
     }
     var top=1, users=0, total=0, i;
@@ -636,60 +686,70 @@
       if(vi>top) top=vi;
       total+=vi; users+=(list[i].users|0);
     }
-    $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+
-      '</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>';
-
+    $("summary").innerHTML = which==="inc"
+      ? '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+'</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>'
+      : '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>';
     var html='<div class="podium">'+podiumSlot(list[0],1)+podiumSlot(list[1],2)+podiumSlot(list[2],3)+'</div>';
     if(list.length>3){
-      // 两段分隔：「有新用户但还没交易」在前，「还没邀请到新用户」在后（排序保证）；某段为空就不出现它的分隔线
       var anyVol=total>0, anyInv=users>0, sepVol=false, sepInv=false;
       html+='<div class="rows">';
       for(i=3;i<list.length;i++){
         var noVol=!((+list[i].volume||0)>0), noInv=!((list[i].users|0)>0);
-        if(noVol&&noInv&&!sepInv&&(anyVol||anyInv)){
+        if(which==="inc"&&noVol&&noInv&&!sepInv&&(anyVol||anyInv)){
           html+='<div class="sep">以下社区暂未邀请到新用户</div>'; sepInv=true; sepVol=true;
         } else if(noVol&&!sepVol&&anyVol){
-          html+='<div class="sep">以下社区暂未产生新增交易量</div>'; sepVol=true;
+          html+='<div class="sep">以下社区暂未产生交易量</div>'; sepVol=true;
         }
         html+=rowHtml(list[i],top);
       }
       html+='</div>';
     }
     host.innerHTML=html;
-
-    // 刷新时：交易量上涨的社区闪一下，并显示本次增量
-    if(prevVol){
+    var pv=prevVol[which];
+    if(pv){
       var els=host.querySelectorAll("[data-k]");
       for(i=0;i<els.length;i++){
         var el=els[i], n=el.querySelector(".n[data-v]");
         if(!n) continue;
-        var k=el.getAttribute("data-k"), now=+n.getAttribute("data-v"), was=prevVol[k];
+        var k=el.getAttribute("data-k"), now=+n.getAttribute("data-v"), was=pv[k];
         if(typeof was==="number"&&now>was+0.004){
           el.classList.add("bump");
           var tag=document.createElement("em"); tag.className="dlt"; tag.textContent="+"+fmt(now-was);
           var anchor=el.querySelector(".vol")||el.querySelector(".pv");
           anchor.parentNode.insertBefore(tag,anchor.nextSibling);
-          (function(t){ setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },7200); })(tag);
-          if(revealState===2) roll(n,was,now,900);
+          (function(t){setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},7200);})(tag);
+          if(revealed===2) roll(n,was,now,900);
         }
       }
     }
-    prevVol={};
-    for(i=0;i<list.length;i++) prevVol[keyOf(list[i])]=+list[i].volume||0;
+    prevVol[which]={};
+    for(i=0;i<list.length;i++) prevVol[which][keyOf(list[i])]=+list[i].volume||0;
     armReveal(host);
   }
+  function pick(w){
+    if(which===w) return;
+    which=w; revealed=false;
+    $("btnInc").className = w==="inc"?"on":"";
+    $("btnStk").className = w==="stock"?"on":"";
+    render();
+  }
+  $("btnInc").addEventListener("click",function(){pick("inc");});
+  $("btnStk").addEventListener("click",function(){pick("stock");});
 
-  // 主源：自有服务端中转（密码留在服务端、已剥离 PII、实时读上游）
-  // 兜底：仓库内静态 JSON，中转不可用时榜单不至于空白
-  // 赛期已结束（2026-09-24 18:00 UTC+8）：榜单定格在收官数据，不再请求实时接口
-  var FINAL={"sourceUpdated": "2026-09-24 10:18:18", "final": true, "boards": {"community": [{"rank": 1, "name": "偷狗大队", "code": "chen****", "volume": 1823801.18, "users": 2}, {"rank": 2, "name": "希希社区", "code": "qhx0****", "volume": 472042.67, "users": 58}, {"rank": 3, "name": "鸭舍", "code": "Luck****", "volume": 142314.47, "users": 10}, {"rank": 4, "name": "元宝社区", "code": "2865****", "volume": 141164.9, "users": 2}, {"rank": 5, "name": "葵殿社区", "code": "kris****", "volume": 62474.65, "users": 15}, {"rank": 6, "name": "西湖公园", "code": "99****", "volume": 58689.5, "users": 11}, {"rank": 7, "name": "橘座团队", "code": "3830****", "volume": 36450.64, "users": 9}, {"rank": 8, "name": "远大社区", "code": "niuy****", "volume": 18242.25, "users": 13}, {"rank": 9, "name": "华尔街社区", "code": "yush****", "volume": 17095.27, "users": 8}, {"rank": 10, "name": "The Whale 52s", "code": "lxhq****", "volume": 9976.27, "users": 19}, {"rank": 11, "name": "招財進寶3949", "code": "0732****", "volume": 8531.97, "users": 4}, {"rank": 12, "name": "否与", "code": "BTC3****", "volume": 8286.9, "users": 41}, {"rank": 13, "name": "王者归来", "code": "GGzh****", "volume": 5450.5, "users": 1}, {"rank": 14, "name": "追风社区", "code": "3757****", "volume": 4911.32, "users": 2}, {"rank": 15, "name": "财神社区", "code": "love****", "volume": 1296.71, "users": 5}, {"rank": 16, "name": "梁山社区", "code": "jxs2****", "volume": 982.99, "users": 1}, {"rank": 17, "name": "冲锋小队", "code": "3815****", "volume": 684.72, "users": 5}, {"rank": 18, "name": "四海社区", "code": "dwj1****", "volume": 454.4, "users": 8}, {"rank": 19, "name": "梁山社区", "code": "jxs1****", "volume": 9.21, "users": 1}, {"rank": 20, "name": "鲁哥社区", "code": "1291****", "volume": 0.0, "users": 17}, {"rank": 21, "name": "三建学园", "code": "yiji****", "volume": 0.0, "users": 10}, {"rank": 22, "name": "A19 Meme社区", "code": "biao****", "volume": 0.0, "users": 4}, {"rank": 23, "name": "呆瓜社区", "code": "ETHB****", "volume": 0.0, "users": 3}, {"rank": 24, "name": "八方来财", "code": "jain****", "volume": 0.0, "users": 2}, {"rank": 25, "name": "小桃社区", "code": "8149****", "volume": 0.0, "users": 2}, {"rank": 26, "name": "阿狸社区", "code": "ccor****", "volume": 0.0, "users": 2}, {"rank": 27, "name": "薯条", "code": "6625****", "volume": 0.0, "users": 1}, {"rank": 28, "name": "天韵社区", "code": "5018****", "volume": 0.0, "users": 1}, {"rank": 29, "name": "Beauty", "code": "wanz****", "volume": 0.0, "users": 0}, {"rank": 30, "name": "田风", "code": "5763****", "volume": 0.0, "users": 0}, {"rank": 31, "name": "搞钱俱乐部", "code": "3937****", "volume": 0.0, "users": 0}, {"rank": 32, "name": "顶流社区尼古丁", "code": "3969****", "volume": 0.0, "users": 0}, {"rank": 33, "name": "半仙道场", "code": "1855****", "volume": 0.0, "users": 0}, {"rank": 34, "name": "财神爷社区", "code": "3359****", "volume": 0.0, "users": 0}, {"rank": 35, "name": "丐帮", "code": "3102****", "volume": 0.0, "users": 0}, {"rank": 36, "name": "橙子社区", "code": "7130****", "volume": 0.0, "users": 0}, {"rank": 37, "name": "摸金", "code": "0xbc****", "volume": 0.0, "users": 0}, {"rank": 38, "name": "链神 24 小时扫链", "code": "2397****", "volume": 0.0, "users": 0}, {"rank": 39, "name": "TABBY社区", "code": "kolm****", "volume": 0.0, "users": 0}, {"rank": 40, "name": "林姐社区", "code": "4927****", "volume": 0.0, "users": 0}, {"rank": 41, "name": "Carry社区", "code": "very****", "volume": 0.0, "users": 0}, {"rank": 42, "name": "banchain玩家", "code": "a837****", "volume": 0.0, "users": 0}, {"rank": 43, "name": "一方净土", "code": "2455****", "volume": 0.0, "users": 0}, {"rank": 44, "name": "大鹏大金狗神曲", "code": "2102****", "volume": 0.0, "users": 0}, {"rank": 45, "name": "追梦社区", "code": "3187****", "volume": 0.0, "users": 0}, {"rank": 46, "name": "川仔社区", "code": "ghq1****", "volume": 0.0, "users": 0}, {"rank": 47, "name": "大来社区", "code": "6929****", "volume": 0.0, "users": 0}, {"rank": 48, "name": "ant大军", "code": "allb****", "volume": 0.0, "users": 0}, {"rank": 49, "name": "ant大军", "code": "keji****", "volume": 0.0, "users": 0}, {"rank": 50, "name": "玩币社区", "code": "fQwH****", "volume": 0.0, "users": 0}]}};
-  renderBoard(FINAL,false);
-  $("updated").textContent="最终成绩 · 截至 09/24 18:00（UTC+8）";
-  $("live").className="live"; $("live").lastChild.nodeValue="已结束";
-
-  $("joinBtn").addEventListener("click",function(){
-    window.open(TG_URL,"_blank","noopener");
+  function load(){
+    return fetch(FEED,{cache:"no-store"})
+      .then(function(r){if(!r.ok) throw 0; return r.json();})
+      .then(function(j){DATA=j; render();});
+  }
+  load().catch(function(){
+    return fetch("leaderboard.json",{cache:"no-store"})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){if(j){j.fallback=true; DATA=j; render();}})
+      .catch(function(){});
   });
+  setInterval(function(){ load().catch(function(){}); }, 300000);
+
+  $("joinBtn").addEventListener("click",function(){ window.open(TG_URL,"_blank","noopener"); });
   $("shareBtn").addEventListener("click",function(){
     var u=location.href, btn=this;
     function done(){btn.style.transform="scale(1.12)"; setTimeout(function(){btn.style.transform="";},260);}
