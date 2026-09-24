@@ -416,7 +416,7 @@
       </ul>
       <div class="hl">这一期<b>不看你过去积累了多少</b>。老下级做得再多也不计分，
         所有社区的起点都是 <b>0</b>——小社区同样有机会拿第一。</div>
-      <div class="gate">单个新用户赛期交易量需达 <b>100 U</b> 才计入成绩。<br>所有已报名社区均展示在榜单上，无最低门槛。</div>
+      <div class="gate">单个新用户赛期交易量需达 <b>100 U</b> 才计入成绩。<br>所有已报名社区均展示在榜单上，无最低门槛。<br>赛期已于 9/24 18:00 结束，奖励将自动发放至获奖社区长的 AVE 钱包。</div>
     </div>
   </section>
 
@@ -433,9 +433,9 @@
   </section>
 
   <section>
-    <span class="tab">实时榜单</span>
+    <span class="tab">最终榜单</span>
     <div class="card">
-      <div class="lbHead"><span class="t">社区榜<small>按新增用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
+      <div class="lbHead"><span class="t">社区榜<small>最终成绩 · 按新增用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
         <div class="skel" aria-label="榜单加载中">
@@ -470,7 +470,7 @@
 <script>
 (function(){
   var START=new Date("2026-09-10T18:00:00+08:00").getTime(), END=new Date("2026-09-24T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board", PRIZE=[150,120,90,80,60];
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", PRIZE=[150,120,90,80,60];   // 赛期已结束，榜单数据内嵌，不再需要接口地址
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function $(id){return document.getElementById(id);}
@@ -547,7 +547,7 @@
     return m?m[0].toUpperCase():"?";
   }
   function prizeTag(r){
-    return (r.rank<=PRIZE.length&&(+r.volume||0)>0)?'<span class="prz">预计 '+PRIZE[r.rank-1]+' U</span>':"";
+    return (r.rank<=PRIZE.length&&(+r.volume||0)>0)?'<span class="prz">获得 '+PRIZE[r.rank-1]+' U</span>':"";
   }
   function podiumSlot(r,pos){
     if(!r){
@@ -627,7 +627,7 @@
     var list=(d.boards&&d.boards.community)||[];
     if(!list.length){
       host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
-        '</div><div class="sm">按赛期内新拉用户的交易量排名，数据实时更新。<br>所有已报名社区均在榜，开始拉新即可计分。</div></div>';
+        '</div><div class="sm">按赛期内新拉用户的交易量排名，赛期已结束。<br>所有已报名社区均在榜，开始拉新即可计分。</div></div>';
       return;
     }
     var top=1, users=0, total=0, i;
@@ -681,18 +681,11 @@
 
   // 主源：自有服务端中转（密码留在服务端、已剥离 PII、实时读上游）
   // 兜底：仓库内静态 JSON，中转不可用时榜单不至于空白
-  function load(){
-    return fetch(FEED,{cache:"no-store"})
-      .then(function(r){if(!r.ok) throw 0; return r.json();})
-      .then(function(j){renderBoard(j,false);});
-  }
-  load().catch(function(){
-    return fetch("leaderboard.json",{cache:"no-store"})
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(j){if(j) renderBoard(j,true);})
-      .catch(function(){});
-  });
-  setInterval(function(){ load().catch(function(){}); }, 300000);   // 停留期间每 5 分钟刷新
+  // 赛期已结束（2026-09-24 18:00 UTC+8）：榜单定格在收官数据，不再请求实时接口
+  var FINAL={"sourceUpdated": "2026-09-24 10:18:18", "final": true, "boards": {"community": [{"rank": 1, "name": "偷狗大队", "code": "chen****", "volume": 1823801.18, "users": 2}, {"rank": 2, "name": "希希社区", "code": "qhx0****", "volume": 472042.67, "users": 58}, {"rank": 3, "name": "鸭舍", "code": "Luck****", "volume": 142314.47, "users": 10}, {"rank": 4, "name": "元宝社区", "code": "2865****", "volume": 141164.9, "users": 2}, {"rank": 5, "name": "葵殿社区", "code": "kris****", "volume": 62474.65, "users": 15}, {"rank": 6, "name": "西湖公园", "code": "99****", "volume": 58689.5, "users": 11}, {"rank": 7, "name": "橘座团队", "code": "3830****", "volume": 36450.64, "users": 9}, {"rank": 8, "name": "远大社区", "code": "niuy****", "volume": 18242.25, "users": 13}, {"rank": 9, "name": "华尔街社区", "code": "yush****", "volume": 17095.27, "users": 8}, {"rank": 10, "name": "The Whale 52s", "code": "lxhq****", "volume": 9976.27, "users": 19}, {"rank": 11, "name": "招財進寶3949", "code": "0732****", "volume": 8531.97, "users": 4}, {"rank": 12, "name": "否与", "code": "BTC3****", "volume": 8286.9, "users": 41}, {"rank": 13, "name": "王者归来", "code": "GGzh****", "volume": 5450.5, "users": 1}, {"rank": 14, "name": "追风社区", "code": "3757****", "volume": 4911.32, "users": 2}, {"rank": 15, "name": "财神社区", "code": "love****", "volume": 1296.71, "users": 5}, {"rank": 16, "name": "梁山社区", "code": "jxs2****", "volume": 982.99, "users": 1}, {"rank": 17, "name": "冲锋小队", "code": "3815****", "volume": 684.72, "users": 5}, {"rank": 18, "name": "四海社区", "code": "dwj1****", "volume": 454.4, "users": 8}, {"rank": 19, "name": "梁山社区", "code": "jxs1****", "volume": 9.21, "users": 1}, {"rank": 20, "name": "鲁哥社区", "code": "1291****", "volume": 0.0, "users": 17}, {"rank": 21, "name": "三建学园", "code": "yiji****", "volume": 0.0, "users": 10}, {"rank": 22, "name": "A19 Meme社区", "code": "biao****", "volume": 0.0, "users": 4}, {"rank": 23, "name": "呆瓜社区", "code": "ETHB****", "volume": 0.0, "users": 3}, {"rank": 24, "name": "八方来财", "code": "jain****", "volume": 0.0, "users": 2}, {"rank": 25, "name": "小桃社区", "code": "8149****", "volume": 0.0, "users": 2}, {"rank": 26, "name": "阿狸社区", "code": "ccor****", "volume": 0.0, "users": 2}, {"rank": 27, "name": "薯条", "code": "6625****", "volume": 0.0, "users": 1}, {"rank": 28, "name": "天韵社区", "code": "5018****", "volume": 0.0, "users": 1}, {"rank": 29, "name": "Beauty", "code": "wanz****", "volume": 0.0, "users": 0}, {"rank": 30, "name": "田风", "code": "5763****", "volume": 0.0, "users": 0}, {"rank": 31, "name": "搞钱俱乐部", "code": "3937****", "volume": 0.0, "users": 0}, {"rank": 32, "name": "顶流社区尼古丁", "code": "3969****", "volume": 0.0, "users": 0}, {"rank": 33, "name": "半仙道场", "code": "1855****", "volume": 0.0, "users": 0}, {"rank": 34, "name": "财神爷社区", "code": "3359****", "volume": 0.0, "users": 0}, {"rank": 35, "name": "丐帮", "code": "3102****", "volume": 0.0, "users": 0}, {"rank": 36, "name": "橙子社区", "code": "7130****", "volume": 0.0, "users": 0}, {"rank": 37, "name": "摸金", "code": "0xbc****", "volume": 0.0, "users": 0}, {"rank": 38, "name": "链神 24 小时扫链", "code": "2397****", "volume": 0.0, "users": 0}, {"rank": 39, "name": "TABBY社区", "code": "kolm****", "volume": 0.0, "users": 0}, {"rank": 40, "name": "林姐社区", "code": "4927****", "volume": 0.0, "users": 0}, {"rank": 41, "name": "Carry社区", "code": "very****", "volume": 0.0, "users": 0}, {"rank": 42, "name": "banchain玩家", "code": "a837****", "volume": 0.0, "users": 0}, {"rank": 43, "name": "一方净土", "code": "2455****", "volume": 0.0, "users": 0}, {"rank": 44, "name": "大鹏大金狗神曲", "code": "2102****", "volume": 0.0, "users": 0}, {"rank": 45, "name": "追梦社区", "code": "3187****", "volume": 0.0, "users": 0}, {"rank": 46, "name": "川仔社区", "code": "ghq1****", "volume": 0.0, "users": 0}, {"rank": 47, "name": "大来社区", "code": "6929****", "volume": 0.0, "users": 0}, {"rank": 48, "name": "ant大军", "code": "allb****", "volume": 0.0, "users": 0}, {"rank": 49, "name": "ant大军", "code": "keji****", "volume": 0.0, "users": 0}, {"rank": 50, "name": "玩币社区", "code": "fQwH****", "volume": 0.0, "users": 0}]}};
+  renderBoard(FINAL,false);
+  $("updated").textContent="最终成绩 · 截至 09/24 18:00（UTC+8）";
+  $("live").className="live"; $("live").lastChild.nodeValue="已结束";
 
   $("joinBtn").addEventListener("click",function(){
     window.open(TG_URL,"_blank","noopener");
