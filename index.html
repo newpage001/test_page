@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>AVE 社区交易赛 · 双榜同赛</title>
+<title>AVE 社区交易赛 · 中秋国庆双节同庆</title>
 <style>
 :root{
     --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
@@ -334,6 +334,50 @@
   .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
   .pend .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
 
+  /* ---------- 中秋国庆双节主题：中国红 ＋ 金 ---------- */
+  :root{
+    --blue:#d5202f; --blue-deep:#9e0b1a; --blue-light:#f0564c; --blue-ink:#6e0a14;
+    --line:#f4ddd6; --ink:#2b1a1a; --ink2:#6b5450; --muted:#a98f8a;
+    --gold-1:#ffd85e; --gold-2:#e8a33a; --gold-deep:#b57a1c;
+  }
+  body{background:
+      radial-gradient(520px 380px at 100% -60px,rgba(213,32,47,.16),transparent 70%),
+      radial-gradient(420px 360px at -80px 34%,rgba(232,163,58,.16),transparent 70%),
+      linear-gradient(180deg,#ffeee6 0%,#fff4ec 24%,#fffaf4 100%)}
+  .card{box-shadow:0 8px 26px rgba(158,11,26,.08)}
+  .hero{background:linear-gradient(135deg,#ffe3d6 0%,#fff3e6 46%,#fff8dc 100%) !important;
+    box-shadow:0 14px 36px rgba(158,11,26,.16), inset 0 0 0 1px rgba(255,255,255,.72)}
+  .hero::before{background-image:
+      linear-gradient(rgba(158,11,26,.055) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(158,11,26,.055) 1px,transparent 1px)}
+  .hbadge{color:#9e0b1a; background:rgba(255,255,255,.86); border-color:#f6cfc2}
+  .prize{background:linear-gradient(135deg,#e5382f 0%,#c2101f 55%,#8d0713 100%);
+    box-shadow:0 10px 24px rgba(158,11,26,.34), inset 0 1px 0 rgba(255,255,255,.28)}
+  .seg{background:linear-gradient(180deg,#fffaf6,#ffeee6); border-color:#f6d8cc}
+  .rbar{background:#f6ddd4}
+  .hl,.gate{background:#fff6f1; border-color:#f7d6c9}
+  .ph{background:#fff6f1}
+  .live{background:#fff1ea; border-color:#f7d3c6; color:#9e0b1a}
+  .rk{background:#fdefe9}
+  .lrow.zero .rk{background:#faf1ee; color:var(--muted)}
+  .bar{background:#f7e4dc}
+  .sk{background:linear-gradient(90deg,#fbeee8 0%,#fff8f4 45%,#fbeee8 90%); background-size:220% 100%}
+  .swt button{background:#fff6f1; border-color:#f6d8cc}
+  .pot{background:#fffaf6; border-color:#f6ddd4}
+  .pot b{color:#b81322}
+  .pot.g{background:linear-gradient(160deg,#fffaf0,#ffefd2); border-color:#f3d79b}
+  .draw{border-color:#f3c9a0; background:linear-gradient(160deg,#fffdf6,#fff4e2)}
+  .cta{background:linear-gradient(180deg,rgba(255,238,230,0),#ffeee6 40%)}
+  .cta button{box-shadow:0 8px 22px rgba(158,11,26,.34), inset 0 1px 0 rgba(255,255,255,.25)}
+  .share{background:var(--blue); box-shadow:0 6px 16px rgba(213,32,47,.4)}
+  .pd.p1{--ring:conic-gradient(#ffd85e,#fff3c4,#e8a33a,#ffd85e,#fff3c4,#e8a33a,#ffd85e)}
+  .sep::before,.sep::after{background:#f4ddd6}
+  .pr .dot{background:#e9cec6}
+  .pr.top{background:linear-gradient(92deg,rgba(255,216,94,.16),rgba(232,163,58,.03))}
+  .lrow.win{background:linear-gradient(92deg,rgba(255,216,94,.16),rgba(232,163,58,.03))}
+  .steps li::before{box-shadow:0 3px 8px rgba(213,32,47,.26)}
+  .prz{box-shadow:0 2px 6px rgba(232,163,58,.3)}
+
 </style>
 </head>
 <body>
@@ -357,52 +401,72 @@
   <section class="hero">
     <svg class="art" viewBox="0 0 240 260" aria-hidden="true">
       <defs>
-        <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#ffe680"/><stop offset=".5" stop-color="#ffd01e"/><stop offset="1" stop-color="#ff8f17"/></linearGradient>
-        <linearGradient id="arw" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stop-color="#4a97ff"/><stop offset="1" stop-color="#0e56d6"/></linearGradient>
         <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stop-color="#ffd01e" stop-opacity=".42"/><stop offset="1" stop-color="#ffd01e" stop-opacity="0"/></radialGradient>
+          <stop offset="0" stop-color="#ffe9a8" stop-opacity=".55"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient>
+        <linearGradient id="moon" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff8dc"/><stop offset="1" stop-color="#ffe08a"/></linearGradient>
+        <linearGradient id="cake" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e8a94e"/><stop offset="1" stop-color="#c47a2c"/></linearGradient>
+        <linearGradient id="lant" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f0564c"/><stop offset="1" stop-color="#c2101f"/></linearGradient>
       </defs>
-      <circle class="a-glow" cx="128" cy="118" r="96" fill="url(#glow)"/>
-      <g class="a-bars" opacity=".95">
-        <rect class="b1" x="36" y="196" width="26" height="34" rx="6" fill="#cfe0fb"/>
-        <rect class="b2" x="70" y="172" width="26" height="58" rx="6" fill="#a8c8f7"/>
-        <rect class="b3" x="104" y="140" width="26" height="90" rx="6" fill="url(#arw)"/>
+      <circle class="a-glow" cx="168" cy="72" r="78" fill="url(#glow)"/>
+      <circle cx="168" cy="72" r="42" fill="url(#moon)"/>
+      <circle cx="152" cy="60" r="7" fill="#f6d78a" opacity=".55"/>
+      <circle cx="180" cy="86" r="5" fill="#f6d78a" opacity=".45"/>
+      <g opacity=".5" fill="#ffd9a0">
+        <path d="M96 104q10-12 24-8 4-12 18-10t16 14q14-2 18 10H96z"/>
+        <path d="M150 140q8-9 19-6 3-9 14-8t12 11q11-2 14 8h-59z"/>
       </g>
-      <path class="a-line" pathLength="100" d="M40 128 L74 106 L108 74 L146 40" fill="none" stroke="#0e56d6" stroke-width="4"
-            stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-      <path class="a-head" d="M132 34 L152 36 L150 56 Z" fill="#0e56d6"/>
-      <g class="a-cup"><g transform="translate(146,120)">
-        <path d="M6 0 h60 v20 a30 30 0 0 1 -60 0 Z" fill="url(#cup)"/>
-        <path d="M2 2 h8 v14 a10 10 0 0 1 -8 -14 Z" fill="#ffc94d"/>
-        <path d="M62 2 h8 a10 10 0 0 1 -8 14 Z" fill="#ffc94d"/>
-        <path d="M18 8 q4 -4 10 -4" stroke="#fff6c8" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
-        <rect x="30" y="44" width="12" height="16" fill="#e8a200"/>
-        <rect x="18" y="58" width="36" height="9" rx="3" fill="#d98f00"/>
-      </g></g>
+      <g class="a-cup">
+        <g transform="translate(40,150)">
+          <circle cx="44" cy="44" r="46" fill="#a85c1c" opacity=".25"/>
+          <circle cx="44" cy="42" r="44" fill="url(#cake)"/>
+          <circle cx="44" cy="42" r="35" fill="none" stroke="#f2c882" stroke-width="2.4" opacity=".75"/>
+          <g stroke="#f2c882" stroke-width="2.2" opacity=".65" stroke-linecap="round">
+            <path d="M44 9v66M11 42h66M21 19l46 46M67 19L21 65"/>
+          </g>
+          <circle cx="44" cy="42" r="14" fill="#b4671f"/>
+          <circle cx="44" cy="42" r="14" fill="none" stroke="#f7dca6" stroke-width="2"/>
+          <circle cx="44" cy="42" r="5" fill="#f7dca6" opacity=".9"/>
+        </g>
+      </g>
       <g>
-        <ellipse cx="196" cy="206" rx="20" ry="7" fill="#ffc94d"/>
-        <ellipse cx="196" cy="200" rx="20" ry="7" fill="#ffd01e"/>
-        <ellipse cx="176" cy="214" rx="15" ry="5.5" fill="#ffc94d"/>
-        <circle class="tw" cx="214" cy="82" r="7" fill="#ffd01e" opacity=".8"/>
-        <circle class="tw t2" cx="60" cy="58" r="5" fill="#4a97ff" opacity=".6"/>
-        <circle class="tw t3" cx="196" cy="150" r="4" fill="#ff8f17" opacity=".7"/>
-        <path class="tw t2" d="M92 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd01e"/>
+        <path d="M36 0v26M84 0v16" stroke="#c2101f" stroke-width="2" opacity=".6"/>
+        <g transform="translate(20,26)">
+          <rect x="6" y="-4" width="20" height="5" rx="2" fill="#e8b84b"/>
+          <ellipse cx="16" cy="18" rx="16" ry="18" fill="url(#lant)"/>
+          <path d="M6 8h20M6 28h20" stroke="#ffd98a" stroke-width="1.6" opacity=".7"/>
+          <rect x="6" y="35" width="20" height="5" rx="2" fill="#e8b84b"/>
+          <path d="M12 40v10M16 40v13M20 40v10" stroke="#e8b84b" stroke-width="1.8" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(70,16)" opacity=".9">
+          <rect x="4" y="-3" width="14" height="4" rx="2" fill="#e8b84b"/>
+          <ellipse cx="11" cy="13" rx="11" ry="13" fill="url(#lant)"/>
+          <path d="M4 5h14M4 21h14" stroke="#ffd98a" stroke-width="1.3" opacity=".7"/>
+          <rect x="4" y="25" width="14" height="4" rx="2" fill="#e8b84b"/>
+          <path d="M8 29v8M11 29v10M14 29v8" stroke="#e8b84b" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
       </g>
-      <g opacity=".5">
-        <rect x="24" y="236" width="200" height="4" rx="2" fill="#0e56d6" opacity=".25"/>
-        <rect x="24" y="236" width="16" height="4" fill="#0e56d6"/>
-        <rect x="56" y="236" width="16" height="4" fill="#0e56d6"/>
-        <rect x="88" y="236" width="16" height="4" fill="#0e56d6"/>
-        <rect x="120" y="236" width="16" height="4" fill="#0e56d6"/>
+      <g>
+        <path class="tw" d="M196 150l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#ffd85e"/>
+        <path class="tw t2" d="M120 26l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#ffd85e"/>
+        <circle class="tw t3" cx="214" cy="118" r="4.5" fill="#ffd85e" opacity=".85"/>
+        <circle class="tw" cx="150" cy="188" r="3.5" fill="#f0564c" opacity=".7"/>
+      </g>
+      <g opacity=".45">
+        <rect x="24" y="238" width="196" height="3" rx="1.5" fill="#c2101f" opacity=".3"/>
+        <rect x="24" y="238" width="16" height="3" fill="#c2101f"/>
+        <rect x="56" y="238" width="16" height="3" fill="#c2101f"/>
+        <rect x="88" y="238" width="16" height="3" fill="#c2101f"/>
+        <rect x="120" y="238" width="16" height="3" fill="#c2101f"/>
       </g>
     </svg>
-    <span class="hbadge">社区专属交易活动 · 双榜同赛</span>
-    <h1>拉新算一榜<em>老盘子算一榜</em></h1>
+    <span class="hbadge">中秋国庆 · 双节同庆</span>
+    <h1>双节同庆<em>交易赛</em></h1>
     <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">1500</b><span class="pu">U</span></div>
     <div class="hdate">9月24日 18:00 — 10月7日 18:00</div>
-    <p class="hsub">新客交易量和存量交易量分开排名，两个榜都能拿奖，另有 300 U 面向下级用户抽奖。</p>
+    <p class="hsub">拉新算一榜，老盘子算一榜，两个榜都能拿奖；另有 300 U 面向下级用户抽奖，过节一起分。</p>
   </section>
 
   <section>
@@ -446,7 +510,7 @@
       </div>
 
       <div class="draw">
-        <h4>用户抽奖 300 U</h4>
+        <h4>双节红包 · 用户抽奖 300 U</h4>
         <p>赛期内<b>个人交易量满 500 U</b> 的下级用户，自动获得抽奖资格。赛后抽 <b>30 名</b>，每名 <b>10 U</b>。
         名单编号公示，以赛期结束后的区块哈希为随机种子抽取，结果可复核。</p>
       </div>
