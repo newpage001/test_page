@@ -516,7 +516,7 @@
         <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">140<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">110<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">75<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">50<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">30<small> U</small></span></div>
       </div>
 
-      <div class="ptTitle" style="margin-top:18px"><span class="pill">存量榜</span> 社区长本人＋老下级交易量 · 共 500 U</div>
+      <div class="ptTitle" style="margin-top:18px"><span class="pill">存量榜</span> 社区长本人＋一级老下级交易量 · 共 500 U</div>
       <div class="ptable">
         <div class="ph"><span>名次</span><span class="r">奖励</span></div>
         <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">25<small> U</small></span></div>
@@ -536,10 +536,10 @@
     <div class="card">
       <ul class="calc">
         <li class="yes"><b>增量榜</b>：赛期内通过你的专属链接<b>新注册</b>的用户，在赛期内产生的交易量</li>
-        <li class="yes"><b>存量榜</b>：赛期内<b>社区长本人 ＋ 老下级</b>产生的交易量</li>
+        <li class="yes"><b>存量榜</b>：赛期内<b>社区长本人 ＋ 一级老下级</b>产生的交易量，二级不计</li>
         <li class="no"><s>同一笔交易在两个榜重复计分</s></li>
       </ul>
-      <div class="hl">存量成绩 ＝ 社区总交易量 − 新用户交易量，<b>每一 U 只计一次</b>。
+      <div class="hl">存量成绩 ＝ 社区长本人交易量 ＋ 一级下级交易量 − 新一级用户交易量，<b>二级下级不计入</b>。
         既拉来新客、又守住老盘子的社区，<b>两个榜的奖金可以同时拿</b>。</div>
       <div class="gate">所有已报名社区均展示在榜单上，<b>无最低门槛</b>。赛期内新报名的社区同样计分。</div>
     </div>
@@ -551,7 +551,7 @@
       <div class="lbHead"><span class="t"><span id="boardTitle">社区榜</span><small id="boardSub">新注册用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
       <div class="swt">
         <button id="btnInc" class="on" type="button">增量榜<small>新用户交易量</small></button>
-        <button id="btnStk" type="button">存量榜<small>本人＋老下级</small></button>
+        <button id="btnStk" type="button">存量榜<small>本人＋一级老下级</small></button>
         <button id="btnQlf" type="button">奖池资格<small>个人 &gt; 500 U</small></button>
       </div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
@@ -570,7 +570,7 @@
       <ol class="steps">
         <li><b>社区长报名</b>，私信 Alex 绑定本社区的专属邀请链接；上一期已报名的社区自动继承。</li>
         <li><b>赛期内拉新用户</b>，新朋友通过你的专属链接注册 AVE，其交易量计入增量榜。</li>
-        <li><b>动员老下级交易</b>，本人与老下级的交易量计入存量榜，两个榜分别排名。</li>
+        <li><b>动员一级老下级交易</b>，本人与一级老下级的交易量计入存量榜，二级不计，两个榜分别排名。</li>
       </ol>
     </div>
   </section>
@@ -610,6 +610,7 @@
   function fmt(n){return (+n||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
   function mask(s){s=String(s||"");if(!s)return"";if(s.indexOf("*")>=0)return s;
     var h=s.length<=4?Math.max(1,s.length-1):4;return s.slice(0,h)+"****";}
+  function codeLabel(r){return (r.mergedCodes|0)>1?"已合并 "+(r.mergedCodes|0)+" 个邀请码":mask(r.code);}
   function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function roll(el,from,to,dur,f){
@@ -694,7 +695,7 @@
     return '<div class="lrow'+(win?" win":"")+(zero?" zero":"")+'" data-k="'+esc(keyOf(r))+'">'+
       '<span class="rk">'+r.rank+'</span>'+
       '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>'+(which==="inc"?esc(meta(r)):"")+'</div>'+
+        '<div class="mt"><span class="cd">'+esc(codeLabel(r))+'</span>'+(which==="inc"?esc(meta(r)):"")+'</div>'+
         (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
       '</div>'+
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
@@ -754,7 +755,7 @@
     renderStamp(DATA,DATA.fallback);
     $("boardTitle").textContent = which==="qualified" ? "奖池资格榜" : "社区榜";
     $("boardSub").textContent = which==="inc" ? "新注册用户交易量" :
-      (which==="stock" ? "社区长本人＋老下级交易量" : "个人交易量严格大于 500 U");
+      (which==="stock" ? "社区长本人＋一级老下级交易量" : "个人交易量严格大于 500 U");
     if(DATA.pending){
       host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+
         '<div class="sm">赛事已开始，后端正在切换统计窗口。<br>窗口切换完成后本页会自动开始显示新一期数据，无需刷新。</div></div>';
@@ -771,7 +772,7 @@
     }
     if(which==="qualified"){
       var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U。<strong>比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows">';
-      for(var q=0;q<list.length;q++){communities[list[q].communityCode||list[q].community]=1; qhtml+=qualifiedRow(list[q]);}
+      for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q]);}
       qhtml+='</div>';
       $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
       host.innerHTML=qhtml;
