@@ -336,6 +336,7 @@
   /* 奖池资格榜 */
   .qscope{margin:12px 0 4px; padding:10px 12px; border:1px solid var(--line); border-radius:10px;
     background:#fffaf6; color:var(--ink2); font-size:12px; line-height:1.65}
+  .qscope strong{display:block; margin-top:3px; color:var(--blue-deep); font-size:13px}
   .qrows{margin-top:8px; border-top:1px solid var(--line)}
   .qrow{display:grid; grid-template-columns:30px minmax(0,1fr) auto; gap:10px; align-items:center;
     padding:11px 6px; border-bottom:1px solid var(--line)}
@@ -703,7 +704,7 @@
     return '<div class="qrow">'+
       '<span class="rk">'+r.rank+'</span>'+
       '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
-        '<div class="mt"><b>'+esc(r.community)+'</b> · GUID '+esc(r.userCode)+'</div></div>'+
+        '<div class="mt"><b>'+esc(r.community)+'</b></div></div>'+
       '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small></div>'+
     '</div>';
   }
@@ -769,7 +770,7 @@
       return;
     }
     if(which==="qualified"){
-      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U，邮箱与 GUID 已脱敏。</div><div class="qrows">';
+      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U。<strong>比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows">';
       for(var q=0;q<list.length;q++){communities[list[q].communityCode||list[q].community]=1; qhtml+=qualifiedRow(list[q]);}
       qhtml+='</div>';
       $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';

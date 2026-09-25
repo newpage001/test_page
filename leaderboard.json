@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-25T21:16:03+08:00",
-  "sourceUpdated": "2026-09-25 13:07:57",
-  "qualificationSourceUpdated": "2026-09-25 13:08:06",
+  "updated": "2026-09-25T21:30:43+08:00",
+  "sourceUpdated": "2026-09-25 13:22:57",
+  "qualificationSourceUpdated": "2026-09-25 13:23:07",
   "qualificationScope": "community_downline_top10",
   "qualificationLine": 500,
   "boards": {
@@ -488,7 +488,7 @@
         "rank": 1,
         "name": "顶流社区尼古丁",
         "code": "3969****",
-        "volume": 178699.89,
+        "volume": 181170.34,
         "users": 0,
         "self": 8.14
       },
@@ -496,7 +496,7 @@
         "rank": 2,
         "name": "搞钱俱乐部",
         "code": "3937****",
-        "volume": 137020.76,
+        "volume": 139808.74,
         "users": 0,
         "self": 0.0
       },
@@ -504,7 +504,7 @@
         "rank": 3,
         "name": "蒋先生-原名山野村夫",
         "code": "jxs2****",
-        "volume": 97875.13,
+        "volume": 98403.66,
         "users": 0,
         "self": 0.0
       },
@@ -512,7 +512,7 @@
         "rank": 4,
         "name": "Crypto小宇（老炮）",
         "code": "yush****",
-        "volume": 61987.41,
+        "volume": 63320.85,
         "users": 0,
         "self": 0.0
       },
@@ -520,7 +520,7 @@
         "rank": 5,
         "name": "希希社区",
         "code": "qhx0****",
-        "volume": 61489.14,
+        "volume": 62392.07,
         "users": 0,
         "self": 377.55
       },
@@ -528,7 +528,7 @@
         "rank": 6,
         "name": "冲锋小队",
         "code": "3815****",
-        "volume": 45275.84,
+        "volume": 46139.97,
         "users": 0,
         "self": 0.0
       },
@@ -544,7 +544,7 @@
         "rank": 8,
         "name": "橘座社区",
         "code": "3830****",
-        "volume": 26172.45,
+        "volume": 26222.82,
         "users": 0,
         "self": 0.0
       },
@@ -552,7 +552,7 @@
         "rank": 9,
         "name": "半仙道场",
         "code": "1855****",
-        "volume": 24131.6,
+        "volume": 24217.21,
         "users": 0,
         "self": 679.37
       },
@@ -560,7 +560,7 @@
         "rank": 10,
         "name": "远大社区",
         "code": "niuy****",
-        "volume": 20996.59,
+        "volume": 21188.02,
         "users": 3,
         "self": 312.27
       },
@@ -568,9 +568,9 @@
         "rank": 11,
         "name": "追风社区",
         "code": "3757****",
-        "volume": 15968.66,
+        "volume": 16209.41,
         "users": 0,
-        "self": 3660.09
+        "self": 3667.05
       },
       {
         "rank": 12,
@@ -584,7 +584,7 @@
         "rank": 13,
         "name": "LuckyDuck",
         "code": "Luck****",
-        "volume": 11279.07,
+        "volume": 11474.29,
         "users": 5,
         "self": 0.0
       },
@@ -592,7 +592,7 @@
         "rank": 14,
         "name": "林迅（专注金狗版）",
         "code": "0732****",
-        "volume": 10468.25,
+        "volume": 11325.07,
         "users": 0,
         "self": 0.0
       },
@@ -600,7 +600,7 @@
         "rank": 15,
         "name": "财神社区",
         "code": "love****",
-        "volume": 6898.87,
+        "volume": 7085.09,
         "users": 1,
         "self": 185.38
       },
@@ -632,17 +632,17 @@
         "rank": 19,
         "name": "摸金校尉 | 0xbclub",
         "code": "0xbc****",
-        "volume": 2929.13,
+        "volume": 2993.38,
         "users": 0,
-        "self": 2929.13
+        "self": 2993.38
       },
       {
         "rank": 20,
         "name": "🔶川仔🔶",
         "code": "ghq1****",
-        "volume": 2710.2,
+        "volume": 2773.55,
         "users": 0,
-        "self": 2710.2
+        "self": 2773.55
       },
       {
         "rank": 21,
@@ -680,7 +680,7 @@
         "rank": 25,
         "name": "王者归来",
         "code": "GGzh****",
-        "volume": 1199.17,
+        "volume": 1241.96,
         "users": 0,
         "self": 0.0
       },
@@ -688,7 +688,7 @@
         "rank": 26,
         "name": "DeFi狙击手",
         "code": "000****",
-        "volume": 938.26,
+        "volume": 945.9,
         "users": 104,
         "self": 223.61
       },
@@ -712,7 +712,7 @@
         "rank": 29,
         "name": "泽润",
         "code": "5018****",
-        "volume": 620.41,
+        "volume": 621.17,
         "users": 0,
         "self": 247.65
       },
@@ -1034,15 +1034,13 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "23***3@qq.com",
-        "userCode": "4385****157b",
-        "volume": 17498.8,
+        "volume": 17802.83,
         "rank": 1
       },
       {
         "community": "Crypto小宇（老炮）",
         "communityCode": "yush****",
         "user": "47***3@qq.com",
-        "userCode": "4f2f****0003",
         "volume": 12065.75,
         "rank": 2
       },
@@ -1050,7 +1048,6 @@
         "community": "半仙道场",
         "communityCode": "1855****",
         "user": "23***6@qq.com",
-        "userCode": "1b1a****0005",
         "volume": 10367.64,
         "rank": 3
       },
@@ -1058,7 +1055,6 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "46***7@qq.com",
-        "userCode": "3027****0006",
         "volume": 9588.91,
         "rank": 4
       },
@@ -1066,7 +1062,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "qq***1@163.com",
-        "userCode": "9964****0006",
         "volume": 9412.69,
         "rank": 5
       },
@@ -1074,7 +1069,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "xi***1@qq.com",
-        "userCode": "e44d****0006",
         "volume": 9036.61,
         "rank": 6
       },
@@ -1082,23 +1076,20 @@
         "community": "LuckyDuck",
         "communityCode": "Luck****",
         "user": "mc***6@gmail.com",
-        "userCode": "a340****3fee",
-        "volume": 8794.68,
+        "volume": 8989.9,
         "rank": 7
       },
       {
         "community": "Crypto小宇（老炮）",
         "communityCode": "yush****",
         "user": "18***8@163.com",
-        "userCode": "4e43****0006",
-        "volume": 8081.49,
+        "volume": 8121.49,
         "rank": 8
       },
       {
         "community": "远大社区",
         "communityCode": "niuy****",
         "user": "35***6@qq.com",
-        "userCode": "aa25****57fd",
         "volume": 7659.52,
         "rank": 9
       },
@@ -1106,7 +1097,6 @@
         "community": "52Hz",
         "communityCode": "lxhq****",
         "user": "51***9@qq.com",
-        "userCode": "e3ea****0005",
         "volume": 7612.05,
         "rank": 10
       },
@@ -1114,7 +1104,6 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "36***2@qq.com",
-        "userCode": "ad85****0006",
         "volume": 6970.45,
         "rank": 11
       },
@@ -1122,7 +1111,6 @@
         "community": "林迅（专注金狗版）",
         "communityCode": "0732****",
         "user": "ya***1@163.com",
-        "userCode": "020f****b1d3",
         "volume": 6568.67,
         "rank": 12
       },
@@ -1130,7 +1118,6 @@
         "community": "Crypto小宇（老炮）",
         "communityCode": "yush****",
         "user": "95***5@qq.com",
-        "userCode": "2b06****0006",
         "volume": 6254.16,
         "rank": 13
       },
@@ -1138,7 +1125,6 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "13***2@163.com",
-        "userCode": "1819****0006",
         "volume": 5914.63,
         "rank": 14
       },
@@ -1146,7 +1132,6 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "37***7@qq.com",
-        "userCode": "f581****0005",
         "volume": 5600.84,
         "rank": 15
       },
@@ -1154,7 +1139,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs1****",
         "user": "32***1@qq.com",
-        "userCode": "50b8****0006",
         "volume": 4981.98,
         "rank": 16
       },
@@ -1162,7 +1146,6 @@
         "community": "Crypto小宇（老炮）",
         "communityCode": "yush****",
         "user": "yu***9@163.com",
-        "userCode": "a630****0006",
         "volume": 4942.83,
         "rank": 17
       },
@@ -1170,7 +1153,6 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "38***0@qq.com",
-        "userCode": "ff0b****2834",
         "volume": 4774.8,
         "rank": 18
       },
@@ -1178,7 +1160,6 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "36***6@qq.com",
-        "userCode": "8f72****0006",
         "volume": 4135.99,
         "rank": 19
       },
@@ -1186,7 +1167,6 @@
         "community": "橘座社区",
         "communityCode": "3830****",
         "user": "87***1@qq.com",
-        "userCode": "50ff****1c5c",
         "volume": 4027.74,
         "rank": 20
       },
@@ -1194,15 +1174,13 @@
         "community": "远大社区",
         "communityCode": "niuy****",
         "user": "m1***6@163.com",
-        "userCode": "428e****57fd",
-        "volume": 3950.52,
+        "volume": 4012.37,
         "rank": 21
       },
       {
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "30***2@qq.com",
-        "userCode": "7f0e****0006",
         "volume": 3881.56,
         "rank": 22
       },
@@ -1210,143 +1188,125 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "37***8@qq.com",
-        "userCode": "49d2****0006",
-        "volume": 3660.09,
+        "volume": 3667.05,
         "rank": 23
       },
       {
         "community": "大帝",
         "communityCode": "amas****",
         "user": "c1***5@163.com",
-        "userCode": "65db****157b",
         "volume": 3619.52,
         "rank": 24
-      },
-      {
-        "community": "橘座社区",
-        "communityCode": "3830****",
-        "user": "25***3@qq.com",
-        "userCode": "a39e****1c5c",
-        "volume": 3611.92,
-        "rank": 25
-      },
-      {
-        "community": "远大社区",
-        "communityCode": "niuy****",
-        "user": "lx***0@qq.com",
-        "userCode": "aa1d****57fd",
-        "volume": 3550.65,
-        "rank": 26
-      },
-      {
-        "community": "顶流社区尼古丁",
-        "communityCode": "3969****",
-        "user": "yu***8@qq.com",
-        "userCode": "0d8a****0006",
-        "volume": 3455.67,
-        "rank": 27
-      },
-      {
-        "community": "蒋先生-原名山野村夫",
-        "communityCode": "jxs1****",
-        "user": "18***4@139.com",
-        "userCode": "058b****0006",
-        "volume": 3290.33,
-        "rank": 28
-      },
-      {
-        "community": "财神社区",
-        "communityCode": "love****",
-        "user": "39***7@qq.com",
-        "userCode": "fadf****3837",
-        "volume": 3205.27,
-        "rank": 29
-      },
-      {
-        "community": "橘座社区",
-        "communityCode": "3830****",
-        "user": "46***4@qq.com",
-        "userCode": "bec4****3837",
-        "volume": 3178.8,
-        "rank": 30
-      },
-      {
-        "community": "追风社区",
-        "communityCode": "3757****",
-        "user": "35***9@qq.com",
-        "userCode": "00dc****57fd",
-        "volume": 3133.18,
-        "rank": 31
-      },
-      {
-        "community": "蒋先生-原名山野村夫",
-        "communityCode": "jxs2****",
-        "user": "yt***5@qq.com",
-        "userCode": "edd4****0006",
-        "volume": 3075.85,
-        "rank": 32
-      },
-      {
-        "community": "蒋先生-原名山野村夫",
-        "communityCode": "jxs1****",
-        "user": "38***3@qq.com",
-        "userCode": "0a91****0006",
-        "volume": 3049.36,
-        "rank": 33
-      },
-      {
-        "community": "冲锋小队",
-        "communityCode": "3815****",
-        "user": "39***4@qq.com",
-        "userCode": "6286****3fee",
-        "volume": 3012.08,
-        "rank": 34
-      },
-      {
-        "community": "蒋先生-原名山野村夫",
-        "communityCode": "jxs1****",
-        "user": "15***9@qq.com",
-        "userCode": "3b72****0006",
-        "volume": 2967.74,
-        "rank": 35
-      },
-      {
-        "community": "Crypto小宇（老炮）",
-        "communityCode": "yush****",
-        "user": "39***2@qq.com",
-        "userCode": "13a6****0006",
-        "volume": 2927.33,
-        "rank": 36
-      },
-      {
-        "community": "顶流社区尼古丁",
-        "communityCode": "3969****",
-        "user": "lq***9@qq.com",
-        "userCode": "6ed5****0005",
-        "volume": 2843.47,
-        "rank": 37
-      },
-      {
-        "community": "半仙道场",
-        "communityCode": "1855****",
-        "user": "K1***7@qq.com",
-        "userCode": "b5d0****0006",
-        "volume": 2763.28,
-        "rank": 38
       },
       {
         "community": "林迅（专注金狗版）",
         "communityCode": "0732****",
         "user": "li***1@163.com",
-        "userCode": "3a02****57fd",
-        "volume": 2755.53,
+        "volume": 3612.36,
+        "rank": 25
+      },
+      {
+        "community": "橘座社区",
+        "communityCode": "3830****",
+        "user": "25***3@qq.com",
+        "volume": 3611.92,
+        "rank": 26
+      },
+      {
+        "community": "远大社区",
+        "communityCode": "niuy****",
+        "user": "lx***0@qq.com",
+        "volume": 3589.33,
+        "rank": 27
+      },
+      {
+        "community": "顶流社区尼古丁",
+        "communityCode": "3969****",
+        "user": "yu***8@qq.com",
+        "volume": 3455.67,
+        "rank": 28
+      },
+      {
+        "community": "蒋先生-原名山野村夫",
+        "communityCode": "jxs1****",
+        "user": "18***4@139.com",
+        "volume": 3290.33,
+        "rank": 29
+      },
+      {
+        "community": "Crypto小宇（老炮）",
+        "communityCode": "yush****",
+        "user": "39***2@qq.com",
+        "volume": 3237.93,
+        "rank": 30
+      },
+      {
+        "community": "财神社区",
+        "communityCode": "love****",
+        "user": "39***7@qq.com",
+        "volume": 3205.27,
+        "rank": 31
+      },
+      {
+        "community": "橘座社区",
+        "communityCode": "3830****",
+        "user": "46***4@qq.com",
+        "volume": 3178.8,
+        "rank": 32
+      },
+      {
+        "community": "追风社区",
+        "communityCode": "3757****",
+        "user": "35***9@qq.com",
+        "volume": 3133.18,
+        "rank": 33
+      },
+      {
+        "community": "蒋先生-原名山野村夫",
+        "communityCode": "jxs2****",
+        "user": "yt***5@qq.com",
+        "volume": 3075.85,
+        "rank": 34
+      },
+      {
+        "community": "蒋先生-原名山野村夫",
+        "communityCode": "jxs1****",
+        "user": "38***3@qq.com",
+        "volume": 3049.36,
+        "rank": 35
+      },
+      {
+        "community": "冲锋小队",
+        "communityCode": "3815****",
+        "user": "39***4@qq.com",
+        "volume": 3012.08,
+        "rank": 36
+      },
+      {
+        "community": "蒋先生-原名山野村夫",
+        "communityCode": "jxs1****",
+        "user": "15***9@qq.com",
+        "volume": 2967.74,
+        "rank": 37
+      },
+      {
+        "community": "顶流社区尼古丁",
+        "communityCode": "3969****",
+        "user": "lq***9@qq.com",
+        "volume": 2843.47,
+        "rank": 38
+      },
+      {
+        "community": "半仙道场",
+        "communityCode": "1855****",
+        "user": "K1***7@qq.com",
+        "volume": 2763.28,
         "rank": 39
       },
       {
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "85***6@QQ.COM",
-        "userCode": "522e****2834",
         "volume": 2706.34,
         "rank": 40
       },
@@ -1354,7 +1314,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "xi***i@gmail.com",
-        "userCode": "85b3****0006",
         "volume": 2521.11,
         "rank": 41
       },
@@ -1362,7 +1321,6 @@
         "community": "B哥",
         "communityCode": "ETHB****",
         "user": "di***9@qq.com",
-        "userCode": "bfad****0002",
         "volume": 2495.17,
         "rank": 42
       },
@@ -1370,55 +1328,48 @@
         "community": "追风社区",
         "communityCode": "3757****",
         "user": "43***9@qq.com",
-        "userCode": "2fb5****4d70",
         "volume": 2416.25,
         "rank": 43
-      },
-      {
-        "community": "Crypto小宇（老炮）",
-        "communityCode": "yush****",
-        "user": "19***4@qq.com",
-        "userCode": "67a1****0006",
-        "volume": 2268.33,
-        "rank": 44
-      },
-      {
-        "community": "Beauty",
-        "communityCode": "wanz****",
-        "user": "rh***8@outlook.com",
-        "userCode": "a782****0006",
-        "volume": 2250.31,
-        "rank": 45
-      },
-      {
-        "community": "半仙道场",
-        "communityCode": "1855****",
-        "user": "36***9@qq.com",
-        "userCode": "09f3****0006",
-        "volume": 2230.12,
-        "rank": 46
-      },
-      {
-        "community": "Crypto小宇（老炮）",
-        "communityCode": "yush****",
-        "user": "dw***3@163.com",
-        "userCode": "0dbe****0006",
-        "volume": 2180.52,
-        "rank": 47
       },
       {
         "community": "追风社区",
         "communityCode": "3757****",
         "user": "28***7@qq.com",
-        "userCode": "749b****4d70",
-        "volume": 2141.61,
+        "volume": 2375.4,
+        "rank": 44
+      },
+      {
+        "community": "Crypto小宇（老炮）",
+        "communityCode": "yush****",
+        "user": "19***4@qq.com",
+        "volume": 2268.33,
+        "rank": 45
+      },
+      {
+        "community": "Beauty",
+        "communityCode": "wanz****",
+        "user": "rh***8@outlook.com",
+        "volume": 2250.31,
+        "rank": 46
+      },
+      {
+        "community": "半仙道场",
+        "communityCode": "1855****",
+        "user": "36***9@qq.com",
+        "volume": 2230.12,
+        "rank": 47
+      },
+      {
+        "community": "Crypto小宇（老炮）",
+        "communityCode": "yush****",
+        "user": "dw***3@163.com",
+        "volume": 2180.52,
         "rank": 48
       },
       {
         "community": "52Hz",
         "communityCode": "lxhq****",
         "user": "73***3@qq.com",
-        "userCode": "0c81****3837",
         "volume": 2103.43,
         "rank": 49
       },
@@ -1426,7 +1377,6 @@
         "community": "Crypto小宇（老炮）",
         "communityCode": "yush****",
         "user": "37***0@qq.com",
-        "userCode": "29ad****0006",
         "volume": 1957.38,
         "rank": 50
       },
@@ -1434,7 +1384,6 @@
         "community": "橘座社区",
         "communityCode": "3830****",
         "user": "10***2@qq.com",
-        "userCode": "7bee****5f04",
         "volume": 1921.12,
         "rank": 51
       },
@@ -1442,7 +1391,6 @@
         "community": "52Hz",
         "communityCode": "lxhq****",
         "user": "pu***5@gmail.com",
-        "userCode": "ece2****157b",
         "volume": 1921.03,
         "rank": 52
       },
@@ -1450,15 +1398,13 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "37***6@qq.com",
-        "userCode": "f6e1****0006",
-        "volume": 1824.79,
+        "volume": 1824.86,
         "rank": 53
       },
       {
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "27***9@qq.com",
-        "userCode": "c64c****3fee",
         "volume": 1782.98,
         "rank": 54
       },
@@ -1466,15 +1412,13 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "da***8@qq.com",
-        "userCode": "4add****0006",
-        "volume": 1670.6,
+        "volume": 1700.31,
         "rank": 55
       },
       {
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "34***1@qq.com",
-        "userCode": "48f3****0006",
         "volume": 1560.66,
         "rank": 56
       },
@@ -1482,95 +1426,83 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "85***4@qq.com",
-        "userCode": "0885****2834",
         "volume": 1550.04,
         "rank": 57
-      },
-      {
-        "community": "Crypto小宇（老炮）",
-        "communityCode": "yush****",
-        "user": "38***6@qq.com",
-        "userCode": "25d0****0005",
-        "volume": 1449.46,
-        "rank": 58
-      },
-      {
-        "community": "半仙道场",
-        "communityCode": "1855****",
-        "user": "mg***6@outlook.com",
-        "userCode": "072f****0006",
-        "volume": 1444.83,
-        "rank": 59
-      },
-      {
-        "community": "Crypto小宇（老炮）",
-        "communityCode": "yush****",
-        "user": "36***9@qq.com",
-        "userCode": "6bf0****0006",
-        "volume": 1426.59,
-        "rank": 60
       },
       {
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "19***3@163.com",
-        "userCode": "8c5a****2834",
-        "volume": 1420.2,
+        "volume": 1537.94,
+        "rank": 58
+      },
+      {
+        "community": "Crypto小宇（老炮）",
+        "communityCode": "yush****",
+        "user": "38***6@qq.com",
+        "volume": 1449.46,
+        "rank": 59
+      },
+      {
+        "community": "半仙道场",
+        "communityCode": "1855****",
+        "user": "mg***6@outlook.com",
+        "volume": 1444.83,
+        "rank": 60
+      },
+      {
+        "community": "Crypto小宇（老炮）",
+        "communityCode": "yush****",
+        "user": "36***9@qq.com",
+        "volume": 1426.59,
         "rank": 61
       },
       {
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "39***2@qq.com",
-        "userCode": "11ed****1c5c",
         "volume": 1382.3,
         "rank": 62
-      },
-      {
-        "community": "jain",
-        "communityCode": "jain****",
-        "user": "Wa***a@foxmail.com",
-        "userCode": "4e8b****0005",
-        "volume": 1346.32,
-        "rank": 63
-      },
-      {
-        "community": "顶流社区尼古丁",
-        "communityCode": "3969****",
-        "user": "98***3@qq.com",
-        "userCode": "842e****0005",
-        "volume": 1322.56,
-        "rank": 64
-      },
-      {
-        "community": "蒋先生-原名山野村夫",
-        "communityCode": "jxs2****",
-        "user": "41***9@qq.com",
-        "userCode": "c563****0006",
-        "volume": 1309.64,
-        "rank": 65
-      },
-      {
-        "community": "半仙道场",
-        "communityCode": "1855****",
-        "user": "ya***i@sina.cn",
-        "userCode": "9501****0006",
-        "volume": 1308.46,
-        "rank": 66
       },
       {
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "35***5@qq.com",
-        "userCode": "3d1a****157b",
-        "volume": 1299.32,
+        "volume": 1349.55,
+        "rank": 63
+      },
+      {
+        "community": "jain",
+        "communityCode": "jain****",
+        "user": "Wa***a@foxmail.com",
+        "volume": 1346.32,
+        "rank": 64
+      },
+      {
+        "community": "顶流社区尼古丁",
+        "communityCode": "3969****",
+        "user": "98***3@qq.com",
+        "volume": 1322.56,
+        "rank": 65
+      },
+      {
+        "community": "蒋先生-原名山野村夫",
+        "communityCode": "jxs2****",
+        "user": "41***9@qq.com",
+        "volume": 1309.64,
+        "rank": 66
+      },
+      {
+        "community": "半仙道场",
+        "communityCode": "1855****",
+        "user": "ya***i@sina.cn",
+        "volume": 1308.46,
         "rank": 67
       },
       {
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs1****",
         "user": "17***0@qq.com",
-        "userCode": "8588****0006",
         "volume": 1297.76,
         "rank": 68
       },
@@ -1578,7 +1510,6 @@
         "community": "橘座社区",
         "communityCode": "3830****",
         "user": "34***7@qq.com",
-        "userCode": "4a2f****3837",
         "volume": 1290.35,
         "rank": 69
       },
@@ -1586,7 +1517,6 @@
         "community": "大帝",
         "communityCode": "amas****",
         "user": "31***9@qq.com",
-        "userCode": "ba25****5fb5",
         "volume": 1270.14,
         "rank": 70
       },
@@ -1594,7 +1524,6 @@
         "community": "52Hz",
         "communityCode": "lxhq****",
         "user": "11***6@qq.com",
-        "userCode": "71d1****0002",
         "volume": 1266.79,
         "rank": 71
       },
@@ -1602,7 +1531,6 @@
         "community": "顶流社区尼古丁",
         "communityCode": "3969****",
         "user": "dw***9@gmail.com",
-        "userCode": "3e7e****0006",
         "volume": 1263.38,
         "rank": 72
       },
@@ -1610,7 +1538,6 @@
         "community": "冲锋小队",
         "communityCode": "3815****",
         "user": "mi***8@163.com",
-        "userCode": "c3c3****3fee",
         "volume": 1262.57,
         "rank": 73
       },
@@ -1618,7 +1545,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "41***1@qq.com",
-        "userCode": "240e****0006",
         "volume": 1198.1,
         "rank": 74
       },
@@ -1626,7 +1552,6 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "39***7@qq.com",
-        "userCode": "6887****9e29",
         "volume": 1153.5,
         "rank": 75
       },
@@ -1634,7 +1559,6 @@
         "community": "林迅（专注金狗版）",
         "communityCode": "0732****",
         "user": "12***2@qq.com",
-        "userCode": "5f87****0d50",
         "volume": 1144.05,
         "rank": 76
       },
@@ -1642,7 +1566,6 @@
         "community": "LuckyDuck",
         "communityCode": "Luck****",
         "user": "ca***7@gmail.com",
-        "userCode": "06f8****0005",
         "volume": 1141.81,
         "rank": 77
       },
@@ -1650,31 +1573,27 @@
         "community": "B哥",
         "communityCode": "ETHB****",
         "user": "36***6@qq.com",
-        "userCode": "d16e****0006",
         "volume": 1128.14,
         "rank": 78
       },
       {
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
-        "user": "33***0@qq.com",
-        "userCode": "9e05****0006",
-        "volume": 1093.93,
+        "user": "97***7@qq.com",
+        "volume": 1123.3,
         "rank": 79
       },
       {
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
-        "user": "97***7@qq.com",
-        "userCode": "342d****0006",
-        "volume": 1059.23,
+        "user": "33***0@qq.com",
+        "volume": 1093.93,
         "rank": 80
       },
       {
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs2****",
         "user": "wd***5@qq.com",
-        "userCode": "2959****0006",
         "volume": 1040.94,
         "rank": 81
       },
@@ -1682,7 +1601,6 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "w1***8@qq.com",
-        "userCode": "254d****0006",
         "volume": 951.1,
         "rank": 82
       },
@@ -1690,7 +1608,6 @@
         "community": "LuckyDuck",
         "communityCode": "Luck****",
         "user": "ha***z@gmail.com",
-        "userCode": "f0a0****0005",
         "volume": 866.52,
         "rank": 83
       },
@@ -1698,7 +1615,6 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "24***5@qq.com",
-        "userCode": "669d****2834",
         "volume": 789.55,
         "rank": 84
       },
@@ -1706,7 +1622,6 @@
         "community": "半仙道场",
         "communityCode": "1855****",
         "user": "10***0@qq.com",
-        "userCode": "edd1****0006",
         "volume": 787.4,
         "rank": 85
       },
@@ -1714,7 +1629,6 @@
         "community": "追风社区",
         "communityCode": "3757****",
         "user": "yw***w@163.com",
-        "userCode": "51e7****b1d3",
         "volume": 774.34,
         "rank": 86
       },
@@ -1722,7 +1636,6 @@
         "community": "远大社区",
         "communityCode": "niuy****",
         "user": "31***4@qq.com",
-        "userCode": "144b****9eb0",
         "volume": 765.53,
         "rank": 87
       },
@@ -1730,7 +1643,6 @@
         "community": "远大社区",
         "communityCode": "niuy****",
         "user": "ny***8@gmail.com",
-        "userCode": "068d****49ae",
         "volume": 706.73,
         "rank": 88
       },
@@ -1738,7 +1650,6 @@
         "community": "蒋先生-原名山野村夫",
         "communityCode": "jxs1****",
         "user": "12***5@qq.com",
-        "userCode": "a68e****0006",
         "volume": 676.95,
         "rank": 89
       },
@@ -1746,7 +1657,6 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "zj***k@qq.com",
-        "userCode": "68b1****0006",
         "volume": 670.62,
         "rank": 90
       },
@@ -1754,7 +1664,6 @@
         "community": "财神社区",
         "communityCode": "love****",
         "user": "zh***4@163.com",
-        "userCode": "1011****3837",
         "volume": 659.6,
         "rank": 91
       },
@@ -1762,15 +1671,13 @@
         "community": "远大社区",
         "communityCode": "niuy****",
         "user": "gz***6@163.com",
-        "userCode": "d213****5f04",
-        "volume": 609.21,
+        "volume": 615.57,
         "rank": 92
       },
       {
         "community": "王者归来",
         "communityCode": "GGzh****",
         "user": "dy***7@126.com",
-        "userCode": "f2fd****2834",
         "volume": 600.37,
         "rank": 93
       },
@@ -1778,7 +1685,6 @@
         "community": "搞钱俱乐部",
         "communityCode": "3937****",
         "user": "36***2@qq.com",
-        "userCode": "5fda****0005",
         "volume": 585.12,
         "rank": 94
       },
@@ -1786,7 +1692,6 @@
         "community": "财神社区",
         "communityCode": "love****",
         "user": "y1***1@163.com",
-        "userCode": "8075****3837",
         "volume": 576.55,
         "rank": 95
       },
@@ -1794,7 +1699,6 @@
         "community": "希希社区",
         "communityCode": "qhx0****",
         "user": "94***9@qq.com",
-        "userCode": "e183****2834",
         "volume": 563.07,
         "rank": 96
       },
@@ -1802,7 +1706,6 @@
         "community": "阿疯",
         "communityCode": "1491****",
         "user": "yc***6@gmail.com",
-        "userCode": "ec5b****1c5c",
         "volume": 558.54,
         "rank": 97
       }
