@@ -656,8 +656,7 @@
     return m?m[0].toUpperCase():"?";
   }
   function meta(r){
-    return which==="inc" ? ('新增 '+(r.users|0)+' 人')
-                         : (r.self>0 ? ('本人 '+fmt(r.self)+' U') : '老下级交易量');
+    return '新增 '+(r.users|0)+' 人';
   }
   function prizeTag(r){
     var p=PRIZE[which];
@@ -673,7 +672,7 @@
       '<div class="av"><span>'+esc(initial(r.name))+'</span></div>'+
       '<div class="pn">'+esc(r.name)+'</div>'+
       '<div class="pv'+(s.length>9?" long":"")+'"><span class="n" data-v="'+v+'">'+s+'</span><small>U</small></div>'+
-      '<div class="pm">'+esc(meta(r))+'</div>'+prizeTag(r)+
+      (which==="inc"?'<div class="pm">'+esc(meta(r))+'</div>':"")+prizeTag(r)+
       '<div class="plinth"><b>'+pos+'</b></div></div>';
   }
   function rowHtml(r,top){
@@ -681,7 +680,7 @@
     return '<div class="lrow'+(win?" win":"")+(zero?" zero":"")+'" data-k="'+esc(keyOf(r))+'">'+
       '<span class="rk">'+r.rank+'</span>'+
       '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>'+esc(meta(r))+'</div>'+
+        '<div class="mt"><span class="cd">'+esc(mask(r.code))+'</span>'+(which==="inc"?esc(meta(r)):"")+'</div>'+
         (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
       '</div>'+
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
