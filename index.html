@@ -333,6 +333,18 @@
   .pend{padding:26px 14px; text-align:center}
   .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
   .pend .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
+  /* 奖池资格榜 */
+  .qscope{margin:12px 0 4px; padding:10px 12px; border:1px solid var(--line); border-radius:10px;
+    background:#fffaf6; color:var(--ink2); font-size:12px; line-height:1.65}
+  .qrows{margin-top:8px; border-top:1px solid var(--line)}
+  .qrow{display:grid; grid-template-columns:30px minmax(0,1fr) auto; gap:10px; align-items:center;
+    padding:11px 6px; border-bottom:1px solid var(--line)}
+  .qwho{min-width:0}
+  .qwho .nm{font-family:var(--mono); font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .qwho .mt{font-size:11px; color:var(--muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .qwho .mt b{color:var(--ink2); font-weight:700}
+  .qvol{text-align:right; font-family:var(--num); font-size:15px; font-weight:700; font-variant-numeric:tabular-nums}
+  .qvol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
 
   /* ---------- 中秋国庆双节主题：中国红 ＋ 金 ---------- */
   :root{
@@ -511,7 +523,7 @@
 
       <div class="draw">
         <h4>双节红包 · 用户抽奖 300 U</h4>
-        <p>赛期内<b>个人交易量满 500 U</b> 的下级用户，自动获得抽奖资格。赛后抽 <b>30 名</b>，每名 <b>10 U</b>。
+        <p>赛期内<b>个人交易量超过 500 U</b> 的下级用户，自动获得抽奖资格。赛后抽 <b>30 名</b>，每名 <b>10 U</b>。
         名单编号公示，以赛期结束后的区块哈希为随机种子抽取，结果可复核。</p>
       </div>
       <div class="fine">奖励于活动结束后 7 个工作日内，自动发放至获奖社区长与中奖用户的 AVE 钱包，无需提交任何信息。</div>
@@ -535,10 +547,11 @@
   <section>
     <span class="tab">实时榜单</span>
     <div class="card">
-      <div class="lbHead"><span class="t">社区榜<small id="boardSub">新注册用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
+      <div class="lbHead"><span class="t"><span id="boardTitle">社区榜</span><small id="boardSub">新注册用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
       <div class="swt">
         <button id="btnInc" class="on" type="button">增量榜<small>新用户交易量</small></button>
         <button id="btnStk" type="button">存量榜<small>本人＋老下级</small></button>
+        <button id="btnQlf" type="button">奖池资格<small>个人 &gt; 500 U</small></button>
       </div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
@@ -642,7 +655,7 @@
   }
   tick(); setInterval(tick,1000);
 
-  // ---- 双榜 ----
+  // ---- 三榜 ----
   var CROWN='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><defs>'+
     '<linearGradient id="crownG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/>'+
     '<stop offset="1" stop-color="#ff9a1f"/></linearGradient></defs>'+
@@ -659,7 +672,7 @@
     return '新增 '+(r.users|0)+' 人';
   }
   function prizeTag(r){
-    var p=PRIZE[which];
+    var p=PRIZE[which]||[];
     return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">预计 '+p[r.rank-1]+' U</span>':"";
   }
   function podiumSlot(r,pos){
@@ -686,10 +699,19 @@
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
     '</div>';
   }
+  function qualifiedRow(r){
+    return '<div class="qrow">'+
+      '<span class="rk">'+r.rank+'</span>'+
+      '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
+        '<div class="mt"><b>'+esc(r.community)+'</b> · GUID '+esc(r.userCode)+'</div></div>'+
+      '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small></div>'+
+    '</div>';
+  }
   function renderStamp(d,fallback){
     var up=$("updated"), live=$("live"), lag=null;
-    if(d.sourceUpdated){
-      var t=new Date(String(d.sourceUpdated).replace(" ","T")+"Z");
+    var source=which==="qualified"?(d.qualificationSourceUpdated||d.sourceUpdated):d.sourceUpdated;
+    if(source){
+      var t=new Date(String(source).replace(" ","T")+"Z");
       var bj=new Date(t.getTime()+8*36e5);
       var txt="数据截至 "+pad(bj.getUTCMonth()+1)+"/"+pad(bj.getUTCDate())+" "+
               pad(bj.getUTCHours())+":"+pad(bj.getUTCMinutes())+"（UTC+8）";
@@ -729,18 +751,29 @@
     var host=$("board");
     if(!DATA) return;
     renderStamp(DATA,DATA.fallback);
-    $("boardSub").textContent = which==="inc" ? "新注册用户交易量" : "社区长本人＋老下级交易量";
+    $("boardTitle").textContent = which==="qualified" ? "奖池资格榜" : "社区榜";
+    $("boardSub").textContent = which==="inc" ? "新注册用户交易量" :
+      (which==="stock" ? "社区长本人＋老下级交易量" : "个人交易量严格大于 500 U");
     if(DATA.pending){
       host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+
         '<div class="sm">赛事已开始，后端正在切换统计窗口。<br>窗口切换完成后本页会自动开始显示新一期数据，无需刷新。</div></div>';
       $("summary").textContent="";
       return;
     }
-    var list=(DATA.boards&&DATA.boards[which==="inc"?"community":"stock"])||[];
+    var boardKey=which==="inc"?"community":(which==="stock"?"stock":"qualified");
+    var list=(DATA.boards&&DATA.boards[boardKey])||[];
     if(!list.length){
-      host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":"暂无社区入榜")+
-        '</div><div class="sm">所有已报名社区均在榜，产生交易量即可计分。</div></div>';
+      host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":(which==="qualified"?"暂无用户达标":"暂无社区入榜"))+
+        '</div><div class="sm">'+(which==="qualified"?"个人交易量超过 500 U 后进入奖池。":"所有已报名社区均在榜，产生交易量即可计分。")+'</div></div>';
       $("summary").textContent="";
+      return;
+    }
+    if(which==="qualified"){
+      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U，邮箱与 GUID 已脱敏。</div><div class="qrows">';
+      for(var q=0;q<list.length;q++){communities[list[q].communityCode||list[q].community]=1; qhtml+=qualifiedRow(list[q]);}
+      qhtml+='</div>';
+      $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
+      host.innerHTML=qhtml;
       return;
     }
     var top=1, users=0, total=0, i;
@@ -794,10 +827,12 @@
     which=w; revealed=false;
     $("btnInc").className = w==="inc"?"on":"";
     $("btnStk").className = w==="stock"?"on":"";
+    $("btnQlf").className = w==="qualified"?"on":"";
     render();
   }
   $("btnInc").addEventListener("click",function(){pick("inc");});
   $("btnStk").addEventListener("click",function(){pick("stock");});
+  $("btnQlf").addEventListener("click",function(){pick("qualified");});
 
   function load(){
     return fetch(FEED,{cache:"no-store"})
