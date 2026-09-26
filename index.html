@@ -337,8 +337,11 @@
   .qscope{margin:12px 0 4px; padding:10px 12px; border:1px solid var(--line); border-radius:10px;
     background:#fffaf6; color:var(--ink2); font-size:12px; line-height:1.65}
   .qscope strong{display:block; margin-top:3px; color:var(--blue-deep); font-size:13px}
+  .qhead{display:grid; grid-template-columns:62px minmax(0,1fr) auto; gap:10px; align-items:center;
+    padding:9px 6px; color:var(--muted); font-size:11px; font-weight:700; border-bottom:1px solid var(--line)}
+  .qhead span:last-child{text-align:right}
   .qrows{margin-top:8px; border-top:1px solid var(--line)}
-  .qrow{display:grid; grid-template-columns:30px minmax(0,1fr) auto; gap:10px; align-items:center;
+  .qrow{display:grid; grid-template-columns:62px minmax(0,1fr) auto; gap:10px; align-items:center;
     padding:11px 6px; border-bottom:1px solid var(--line)}
   .qwho{min-width:0}
   .qwho .nm{font-family:var(--mono); font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
@@ -346,6 +349,14 @@
   .qwho .mt b{color:var(--ink2); font-weight:700}
   .qvol{text-align:right; font-family:var(--num); font-size:15px; font-weight:700; font-variant-numeric:tabular-nums}
   .qvol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
+  /* 合并奖励表 */
+  .rewardGrid .ph,.rewardGrid .pr{grid-template-columns:.9fr 1fr 1fr}
+  .rewardGrid .a{font-size:18px}
+  /* 分享结果 */
+  .shareToast{position:fixed; right:68px; bottom:92px; z-index:22; padding:8px 12px; border-radius:9px;
+    background:rgba(43,26,26,.92); color:#fff; font-size:12px; font-weight:700; white-space:nowrap;
+    opacity:0; transform:translateY(5px); pointer-events:none; transition:opacity .18s,transform .18s}
+  .shareToast.show{opacity:1; transform:translateY(0)}
 
   /* ---------- 中秋国庆双节主题：中国红 ＋ 金 ---------- */
   :root{
@@ -510,16 +521,10 @@
         <div class="pot g"><b>300</b><span>用户抽奖</span><small>30 名各 10 U</small></div>
       </div>
 
-      <div class="ptTitle"><span class="pill">增量榜</span> 新注册用户交易量 · 共 700 U</div>
-      <div class="ptable">
-        <div class="ph"><span>名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">140<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">110<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">75<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">50<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">30<small> U</small></span></div>
-      </div>
-
-      <div class="ptTitle" style="margin-top:18px"><span class="pill">存量榜</span> 社区长本人＋一级老下级交易量 · 共 500 U</div>
-      <div class="ptable">
-        <div class="ph"><span>名次</span><span class="r">奖励</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">25<small> U</small></span></div>
+      <div class="ptTitle"><span class="pill">双榜奖励</span> 增量榜共 700 U · 存量榜共 500 U</div>
+      <div class="ptable rewardGrid">
+        <div class="ph"><span>名次</span><span class="r">增量榜</span><span class="r">存量榜</span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">140<small> U</small></span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">110<small> U</small></span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">75<small> U</small></span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">65<small> U</small></span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">55<small> U</small></span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">50<small> U</small></span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">45<small> U</small></span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">30<small> U</small></span><span class="a">25<small> U</small></span></div>
       </div>
 
       <div class="draw">
@@ -537,7 +542,7 @@
       <ul class="calc">
         <li class="yes"><b>增量榜</b>：赛期内通过你的专属链接<b>新注册</b>的用户，在赛期内产生的交易量</li>
         <li class="yes"><b>存量榜</b>：赛期内<b>社区长本人 ＋ 一级老下级</b>产生的交易量，二级不计</li>
-        <li class="no"><s>同一笔交易在两个榜重复计分</s></li>
+        <li class="yes">同一笔交易只计入一个榜单，不重复计分</li>
       </ul>
       <div class="hl">存量成绩 ＝ 社区长本人交易量 ＋ 一级下级交易量 − 新一级用户交易量，<b>二级下级不计入</b>。
         既拉来新客、又守住老盘子的社区，<b>两个榜的奖金可以同时拿</b>。</div>
@@ -589,11 +594,12 @@
 
 </div>
 
-<button class="share" id="shareBtn" aria-label="复制活动链接">
+<button class="share" id="shareBtn" aria-label="分享活动页面">
   <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .17 1L8.7 8.51a3 3 0 1 0 0 6.98l6.47 3.51A3 3 0 1 0 18 16a2.98 2.98 0 0 0-1.83.63L9.7 13.12a3.03 3.03 0 0 0 0-2.24l6.47-3.51A2.98 2.98 0 0 0 18 8Z" fill="#fff"/>
   </svg>
 </button>
+<span class="shareToast" id="shareToast" role="status" aria-live="polite"></span>
 <div class="cta"><button id="joinBtn">社区长报名参加</button></div>
 
 <script>
@@ -701,9 +707,9 @@
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
     '</div>';
   }
-  function qualifiedRow(r){
+  function qualifiedRow(r,seq){
     return '<div class="qrow">'+
-      '<span class="rk">'+r.rank+'</span>'+
+      '<span class="rk">'+seq+'</span>'+
       '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
         '<div class="mt"><b>'+esc(r.community)+'</b></div></div>'+
       '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small></div>'+
@@ -753,7 +759,7 @@
     var host=$("board");
     if(!DATA) return;
     renderStamp(DATA,DATA.fallback);
-    $("boardTitle").textContent = which==="qualified" ? "奖池资格榜" : "社区榜";
+    $("boardTitle").textContent = which==="qualified" ? "奖池资格名单" : "社区榜";
     $("boardSub").textContent = which==="inc" ? "新注册用户交易量" :
       (which==="stock" ? "社区长本人＋一级老下级交易量" : "个人交易量严格大于 500 U");
     if(DATA.pending){
@@ -771,8 +777,8 @@
       return;
     }
     if(which==="qualified"){
-      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U。<strong>比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows">';
-      for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q]);}
+      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U。<strong>每位用户只有一次抽奖机会，交易量高低不影响中奖概率。比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
+      for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q],q+1);}
       qhtml+='</div>';
       $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
       host.innerHTML=qhtml;
@@ -850,12 +856,25 @@
   setInterval(function(){ load().catch(function(){}); }, 300000);
 
   $("joinBtn").addEventListener("click",function(){ window.open(TG_URL,"_blank","noopener"); });
+  function shareNotice(msg){
+    var toast=$("shareToast"); toast.textContent=msg; toast.classList.add("show");
+    clearTimeout(shareNotice.timer); shareNotice.timer=setTimeout(function(){toast.classList.remove("show");},1800);
+  }
+  function copyPageLink(u){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(u).then(function(){shareNotice("链接已复制");},function(){shareNotice("请复制浏览器地址栏链接");});
+    }
+    var t=document.createElement("textarea"); t.value=u; document.body.appendChild(t); t.select();
+    var ok=false; try{ok=document.execCommand("copy");}catch(e){} document.body.removeChild(t);
+    shareNotice(ok?"链接已复制":"请复制浏览器地址栏链接");
+  }
   $("shareBtn").addEventListener("click",function(){
-    var u=location.href, btn=this;
-    function done(){btn.style.transform="scale(1.12)"; setTimeout(function(){btn.style.transform="";},260);}
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}
-    else{var t=document.createElement("textarea"); t.value=u; document.body.appendChild(t); t.select();
-      try{document.execCommand("copy");}catch(e){} document.body.removeChild(t); done();}
+    var u=location.href;
+    if(navigator.share){
+      navigator.share({title:document.title,text:"AVE 社区交易赛实时榜单",url:u}).catch(function(e){
+        if(!e||e.name!=="AbortError") copyPageLink(u);
+      });
+    }else copyPageLink(u);
   });
 })();
 </script>
