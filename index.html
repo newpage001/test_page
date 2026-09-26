@@ -869,7 +869,7 @@
     shareNotice(ok?"链接已复制":"请复制浏览器地址栏链接");
   }
   $("shareBtn").addEventListener("click",function(){
-    var u=location.href;
+    var u=location.origin+location.pathname;
     if(navigator.share){
       navigator.share({title:document.title,text:"AVE 社区交易赛实时榜单",url:u}).catch(function(e){
         if(!e||e.name!=="AbortError") copyPageLink(u);
