@@ -681,7 +681,7 @@
   }
   function prizeTag(r){
     var p=PRIZE[which]||[];
-    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">预计 '+p[r.rank-1]+' U</span>':"";
+    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">预计奖励 '+p[r.rank-1]+' U</span>':"";
   }
   function podiumSlot(r,pos){
     if(!r){
