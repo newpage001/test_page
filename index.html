@@ -777,7 +777,7 @@
       return;
     }
     if(which==="qualified"){
-      var communities={}, qhtml='<div class="qscope">数据范围：每个社区下级交易量前 10 名。以下用户均已超过 500 U。<strong>每位用户只有一次抽奖机会，交易量高低不影响中奖概率。比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
+      var communities={}, qhtml='<div class="qscope">数据范围：所有社区下级用户。以下用户均已超过 500 U。<strong>每位用户只有一次抽奖机会，交易量高低不影响中奖概率。比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
       for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q],q+1);}
       qhtml+='</div>';
       $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
