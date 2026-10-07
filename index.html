@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>AVE 社区交易赛 · 中秋国庆双节同庆</title>
+<title>AVE 社区交易赛 · 最终结果</title>
 <style>
 :root{
     --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
@@ -490,15 +490,15 @@
     <h1>双节同庆<em>交易赛</em></h1>
     <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">1500</b><span class="pu">U</span></div>
     <div class="hdate">9月24日 18:00 — 10月7日 18:00</div>
-    <p class="hsub">拉新算一榜，老盘子算一榜，两个榜都能拿奖；另有 300 U 面向下级用户抽奖，过节一起分。</p>
+    <p class="hsub">本期交易赛已结束，增量榜、存量榜及奖池资格名单均已封榜，最终结果以本页公示为准。</p>
   </section>
 
   <section>
-    <span class="tab">活动时间</span>
+    <span class="tab">赛事状态</span>
     <div class="card">
       <div class="trow"><span>开始时间</span><b id="startT">--</b></div>
       <div class="trow"><span>结束时间</span><b id="endT">--</b></div>
-      <div class="cdLabel" id="cdLabel">距开赛</div>
+      <div class="cdLabel ended" id="cdLabel">交易赛已结束</div>
       <div class="clock">
         <div class="seg"><b id="dd">00</b><small>天</small></div>
         <div class="seg"><b id="hh">00</b><small>时</small></div>
@@ -529,8 +529,7 @@
 
       <div class="draw">
         <h4>双节红包 · 用户抽奖 300 U</h4>
-        <p>赛期内<b>个人交易量超过 500 U</b> 的下级用户，自动获得抽奖资格。赛后抽 <b>30 名</b>，每名 <b>10 U</b>。
-        名单编号公示，以赛期结束后的区块哈希为随机种子抽取，结果可复核。</p>
+        <p>赛期内<b>个人交易量超过 500 U</b> 的下级用户获得抽奖资格。现已从符合资格的用户中抽取 <b>30 名</b>，每名 <b>10 U</b>，抽奖结果已公示。</p>
       </div>
       <div class="fine">奖励于活动结束后 7 个工作日内，自动发放至获奖社区长与中奖用户的 AVE 钱包，无需提交任何信息。</div>
     </div>
@@ -551,12 +550,12 @@
   </section>
 
   <section>
-    <span class="tab">实时榜单</span>
+    <span class="tab">最终榜单</span>
     <div class="card">
-      <div class="lbHead"><span class="t"><span id="boardTitle">社区榜</span><small id="boardSub">新注册用户交易量</small></span><span class="live stale" id="live"><i></i>加载中</span></div>
+      <div class="lbHead"><span class="t"><span id="boardTitle">最终社区榜</span><small id="boardSub">新注册用户交易量</small></span><span class="live" id="live"><i></i>已封榜</span></div>
       <div class="swt">
-        <button id="btnInc" class="on" type="button">增量榜<small>新用户交易量</small></button>
-        <button id="btnStk" type="button">存量榜<small>本人＋一级老下级</small></button>
+        <button id="btnInc" class="on" type="button">最终增量榜<small>新用户交易量</small></button>
+        <button id="btnStk" type="button">最终存量榜<small>本人＋一级老下级</small></button>
         <button id="btnQlf" type="button">奖池资格<small>个人 &gt; 500 U</small></button>
       </div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
@@ -600,12 +599,12 @@
   </svg>
 </button>
 <span class="shareToast" id="shareToast" role="status" aria-live="polite"></span>
-<div class="cta"><button id="joinBtn">社区长报名参加</button></div>
+<div class="cta"><button id="joinBtn">查看获奖公告</button></div>
 
 <script>
 (function(){
   var START=new Date("2026-09-24T18:00:00+08:00").getTime(), END=new Date("2026-10-07T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board";
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="leaderboard-final.json";
   var PRIZE={inc:[140, 110, 90, 75, 65, 55, 50, 45, 40, 30], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25]};
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -647,14 +646,14 @@
     var now=Date.now(), lab=$("cdLabel"), diff;
     if(now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
     else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
-    else{diff=0; lab.textContent="已结束，结算中"; lab.className="cdLabel ended";}
+    else{diff=0; lab.textContent="交易赛已结束 · 最终结果已封榜"; lab.className="cdLabel ended";}
     setSeg($("dd"),pad(Math.floor(diff/864e5)));
     setSeg($("hh"),pad(Math.floor(diff%864e5/36e5)));
     setSeg($("mm"),pad(Math.floor(diff%36e5/6e4)));
     setSeg($("ss"),pad(Math.floor(diff%6e4/1e3)));
     var pct=now<START?0:(now>=END?100:(now-START)/(END-START)*100), w=pct.toFixed(3)+"%";
     $("rPct").textContent=(pct>0&&pct<10?pct.toFixed(1):Math.floor(pct))+"%";
-    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"赛程已结束":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
+    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"最终结果已公示":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
     $("race").className="race"+(now>=START&&now<END?" on":"");
     if(firstTick&&!REDUCED&&window.requestAnimationFrame){
       window.requestAnimationFrame(function(){window.requestAnimationFrame(function(){$("rFill").style.width=w;});});
@@ -681,7 +680,7 @@
   }
   function prizeTag(r){
     var p=PRIZE[which]||[];
-    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">预计奖励 '+p[r.rank-1]+' U</span>':"";
+    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">奖励 '+p[r.rank-1]+' U</span>':"";
   }
   function podiumSlot(r,pos){
     if(!r){
@@ -715,21 +714,11 @@
       '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small></div>'+
     '</div>';
   }
-  function renderStamp(d,fallback){
-    var up=$("updated"), live=$("live"), lag=null;
-    var source=which==="qualified"?(d.qualificationSourceUpdated||d.sourceUpdated):d.sourceUpdated;
-    if(source){
-      var t=new Date(String(source).replace(" ","T")+"Z");
-      var bj=new Date(t.getTime()+8*36e5);
-      var txt="数据截至 "+pad(bj.getUTCMonth()+1)+"/"+pad(bj.getUTCDate())+" "+
-              pad(bj.getUTCHours())+":"+pad(bj.getUTCMinutes())+"（UTC+8）";
-      lag=Math.floor((Date.now()-t.getTime())/6e4);
-      if(lag>=60) txt+="，"+Math.floor(lag/60)+" 小时前";
-      up.textContent=txt;
-    }
-    var stale=!!fallback||!!d.stale||(lag!==null&&lag>=60);
-    live.className="live"+(stale?" stale":"");
-    live.lastChild.nodeValue=stale?"延迟":"实时";
+  function renderStamp(){
+    $("updated").textContent="封榜时间 10/07 18:00（UTC+8）";
+    var live=$("live");
+    live.className="live";
+    live.lastChild.nodeValue="已封榜";
   }
   function reveal(host){
     if(revealed!==1) return;
@@ -758,8 +747,8 @@
   function render(){
     var host=$("board");
     if(!DATA) return;
-    renderStamp(DATA,DATA.fallback);
-    $("boardTitle").textContent = which==="qualified" ? "奖池资格名单" : "社区榜";
+    renderStamp();
+    $("boardTitle").textContent = which==="qualified" ? "最终奖池资格名单" : "最终社区榜";
     $("boardSub").textContent = which==="inc" ? "新注册用户交易量" :
       (which==="stock" ? "社区长本人＋一级老下级交易量" : "个人交易量严格大于 500 U");
     if(DATA.pending){
@@ -777,7 +766,7 @@
       return;
     }
     if(which==="qualified"){
-      var communities={}, qhtml='<div class="qscope">数据范围：所有社区下级用户。以下用户均已超过 500 U。<strong>每位用户只有一次抽奖机会，交易量高低不影响中奖概率。比赛结束后将在这些用户里抽30位幸运用户，每人发放10U奖励</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
+      var communities={}, qhtml='<div class="qscope">以下为封榜时个人交易量超过 500 U 的最终资格名单。<strong>抽奖已完成：共抽取 30 位幸运用户，每人奖励 10 U。</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
       for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q],q+1);}
       qhtml+='</div>';
       $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
@@ -843,17 +832,13 @@
   $("btnQlf").addEventListener("click",function(){pick("qualified");});
 
   function load(){
-    return fetch(FEED,{cache:"no-store"})
+    return fetch(FEED,{cache:"force-cache"})
       .then(function(r){if(!r.ok) throw 0; return r.json();})
       .then(function(j){DATA=j; render();});
   }
   load().catch(function(){
-    return fetch("leaderboard.json",{cache:"no-store"})
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(j){if(j){j.fallback=true; DATA=j; render();}})
-      .catch(function(){});
+    $("board").innerHTML='<div class="empty"><div class="big">最终结果读取失败</div><div class="sm">请稍后刷新页面。</div></div>';
   });
-  setInterval(function(){ load().catch(function(){}); }, 300000);
 
   $("joinBtn").addEventListener("click",function(){ window.open(TG_URL,"_blank","noopener"); });
   function shareNotice(msg){
@@ -871,7 +856,7 @@
   $("shareBtn").addEventListener("click",function(){
     var u=location.origin+location.pathname;
     if(navigator.share){
-      navigator.share({title:document.title,text:"AVE 社区交易赛实时榜单",url:u}).catch(function(e){
+      navigator.share({title:document.title,text:"AVE 社区交易赛最终结果",url:u}).catch(function(e){
         if(!e||e.name!=="AbortError") copyPageLink(u);
       });
     }else copyPageLink(u);
