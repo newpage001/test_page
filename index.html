@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>AVE 社区交易赛 · 最终结果</title>
+<title>金秋破浪 · AVE社区交易赛</title>
 <style>
 :root{
     --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
@@ -307,8 +307,8 @@
   @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important; transition:none!important} }
 
   /* 榜单切换 */
-  .swt{display:flex; gap:8px; margin:12px 0 2px}
-  .swt button{flex:1; border:1px solid var(--line); background:#f7fafd; color:var(--ink2); cursor:pointer;
+  .swt{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:12px 0 2px}
+  .swt button{border:1px solid var(--line); background:#f7fafd; color:var(--ink2); cursor:pointer;
     font-family:var(--sans); font-size:14px; font-weight:700; padding:9px 6px; border-radius:11px; transition:.18s}
   .swt button small{display:block; font-size:11px; font-weight:600; color:var(--muted); margin-top:1px}
   .swt button.on{background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; border-color:transparent;
@@ -323,12 +323,20 @@
   .pot small{display:block; font-size:10.5px; color:var(--muted); margin-top:1px}
   .pot.g{background:linear-gradient(160deg,#fffaf0,#fff4dd); border-color:#ffe2ad}
   .pot.g b{color:#c8860a}
-  /* 抽奖 */
-  .draw{margin-top:14px; border:1px dashed #ffd9a6; background:linear-gradient(160deg,#fffdf7,#fff7e8);
+  /* 新用户奖励 */
+  .userRewards{margin-top:14px; display:grid; gap:12px}
+  .draw{border:1px dashed #ffd9a6; background:linear-gradient(160deg,#fffdf7,#fff7e8);
     border-radius:12px; padding:13px 15px}
   .draw h4{margin:0 0 4px; font-size:14.5px; color:#a86b00}
   .draw p{margin:0; font-size:13.5px; color:var(--ink2); line-height:1.75}
   .draw b{color:#a86b00}
+  .tierTable{display:grid; gap:7px; margin-top:10px}
+  .tier{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; align-items:center;
+    padding:8px 10px; border-radius:9px; background:rgba(255,255,255,.72); color:var(--ink2); font-size:12.5px}
+  .tier b{font-family:var(--num); font-size:14px; color:var(--blue-deep)}
+  .userRewardGrid .ph,.userRewardGrid .pr{grid-template-columns:1fr 1fr}
+  .promoReq{margin:0; padding-left:18px; color:var(--ink2); font-size:13.5px; line-height:1.75}
+  .promoReq li+li{margin-top:5px}
   /* 待切换窗口提示 */
   .pend{padding:26px 14px; text-align:center}
   .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
@@ -349,6 +357,7 @@
   .qwho .mt b{color:var(--ink2); font-weight:700}
   .qvol{text-align:right; font-family:var(--num); font-size:15px; font-weight:700; font-variant-numeric:tabular-nums}
   .qvol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
+  .tickets{display:block; margin-top:3px; color:var(--blue-deep); font-size:10.5px; font-family:var(--sans); font-weight:800}
   /* 合并奖励表 */
   .rewardGrid .ph,.rewardGrid .pr{grid-template-columns:.9fr 1fr 1fr}
   .rewardGrid .a{font-size:18px}
@@ -358,49 +367,48 @@
     opacity:0; transform:translateY(5px); pointer-events:none; transition:opacity .18s,transform .18s}
   .shareToast.show{opacity:1; transform:translateY(0)}
 
-  /* ---------- 中秋国庆双节主题：中国红 ＋ 金 ---------- */
+  /* ---------- 金秋主题：琥珀黄 ＋ 枫叶橙 ＋ 深褐 ---------- */
   :root{
-    --blue:#d5202f; --blue-deep:#9e0b1a; --blue-light:#f0564c; --blue-ink:#6e0a14;
-    --line:#f4ddd6; --ink:#2b1a1a; --ink2:#6b5450; --muted:#a98f8a;
-    --gold-1:#ffd85e; --gold-2:#e8a33a; --gold-deep:#b57a1c;
+    --blue:#c9790a; --blue-deep:#8a4b0f; --blue-light:#e8a72e; --blue-ink:#4b2d14;
+    --line:#eadcc5; --ink:#2f251b; --ink2:#6f5b47; --muted:#a18c76;
+    --gold-1:#ffe07a; --gold-2:#e9981a; --gold-deep:#9b5d0a;
   }
   body{background:
-      radial-gradient(520px 380px at 100% -60px,rgba(213,32,47,.16),transparent 70%),
-      radial-gradient(420px 360px at -80px 34%,rgba(232,163,58,.16),transparent 70%),
-      linear-gradient(180deg,#ffeee6 0%,#fff4ec 24%,#fffaf4 100%)}
-  .card{box-shadow:0 8px 26px rgba(158,11,26,.08)}
-  .hero{background:linear-gradient(135deg,#ffe3d6 0%,#fff3e6 46%,#fff8dc 100%) !important;
-    box-shadow:0 14px 36px rgba(158,11,26,.16), inset 0 0 0 1px rgba(255,255,255,.72)}
+      radial-gradient(520px 380px at 100% -60px,rgba(232,167,46,.24),transparent 70%),
+      radial-gradient(420px 360px at -80px 34%,rgba(194,104,20,.13),transparent 70%),
+      linear-gradient(180deg,#f8e3ad 0%,#fdf1d1 24%,#fffaf0 100%)}
+  .card{box-shadow:0 8px 26px rgba(111,69,20,.09)}
+  .hero{background:linear-gradient(135deg,#f5cf74 0%,#f9e2aa 46%,#fff4d3 100%) !important;
+    box-shadow:0 14px 36px rgba(111,69,20,.18), inset 0 0 0 1px rgba(255,255,255,.72)}
   .hero::before{background-image:
-      linear-gradient(rgba(158,11,26,.055) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(158,11,26,.055) 1px,transparent 1px)}
-  .hbadge{color:#9e0b1a; background:rgba(255,255,255,.86); border-color:#f6cfc2}
-  .prize{background:linear-gradient(135deg,#e5382f 0%,#c2101f 55%,#8d0713 100%);
-    box-shadow:0 10px 24px rgba(158,11,26,.34), inset 0 1px 0 rgba(255,255,255,.28)}
-  .seg{background:linear-gradient(180deg,#fffaf6,#ffeee6); border-color:#f6d8cc}
-  .rbar{background:#f6ddd4}
-  .hl,.gate{background:#fff6f1; border-color:#f7d6c9}
-  .ph{background:#fff6f1}
-  .live{background:#fff1ea; border-color:#f7d3c6; color:#9e0b1a}
-  .rk{background:#fdefe9}
+      linear-gradient(rgba(111,69,20,.055) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(111,69,20,.055) 1px,transparent 1px)}
+  .hbadge{color:#74400c; background:rgba(255,255,255,.78); border-color:#e8c681}
+  .prize{background:linear-gradient(135deg,#bf7210 0%,#8f4d0c 58%,#5d320d 100%);
+    box-shadow:0 10px 24px rgba(111,69,20,.34), inset 0 1px 0 rgba(255,255,255,.26)}
+  .seg{background:linear-gradient(180deg,#fffdf7,#f8ecd5); border-color:#ead8b7}
+  .rbar{background:#eadcc5}
+  .hl,.gate{background:#fff9ec; border-color:#ead7b4}
+  .ph{background:#fff9ee}
+  .live{background:#fff5df; border-color:#ead09b; color:#7b470e}
+  .rk{background:#f7eedf}
   .lrow.zero .rk{background:#faf1ee; color:var(--muted)}
-  .bar{background:#f7e4dc}
-  .sk{background:linear-gradient(90deg,#fbeee8 0%,#fff8f4 45%,#fbeee8 90%); background-size:220% 100%}
-  .swt button{background:#fff6f1; border-color:#f6d8cc}
-  .pot{background:#fffaf6; border-color:#f6ddd4}
-  .pot b{color:#b81322}
-  .pot.g{background:linear-gradient(160deg,#fffaf0,#ffefd2); border-color:#f3d79b}
-  .draw{border-color:#f3c9a0; background:linear-gradient(160deg,#fffdf6,#fff4e2)}
-  .cta{background:linear-gradient(180deg,rgba(255,238,230,0),#ffeee6 40%)}
-  .cta button{box-shadow:0 8px 22px rgba(158,11,26,.34), inset 0 1px 0 rgba(255,255,255,.25)}
-  .share{background:var(--blue); box-shadow:0 6px 16px rgba(213,32,47,.4)}
-  .pd.p1{--ring:conic-gradient(#ffd85e,#fff3c4,#e8a33a,#ffd85e,#fff3c4,#e8a33a,#ffd85e)}
-  .sep::before,.sep::after{background:#f4ddd6}
-  .pr .dot{background:#e9cec6}
-  .pr.top{background:linear-gradient(92deg,rgba(255,216,94,.16),rgba(232,163,58,.03))}
-  .lrow.win{background:linear-gradient(92deg,rgba(255,216,94,.16),rgba(232,163,58,.03))}
-  .steps li::before{box-shadow:0 3px 8px rgba(213,32,47,.26)}
-  .prz{box-shadow:0 2px 6px rgba(232,163,58,.3)}
+  .bar{background:#efe3cf}
+  .sk{background:linear-gradient(90deg,#f5ead8 0%,#fffaf0 45%,#f5ead8 90%); background-size:220% 100%}
+  .swt button{background:#fff8e9; border-color:#ead8b7}
+  .pot{background:#fffaf1; border-color:#eadcc5}
+  .pot b{color:#8f4d0c}
+  .pot.g{background:linear-gradient(160deg,#fff9e8,#fbe3af); border-color:#e6c77f}
+  .draw{border-color:#dfbc74; background:linear-gradient(160deg,#fffdf6,#fbedcf)}
+  .cta{background:linear-gradient(180deg,rgba(248,227,173,0),#f8e3ad 40%)}
+  .cta button{box-shadow:0 8px 22px rgba(111,69,20,.34), inset 0 1px 0 rgba(255,255,255,.25)}
+  .share{background:var(--blue); box-shadow:0 6px 16px rgba(143,77,12,.35)}
+  .pd.p1{--ring:conic-gradient(#ffe07a,#fff3c4,#e9981a,#ffe07a,#fff3c4,#e9981a,#ffe07a)}
+  .sep::before,.sep::after{background:#eadcc5}
+  .pr .dot{background:#d9c5a8}
+  .pr.top,.lrow.win{background:linear-gradient(92deg,rgba(232,167,46,.17),rgba(194,104,20,.03))}
+  .steps li::before{box-shadow:0 3px 8px rgba(143,77,12,.25)}
+  .prz{box-shadow:0 2px 6px rgba(194,104,20,.25)}
 
 </style>
 </head>
@@ -424,73 +432,78 @@
 
   <section class="hero">
     <svg class="art" viewBox="0 0 240 260" aria-hidden="true">
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stop-color="#ffe9a8" stop-opacity=".55"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient>
-        <linearGradient id="moon" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#fff8dc"/><stop offset="1" stop-color="#ffe08a"/></linearGradient>
-        <linearGradient id="cake" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#e8a94e"/><stop offset="1" stop-color="#c47a2c"/></linearGradient>
-        <linearGradient id="lant" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#f0564c"/><stop offset="1" stop-color="#c2101f"/></linearGradient>
-      </defs>
-      <circle class="a-glow" cx="168" cy="72" r="78" fill="url(#glow)"/>
-      <circle cx="168" cy="72" r="42" fill="url(#moon)"/>
-      <circle cx="152" cy="60" r="7" fill="#f6d78a" opacity=".55"/>
-      <circle cx="180" cy="86" r="5" fill="#f6d78a" opacity=".45"/>
-      <g opacity=".5" fill="#ffd9a0">
-        <path d="M96 104q10-12 24-8 4-12 18-10t16 14q14-2 18 10H96z"/>
-        <path d="M150 140q8-9 19-6 3-9 14-8t12 11q11-2 14 8h-59z"/>
-      </g>
-      <g class="a-cup">
-        <g transform="translate(40,150)">
-          <circle cx="44" cy="44" r="46" fill="#a85c1c" opacity=".25"/>
-          <circle cx="44" cy="42" r="44" fill="url(#cake)"/>
-          <circle cx="44" cy="42" r="35" fill="none" stroke="#f2c882" stroke-width="2.4" opacity=".75"/>
-          <g stroke="#f2c882" stroke-width="2.2" opacity=".65" stroke-linecap="round">
-            <path d="M44 9v66M11 42h66M21 19l46 46M67 19L21 65"/>
-          </g>
-          <circle cx="44" cy="42" r="14" fill="#b4671f"/>
-          <circle cx="44" cy="42" r="14" fill="none" stroke="#f7dca6" stroke-width="2"/>
-          <circle cx="44" cy="42" r="5" fill="#f7dca6" opacity=".9"/>
-        </g>
-      </g>
-      <g>
-        <path d="M36 0v26M84 0v16" stroke="#c2101f" stroke-width="2" opacity=".6"/>
-        <g transform="translate(20,26)">
-          <rect x="6" y="-4" width="20" height="5" rx="2" fill="#e8b84b"/>
-          <ellipse cx="16" cy="18" rx="16" ry="18" fill="url(#lant)"/>
-          <path d="M6 8h20M6 28h20" stroke="#ffd98a" stroke-width="1.6" opacity=".7"/>
-          <rect x="6" y="35" width="20" height="5" rx="2" fill="#e8b84b"/>
-          <path d="M12 40v10M16 40v13M20 40v10" stroke="#e8b84b" stroke-width="1.8" stroke-linecap="round"/>
-        </g>
-        <g transform="translate(70,16)" opacity=".9">
-          <rect x="4" y="-3" width="14" height="4" rx="2" fill="#e8b84b"/>
-          <ellipse cx="11" cy="13" rx="11" ry="13" fill="url(#lant)"/>
-          <path d="M4 5h14M4 21h14" stroke="#ffd98a" stroke-width="1.3" opacity=".7"/>
-          <rect x="4" y="25" width="14" height="4" rx="2" fill="#e8b84b"/>
-          <path d="M8 29v8M11 29v10M14 29v8" stroke="#e8b84b" stroke-width="1.5" stroke-linecap="round"/>
-        </g>
-      </g>
-      <g>
-        <path class="tw" d="M196 150l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#ffd85e"/>
-        <path class="tw t2" d="M120 26l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#ffd85e"/>
-        <circle class="tw t3" cx="214" cy="118" r="4.5" fill="#ffd85e" opacity=".85"/>
-        <circle class="tw" cx="150" cy="188" r="3.5" fill="#f0564c" opacity=".7"/>
-      </g>
-      <g opacity=".45">
-        <rect x="24" y="238" width="196" height="3" rx="1.5" fill="#c2101f" opacity=".3"/>
-        <rect x="24" y="238" width="16" height="3" fill="#c2101f"/>
-        <rect x="56" y="238" width="16" height="3" fill="#c2101f"/>
-        <rect x="88" y="238" width="16" height="3" fill="#c2101f"/>
-        <rect x="120" y="238" width="16" height="3" fill="#c2101f"/>
-      </g>
-    </svg>
-    <span class="hbadge">中秋国庆 · 双节同庆</span>
-    <h1>双节同庆<em>交易赛</em></h1>
-    <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">1500</b><span class="pu">U</span></div>
-    <div class="hdate">9月24日 18:00 — 10月7日 18:00</div>
-    <p class="hsub">本期交易赛已结束，增量榜、存量榜及奖池资格名单均已封榜，最终结果以本页公示为准。</p>
+  <defs>
+    <radialGradient id="autumnGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff0ad" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#f1b83d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="autumnSun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff3ad"/>
+      <stop offset="1" stop-color="#e7a426"/>
+    </linearGradient>
+    <linearGradient id="leafGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd35a"/>
+      <stop offset="1" stop-color="#d58a12"/>
+    </linearGradient>
+    <linearGradient id="leafOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaa33a"/>
+      <stop offset="1" stop-color="#a95112"/>
+    </linearGradient>
+    <linearGradient id="leafBrown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c77a24"/>
+      <stop offset="1" stop-color="#754014"/>
+    </linearGradient>
+  </defs>
+
+  <circle class="a-glow" cx="172" cy="70" r="82" fill="url(#autumnGlow)"/>
+  <circle cx="172" cy="70" r="38" fill="url(#autumnSun)" opacity=".88"/>
+  <g fill="none" stroke="#6d411c" stroke-linecap="round">
+    <path d="M38 226C78 184 114 153 206 126" stroke-width="8" opacity=".82"/>
+    <path d="M92 184c-8-28-21-47-40-62M125 163c6-31 20-55 39-72M156 148c18-22 37-35 57-43" stroke-width="4.5" opacity=".78"/>
+  </g>
+
+  <g class="a-cup">
+    <g transform="translate(45 108) rotate(-22)">
+      <path d="M0 18C12-3 34-7 50 4 45 27 26 42 4 36-2 31-3 24 0 18Z" fill="url(#leafOrange)"/>
+      <path d="M6 31 41 5M21 21l-7-8M29 15l3-10M15 26l-12-2" stroke="#8a4b0f" stroke-width="1.6" fill="none" opacity=".7"/>
+    </g>
+    <g transform="translate(96 93) rotate(9)">
+      <path d="M0 20C10-4 33-9 51 1 49 25 32 43 8 40 1 36-2 28 0 20Z" fill="url(#leafGold)"/>
+      <path d="M8 35 43 4M22 23l-9-7M31 16l4-11M16 29l-13-1" stroke="#98600d" stroke-width="1.6" fill="none" opacity=".68"/>
+    </g>
+    <g transform="translate(144 104) rotate(-8)">
+      <path d="M0 19C12-2 35-6 51 6 44 29 25 43 3 35-2 30-3 24 0 19Z" fill="url(#leafBrown)"/>
+      <path d="M6 31 43 8M20 23l-8-9M30 17l2-11M15 27l-12-3" stroke="#683814" stroke-width="1.6" fill="none" opacity=".7"/>
+    </g>
+    <g transform="translate(84 150) rotate(18) scale(.84)">
+      <path d="M0 19C12-2 35-6 51 6 44 29 25 43 3 35-2 30-3 24 0 19Z" fill="url(#leafGold)"/>
+      <path d="M6 31 43 8M20 23l-8-9M30 17l2-11M15 27l-12-3" stroke="#98600d" stroke-width="1.6" fill="none" opacity=".66"/>
+    </g>
+    <g transform="translate(153 124) rotate(28) scale(.78)">
+      <path d="M0 18C12-3 34-7 50 4 45 27 26 42 4 36-2 31-3 24 0 18Z" fill="url(#leafOrange)"/>
+      <path d="M6 31 41 5M21 21l-7-8M29 15l3-10M15 26l-12-2" stroke="#8a4b0f" stroke-width="1.6" fill="none" opacity=".7"/>
+    </g>
+  </g>
+
+  <g opacity=".9">
+    <g class="tw" transform="translate(205 160) rotate(28) scale(.54)">
+      <path d="M0 18C12-3 34-7 50 4 45 27 26 42 4 36-2 31-3 24 0 18Z" fill="url(#leafGold)"/>
+    </g>
+    <g class="tw t2" transform="translate(28 62) rotate(-34) scale(.44)">
+      <path d="M0 18C12-3 34-7 50 4 45 27 26 42 4 36-2 31-3 24 0 18Z" fill="url(#leafOrange)"/>
+    </g>
+    <g class="tw t3" transform="translate(185 212) rotate(54) scale(.38)">
+      <path d="M0 18C12-3 34-7 50 4 45 27 26 42 4 36-2 31-3 24 0 18Z" fill="url(#leafBrown)"/>
+    </g>
+  </g>
+
+  <path d="M28 241h190" stroke="#8a4b0f" stroke-width="3" stroke-linecap="round" opacity=".2"/>
+</svg>
+    <span class="hbadge">10月社区交易赛 · 增长优先</span>
+    <h1>金秋破浪<em>AVE社区交易赛</em></h1>
+    <div class="prize"><span class="pl">奖池</span><b class="pv" id="pool">2000</b><span class="pu">U</span></div>
+    <div class="hdate">10月13日 18:00 — 10月27日 18:00</div>
+    <p class="hsub">新用户增长为核心，兼顾老社区活跃。社区长与新用户共享 2,000 U 奖池。</p>
   </section>
 
   <section>
@@ -498,7 +511,7 @@
     <div class="card">
       <div class="trow"><span>开始时间</span><b id="startT">--</b></div>
       <div class="trow"><span>结束时间</span><b id="endT">--</b></div>
-      <div class="cdLabel ended" id="cdLabel">交易赛已结束</div>
+      <div class="cdLabel" id="cdLabel">距开赛</div>
       <div class="clock">
         <div class="seg"><b id="dd">00</b><small>天</small></div>
         <div class="seg"><b id="hh">00</b><small>时</small></div>
@@ -516,22 +529,37 @@
     <span class="tab g">奖励分配</span>
     <div class="card">
       <div class="pots">
-        <div class="pot"><b>700</b><span>增量榜</span><small>前 10 名</small></div>
+        <div class="pot"><b>1000</b><span>社区增量榜</span><small>前 10 名</small></div>
         <div class="pot"><b>500</b><span>存量榜</span><small>前 10 名</small></div>
-        <div class="pot g"><b>300</b><span>用户抽奖</span><small>30 名各 10 U</small></div>
+        <div class="pot g"><b>500</b><span>新用户奖励</span><small>交易榜＋抽奖</small></div>
       </div>
 
-      <div class="ptTitle"><span class="pill">双榜奖励</span> 增量榜共 700 U · 存量榜共 500 U</div>
+      <div class="ptTitle"><span class="pill">社区奖励</span> 增量榜 1,000 U · 存量榜 500 U</div>
       <div class="ptable rewardGrid">
         <div class="ph"><span>名次</span><span class="r">增量榜</span><span class="r">存量榜</span></div>
-        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">140<small> U</small></span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">110<small> U</small></span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">90<small> U</small></span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">75<small> U</small></span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">65<small> U</small></span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">55<small> U</small></span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">50<small> U</small></span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">45<small> U</small></span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">30<small> U</small></span><span class="a">25<small> U</small></span></div>
+        <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">220<small> U</small></span><span class="a gold">100<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">170<small> U</small></span><span class="a gold">80<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">140<small> U</small></span><span class="a gold">65<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">115<small> U</small></span><span class="a">55<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">95<small> U</small></span><span class="a">45<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">75<small> U</small></span><span class="a">40<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">60<small> U</small></span><span class="a">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">50<small> U</small></span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">40<small> U</small></span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">35<small> U</small></span><span class="a">25<small> U</small></span></div>
       </div>
 
-      <div class="draw">
-        <h4>双节红包 · 用户抽奖 300 U</h4>
-        <p>赛期内<b>个人交易量超过 500 U</b> 的下级用户获得抽奖资格。现已从符合资格的用户中抽取 <b>30 名</b>，每名 <b>10 U</b>，抽奖结果已公示。</p>
+      <div class="userRewards">
+        <div>
+          <div class="ptTitle"><span class="pill">新用户交易榜</span> 250 U · 直接奖励前 10 名</div>
+          <div class="ptable userRewardGrid">
+            <div class="ph"><span>名次</span><span class="r">奖励</span></div>
+            <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">50<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">45<small> U</small></span></div><div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">35<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">30<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">25<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">20<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">15<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">10<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 9 名</span><span class="a">10<small> U</small></span></div><div class="pr"><span class="nm"><i class="dot"></i>第 10 名</span><span class="a">10<small> U</small></span></div>
+          </div>
+        </div>
+        <div class="draw">
+          <h4>新用户达标抽奖 · 250 U</h4>
+          <p>活动期新用户交易量达到 <b>500 U</b> 即可获得抽奖号码；共抽取 <b>25 名</b>，每人 <b>10 U</b>，每人最多中奖一次。</p>
+          <div class="tierTable">
+            <div class="tier"><span>500–2,999.99 U</span><b>1 个号码</b></div>
+            <div class="tier"><span>3,000–9,999.99 U</span><b>2 个号码</b></div>
+            <div class="tier"><span>10,000 U 及以上</span><b>3 个号码</b></div>
+          </div>
+          <p style="margin-top:9px">新用户交易榜前 10 名不再参加抽奖，让更多用户有机会获奖。</p>
+        </div>
       </div>
-      <div class="fine">奖励于活动结束后 7 个工作日内，自动发放至获奖社区长与中奖用户的 AVE 钱包，无需提交任何信息。</div>
+      <div class="fine">社区榜、新用户交易榜及抽奖资格均以活动结束后的审核封榜结果为准。</div>
     </div>
   </section>
 
@@ -539,24 +567,25 @@
     <span class="tab">成绩怎么算</span>
     <div class="card">
       <ul class="calc">
-        <li class="yes"><b>增量榜</b>：赛期内通过你的专属链接<b>新注册</b>的用户，在赛期内产生的交易量</li>
-        <li class="yes"><b>存量榜</b>：赛期内<b>社区长本人 ＋ 一级老下级</b>产生的交易量，二级不计</li>
+        <li class="yes"><b>社区增量榜</b>：活动期通过专属链接新注册的直属一级用户，其真实交易量计入社区成绩</li>
+        <li class="yes"><b>社区存量榜</b>：社区长本人及直属一级老用户的交易量；新用户交易量不重复计入</li>
+        <li class="yes"><b>新用户奖励</b>：有真实交易即可争夺个人前 10；达到 500 U 后按档位获得 1–3 个抽奖号码</li>
         <li class="yes">同一笔交易只计入一个榜单，不重复计分</li>
       </ul>
-      <div class="hl">存量成绩 ＝ 社区长本人交易量 ＋ 一级下级交易量 − 新一级用户交易量，<b>二级下级不计入</b>。
-        既拉来新客、又守住老盘子的社区，<b>两个榜的奖金可以同时拿</b>。</div>
-      <div class="gate">所有已报名社区均展示在榜单上，<b>无最低门槛</b>。赛期内新报名的社区同样计分。</div>
+      <div class="hl">只统计直属一级用户，二级用户不计入。既拉来新客、又守住老社区，<b>两个社区榜的奖金可以同时获得</b>。</div>
+      <div class="gate">所有榜单均要求产生真实交易量；<b>成绩为 0 不展示、不占名次</b>。</div>
     </div>
   </section>
 
   <section>
-    <span class="tab">最终榜单</span>
+    <span class="tab">实时榜单</span>
     <div class="card">
-      <div class="lbHead"><span class="t"><span id="boardTitle">最终社区榜</span><small id="boardSub">新注册用户交易量</small></span><span class="live" id="live"><i></i>已封榜</span></div>
+      <div class="lbHead"><span class="t"><span id="boardTitle">社区增量榜</span><small id="boardSub">新用户交易量</small></span><span class="live stale" id="live"><i></i>尚未开赛</span></div>
       <div class="swt">
-        <button id="btnInc" class="on" type="button">最终增量榜<small>新用户交易量</small></button>
-        <button id="btnStk" type="button">最终存量榜<small>本人＋一级老下级</small></button>
-        <button id="btnQlf" type="button">奖池资格<small>个人 &gt; 500 U</small></button>
+        <button id="btnInc" class="on" type="button">社区增量榜<small>一级新用户交易量</small></button>
+        <button id="btnStk" type="button">社区存量榜<small>本人＋一级老用户</small></button>
+        <button id="btnUsr" type="button">新用户交易榜<small>个人交易量前 10</small></button>
+        <button id="btnQlf" type="button">抽奖资格<small>个人 ≥ 500 U</small></button>
       </div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
@@ -572,10 +601,22 @@
     <span class="tab">本期参与规则</span>
     <div class="card">
       <ol class="steps">
-        <li><b>社区长报名</b>：本期社区已完成报名并绑定专属邀请链接；上一期已报名的社区自动继承。</li>
-        <li><b>赛期内拉新用户</b>，新朋友通过你的专属链接注册 AVE，其交易量计入增量榜。</li>
-        <li><b>动员一级老下级交易</b>，本人与一级老下级的交易量计入存量榜，二级不计，两个榜分别排名。</li>
+        <li><b>使用有效邀请码</b>：社区长使用已登记的专属邀请码参与活动。</li>
+        <li><b>邀请新用户</b>：活动期新注册的直属一级用户产生真实交易，即可为社区贡献增量成绩。</li>
+        <li><b>激活老用户</b>：社区长本人和直属一级老用户交易，计入存量榜。</li>
+        <li><b>带动用户领奖</b>：新用户可同时参与个人交易榜和达标抽奖。</li>
       </ol>
+    </div>
+  </section>
+
+  <section>
+    <span class="tab">社区推广要求</span>
+    <div class="card">
+      <ul class="promoReq">
+        <li>使用官方统一话术、规则图和活动链接，在自己的社群发布活动公告。</li>
+        <li>发布后向对接 BD 提交群内公告截图和消息回链，完成用户触达确认。</li>
+        <li>活动期间配合转发重要战报与冲榜通知。</li>
+      </ul>
     </div>
   </section>
 
@@ -583,9 +624,11 @@
     <span class="tab">注意事项</span>
     <div class="card note">
       <h4>交易量口径</h4>
-      <p>按买入与卖出的绝对值相加计算，两个榜单不重复计分。</p>
+      <p>同一笔交易只进入一个榜单，不重复计分；只统计直属一级用户，二级用户不计。</p>
+      <h4>邀请码规则</h4>
+      <p>同一社区长的多个有效邀请码合并计算，只占一个名次；邀请码之间不得存在直接或间接上下级关系。</p>
       <h4>异常交易</h4>
-      <p>异常刷量、关联地址对敲等交易不计入活动数据，经识别后从成绩中剔除。</p>
+      <p>异常刷量、关联地址对敲等交易不计入活动数据；社区长及其关联账户不得参加新用户个人榜和抽奖。</p>
       <h4>最终解释</h4>
       <p>最终排名以 AVE 后台统计结果为准。本活动不构成任何投资建议，数字资产价格波动较大，参与需理性，风险自担。</p>
     </div>
@@ -599,13 +642,13 @@
   </svg>
 </button>
 <span class="shareToast" id="shareToast" role="status" aria-live="polite"></span>
-<div class="cta"><button id="joinBtn">查看获奖公告</button></div>
+<div class="cta"><button id="joinBtn">加入官方 TG 群</button></div>
 
 <script>
 (function(){
-  var START=new Date("2026-09-24T18:00:00+08:00").getTime(), END=new Date("2026-10-07T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="leaderboard-final.json";
-  var PRIZE={inc:[140, 110, 90, 75, 65, 55, 50, 45, 40, 30], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25]};
+  var START=new Date("2026-10-13T18:00:00+08:00").getTime(), END=new Date("2026-10-27T18:00:00+08:00").getTime();
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board";
+  var PRIZE={inc:[220, 170, 140, 115, 95, 75, 60, 50, 40, 35], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25], user:[50, 45, 35, 30, 25, 20, 15, 10, 10, 10]};
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function $(id){return document.getElementById(id);}
@@ -633,7 +676,7 @@
 
   $("startT").textContent=dstr(START);
   $("endT").textContent=dstr(END);
-  roll($("pool"),0,1500,1300,function(v){return String(Math.round(v));});
+  roll($("pool"),0,2000,1300,function(v){return String(Math.round(v));});
 
   var firstTick=true;
   function setSeg(el,v){
@@ -646,14 +689,14 @@
     var now=Date.now(), lab=$("cdLabel"), diff;
     if(now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
     else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
-    else{diff=0; lab.textContent="交易赛已结束 · 最终结果已封榜"; lab.className="cdLabel ended";}
+    else{diff=0; lab.textContent="活动已结束 · 数据审核中"; lab.className="cdLabel ended";}
     setSeg($("dd"),pad(Math.floor(diff/864e5)));
     setSeg($("hh"),pad(Math.floor(diff%864e5/36e5)));
     setSeg($("mm"),pad(Math.floor(diff%36e5/6e4)));
     setSeg($("ss"),pad(Math.floor(diff%6e4/1e3)));
     var pct=now<START?0:(now>=END?100:(now-START)/(END-START)*100), w=pct.toFixed(3)+"%";
     $("rPct").textContent=(pct>0&&pct<10?pct.toFixed(1):Math.floor(pct))+"%";
-    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"最终结果已公示":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
+    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"活动已结束，等待审核封榜":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
     $("race").className="race"+(now>=START&&now<END?" on":"");
     if(firstTick&&!REDUCED&&window.requestAnimationFrame){
       window.requestAnimationFrame(function(){window.requestAnimationFrame(function(){$("rFill").style.width=w;});});
@@ -662,15 +705,16 @@
   }
   tick(); setInterval(tick,1000);
 
-  // ---- 三榜 ----
+  // ---- 四榜 ----
   var CROWN='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><defs>'+
     '<linearGradient id="crownG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/>'+
     '<stop offset="1" stop-color="#ff9a1f"/></linearGradient></defs>'+
     '<path d="M5 29 L2 8 L14 17 L24 3 L34 17 L46 8 L43 29 Z" fill="url(#crownG)" stroke="#e08a00" stroke-width="1.6" stroke-linejoin="round"/>'+
     '<rect x="5" y="25" width="38" height="4" fill="#e08a00" opacity=".45"/>'+
     '<circle cx="2" cy="8" r="2.8" fill="#ffd01e"/><circle cx="24" cy="3" r="2.8" fill="#ffd01e"/><circle cx="46" cy="8" r="2.8" fill="#ffd01e"/></svg>';
-  var DATA=null, which="inc", prevVol={inc:null,stock:null}, revealed=false;
-  function keyOf(r){return String(r.name||"")+"|"+String(r.code||"");}
+  var DATA={pending:true}, which="inc", prevVol={inc:null,stock:null,user:null}, revealed=false;
+  function displayName(r){return String(r.name||r.user||"脱敏用户");}
+  function keyOf(r){return displayName(r)+"|"+String(r.code||r.communityCode||"");}
   function initial(name){
     var m=String(name||"").replace(/^\s+/,"").match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\S/);
     return m?m[0].toUpperCase():"?";
@@ -689,36 +733,44 @@
     }
     var v=+r.volume||0, s=fmt(v);
     return '<div class="pd p'+pos+'" data-k="'+esc(keyOf(r))+'">'+(pos===1?CROWN:"")+
-      '<div class="av"><span>'+esc(initial(r.name))+'</span></div>'+
-      '<div class="pn">'+esc(r.name)+'</div>'+
+      '<div class="av"><span>'+esc(initial(displayName(r)))+'</span></div>'+
+      '<div class="pn">'+esc(displayName(r))+'</div>'+
       '<div class="pv'+(s.length>9?" long":"")+'"><span class="n" data-v="'+v+'">'+s+'</span><small>U</small></div>'+
-      (which==="inc"?'<div class="pm">'+esc(meta(r))+'</div>':"")+prizeTag(r)+
+      (which==="inc"?'<div class="pm">'+esc(meta(r))+'</div>':(which==="user"?'<div class="pm">'+esc(r.community||"")+'</div>':""))+prizeTag(r)+
       '<div class="plinth"><b>'+pos+'</b></div></div>';
   }
   function rowHtml(r,top){
     var v=+r.volume||0, zero=v<=0, win=!zero&&r.rank<=PRIZE[which].length;
     return '<div class="lrow'+(win?" win":"")+(zero?" zero":"")+'" data-k="'+esc(keyOf(r))+'">'+
       '<span class="rk">'+r.rank+'</span>'+
-      '<div class="who"><div class="nm">'+esc(r.name)+'</div>'+
-        '<div class="mt"><span class="cd">'+esc(codeLabel(r))+'</span>'+(which==="inc"?esc(meta(r)):"")+'</div>'+
+      '<div class="who"><div class="nm">'+esc(displayName(r))+'</div>'+
+        '<div class="mt">'+(which==="user"?'<span class="cd">'+esc(r.community||"")+'</span>':'<span class="cd">'+esc(codeLabel(r))+'</span>'+(which==="inc"?esc(meta(r)):""))+'</div>'+
         (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
       '</div>'+
       '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
     '</div>';
   }
+  function ticketsOf(r){var v=+r.volume||0; return r.tickets||r.chances||(v>=10000?3:(v>=3000?2:(v>=500?1:0)));}
   function qualifiedRow(r,seq){
     return '<div class="qrow">'+
       '<span class="rk">'+seq+'</span>'+
       '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
         '<div class="mt"><b>'+esc(r.community)+'</b></div></div>'+
-      '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small></div>'+
+      '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small><span class="tickets">'+ticketsOf(r)+' 个号码</span></div>'+
     '</div>';
   }
   function renderStamp(){
-    $("updated").textContent="封榜时间 10/07 18:00（UTC+8）";
-    var live=$("live");
-    live.className="live";
-    live.lastChild.nodeValue="已封榜";
+    var now=Date.now(), live=$("live"), stamp=DATA&&DATA.updated?new Date(DATA.updated):null;
+    if(now<START){
+      $("updated").textContent="榜单将于开赛后更新";
+      live.className="live stale"; live.lastChild.nodeValue="尚未开赛";
+    }else if(now<END){
+      $("updated").textContent=stamp&&!isNaN(stamp)?"更新于 "+pad(stamp.getMonth()+1)+"/"+pad(stamp.getDate())+" "+pad(stamp.getHours())+":"+pad(stamp.getMinutes()):"等待新一期数据";
+      live.className=DATA.pending?"live stale":"live"; live.lastChild.nodeValue=DATA.pending?"准备中":"实时更新";
+    }else{
+      $("updated").textContent=DATA.final?"最终成绩已审核":"活动已结束，等待审核封榜";
+      live.className="live stale"; live.lastChild.nodeValue=DATA.final?"已封榜":"审核中";
+    }
   }
   function reveal(host){
     if(revealed!==1) return;
@@ -748,28 +800,38 @@
     var host=$("board");
     if(!DATA) return;
     renderStamp();
-    $("boardTitle").textContent = which==="qualified" ? "最终奖池资格名单" : "最终社区榜";
-    $("boardSub").textContent = which==="inc" ? "新注册用户交易量" :
-      (which==="stock" ? "社区长本人＋一级老下级交易量" : "个人交易量严格大于 500 U");
-    if(DATA.pending){
-      host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+
-        '<div class="sm">赛事已开始，后端正在切换统计窗口。<br>窗口切换完成后本页会自动开始显示新一期数据，无需刷新。</div></div>';
+    $("boardTitle").textContent = which==="inc"?"社区增量榜":(which==="stock"?"社区存量榜":(which==="user"?"新用户交易榜":"新用户抽奖资格"));
+    $("boardSub").textContent = which==="inc" ? "直属一级新用户交易量" :
+      (which==="stock" ? "社区长本人＋直属一级老用户" : (which==="user"?"活动期新用户个人交易量":"达到 500 U，获得 1–3 个号码"));
+    if(Date.now()<START){
+      host.innerHTML='<div class="pend"><div class="big">尚未开赛</div><div class="sm">10月13日 18:00 正式开赛。<br>开赛后榜单将自动更新。</div></div>';
       $("summary").textContent="";
       return;
     }
-    var boardKey=which==="inc"?"community":(which==="stock"?"stock":"qualified");
+    if(DATA.pending){
+      host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+
+        '<div class="sm">正在切换新一期统计窗口。<br>确认数据口径后，本页会自动开始显示。</div></div>';
+      $("summary").textContent="";
+      return;
+    }
+    var boardKey=which==="inc"?"community":(which==="stock"?"stock":(which==="user"?"newUsers":"lottery"));
     var list=(DATA.boards&&DATA.boards[boardKey])||[];
+    if(which==="user"&&!list.length) list=(DATA.boards&&DATA.boards.user)||[];
+    if(which==="qualified"&&!list.length) list=(DATA.boards&&DATA.boards.qualified)||[];
+    list=list.filter(function(r){return (+r.volume||0)>0;});
+    if(which==="user") list=list.map(function(r,i){var x=Object.assign({},r);x.rank=i+1;x.name=x.name||x.user;x.code=x.code||x.communityCode||"";return x;});
     if(!list.length){
-      host.innerHTML='<div class="empty"><div class="big">'+(Date.now()<START?"尚未开赛":(which==="qualified"?"暂无用户达标":"暂无社区入榜"))+
-        '</div><div class="sm">'+(which==="qualified"?"个人交易量超过 500 U 后进入奖池。":"所有已报名社区均在榜，产生交易量即可计分。")+'</div></div>';
+      var emptyTitle=which==="qualified"?"暂无新用户达到 500 U":(which==="user"?"暂无新用户产生交易":"暂无社区产生交易量");
+      var emptyCopy=which==="qualified"?"新用户达到 500 U 后获得抽奖号码。":(which==="user"?"活动期新用户产生真实交易后进入个人榜。":"社区成绩大于 0 后进入榜单。");
+      host.innerHTML='<div class="empty"><div class="big">'+emptyTitle+'</div><div class="sm">'+emptyCopy+'</div></div>';
       $("summary").textContent="";
       return;
     }
     if(which==="qualified"){
-      var communities={}, qhtml='<div class="qscope">以下为封榜时个人交易量超过 500 U 的最终资格名单。<strong>抽奖已完成：共抽取 30 位幸运用户，每人奖励 10 U。</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量</span></div>';
-      for(var q=0;q<list.length;q++){communities[list[q].community]=1; qhtml+=qualifiedRow(list[q],q+1);}
+      var communities={}, tickets=0, qhtml='<div class="qscope">活动期新用户交易达到 500 U 后，按交易量获得 1–3 个抽奖号码。<strong>个人交易榜前 10 名不参加抽奖；最终资格以审核结果为准。</strong></div><div class="qrows"><div class="qhead"><span>资格序号</span><span>用户与社区</span><span>交易量 / 号码</span></div>';
+      for(var q=0;q<list.length;q++){communities[list[q].community]=1;tickets+=ticketsOf(list[q]);qhtml+=qualifiedRow(list[q],q+1);}
       qhtml+='</div>';
-      $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
+      $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名用户达标，</span><span class="nw">共 <b>'+tickets+'</b> 个抽奖号码，</span><span class="nw">来自 <b>'+Object.keys(communities).length+'</b> 个社区</span>';
       host.innerHTML=qhtml;
       return;
     }
@@ -781,7 +843,7 @@
     }
     $("summary").innerHTML = which==="inc"
       ? '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+'</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>'
-      : '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>';
+      : (which==="stock"?'<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>':'<span class="nw"><b>'+list.length+'</b> 名新用户在榜，</span><span class="nw">个人交易量合计 <b>'+fmt(total)+'</b> U</span>');
     var html='<div class="podium">'+podiumSlot(list[0],1)+podiumSlot(list[1],2)+podiumSlot(list[2],3)+'</div>';
     if(list.length>3){
       var anyVol=total>0, anyInv=users>0, sepVol=false, sepInv=false;
@@ -824,21 +886,27 @@
     which=w; revealed=false;
     $("btnInc").className = w==="inc"?"on":"";
     $("btnStk").className = w==="stock"?"on":"";
+    $("btnUsr").className = w==="user"?"on":"";
     $("btnQlf").className = w==="qualified"?"on":"";
     render();
   }
   $("btnInc").addEventListener("click",function(){pick("inc");});
   $("btnStk").addEventListener("click",function(){pick("stock");});
+  $("btnUsr").addEventListener("click",function(){pick("user");});
   $("btnQlf").addEventListener("click",function(){pick("qualified");});
 
-  function load(){
-    return fetch(FEED,{cache:"force-cache"})
-      .then(function(r){if(!r.ok) throw 0; return r.json();})
-      .then(function(j){DATA=j; render();});
+  function isCurrentCampaign(j){
+    var marker=j&&(j.campaignId||j.campaign_id||j.raceStart||j.race_start||j.campaignStart||j.start)||"";
+    return String(marker).indexOf("2026-10-13")>=0;
   }
-  load().catch(function(){
-    $("board").innerHTML='<div class="empty"><div class="big">最终结果读取失败</div><div class="sm">请稍后刷新页面。</div></div>';
-  });
+  function load(){
+    return fetch(FEED+"?t="+Date.now(),{cache:"no-store"})
+      .then(function(r){if(!r.ok) throw 0; return r.json();})
+      .then(function(j){DATA=isCurrentCampaign(j)?j:{pending:true};render();});
+  }
+  render();
+  load().catch(function(){DATA={pending:true};render();});
+  setInterval(function(){load().catch(function(){});},120000);
 
   $("joinBtn").addEventListener("click",function(){ window.open(TG_URL,"_blank","noopener"); });
   function shareNotice(msg){
@@ -856,7 +924,7 @@
   $("shareBtn").addEventListener("click",function(){
     var u=location.origin+location.pathname;
     if(navigator.share){
-      navigator.share({title:document.title,text:"AVE 社区交易赛最终结果",url:u}).catch(function(e){
+      navigator.share({title:document.title,text:"金秋破浪 · AVE社区交易赛",url:u}).catch(function(e){
         if(!e||e.name!=="AbortError") copyPageLink(u);
       });
     }else copyPageLink(u);
