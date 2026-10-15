@@ -842,6 +842,12 @@
       return;
     }
     var boardKey=which==="inc"?"community":(which==="stock"?"stock":(which==="user"?"newUsers":"lottery"));
+    if((DATA.pendingBoards||[]).indexOf(boardKey)>=0){
+      host.innerHTML='<div class="pend"><div class="big">榜单准备中</div>'+ 
+        '<div class="sm">上游正在同步本期新用户标记。<br>确认后会自动开始显示。</div></div>';
+      $("summary").textContent="";
+      return;
+    }
     var list=(DATA.boards&&DATA.boards[boardKey])||[];
     if(which==="user"&&!list.length) list=(DATA.boards&&DATA.boards.user)||[];
     if(which==="qualified"&&!list.length) list=(DATA.boards&&DATA.boards.qualified)||[];
