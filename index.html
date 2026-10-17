@@ -674,7 +674,7 @@
 <script>
 (function(){
   var START=new Date("2026-10-14T18:00:00+08:00").getTime(), END=new Date("2026-10-28T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board";
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board", DRAW_LINE=500;
   var PRIZE={inc:[220, 170, 140, 115, 95, 75, 60, 50, 40, 35], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25], user:[50, 45, 35, 30, 25, 20, 15, 10, 10, 10]};
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -856,6 +856,15 @@
     if(!list.length){
       var emptyTitle=which==="qualified"?"暂无新用户达到 500 U":(which==="user"?"暂无新用户产生交易":"暂无社区产生交易量");
       var emptyCopy=which==="qualified"?"新用户达到 500 U 后获得抽奖号码。":(which==="user"?"活动期新用户产生真实交易后进入个人榜。":"社区成绩大于 0 后进入榜单。");
+      if(which==="qualified"){
+        var newUserList=(DATA.boards&&DATA.boards.newUsers)||[];
+        if(!newUserList.length) newUserList=(DATA.boards&&DATA.boards.user)||[];
+        var reached=newUserList.filter(function(r){return (+r.volume||0)>=DRAW_LINE;});
+        if(reached.length){
+          emptyTitle="当前暂无可参与抽奖的新用户";
+          emptyCopy="已有 "+reached.length+" 名新用户达到 500 U，但目前均位于个人交易榜前 10 名；按规则不重复参加抽奖。";
+        }
+      }
       host.innerHTML='<div class="empty"><div class="big">'+emptyTitle+'</div><div class="sm">'+emptyCopy+'</div></div>';
       $("summary").textContent="";
       return;
