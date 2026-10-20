@@ -357,16 +357,16 @@
     border-radius:7px; background:var(--blue-deep); color:#fff; font-family:var(--num); font-size:11px; font-weight:800; letter-spacing:.05em}
   .botIntro h4{margin:0; color:var(--ink); font-size:15px}
   .botIntro p{margin:4px 0 0; color:var(--ink2); font-size:13px; line-height:1.65}
-  .botStats{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin-top:12px}
-  .botStat{padding:10px 11px; border:1px solid var(--line); border-radius:10px; background:#fff}
-  .botStatHead{display:flex; align-items:baseline; justify-content:space-between; gap:8px; padding-bottom:7px;
-    border-bottom:1px solid var(--line); color:var(--ink2); font-size:12.5px; font-weight:800}
-  .botStatHead b{color:var(--blue-deep); font-family:var(--num); font-size:18px}
+  .botStats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin-top:12px}
+  .botStat{padding:10px 8px; border:1px solid var(--line); border-radius:10px; background:#fff}
+  .botStatHead{display:flex; align-items:baseline; justify-content:space-between; gap:4px; padding-bottom:7px;
+    border-bottom:1px solid var(--line); color:var(--ink2); font-size:11.5px; font-weight:800; white-space:nowrap}
+  .botStatHead b{color:var(--blue-deep); font-family:var(--num); font-size:17px}
   .botStat dl{display:grid; grid-template-columns:1fr auto; gap:6px 10px; margin:8px 0 0; font-size:12px}
   .botStat dt{color:var(--muted)}
   .botStat dd{margin:0; color:var(--ink); font-family:var(--num); font-weight:700}
   .botFoot{margin:8px 1px 0; color:var(--muted); font-size:11px; line-height:1.55}
-  @media(max-width:400px){.botStats{grid-template-columns:1fr}}
+  @media(max-width:620px){.botStats{grid-template-columns:1fr}}
   /* 待切换窗口提示 */
   .pend{padding:26px 14px; text-align:center}
   .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
@@ -673,6 +673,10 @@
             <dl><dt>每日双榜战报</dt><dd id="botTodayDaily">--</dd><dt>增量榜变动</dt><dd id="botTodayInc">--</dd><dt>存量榜变动</dt><dd id="botTodayStock">--</dd></dl>
           </div>
           <div class="botStat">
+            <div class="botStatHead"><span>昨日自动播报</span><b id="botYesterdayTotal">--</b></div>
+            <dl><dt>每日双榜战报</dt><dd id="botYesterdayDaily">--</dd><dt>增量榜变动</dt><dd id="botYesterdayInc">--</dd><dt>存量榜变动</dt><dd id="botYesterdayStock">--</dd></dl>
+          </div>
+          <div class="botStat">
             <div class="botStatHead"><span>本期累计播报</span><b id="botCampaignTotal">--</b></div>
             <dl><dt>每日双榜战报</dt><dd id="botCampaignDaily">--</dd><dt>增量榜变动</dt><dd id="botCampaignInc">--</dd><dt>存量榜变动</dt><dd id="botCampaignStock">--</dd></dl>
           </div>
@@ -836,11 +840,15 @@
   }
   function renderBotStats(){
     var s=DATA&&DATA.botStats;
-    if(!s||!s.today||!s.campaign) return;
+    if(!s||!s.today||!s.yesterday||!s.campaign) return;
     $("botTodayTotal").textContent=s.today.total+" 条";
     $("botTodayDaily").textContent=s.today.daily;
     $("botTodayInc").textContent=s.today.increment;
     $("botTodayStock").textContent=s.today.stock;
+    $("botYesterdayTotal").textContent=s.yesterday.total+" 条";
+    $("botYesterdayDaily").textContent=s.yesterday.daily;
+    $("botYesterdayInc").textContent=s.yesterday.increment;
+    $("botYesterdayStock").textContent=s.yesterday.stock;
     $("botCampaignTotal").textContent=s.campaign.total+" 条";
     $("botCampaignDaily").textContent=s.campaign.daily;
     $("botCampaignInc").textContent=s.campaign.increment;
