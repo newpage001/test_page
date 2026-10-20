@@ -351,6 +351,22 @@
   .promoReq{margin:0; padding-left:18px; color:var(--ink2); font-size:13.5px; line-height:1.75}
   .promoReq li+li{margin-top:5px}
   .promoReq strong{color:#7a4308; font-weight:900}
+  .botBox{margin-top:16px; padding:14px; border:1px solid #e2c88f; border-radius:12px; background:#fffaf0}
+  .botIntro{display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px; align-items:start}
+  .botIcon{display:inline-flex; align-items:center; justify-content:center; min-width:42px; height:26px; padding:0 8px;
+    border-radius:7px; background:var(--blue-deep); color:#fff; font-family:var(--num); font-size:11px; font-weight:800; letter-spacing:.05em}
+  .botIntro h4{margin:0; color:var(--ink); font-size:15px}
+  .botIntro p{margin:4px 0 0; color:var(--ink2); font-size:13px; line-height:1.65}
+  .botStats{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin-top:12px}
+  .botStat{padding:10px 11px; border:1px solid var(--line); border-radius:10px; background:#fff}
+  .botStatHead{display:flex; align-items:baseline; justify-content:space-between; gap:8px; padding-bottom:7px;
+    border-bottom:1px solid var(--line); color:var(--ink2); font-size:12.5px; font-weight:800}
+  .botStatHead b{color:var(--blue-deep); font-family:var(--num); font-size:18px}
+  .botStat dl{display:grid; grid-template-columns:1fr auto; gap:6px 10px; margin:8px 0 0; font-size:12px}
+  .botStat dt{color:var(--muted)}
+  .botStat dd{margin:0; color:var(--ink); font-family:var(--num); font-weight:700}
+  .botFoot{margin:8px 1px 0; color:var(--muted); font-size:11px; line-height:1.55}
+  @media(max-width:400px){.botStats{grid-template-columns:1fr}}
   /* 待切换窗口提示 */
   .pend{padding:26px 14px; text-align:center}
   .pend .big{font-size:15px; font-weight:800; color:var(--ink2)}
@@ -646,6 +662,23 @@
         <li><strong>发布后须向对接 BD 提交群内公告截图和消息回链，完成用户触达确认。</strong></li>
         <li>活动期间配合转发重要战报与冲榜通知。</li>
       </ul>
+      <div class="botBox">
+        <div class="botIntro">
+          <span class="botIcon">BOT</span>
+          <div><h4>TG Bot 自动战报</h4><p>每天推送双榜战报；增量榜、存量榜名次变化确认后及时提醒，并通过间隔控制减少重复刷屏。</p></div>
+        </div>
+        <div class="botStats">
+          <div class="botStat">
+            <div class="botStatHead"><span>今日自动播报</span><b id="botTodayTotal">--</b></div>
+            <dl><dt>每日双榜战报</dt><dd id="botTodayDaily">--</dd><dt>增量榜变动</dt><dd id="botTodayInc">--</dd><dt>存量榜变动</dt><dd id="botTodayStock">--</dd></dl>
+          </div>
+          <div class="botStat">
+            <div class="botStatHead"><span>本期累计播报</span><b id="botCampaignTotal">--</b></div>
+            <dl><dt>每日双榜战报</dt><dd id="botCampaignDaily">--</dd><dt>增量榜变动</dt><dd id="botCampaignInc">--</dd><dt>存量榜变动</dt><dd id="botCampaignStock">--</dd></dl>
+          </div>
+        </div>
+        <div class="botFoot" id="botStatsUpdated">仅统计成功发送的自动播报，不含预览、失败发送和人工通知。</div>
+      </div>
     </div>
   </section>
 
@@ -801,6 +834,21 @@
       live.className="live stale"; live.lastChild.nodeValue=DATA.final?"已封榜":"审核中";
     }
   }
+  function renderBotStats(){
+    var s=DATA&&DATA.botStats;
+    if(!s||!s.today||!s.campaign) return;
+    $("botTodayTotal").textContent=s.today.total+" 条";
+    $("botTodayDaily").textContent=s.today.daily;
+    $("botTodayInc").textContent=s.today.increment;
+    $("botTodayStock").textContent=s.today.stock;
+    $("botCampaignTotal").textContent=s.campaign.total+" 条";
+    $("botCampaignDaily").textContent=s.campaign.daily;
+    $("botCampaignInc").textContent=s.campaign.increment;
+    $("botCampaignStock").textContent=s.campaign.stock;
+    var t=s.updatedAt?new Date(s.updatedAt):null;
+    var u=t&&!isNaN(t)?" · 更新于 "+pad(t.getMonth()+1)+"/"+pad(t.getDate())+" "+pad(t.getHours())+":"+pad(t.getMinutes()):"";
+    $("botStatsUpdated").textContent="仅统计成功发送的自动播报，不含预览、失败发送和人工通知"+u+"。";
+  }
   function reveal(host){
     if(revealed!==1) return;
     revealed=2;
@@ -950,7 +998,7 @@
   function load(){
     return fetch(FEED+"?t="+Date.now(),{cache:"no-store"})
       .then(function(r){if(!r.ok) throw 0; return r.json();})
-      .then(function(j){DATA=isCurrentCampaign(j)?j:{pending:true};render();});
+      .then(function(j){DATA=isCurrentCampaign(j)?j:{pending:true};render();renderBotStats();});
   }
   render();
   load().catch(function(){DATA={pending:true};render();});
