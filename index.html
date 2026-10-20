@@ -359,19 +359,21 @@
   .qscope{margin:12px 0 4px; padding:10px 12px; border:1px solid var(--line); border-radius:10px;
     background:#fffaf6; color:var(--ink2); font-size:12px; line-height:1.65}
   .qscope strong{display:block; margin-top:3px; color:var(--blue-deep); font-size:13px}
-  .qhead{display:grid; grid-template-columns:62px minmax(0,1fr) auto; gap:10px; align-items:center;
-    padding:9px 6px; color:var(--muted); font-size:11px; font-weight:700; border-bottom:1px solid var(--line)}
+  .qhead{display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:10px; align-items:center;
+    padding:10px 6px; color:var(--muted); font-size:13px; font-weight:800; border-bottom:1px solid var(--line)}
+  .qhead span{white-space:nowrap}
   .qhead span:last-child{text-align:right}
   .qrows{margin-top:8px; border-top:1px solid var(--line)}
-  .qrow{display:grid; grid-template-columns:62px minmax(0,1fr) auto; gap:10px; align-items:center;
-    padding:11px 6px; border-bottom:1px solid var(--line)}
+  .qrow{display:grid; grid-template-columns:70px minmax(0,1fr) auto; gap:10px; align-items:center;
+    padding:13px 6px; border-bottom:1px solid var(--line)}
+  .qrow>.rk{font-size:15px; font-weight:800}
   .qwho{min-width:0}
-  .qwho .nm{font-family:var(--mono); font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .qwho .mt{font-size:11px; color:var(--muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .qwho .nm{font-family:var(--mono); font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .qwho .mt{font-size:13px; color:var(--muted); margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
   .qwho .mt b{color:var(--ink2); font-weight:700}
-  .qvol{text-align:right; font-family:var(--num); font-size:15px; font-weight:700; font-variant-numeric:tabular-nums}
-  .qvol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
-  .tickets{display:block; margin-top:3px; color:var(--blue-deep); font-size:10.5px; font-family:var(--sans); font-weight:800}
+  .qvol{text-align:right; font-family:var(--num); font-size:17px; font-weight:700; font-variant-numeric:tabular-nums}
+  .qvol small{display:block; font-family:var(--sans); font-size:11px; color:var(--muted); font-weight:500}
+  .tickets{display:block; margin-top:4px; color:var(--blue-deep); font-size:12.5px; font-family:var(--sans); font-weight:800}
   /* 合并奖励表 */
   .rewardGrid .ph,.rewardGrid .pr{grid-template-columns:.9fr 1fr 1fr}
   .rewardGrid .a{font-size:18px}
