@@ -597,7 +597,7 @@
           <p style="margin-top:9px">新用户交易榜前 10 名不再参加抽奖，让更多用户有机会获奖。</p>
         </div>
       </div>
-      <div class="fine">社区榜、新用户交易榜及抽奖资格均以活动结束后的审核封榜结果为准。</div>
+      <div class="fine">社区榜、新用户交易榜及幸运抽奖均以本页公示的最终封榜结果为准。</div>
     </div>
   </section>
 
@@ -616,14 +616,14 @@
   </section>
 
   <section>
-    <span class="tab">实时榜单</span>
+    <span class="tab">最终榜单</span>
     <div class="card">
       <div class="lbHead"><span class="t"><span id="boardTitle">社区增量榜</span><small id="boardSub">新用户交易量</small></span><span class="live stale" id="live"><i></i>尚未开赛</span></div>
       <div class="swt">
         <button id="btnInc" class="on" type="button">社区增量榜<small>一级新用户交易量</small></button>
         <button id="btnStk" type="button">社区存量榜<small>本人＋一级老用户</small></button>
         <button id="btnUsr" type="button">新用户交易榜<small>个人交易量前 10</small></button>
-        <button id="btnQlf" type="button">抽奖资格<small>个人 ≥ 500 U</small></button>
+        <button id="btnQlf" type="button">幸运抽奖结果<small>25 名 · 每人 10 U</small></button>
       </div>
       <p class="lbSum"><span id="summary"></span><span class="upd" id="updated"></span></p>
       <div id="board">
@@ -712,7 +712,7 @@
 <script>
 (function(){
   var START=new Date("2026-10-14T18:00:00+08:00").getTime(), END=new Date("2026-10-28T18:00:00+08:00").getTime();
-  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="https://studio.ave.ai/race-board", DRAW_LINE=500, DRAW_N=25, DRAW_EACH=10;
+  var TG_URL="https://t.me/+d99e2mM58UU4NmJl", FEED="leaderboard-final.json", DRAW_LINE=500, DRAW_N=25, DRAW_EACH=10;
   var PRIZE={inc:[220, 170, 140, 115, 95, 75, 60, 50, 40, 35], stock:[100, 80, 65, 55, 45, 40, 35, 30, 25, 25], user:[50, 45, 35, 30, 25, 20, 15, 10, 10, 10]};
   var DAYS=Math.round((END-START)/864e5);
   var REDUCED=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -754,14 +754,14 @@
     var now=Date.now(), lab=$("cdLabel"), diff;
     if(now<START){diff=START-now; lab.textContent="距开赛"; lab.className="cdLabel";}
     else if(now<END){diff=END-now; lab.textContent="距结束"; lab.className="cdLabel";}
-    else{diff=0; lab.textContent="活动已结束 · 数据审核中"; lab.className="cdLabel ended";}
+    else{diff=0; lab.textContent="活动已结束 · 最终结果已公布"; lab.className="cdLabel ended";}
     setSeg($("dd"),pad(Math.floor(diff/864e5)));
     setSeg($("hh"),pad(Math.floor(diff%864e5/36e5)));
     setSeg($("mm"),pad(Math.floor(diff%36e5/6e4)));
     setSeg($("ss"),pad(Math.floor(diff%6e4/1e3)));
     var pct=now<START?0:(now>=END?100:(now-START)/(END-START)*100), w=pct.toFixed(3)+"%";
     $("rPct").textContent=(pct>0&&pct<10?pct.toFixed(1):Math.floor(pct))+"%";
-    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"活动已结束，等待审核封榜":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
+    $("rDay").textContent=now<START?"尚未开赛":(now>=END?"最终结果已封榜":"第 "+(Math.floor((now-START)/864e5)+1)+" 天，共 "+DAYS+" 天");
     $("race").className="race"+(now>=START&&now<END?" on":"");
     if(firstTick&&!REDUCED&&window.requestAnimationFrame){
       window.requestAnimationFrame(function(){window.requestAnimationFrame(function(){$("rFill").style.width=w;});});
@@ -789,7 +789,8 @@
   }
   function prizeTag(r){
     var p=PRIZE[which]||[];
-    return (r.rank<=p.length&&(+r.volume||0)>0)?'<span class="prz">奖励 '+p[r.rank-1]+' U</span>':"";
+    var amount=r.reward||p[r.rank-1];
+    return (r.rank<=p.length&&(+r.volume||0)>0&&amount)?'<span class="prz">奖励 '+amount+' U</span>':"";
   }
   function podiumSlot(r,pos){
     if(!r){
@@ -812,7 +813,7 @@
         '<div class="mt">'+(which==="user"?'<span class="cd">'+esc(r.community||"")+'</span>':'<span class="cd">'+esc(codeLabel(r))+'</span>'+(which==="inc"?esc(meta(r)):""))+'</div>'+
         (zero?"":'<div class="bar"><i style="width:'+Math.max(2,Math.round(v/top*100))+'%"></i></div>')+
       '</div>'+
-      '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>USDT</small></div>'+prizeTag(r)+'</div>'+
+      '<div class="vc"><div class="vol"><span class="n" data-v="'+v+'">'+fmt(v)+'</span><small>U</small></div>'+prizeTag(r)+'</div>'+ 
     '</div>';
   }
   function ticketsOf(r){var v=+r.volume||0; return r.tickets||r.chances||(v>=10000?3:(v>=3000?2:(v>=500?1:0)));}
@@ -821,7 +822,15 @@
       '<span class="rk">'+seq+'</span>'+
       '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
         '<div class="mt"><b>'+esc(r.community)+'</b></div></div>'+
-      '<div class="qvol">'+fmt(r.volume)+'<small>USDT</small><span class="tickets">'+ticketsOf(r)+' 个号码</span></div>'+
+      '<div class="qvol">'+fmt(r.volume)+'<small>U</small><span class="tickets">'+ticketsOf(r)+' 个号码</span></div>'+ 
+    '</div>';
+  }
+  function winnerRow(r,seq){
+    return '<div class="qrow">'+
+      '<span class="rk">'+seq+'</span>'+
+      '<div class="qwho"><div class="nm">'+esc(r.user)+'</div>'+
+        '<div class="mt"><b>'+esc(r.community)+'</b></div></div>'+
+      '<div class="qvol">'+(r.reward||DRAW_EACH)+' U<span class="tickets">中奖号码 '+esc(r.winningTicket||"")+'</span></div>'+
     '</div>';
   }
   function renderStamp(){
@@ -833,8 +842,8 @@
       $("updated").textContent=stamp&&!isNaN(stamp)?"更新于 "+pad(stamp.getMonth()+1)+"/"+pad(stamp.getDate())+" "+pad(stamp.getHours())+":"+pad(stamp.getMinutes()):"等待新一期数据";
       live.className=DATA.pending?"live stale":"live"; live.lastChild.nodeValue=DATA.pending?"准备中":"实时更新";
     }else{
-      $("updated").textContent=DATA.final?"最终成绩已审核":"活动已结束，等待审核封榜";
-      live.className="live stale"; live.lastChild.nodeValue=DATA.final?"已封榜":"审核中";
+      $("updated").textContent=DATA.final?"最终成绩已审核":"最终结果加载中";
+      live.className="live stale"; live.lastChild.nodeValue=DATA.final?"已封榜":"加载中";
     }
   }
   function renderBotStats(){
@@ -884,9 +893,9 @@
     var host=$("board");
     if(!DATA) return;
     renderStamp();
-    $("boardTitle").textContent = which==="inc"?"社区增量榜":(which==="stock"?"社区存量榜":(which==="user"?"新用户交易榜":"新用户抽奖资格"));
+    $("boardTitle").textContent = which==="inc"?"最终社区增量榜":(which==="stock"?"最终社区存量榜":(which==="user"?"最终新用户交易榜":"幸运抽奖结果"));
     $("boardSub").textContent = which==="inc" ? "直属一级新用户交易量" :
-      (which==="stock" ? "社区长本人＋直属一级老用户" : (which==="user"?"活动期新用户个人交易量":"达到 500 U，获得 1–3 个号码"));
+      (which==="stock" ? "社区长本人＋直属一级老用户" : (which==="user"?"活动期新用户个人交易量前 10":"25 名幸运用户 · 每人 10 U"));
     if(Date.now()<START){
       host.innerHTML='<div class="pend"><div class="big">尚未开赛</div><div class="sm">10月14日 18:00 正式开赛。<br>开赛后榜单将自动更新。</div></div>';
       $("summary").textContent="";
@@ -908,7 +917,7 @@
     var list=(DATA.boards&&DATA.boards[boardKey])||[];
     if(which==="user"&&!list.length) list=(DATA.boards&&DATA.boards.user)||[];
     if(which==="qualified"&&!list.length) list=(DATA.boards&&DATA.boards.qualified)||[];
-    list=list.filter(function(r){return (+r.volume||0)>0;});
+    if(which!=="qualified") list=list.filter(function(r){return (+r.volume||0)>0;});
     if(which==="user") list=list.map(function(r,i){var x=Object.assign({},r);x.rank=i+1;x.name=x.name||x.user;x.code=x.code||x.communityCode||"";return x;});
     if(!list.length){
       var emptyTitle=which==="qualified"?"暂无新用户达到 500 U":(which==="user"?"暂无新用户产生交易":"暂无社区产生交易量");
@@ -927,6 +936,15 @@
       return;
     }
     if(which==="qualified"){
+      if(DATA.final){
+        var audit=DATA.drawAudit||{};
+        var qhtml='<div class="qscope">幸运抽奖已完成。<strong>候选用户 '+(audit.candidateCount||52)+' 名，共 '+(audit.ticketCount||90)+' 个抽奖号码；抽取 '+DRAW_N+' 名，每名 '+DRAW_EACH+' U。</strong><strong>采用 Bitcoin 区块 #'+(audit.blockHeight||973534)+' 的区块哈希作为随机种子，结果公开、可复核。</strong></div><div class="qrows"><div class="qhead"><span>中奖序号</span><span>用户与社区</span><span>奖励</span></div>';
+        for(var q=0;q<list.length;q++){qhtml+=winnerRow(list[q],q+1);}
+        qhtml+='</div>';
+        $("summary").innerHTML='<span class="nw"><b>'+list.length+'</b> 名幸运用户，</span><span class="nw">每人 <b>'+DRAW_EACH+' U</b>，</span><span class="nw">合计 <b>'+(list.length*DRAW_EACH)+' U</b></span>';
+        host.innerHTML=qhtml;
+        return;
+      }
       var communities={}, tickets=0;
       for(var q=0;q<list.length;q++){communities[list[q].community]=1;tickets+=ticketsOf(list[q]);}
       var winRate=Math.min(100,DRAW_N/tickets*100);
@@ -944,9 +962,15 @@
       if(vi>top) top=vi;
       total+=vi; users+=(list[i].users|0);
     }
-    $("summary").innerHTML = which==="inc"
-      ? '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+'</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>'
-      : (which==="stock"?'<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>':'<span class="nw"><b>'+list.length+'</b> 名新用户在榜，</span><span class="nw">个人交易量合计 <b>'+fmt(total)+'</b> U</span>');
+    if(DATA.final){
+      $("summary").innerHTML = which==="inc"
+        ? '<span class="nw"><b>'+list.length+'</b> 个获奖社区，</span><span class="nw">增量交易量合计 <b>'+fmt(total)+'</b> U</span>'
+        : (which==="stock"?'<span class="nw"><b>'+list.length+'</b> 个获奖社区，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>':'<span class="nw"><b>'+list.length+'</b> 名获奖用户，</span><span class="nw">个人交易量合计 <b>'+fmt(total)+'</b> U</span>');
+    }else{
+      $("summary").innerHTML = which==="inc"
+        ? '<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">赛期内新注册 <b>'+users+'</b> 人，</span><span class="nw">新增交易量 <b>'+fmt(total)+'</b> U</span>'
+        : (which==="stock"?'<span class="nw"><b>'+list.length+'</b> 个社区在榜，</span><span class="nw">存量交易量合计 <b>'+fmt(total)+'</b> U</span>':'<span class="nw"><b>'+list.length+'</b> 名新用户在榜，</span><span class="nw">个人交易量合计 <b>'+fmt(total)+'</b> U</span>');
+    }
     var html='<div class="podium">'+podiumSlot(list[0],1)+podiumSlot(list[1],2)+podiumSlot(list[2],3)+'</div>';
     if(list.length>3){
       var anyVol=total>0, anyInv=users>0, sepVol=false, sepInv=false;
