@@ -464,6 +464,14 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
 .board-scroll-hint{margin:0 0 8px;font-size:11px;line-height:1.5;color:var(--muted)}
 #board{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#9fbfd7 #edf5fc;padding-right:6px}
 #board:focus-visible{outline:2px solid #6aaad9;outline-offset:-2px;border-radius:8px}
+.lottery-odds{margin:0 0 14px;padding:14px 12px;background:#f0f7fd;border:1px solid #cbdfee;border-radius:10px}
+.lottery-odds h4{margin:0 0 10px;font-size:14px;color:#285f87}.odds-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.odds-grid span,.odds-grid small{display:block;color:var(--ink2);font-size:12px}.odds-grid b{display:block;font:700 22px/1.5 var(--num);color:#245d88}.odds-grid small{font-size:10px;color:var(--muted)}
+.lottery-odds p{font-size:11px;line-height:1.6;color:var(--ink2);margin:10px 0 6px}.lottery-odds a,.draw-rule-link a,.draw-verification a{color:#23649a;text-underline-offset:3px}.lottery-odds a{font-size:12px}
+.draw-rule-link{margin-top:12px!important}.draw-method{margin:0;padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--ink2)}.draw-method li{margin:0 0 10px}.draw-method b{color:#285f87}
+#lottery-method{scroll-margin-top:20px}.draw-verification{margin:12px 0 20px;padding:12px;background:#f2f8fd;border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--ink2)}
+.draw-verification summary{cursor:pointer;color:#285f87;font-weight:700}.draw-verification code{display:block;overflow-wrap:anywhere;font-size:12px;line-height:1.7;margin-bottom:10px}.draw-verification p{margin:10px 0 0}
+@media(max-width:360px){.odds-grid b{font-size:18px}.odds-grid span{font-size:11px}}
 @media(min-width:1000px){
   .intro{display:grid;grid-template-columns:373.333px minmax(0,1fr);gap:24px;align-items:stretch}
   .intro>.poster-hero{width:100%;height:560px;margin:0;aspect-ratio:auto}
@@ -574,7 +582,7 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
         <div class="fine">新社区破冰榜：新签约社区按本期交易量排名，取前 6 名。</div>
       </div>
       <div class="prize-side">
-        <div class="draw"><h4>用户达标抽奖 · 20 人 × 10 U</h4><p>直属一级用户交易满 <b>500 U</b>，获得抽奖号码；每人最多中奖一次。</p><div class="tierTable"><div class="tier"><span>500–2,999.99 U</span><b>1 个号码</b></div><div class="tier"><span>3,000–9,999.99 U</span><b>2 个号码</b></div><div class="tier"><span>10,000 U 及以上</span><b>3 个号码</b></div></div></div>
+        <div class="draw"><h4>用户达标抽奖 · 20 人 × 10 U</h4><p>直属一级用户交易满 <b>500 U</b>，获得抽奖号码；每人最多中奖一次。</p><div class="tierTable"><div class="tier"><span>500–2,999.99 U</span><b>1 个号码</b></div><div class="tier"><span>3,000–9,999.99 U</span><b>2 个号码</b></div><div class="tier"><span>10,000 U 及以上</span><b>3 个号码</b></div></div><p class="draw-rule-link">采用预先公布的未来比特币区块哈希开奖，<a href="#lottery-method">查看完整抽奖方法</a>。预计中奖率见用户抽奖资格榜。</p></div>
         <div class="draw"><h4>沉默社区破零 · 200 U</h4><p>赛前确认的沉默社区，本期存量达到 <b>10,000 U</b>、有效用户 ≥3 人，获得 <b>10 U</b>。共 20 个名额，先到先得。</p></div>
         <div class="draw"><h4>新社区签约达成 · 500 U</h4><p>完成签约、首量 ≥<b>30,000 U</b>、有效用户 ≥10 人，并完成社群公告。每个社区 <b>50 U</b>（社区长 30 U＋BD 20 U），共 10 个名额。</p></div>
         <div class="fine">所有奖励以活动结束后的审核封榜数据为准。</div>
@@ -609,7 +617,17 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
     </section>
     <section class="notes-section">
       <span class="tab">核心规则</span>
-      <div class="card note"><h4>公平计分</h4><p>只统计一级用户，二级及以下不计入。同一笔交易只进入一个榜单，不重复计分。</p><h4>参赛资格</h4><p>对敲、自成交、刷量一律取消资格。社区长及关联账户不得参加用户抽奖。</p><h4>最终结果</h4><p>以活动结束后的审核封榜数据为准。</p></div>
+      <div class="card note"><h4>公平计分</h4><p>只统计一级用户，二级及以下不计入。同一笔交易只进入一个榜单，不重复计分。</p><h4>参赛资格</h4><p>对敲、自成交、刷量一律取消资格。社区长及关联账户不得参加用户抽奖。</p>
+        <h4 id="lottery-method">用户抽奖方法 · 比特币区块哈希</h4>
+        <ol class="draw-method">
+          <li><b>审核资格、分配号码：</b>封榜后审核直属一级用户，按账户去重，排除社区长及关联账户。按交易量分配 1、2、3 个号码，每个号码只属于一位用户。</li>
+          <li><b>先锁定名单：</b>公示资格序号、脱敏用户、所属社区及全部号码，并公布公开名单文件的 SHA-256 校验值。锁定后不得增删用户或调整号码。</li>
+          <li><b>预告未来区块：</b>名单锁定后，在区块产生前公布一个未来比特币区块高度。待该区块达到 6 次确认，取其完整区块哈希作为开奖依据，不得事后挑选其他区块。</li>
+          <li><b>固定算法开奖：</b>将区块哈希、名单校验值和每个号码组合计算 SHA-256，按结果从小到大排序。同一用户只保留首次入选，取前 <b>20 位不同用户，每人 10 U</b>；不足 20 位时按实际合格人数发放。</li>
+        </ol>
+        <p>开奖时公示名单文件、区块高度与哈希、全部号码排序及中奖结果，任何人均可按相同规则复算。号码越多，预计中奖率越高，但不保证中奖。</p>
+        <details class="draw-verification"><summary>查看复核公式与概率说明</summary><p>每个号码计算：</p><code>SHA-256(block_hash|list_sha256|ticket)</code><p>使用 UTF-8 编码；两个哈希均为完整的小写十六进制字符串，英文竖线分隔，不加空格。号码从 001 连续编号，至少三位。结果按十六进制值升序排列；如值相同，号码较小者优先。同一用户的后续号码跳过，直至选满 20 人。</p><p>预计中奖率按当前各档人数和“用户去重后抽取20人”的规则计算，分别展示持1、2、3个号码用户的入选概率，并非简单的20÷总号码数。某档没有用户时显示“—”；当前合格人数不超过20人时，现有用户预计中奖率为100%，最终仍需通过封榜审核。</p><p>名单及号码如需更正，必须重新公示并锁定，再预告尚未产生的新区块；原抽奖流程作废。比特币区块信息可通过<a href="https://mempool.space/" target="_blank" rel="noopener">公开区块浏览器</a>核验，亦可参阅<a href="https://developer.bitcoin.org/reference/rpc/getblockheader.html" target="_blank" rel="noopener">比特币区块数据说明</a>。</p></details>
+        <h4>最终结果</h4><p>以活动结束后的审核封榜数据为准。</p></div>
     </section>
   </div>
   <p class="foot">数据按活动统一口径统计；异常交易将在封榜审核时剔除。<br>活动解释权归 Ave.ai 所有。</p>
@@ -636,6 +654,35 @@ function volumeOf(r){return Number(r.volume)||0}
 function usersOf(r){return r.effectiveUsers}
 function nameOf(r){return current==="lottery"?(r.user||"脱敏用户"):(r.name||r.community||"社区")}
 function ticketsOf(r){var v=volumeOf(r);return Number(r.tickets)||(v>=10000?3:(v>=3000?2:(v>=500?1:0)))}
+function lotteryOdds(list){
+  var counts=[0,0,0],expected=[0,0,0],winners=Math.min(20,list.length);
+  list.forEach(function(row){counts[ticketsOf(row)-1]++});
+  if(list.length<=20)return counts.map(function(n){return n?1:null});
+  var total=counts[0]+2*counts[1]+3*counts[2],states={"0,0,0":1};
+  // Sorting random ticket scores and skipping duplicate users is weighted sampling without replacement.
+  for(var draw=0;draw<winners;draw++){
+    var next={};
+    Object.keys(states).forEach(function(key){
+      var chosen=key.split(",").map(Number),remaining=total-chosen[0]-2*chosen[1]-3*chosen[2];
+      for(var group=0;group<3;group++){
+        var available=counts[group]-chosen[group];
+        if(!available)continue;
+        var target=chosen.slice();target[group]++;
+        var targetKey=target.join(",");
+        next[targetKey]=(next[targetKey]||0)+states[key]*available*(group+1)/remaining;
+      }
+    });
+    states=next;
+  }
+  Object.keys(states).forEach(function(key){key.split(",").forEach(function(n,group){expected[group]+=Number(n)*states[key]})});
+  return counts.map(function(n,group){return n?Math.max(0,Math.min(1,expected[group]/n)):null});
+}
+function lotterySummary(list){
+  var odds=lotteryOdds(list);
+  return '<section class="lottery-odds" aria-label="按号码数量预计中奖率"><h4>当前预计中奖率</h4><div class="odds-grid">'+odds.map(function(chance,index){
+    return '<div><span>持 '+(index+1)+' 个号码</span><b>'+(chance==null?'—':(chance*100).toFixed(2)+'%')+'</b><small>'+(chance==null?'当前暂无用户':'用户中奖概率')+'</small></div>';
+  }).join('')+'</div><p>按当前名单抽取 '+Math.min(20,list.length)+' 位不同用户测算，每人最多中奖一次。名单变化后更新，最终以封榜审核为准。</p><a href="#lottery-method">查看比特币区块抽奖规则 ↗</a></section>';
+}
 function rewardOf(r,rank,cfg){return current==="head"?0:(r&&r.reward!=null?r.reward:cfg.prizes[rank-1]||0)}
 function detailOf(r){
   if(current==="lottery")return r.community||"";
@@ -688,7 +735,7 @@ function render(){
   var meta=current==="head"?"按本期存量交易量排序 · 达标资格待确认":current==="lottery"?list.length+" 位用户 · "+totalTickets+" 个号码 · 每人最多中奖一次":list.length+" 个社区 · 最终资格以封榜审核为准";
   $("boardMeta").innerHTML=esc(meta)+'<span class="upd">更新于 '+esc(new Date(DATA.updated||Date.now()).toLocaleString("zh-CN",{hour12:false}))+'</span>';
   if(!list.length&&!cfg.podium){pending("暂无达标记录","达到本榜条件后将在这里展示。");return}
-  var html='',start=0;
+  var html=current==="lottery"?lotterySummary(list):'',start=0;
   if(cfg.podium){html='<div class="podium">'+[1,2,3].map(function(rank){return podiumSlot(list[rank-1],rank,cfg)}).join('')+'</div>';start=3}
   var count=current==="new"?Math.max(list.length,cfg.prizes.length):list.length;
   if(count>start){
