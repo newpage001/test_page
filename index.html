@@ -433,10 +433,12 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
 .calc li{border-color:var(--line)}.calc li::before{color:#4b94ca}.calc b,.steps b{color:#28628e}.hl,.gate{background:#eff7fe;border-color:#c5ddee;color:var(--ink2)}.hl b,.gate b{color:#285d86}
 .lbHead .t{color:#213c55}.lbHead .t small{color:var(--muted)}.live{background:#edf8f3;border-color:#bddfce;color:#28785b}.live i{background:#459d77}.live.stale{background:#f0f5f9;border-color:#d5e0e9;color:#6b7f91}.live.stale i{background:#91a2b3}
 .swt{grid-template-columns:repeat(6,minmax(0,1fr))}.swt button{grid-column:span 2;background:#f0f6fc;border-color:#cbddeb;color:#355672}.swt button:nth-last-child(-n+2){grid-column:span 3}.swt button small{color:#71859a}.swt button.on{background:linear-gradient(135deg,#ffe39c,#efbd63);border-color:#e5ba69;color:#4d391c;box-shadow:0 4px 12px #bf8b2720}.swt button.on small{color:#795b2b}.swt button:focus-visible{outline-color:#397cb1}
+.swt.has-review button{grid-column:span 2}.swt:not(.has-review) button:nth-child(4){grid-column:span 3}.swt button[hidden]{display:none}
 .lbSum{color:var(--ink2)}.lbSum .upd{color:var(--muted)}.vacantLine{background:#f2f8fd;border-color:#c7daeb}.vacantLine b{color:#325d7e}.vacantLine small{color:var(--muted)}
 .pd .pn{color:#24435e}.pd .pv{color:#23455f}.pd.p1 .pv{color:#a26d13}.pd .pm{color:#6f8498}.pd.vacant .pn{color:#8a9cac}.pd.vacant .av span{background:#f2f6fa;color:#a1b1c0}
 .rows{border-color:#dbe7f1}.lrow{border-color:#dbe7f1}.lrow .who .nm{color:#24435e}.lrow .who .mt{color:#6e8396}.rk{background:#eaf2fa;color:#3d6b91}.vol{color:#24435e}.vol small{color:#6f8498}.prz{color:#63471d;background:linear-gradient(135deg,#ffe8a4,#efc475);box-shadow:0 2px 6px #ac7a2017}
 .lrow .who .nm{white-space:normal;overflow-wrap:anywhere}.lrow .who .mt{overflow-wrap:anywhere}
+.pd .review-note{min-height:2.8em;line-height:1.4}.review-note{color:#6e7c8a}
 .steps li::before{background:linear-gradient(135deg,#73b4e2,#347bb3);color:white;box-shadow:0 3px 8px #24649920}.steps li::after{background:#d7e6f1}
 .signupBox{background:linear-gradient(145deg,#f3f9ff,#e9f3fc);border-color:#bed8ec}.signupBox h4,.signupBox strong{color:#285f87}.signupBox p{color:var(--ink2)}.signupBox a{color:#23649a;text-underline-offset:3px}.signupNeed{background:white;color:var(--ink2)}.promoLead{background:#edf6fd;border-left-color:#62a5d4;color:#285c84}.promoReq{color:var(--ink2)}.note h4{color:#28628e}.note p{color:var(--ink2)}
 .cta{background:linear-gradient(180deg,#edf5fd00,#edf5fd 45%)}.cta button{background:linear-gradient(110deg,#3d85ba,#5ca0d0 50%,#2e70a1);color:#fff;box-shadow:0 8px 22px #245c832a,inset 0 1px 0 #cce7fa}.share{background:linear-gradient(145deg,#76b9e3,#377fb5);color:white;box-shadow:0 6px 18px #20578324}.shareToast{background:#255475;border-color:#93c5e7;color:white}
@@ -559,7 +561,7 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
         <div><dt>② 沉默社区</dt><dd>已合作社区，基线窗口（<b>赛前30天</b>）存量交易量 <b>&lt; 10,000 U（含 0）</b>。</dd></div>
         <div><dt>③ 存量活跃</dt><dd>除新签约社区、沉默社区以外的其余社区，归存量活跃。</dd></div>
       </dl>
-      <p class="criteria-note">优先判断新签约社区，再判断沉默社区，其余归存量活跃。赛前30天用于社区分类；增长率仍按上期同期10天比较。</p>
+      <p class="criteria-note" id="classificationReference">优先判断新签约社区，再判断沉默社区，其余归存量活跃。赛前30天用于社区分类；增长率仍按上期同期10天比较。</p>
     </div>
   </section>
   <section class="prize-section">
@@ -603,7 +605,7 @@ body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,tra
       <span class="tab">实时榜单</span>
       <div class="card">
         <div class="lbHead"><span class="t" id="boardTitle">存量社区增长榜</span><span class="live stale" id="status"><i></i><span>连接中</span></span></div>
-        <div class="swt switch"><button class="on" data-board="head">存量社区增长榜<small>本期存量交易量</small></button><button data-board="silent">沉默破零<small>20 个名额</small></button><button data-board="sign">签约达成<small>10 个名额</small></button><button data-board="new">新社区破冰<small>前 6 名</small></button><button data-board="lottery">用户抽奖资格<small>1–3 个号码</small></button></div>
+        <div class="swt switch"><button class="on" data-board="head">存量社区增长榜<small>存量活跃社区</small></button><button data-board="silent">沉默破零<small>20 个名额</small></button><button data-board="sign">签约达成<small>10 个名额</small></button><button data-board="new">新社区破冰<small>前 6 名</small></button><button data-board="lottery">用户抽奖资格<small>1–3 个号码</small></button><button data-board="review" hidden>分类待核实<small>补齐资料后分组</small></button></div>
         <p class="lbSum" id="boardMeta">等待本期数据</p><p class="board-scroll-hint">在榜单内上下滚动，查看完整名单</p><div id="board" role="region" aria-label="榜单内容，可上下滚动" tabindex="0" aria-live="polite"></div>
       </div>
     </section>
@@ -643,6 +645,7 @@ var configs={
   silent:{title:"沉默社区破零",key:"silent",metric:"本期存量",prizes:Array(20).fill(10)},
   sign:{title:"新社区签约达成",key:"signing",metric:"首量",prizes:Array(10).fill(50)},
   new:{title:"新社区破冰榜",key:"newCommunities",metric:"本期交易量",podium:true,prizes:[120, 90, 70, 55, 40, 25]},
+  review:{title:"社区分类待核实",key:"pendingClassification",metric:"本期存量",prizes:[]},
   lottery:{title:"用户抽奖资格",key:"lottery",metric:"个人交易量",prizes:[]}
 };
 var crown='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><path d="M5 29L2 8L14 17L24 3L34 17L46 8L43 29Z" fill="#ffcf59" stroke="#e8a73b" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 26H43" stroke="#e2a036" stroke-width="3"/><circle cx="2" cy="8" r="2.8" fill="#ffe8a1"/><circle cx="24" cy="3" r="2.8" fill="#ffe8a1"/><circle cx="46" cy="8" r="2.8" fill="#ffe8a1"/></svg>';
@@ -650,7 +653,8 @@ function $(id){return document.getElementById(id)}
 function pad(n){return String(n).padStart(2,"0")}
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function num(v){return (Number(v)||0).toLocaleString("zh-CN",{maximumFractionDigits:2})}
-function volumeOf(r){return Number(r.volume)||0}
+function volumeOf(r){return !r||r.dataStatus==="missing"||r.volume==null?null:Number(r.volume)||0}
+function volumeText(r){var value=volumeOf(r);return value==null?"—":num(value)}
 function usersOf(r){return r.effectiveUsers}
 function nameOf(r){return current==="lottery"?(r.user||"脱敏用户"):(r.name||r.community||"社区")}
 function ticketsOf(r){var v=volumeOf(r);return Number(r.tickets)||(v>=10000?3:(v>=3000?2:(v>=500?1:0)))}
@@ -683,13 +687,27 @@ function lotterySummary(list){
     return '<div><span>持 '+(index+1)+' 个号码</span><b>'+(chance==null?'—':(chance*100).toFixed(2)+'%')+'</b><small>'+(chance==null?'当前暂无用户':'用户中奖概率')+'</small></div>';
   }).join('')+'</div><p>按当前名单抽取 '+Math.min(20,list.length)+' 位不同用户测算，每人最多中奖一次。名单变化后更新，最终以封榜审核为准。</p><a href="#lottery-method">查看比特币区块抽奖规则 ↗</a></section>';
 }
-function rewardOf(r,rank,cfg){return current==="head"?0:(r&&r.reward!=null?r.reward:cfg.prizes[rank-1]||0)}
+function rewardOf(r,rank,cfg){
+  if(current==="head"||current==="review")return 0;
+  if(!r)return cfg.prizes[rank-1]||0;
+  if(r.dataStatus==="missing"||r.classificationStatus==="pending"||r.qualificationStatus==="pending")return 0;
+  return Number(r.reward)||0;
+}
+function reviewOf(r,short){
+  if(!r||current==="lottery")return "";
+  if(!short&&r.qualificationNote)return (r.dataStatus==="missing"&&r.qualificationNote.indexOf("待接入")<0?"数据待接入 · ":"")+r.qualificationNote;
+  var notes=[];
+  if(r.classificationStatus==="pending")notes.push(current==="new"||current==="sign"?"新社区身份待复核":"分类待核实");
+  if(r.dataStatus==="missing")notes.push("数据待接入");
+  if(!notes.length&&r.qualificationStatus==="pending")notes.push("奖励资格待审核");
+  return notes.join(" · ");
+}
 function detailOf(r){
   if(current==="lottery")return r.community||"";
   var sub=[];
   if(r.mergedCodes>1)sub.push("合并 "+r.mergedCodes+" 个邀请码");
   else if(r.code)sub.push("邀请码 "+r.code);
-  if(usersOf(r)!=null)sub.push("有效用户 "+usersOf(r)+" 人");
+  if(r.dataStatus!=="missing"&&usersOf(r)!=null)sub.push("交易用户 "+usersOf(r)+" 人");
   if(r.bd)sub.push("BD "+r.bd);
   return sub.join(" · ");
 }
@@ -705,26 +723,32 @@ function tick(){
 function campaignOK(j){return j&&j.campaignId==="2026-11-05_2026-11-15"}
 function podiumSlot(row,rank,cfg){
   var name=row?nameOf(row):"虚位以待",initial=row?Array.from(name.replace(/^0x/i,""))[0]:"?";
-  var amount=row?num(volumeOf(row)):"—",reward=rewardOf(row,rank,cfg);
-  var detail=row&&usersOf(row)!=null?"有效用户 "+usersOf(row)+" 人":"等待社区上榜";
+  var amount=volumeText(row),reward=rewardOf(row,rank,cfg);
+  var detail=row?(row.dataStatus==="missing"?"等待本期数据":usersOf(row)!=null?"交易用户 "+usersOf(row)+" 人":"交易用户待核实"):"等待社区上榜";
   return '<div class="pd p'+rank+(row?'':' vacant')+'" aria-label="当前第 '+rank+' 名：'+esc(name)+'">'+
     (rank===1?crown:'')+'<div class="av" aria-hidden="true"><span>'+esc(initial)+'</span></div>'+
     '<div class="pn">'+esc(name)+'</div><div class="pv'+(amount.length>9?' long':'')+'">'+amount+'<small>U</small></div>'+
-    '<div class="pm">'+esc(detail)+'</div>'+(reward?'<span class="prz reward">奖励 '+reward+' U</span>':'')+
+    '<div class="pm">'+esc(detail)+'</div><div class="pm review-note">'+(esc(reviewOf(row,true))||'&nbsp;')+'</div>'+(reward?'<span class="prz reward">'+(row?'预计奖励 ':'名额奖励 ')+reward+' U</span>':'')+
     '<div class="plinth" aria-hidden="true"><b>'+rank+'</b></div></div>';
 }
 function listRow(row,rank,cfg){
   var reward=rewardOf(row,rank,cfg),name=row?nameOf(row):"虚位以待";
   var detail=row?detailOf(row):"等待社区上榜";
-  return '<div class="lrow"><span class="rk">'+rank+'</span><div class="who"><div class="nm">'+esc(name)+'</div><div class="mt">'+esc(detail)+'</div></div>'+
-    '<div class="vc"><div class="vol">'+(row?num(volumeOf(row)):'—')+'<small>U</small></div>'+
-    (current==="lottery"?'<span class="prz ticketBadge">'+ticketsOf(row)+' 个号码</span>':reward?'<span class="prz reward">奖励 '+reward+' U</span>':'')+'</div></div>';
+  var review=reviewOf(row,false);
+  var position=row&&(row.dataStatus==="missing"||row.rank===null)?"—":rank;
+  return '<div class="lrow"><span class="rk">'+position+'</span><div class="who"><div class="nm">'+esc(name)+'</div><div class="mt">'+esc(detail)+'</div>'+(review?'<div class="mt review-note">'+esc(review)+'</div>':'')+'</div>'+
+    '<div class="vc"><div class="vol">'+volumeText(row)+'<small>U</small></div>'+
+    (current==="lottery"?'<span class="prz ticketBadge">'+ticketsOf(row)+' 个号码</span>':reward?'<span class="prz reward">'+(row?'预计奖励 ':'名额奖励 ')+reward+' U</span>':'')+'</div></div>';
 }
 function pending(title,detail){$("board").innerHTML='<div class="vacantLine pending"><b>'+esc(title)+'</b><small>'+esc(detail)+'</small></div>'}
 function render(){
+  var hasReview=((DATA.boards||{}).pendingClassification||[]).length>0;
+  document.querySelector('[data-board="review"]').hidden=!hasReview;
+  document.querySelector('.switch').classList.toggle("has-review",hasReview);
+  if(current==="review"&&!hasReview)current="head";
   var cfg=configs[current],host=$("board"),status=$("status"),now=Date.now();
   $("boardTitle").textContent=cfg.title;
-  var waiting=(DATA.pendingBoards||[]).indexOf(cfg.key)>=0,live=!DATA.pending&&!waiting&&!DATA.stale;
+  var waiting=!DATA.classificationSummary&&(DATA.pendingBoards||[]).indexOf(cfg.key)>=0,live=!DATA.pending&&!waiting&&!DATA.stale;
   status.className=live?"live":"live stale";
   status.lastElementChild.textContent=DATA.stale?"更新延迟":waiting?"待确认":live?"实时更新":"连接中";
   document.querySelectorAll(".switch button").forEach(function(btn){var on=btn.dataset.board===current;btn.classList.toggle("on",on);btn.setAttribute("aria-pressed",String(on))});
@@ -732,9 +756,15 @@ function render(){
   if(DATA.pending){pending("本期榜单准备中","正在连接本期数据，请稍后刷新。");$("boardMeta").textContent="等待本期数据";return}
   if(waiting){pending("赛道配置中","组别、基线或报名审核信息确认后，将显示本期成绩。");$("boardMeta").textContent="报名与审核信息待确认";return}
   var list=(DATA.boards||{})[cfg.key]||[],totalTickets=list.reduce(function(sum,row){return sum+ticketsOf(row)},0);
-  var meta=current==="head"?"按本期存量交易量排序 · 达标资格待确认":current==="lottery"?list.length+" 位用户 · "+totalTickets+" 个号码 · 每人最多中奖一次":list.length+" 个社区 · 最终资格以封榜审核为准";
-  $("boardMeta").innerHTML=esc(meta)+'<span class="upd">更新于 '+esc(new Date(DATA.updated||Date.now()).toLocaleString("zh-CN",{hour12:false}))+'</span>';
-  if(!list.length&&!cfg.podium){pending("暂无达标记录","达到本榜条件后将在这里展示。");return}
+  var meta=current==="head"?list.length+" 个存量活跃社区 · 按本期存量参考排序，增长奖资格待审核":current==="lottery"?list.length+" 位用户 · "+totalTickets+" 个号码 · 每人最多中奖一次":current==="review"?list.length+" 个社区待核实分类 · 当前成绩保留展示":list.length+(current==="new"||current==="sign"?" 个社区（含待复核候选）":" 个沉默社区")+" · 按"+cfg.metric+"参考排序，奖励资格待审核";
+  var summary=DATA.classificationSummary,extra="";
+  if(summary&&current!=="lottery")extra='<span class="upd">分类：存量活跃 '+num(summary.active)+' · 沉默 '+num(summary.silent)+' · 新社区 '+num(summary.new)+'（含待复核）· 待核实 '+num(summary.pending)+'</span>';
+  if(DATA.classificationPeriod){
+    var period=DATA.classificationPeriod.label||DATA.classificationPeriod.start+"—"+DATA.classificationPeriod.end;
+    $("classificationReference").textContent="优先判断新签约社区，再判断沉默社区，其余归存量活跃。当前分类参考 "+period+" 的整日历史数据，时间边界与资格封榜复核；头部/成长分组待确认，增长率仍按上期同期10天比较。";
+  }
+  $("boardMeta").innerHTML=esc(meta)+extra+'<span class="upd">更新于 '+esc(new Date(DATA.updated||Date.now()).toLocaleString("zh-CN",{hour12:false}))+'</span>';
+  if(!list.length&&!cfg.podium){pending(current==="lottery"?"暂无抽奖资格记录":"暂无本类社区",current==="lottery"?"个人交易达到500 U后将在这里展示。":"分类与报名数据更新后，将在这里展示本期成绩。");return}
   var html=current==="lottery"?lotterySummary(list):'',start=0;
   if(cfg.podium){html='<div class="podium">'+[1,2,3].map(function(rank){return podiumSlot(list[rank-1],rank,cfg)}).join('')+'</div>';start=3}
   var count=current==="new"?Math.max(list.length,cfg.prizes.length):list.length;
