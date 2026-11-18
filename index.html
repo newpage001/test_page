@@ -199,6 +199,38 @@ img{display:block}
 .board-foot b{color:var(--ink)}
 .board-foot a{color:var(--indigo);font-weight:600}
 
+/* Board polish */
+.podium{display:grid;grid-template-columns:1fr 1.12fr 1fr;align-items:end;gap:14px;padding:30px 28px 22px;background:linear-gradient(180deg,#f4f7fc,#fff);border-bottom:1px solid var(--line-soft)}
+.pod{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 14px 16px;border-radius:12px;background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 24px -18px rgba(19,41,75,.45);min-width:0}
+.pod.p1{order:2;padding-top:34px;padding-bottom:22px;border:1px solid #e9c46a;background:linear-gradient(180deg,#fff9ea,#fff 55%)}
+.pod.p2{order:1}.pod.p3{order:3}
+.pod.empty .pod-name{color:#8a98ab}
+.crown{position:absolute;top:-24px;line-height:0;left:50%;transform:translateX(-50%);color:#e3a72f;filter:drop-shadow(0 2px 2px rgba(160,110,20,.25))}
+.pod .medal{width:34px;height:34px;font-size:16px;margin-bottom:8px}
+.pod.p1 .medal{width:40px;height:40px;font-size:18px}
+.pod-name{font-size:17px;font-weight:750;color:var(--ink);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pod.p1 .pod-name{font-size:19px}
+.pod-sub{font-size:14px;color:#7c8a9d;min-height:1.5em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pod-vol{font-size:15px;color:var(--text);margin-top:6px}
+.pod-reward{margin-top:8px;padding:3px 14px;border-radius:999px;background:var(--indigo-soft);color:var(--indigo);font-size:15px;font-weight:600}
+.pod-reward b{font-size:20px;font-weight:800}
+.pod.p1 .pod-reward{background:#fbecc6;color:#8a5a00}
+.medal{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:14px;font-weight:800;color:#fff;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}
+.medal.m1{background:linear-gradient(180deg,#f6cf5f,#dca12b)}
+.medal.m2{background:linear-gradient(180deg,#cfd8e4,#9eabbd)}
+.medal.m3{background:linear-gradient(180deg,#e2a774,#bf7a45)}
+.rank-cell:before{display:none}
+.rank-num{display:inline-flex;align-items:center;justify-content:center;min-width:28px;color:var(--text)}
+.prize-row .rank-num{color:var(--ink)}
+.prize-row{background:#fafbfe}
+.prize-row>:first-child{box-shadow:inset 3px 0 0 var(--green)}
+.vol-cell .vol-num{display:block}
+.bar{display:block;height:4px;margin-top:6px;margin-left:auto;width:100%;max-width:150px;border-radius:2px;background:#edf1f7;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:2px;background:linear-gradient(90deg,#8ea2e6,var(--indigo))}
+.prize-row .bar i{background:linear-gradient(90deg,#4fd1a5,var(--green))}
+.divider-row td{padding:10px 28px;font-size:14px;font-weight:600;color:var(--warn);background:#fdf6ec;border-top:1px dashed #e8c99b;border-bottom:1px dashed #e8c99b;text-align:center}
+.c-comm{color:var(--text)}
+
 /* Join */
 .steps{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:step}
 .steps li{counter-increment:step;padding:18px 20px;border:1px solid var(--line-soft);border-radius:8px;background:var(--soft)}
@@ -211,14 +243,41 @@ img{display:block}
 .contact a.inline{color:var(--indigo);font-weight:650}
 
 /* Rules */
-.rules{display:grid;gap:22px}
-.rules section{display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 28px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
-.rules section:last-child{border-bottom:0;padding-bottom:0}
-.rules h3{font-size:17px;color:var(--ink);font-weight:650;line-height:1.6}
-.rules p,.rules li{font-size:16px;line-height:1.8;color:var(--text)}
-.rules p+p{margin-top:8px}
-.rules ol{margin:0;padding-left:1.3em}
-.rules strong{color:var(--ink)}
+.r-key,.r-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.r-pair{margin-top:26px}
+.r-card{position:relative;border:1px solid var(--line-soft);border-radius:10px;background:var(--soft);padding:20px 22px 18px}
+.r-ico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:var(--indigo-soft);color:var(--indigo);margin-bottom:10px}
+.r-card h3{font-size:17px;color:var(--ink);font-weight:700}
+.r-card p{font-size:15px;line-height:1.75;color:var(--muted);margin-top:6px}
+.r-card .r-big{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.35;margin-top:4px}
+.r-big span{font-size:16px;font-weight:500;color:var(--muted);letter-spacing:0}
+.r-formula{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
+.r-formula span{padding:3px 12px;border-radius:999px;font-size:15px;font-weight:650;line-height:1.6}
+.r-formula .on{background:var(--ink);color:#fff}
+.r-formula .off{background:#fff;color:#8a98ab;border:1px dashed #c3ccd8;text-decoration:line-through}
+.r-formula b{color:var(--muted);font-weight:600}
+.r-sub{font-size:18px;color:var(--ink);font-weight:750;margin:30px 0 14px;display:flex;align-items:center;gap:10px}
+.r-sub:before{content:"";width:4px;height:18px;border-radius:2px;background:var(--green)}
+.r-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.r-type{border:1px solid var(--line-soft);border-top:4px solid var(--tier1);border-radius:10px;padding:18px 22px;background:var(--paper)}
+.r-type.g2{border-top-color:var(--tier2)}
+.r-type-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.r-type h4{margin:0;font-size:18px;color:var(--ink);font-weight:750}
+.r-goto{font-size:14px;font-weight:650;color:var(--indigo);background:var(--indigo-soft);padding:2px 10px;border-radius:999px}
+.r-goto:before{content:"进入 "}
+.r-type p{font-size:16px;line-height:1.75;color:var(--text)}
+.r-type .r-muted{font-size:15px;color:var(--muted);margin-top:4px}
+.r-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:none}
+.r-steps li{position:relative;display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;border:1px solid var(--line-soft);border-radius:10px;background:var(--soft)}
+.r-num{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--tier2);color:#fff;font-size:15px;font-weight:750}
+.r-steps h4{margin:0;font-size:16px;color:var(--ink);font-weight:700;line-height:1.5}
+.r-steps em{font-style:normal;color:var(--indigo);white-space:nowrap}
+.r-steps p{font-size:14px;line-height:1.7;color:var(--muted);margin-top:4px}
+.r-foot{font-size:15px;color:var(--muted);margin-top:12px}
+.r-warn{display:flex;gap:14px;align-items:flex-start;margin-top:26px;padding:18px 22px;border-radius:10px;background:#fdf6ec;border:1px solid #f1dcbc}
+.r-warn .r-ico{background:#fbe8cc;color:var(--warn);margin:0;flex-shrink:0}
+.r-warn h3{font-size:17px;color:#7a4a17;font-weight:700}
+.r-warn p{font-size:15px;line-height:1.75;color:#7f5a32;margin-top:4px}
 
 .notice{padding:4px 0 28px}
 .notice h2{font-size:18px;color:var(--ink);margin-bottom:12px}
@@ -238,6 +297,7 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   .hero h1 .h1-main{font-size:46px}
   .pool{max-width:560px}
   .board-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .r-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:760px){
   body{font-size:16px}
@@ -281,6 +341,16 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   .tabs{padding:0 16px}
   .tabs{padding:0}
   .tab{flex:1;margin-right:0;padding:14px 2px 12px;font-size:15px}
+  .podium{gap:8px;padding:26px 12px 16px}
+  .pod{padding:20px 6px 12px}
+  .pod.p1{padding-top:26px;padding-bottom:16px}
+  .pod-name,.pod.p1 .pod-name{font-size:14px}
+  .pod-sub{font-size:12px}
+  .pod-vol{font-size:12px}
+  .pod-reward{padding:2px 8px;font-size:12px}
+  .pod-reward b{font-size:16px}
+  .bar{max-width:90px}
+  .divider-row td{padding:8px 10px;font-size:13px}
   .tab small{display:none}
   .board-meta,.board-intro,.th-note,.empty-state{padding-left:16px;padding-right:16px}
   .thresholds{grid-template-columns:1fr}
@@ -295,7 +365,7 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   .board-table thead th:last-child,.board-table .reward-cell{padding-right:12px}
   .rank-cell{font-size:16px}
   .rank-cell:before{display:none}
-  .prize-row .rank-cell{box-shadow:inset 3px 0 0 var(--tier1)}
+  .prize-row .rank-cell{box-shadow:inset 3px 0 0 var(--green)}
   .c-name{font-size:15px;word-break:break-all}
   .numeric{font-size:15px;white-space:nowrap}
   .reward-cell{white-space:nowrap}
@@ -307,7 +377,12 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   .steps li:before{margin:2px 0 0;grid-row:span 2}
   .steps p{margin-top:0}
   .contact .btn{width:100%}
-  .rules section{grid-template-columns:1fr;gap:4px}
+  .r-key,.r-pair,.r-split{grid-template-columns:1fr;gap:12px}
+  .r-steps{grid-template-columns:1fr 1fr;gap:10px}
+  .r-card,.r-type{padding:16px}
+  .r-steps li{padding:14px}
+  .r-card .r-big{font-size:21px}
+  .r-warn{padding:16px}
   .notice dl{grid-template-columns:1fr;gap:14px}
   footer .wrap{padding-bottom:100px}
   .mobile-action{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
@@ -379,6 +454,7 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
         </div>
         <p class="th-note" id="th-note">门槛按当前榜单计算，其他参赛者继续交易后会上涨，最终以活动结束时的排名为准。</p>
         <div id="empty-state" class="empty-state"><h3 id="empty-title">榜单加载中</h3><p id="empty-description">正在获取最新排名。</p></div>
+        <div class="podium" id="podium" aria-label="当前前三名"></div>
         <div class="board-scroll" tabindex="0" role="region" aria-label="榜单表格，可滚动">
           <table class="board-table" id="board-table">
             <colgroup id="board-cols"></colgroup>
@@ -425,15 +501,34 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
 
     <section id="rules" class="panel" aria-labelledby="rules-title">
       <div class="panel-head"><div><h2 id="rules-title">参赛规则</h2><p>请在参与前完整阅读</p></div></div>
-      <div class="panel-body"><div class="rules">
-        <section><h3>活动时间</h3><div><p>2026 年 11 月 18 日 18:00 至 11 月 30 日 24:00（UTC+8），只统计赛期内产生的交易。</p></div></section>
-        <section><h3>社区分类</h3><div><p><strong>存量社区：</strong>Q3 前已建立返佣关系，且至少有一个在用的有效邀请码；历届已报名参赛的社区均归存量，进入存量社区交易榜。</p><p><strong>新社区：</strong>Q3 前无返佣关系与有效邀请码，本期首次签约开通并绑定社区长 GUID，与存量社区无关联，进入新社区榜。</p></div></section>
-        <section><h3>社区交易量</h3><div><p>按社区邀请码下 <strong>社区长本人＋一级用户＋二级用户</strong> 的赛期全量交易量计算，新老用户合并，三级及以下不计。</p><p>同一社区多个邀请码合并为一个名次；邀请码之间存在上下级关系时，重复部分只计一次。</p></div></section>
-        <section><h3>新社区四项条件</h3><div><ol><li>Q3 前无返佣关系、无有效邀请码；</li><li>返佣邀请码已开通并绑定社区长 GUID；</li><li>赛期社区交易量（本人＋一级＋二级）不低于 <strong>30,000 U</strong>；</li><li>一级有效交易用户不少于 <strong>3 人</strong>，并完成一次官方公告发布，截图复核。</li></ol><p>四项齐备才进入新社区榜排名，缺一项不计奖。榜单中未达标的社区仅展示进度。</p></div></section>
-        <section><h3>BD 推荐奖</h3><div><p>BD 或代理每成功推荐一个新社区，且该社区达成四项条件并进入新社区榜前 10，即得 20 U，共 10 个名额，不占榜单名额。</p></div></section>
-        <section><h3>用户交易榜</h3><div><p>参赛社区内的普通用户按个人赛期交易量排名，前 10 名直接发奖，不设交易量门槛；社区长本人不参与用户榜。同一用户只能获得一个名次，多账号合并计算。</p></div></section>
-        <section><h3>公平参赛</h3><div><p>刷量、对敲、自成交等行为一经发现，直接取消社区及个人获奖资格，名次不顺延。活动结束后将进行系统及人工审核，最终名次与奖励以审核结果为准。</p></div></section>
-      </div></div>
+      <div class="panel-body">
+        <div class="r-key">
+          <div class="r-card"><span class="r-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>活动时间</h3><p class="r-big">11.18 18:00 <span>—</span> 11.30 24:00</p><p>UTC+8，只统计赛期内产生的交易</p></div>
+          <div class="r-card"><span class="r-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span><h3>社区交易量怎么算</h3><div class="r-formula"><span class="on">本人</span><b>+</b><span class="on">一级</span><b>+</b><span class="on">二级</span><b class="eq">≠</b><span class="off">三级及以下</span></div><p>新老用户合并；多个邀请码合并为一个名次，上下级重复部分只计一次</p></div>
+        </div>
+
+        <h3 class="r-sub">社区分类：一个社区只进一个榜</h3>
+        <div class="r-split">
+          <div class="r-type g1"><div class="r-type-head"><h4>存量社区</h4><span class="r-goto">存量社区交易榜</span></div><p>Q3 前已建立返佣关系，且至少有一个在用的有效邀请码。</p><p class="r-muted">历届已报名参赛的社区均归存量。</p></div>
+          <div class="r-type g2"><div class="r-type-head"><h4>新社区</h4><span class="r-goto">新社区榜</span></div><p>Q3 前无返佣关系与有效邀请码，本期首次签约开通并绑定社区长 GUID。</p><p class="r-muted">与存量社区无关联。</p></div>
+        </div>
+
+        <h3 class="r-sub">新社区四项条件：齐备才进入排名</h3>
+        <ol class="r-steps">
+          <li><span class="r-num">1</span><div><h4>无历史返佣</h4><p>Q3 前无返佣关系、无有效邀请码</p></div></li>
+          <li><span class="r-num">2</span><div><h4>开通并绑定</h4><p>返佣邀请码已开通，绑定社区长 GUID</p></div></li>
+          <li><span class="r-num">3</span><div><h4>交易量 <em>≥ 30,000 U</em></h4><p>赛期本人＋一级＋二级合计</p></div></li>
+          <li><span class="r-num">4</span><div><h4>有效用户 <em>≥ 3 人</em></h4><p>一级有效交易用户，并发布一次官方公告，截图复核</p></div></li>
+        </ol>
+        <p class="r-foot">缺一项不计奖；未达标的新社区在榜单中只展示进度。</p>
+
+        <div class="r-pair">
+          <div class="r-card"><span class="r-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></span><h3>BD 推荐奖</h3><p class="r-big">20 U <span>/ 个 · 共 10 个</span></p><p>BD 或代理推荐的新社区达成四项条件、进入新社区榜前 10 即得，不占榜单名额。</p></div>
+          <div class="r-card"><span class="r-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><h3>用户交易榜</h3><p class="r-big">前 10 名 <span>· 不设门槛</span></p><p>参赛社区内普通用户按个人赛期交易量排名，社区长本人不参与；同一用户只获一个名次，多账号合并计算。</p></div>
+        </div>
+
+        <div class="r-warn"><span class="r-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17.5v.01"/></svg></span><div><h3>公平参赛</h3><p>刷量、对敲、自成交一经发现，直接取消社区及个人获奖资格，名次不顺延。活动结束后进行系统及人工审核，最终名次与奖励以审核结果为准。</p></div></div>
+      </div>
     </section>
 
     <section class="notice" aria-labelledby="notice-title"><h2 id="notice-title">注意事项</h2><dl><div><dt>合规声明</dt><dd>用户需遵守当地法律法规，平台不承担因参赛导致的税务或合规风险。</dd></div><div><dt>数据隐私</dt><dd>榜单中的邀请码与邮箱均已打码，交易数据仅用于排名统计。</dd></div><div><dt>活动解释</dt><dd>活动所有解释权归 Ave.ai 官方所有。</dd></div></dl></section>
@@ -541,7 +636,36 @@ const CAMPAIGN_ID = '2026-11-18_2026-12-01';
     head.replaceChildren(tr);
   }
 
-  function rankCell(text) { const th = el('th', 'rank-cell', text); th.scope = 'row'; return th; }
+  const CROWN = '<svg aria-hidden="true" viewBox="0 0 24 24" width="34" height="34"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8z" fill="currentColor"/></svg>';
+  function rankCell(rank) {
+    const th = el('th', 'rank-cell'); th.scope = 'row';
+    if (rank >= 1 && rank <= 3) th.append(el('span', 'medal m' + rank, String(rank)));
+    else th.append(el('span', 'rank-num', rank ? pad(rank) : '—'));
+    return th;
+  }
+  function volCell(v, max) {
+    const td = el('td', 'numeric vol-cell'); td.append(el('span', 'vol-num', vol.format(v)));
+    const bar = el('span', 'bar'), fill = el('i'); fill.style.width = (max > 0 ? Math.max(2, v / max * 100) : 0).toFixed(1) + '%';
+    bar.append(fill); td.append(bar); return td;
+  }
+  function renderPodium(key, rows) {
+    const box = $('podium'), prizes = BOARDS[key].prizes;
+    const ranked = rows.filter(r => r.reward > 0 && r.rank).sort((a, b) => a.rank - b.rank);
+    box.replaceChildren(...[0, 1, 2].map(i => {
+      const r = ranked[i], card = el('div', 'pod p' + (i + 1) + (r ? '' : ' empty'));
+      if (i === 0) { const c = el('span', 'crown'); c.innerHTML = CROWN; card.append(c); }
+      card.append(el('span', 'medal m' + (i + 1), String(i + 1)));
+      card.append(el('p', 'pod-name', r ? (key === 'user' ? r.user : r.name) : '虚位以待'));
+      card.append(el('p', 'pod-sub', r ? (key === 'user' ? r.community || '' : r.code || '') : '开赛后实时更新'));
+      card.append(el('p', 'pod-vol', r ? vol.format(r.volume) + ' U' : '—'));
+      const rw = el('p', 'pod-reward'); rw.append(el('b', null, String(r ? r.reward : prizes[i])), ' U');
+      card.append(rw);
+      return card;
+    }));
+  }
+  function dividerRow(cols, count) {
+    const tr = el('tr', 'divider-row'), td = el('td', null, '获奖线 · 以上 ' + count + ' 名有奖，以下继续冲榜'); td.colSpan = cols; tr.append(td); return tr;
+  }
   function nameCell(name, sub) { const td = el('td'); td.append(el('span', 'c-name', name)); if (sub) td.append(el('span', 'c-sub', sub)); return td; }
   function numCell(v, extra) { return el('td', 'numeric' + (extra ? ' ' + extra : ''), v); }
   function rewardCell(r) { return el('td', 'numeric reward-cell' + (r ? '' : ' none'), r ? r + ' U' : '—'); }
@@ -572,7 +696,7 @@ const CAMPAIGN_ID = '2026-11-18_2026-12-01';
     const body = $('board-body'), frag = document.createDocumentFragment();
     BOARDS[key].prizes.forEach((p, i) => {
       const tr = el('tr', 'prize-row'); const cols = $('board-head').querySelectorAll('th').length;
-      tr.append(rankCell(pad(i + 1)), nameCell('虚位以待'));
+      tr.append(rankCell(i + 1), nameCell('虚位以待'));
       for (let c = 2; c < cols - 1; c++) tr.append(numCell('—', c === 2 ? 'hide-m' : ''));
       tr.append(rewardCell(p));
       frag.append(tr);
@@ -595,6 +719,7 @@ const CAMPAIGN_ID = '2026-11-18_2026-12-01';
     else if (key === 'new') setHead([{ t: '排名', w: '13%' }, { t: '社区', w: '29%' }, { t: '有效用户', w: '13%', num: true, m: true }, { t: '交易量（U）', w: '20%', num: true }, { t: '状态', w: '13%' }, { t: '预计奖励', w: '12%', num: true }]);
     else setHead([{ t: '排名', w: '13%' }, { t: '社区', w: '35%' }, { t: '有效用户', w: '14%', num: true, m: true }, { t: '交易量（U）', w: '22%', num: true }, { t: '预计奖励', w: '16%', num: true }]);
     renderThresholds(key, rows);
+    renderPodium(key, rows);
 
     const empty = $('empty-state');
     if (!rows.length) {
@@ -607,18 +732,21 @@ const CAMPAIGN_ID = '2026-11-18_2026-12-01';
     } else {
       empty.hidden = true;
       const frag = document.createDocumentFragment();
+      const max = rows.reduce((m, r) => Math.max(m, r.volume), 0), cols = $('board-head').querySelectorAll('th').length;
+      const prizeCount = rows.filter(r => r.reward > 0).length;
       rows.forEach((r, i) => {
         const prize = r.reward > 0;
-        const tr = el('tr', (prize ? 'prize-row' : '') + (i > 0 && !prize && rows[i - 1].reward > 0 ? ' cut-row' : ''));
+        if (i > 0 && !prize && rows[i - 1].reward > 0) frag.append(dividerRow(cols, prizeCount));
+        const tr = el('tr', prize ? 'prize-row' : '');
         if (key === 'user') {
           const who = el('td'); who.append(el('span', 'c-name', r.user || '—'), el('span', 'c-sub m-only', r.community || ''));
-          tr.append(rankCell(pad(r.rank)), who, el('td', 'hide-m', r.community || '—'), numCell(vol.format(r.volume)), rewardCell(r.reward));
+          tr.append(rankCell(r.rank), who, el('td', 'hide-m c-comm', r.community || '—'), volCell(r.volume, max), rewardCell(r.reward));
         } else if (key === 'new') {
           const tag = el('span', 'tag ' + (r.qualified ? 'ok' : r.volumeMet && r.usersMet ? 'wait' : 'no'), r.qualified ? '已达标' : r.volumeMet && r.usersMet ? '待核实' : '未达标');
           const st = el('td'); st.append(tag);
-          tr.append(rankCell(r.rank ? pad(r.rank) : '—'), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), numCell(vol.format(r.volume)), st, rewardCell(r.reward));
+          tr.append(rankCell(r.rank), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), volCell(r.volume, max), st, rewardCell(r.reward));
         } else {
-          tr.append(rankCell(pad(r.rank)), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), numCell(vol.format(r.volume)), rewardCell(r.reward));
+          tr.append(rankCell(r.rank), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), volCell(r.volume, max), rewardCell(r.reward));
         }
         frag.append(tr);
       });
