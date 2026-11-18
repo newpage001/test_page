@@ -1,792 +1,662 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#edf5fd">
-<title>燃冬新赛季 · Ave.ai 社区交易赛</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBhcmlhLWxhYmVsPSJBdmUuYWkiPgogICAgICAgIDxwYXRoIGQ9Ik0yMi4zNjk3IDE5LjY3NzNMMjEuMjM5NyAxNy43NzM3SDUuMDAwMzlMMTMuMTMyNyAzLjcwMzM5TDExLjAwOTIgMEg4LjI2ODk4QzcuNjgwNTYgMC4wMDEzMjA2IDcuMTAzMDMgMC4xNTg4MDggNi41OTUzOSAwLjQ1NjM3NEM2LjA4Nzc1IDAuNzUzOTQgNS42NjgyIDEuMTgwOTIgNS4zNzk1OCAxLjY5MzdMMC40NjUzMTkgMTAuMzY0NEMwLjE3OTU4MiAxMC44NjQ5IDAuMDI5Mjk2OSAxMS40MzEzIDAuMDI5Mjk2OSAxMi4wMDc2QzAuMDI5Mjk2OSAxMi41ODM5IDAuMTc5NTgyIDEzLjE1MDIgMC40NjUzMTkgMTMuNjUwN0wzLjkwNTgxIDE5LjcxNzdMNS4zNzk1OCAyMi4zMTY0QzUuNjMyMTkgMjIuNzYyMSA1Ljk4NDU2IDIzLjE0MzQgNi40MDkwOSAyMy40MzAyQzYuODMzNjIgMjMuNzE3IDcuMzE4NzkgMjMuOTAxNiA3LjgyNjYgMjMuOTY5N0M3Ljk3MjMzIDIzLjk5IDguMTE5MzEgMjQuMDAwMSA4LjI2NjQ2IDI0SDE3Ljk4NjNDMTguNTc0NSAyNC4wMDAzIDE5LjE1MjMgMjMuODQ0NyAxOS42NjA4IDIzLjU0ODlDMjAuMTY5MiAyMy4yNTMyIDIwLjU5MDIgMjIuODI3OSAyMC44ODA3IDIyLjMxNjRMMjIuMzQ0NCAxOS43MTc3TDIyLjM2OTcgMTkuNjc3M1oiIGZpbGw9InVybCgjYXYwKSIvPgogICAgICAgIDxwYXRoIGQ9Ik0yMS4yMzk3IDE3Ljc3NDRINS4wMzA3Nkw1LjA5OTAyIDE3LjczNEwxMC41MzkxIDE0LjQ2MjlDMTEuMzc4NCAxMy45MTY5IDEyLjAxMDMgMTMuNTk4MyAxMi42MDQ0IDEzLjQ5NDdDMTIuNjE3OCAxMy40OTM1IDEyLjYzMTQgMTMuNDkzNSAxMi42NDQ4IDEzLjQ5NDdMMTIuNzYxMSAxMy40Nzk1TDEyLjk2MzQgMTMuNDY0NEgxMy4wODQ3QzEzLjE4MTkgMTMuNDY3IDEzLjI3ODkgMTMuNDc0NiAxMy4zNzU0IDEzLjQ4NzFDMTMuOTk0NyAxMy41NzA1IDE0LjY1OTYgMTMuODc4OSAxNS41NjQ2IDE0LjQwMjJMMjEuMjA5NCAxNy43NTQyTDIxLjIzOTcgMTcuNzc0NFoiIGZpbGw9InVybCgjYXYxKSIvPgogICAgICAgIDxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjYXYyKSIvPgogICAgICAgIDxnIG9wYWNpdHk9IjAuNSI+CiAgICAgICAgICA8cGF0aCBkPSJNMTUuNTQzNiAxNC4zOTI1QzEzLjM5OTkgMTMuMTQzNyAxMi41OTg2IDEzLjEwNTggMTAuNTE4MSAxNC40NjA4TDUuMDA5NzcgMTcuNzcyM0wxMC41MTgxIDE1LjE2NkMxMi41OTg2IDEzLjgwODYgMTMuMzkyMyAxMy44NTY2IDE1LjU0MzYgMTUuMDk1M0wyMS4yMjEzIDE3Ljc3NDlMMTUuNTQzNiAxNC4zOTI1WiIgZmlsbD0idXJsKCNhdjMpIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGQ9Ik0yNS43OTA1IDEzLjY1MDdMMjIuMzQ0OSAxOS43MTc3TDIyLjM3MjcgMTkuNjY5N0wyMS4yNDAyIDE3Ljc3MzhMMTMuMTUwOSAzLjY4NTdWMy43MDMzOUwxMS4wMDk4IDBIMTcuOTg5M0MxOC41NzggMC4wMDE2NTQ4NiAxOS4xNTU4IDAuMTU5MjU4IDE5LjY2MzggMC40NTY3NjhDMjAuMTcxNyAwLjc1NDI3NyAyMC41OTE4IDEuMTgxMDcgMjAuODgxMyAxLjY5MzdMMjUuNzkwNSAxMC4zNjQ0QzI2LjA3NSAxMC44NjUzIDI2LjIyNDYgMTEuNDMxNSAyNi4yMjQ2IDEyLjAwNzZDMjYuMjI0NiAxMi41ODM2IDI2LjA3NSAxMy4xNDk4IDI1Ljc5MDUgMTMuNjUwN1oiIGZpbGw9InVybCgjYXY0KSIvPgogICAgICAgIDxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNhdjUpIi8+CiAgICAgICAgPHBhdGggb3BhY2l0eT0iMC41MSIgZD0iTTE1LjIyMiAwTDEzLjExMzggMy42NjhMMTMuNTA1NiA0LjI5MjRMMTUuMjIyIDBaIiBmaWxsPSJ1cmwoI2F2NikiLz4KICAgICAgICA8ZGVmcz4KICAgICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXYwIiB4MT0iMi41ODQ5OCIgeTE9IjYiIHgyPSIyMS40NTM0IiB5Mj0iMTcuMjg1OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJhdjEiIHgxPSI2Ljg4NTAzIiB5MT0iMTQuNTQxOSIgeDI9IjkuNjAyNjkiIHkyPSIyMS4xMDkyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPjwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImF2MiIgeDE9IjYuMDE3OTgiIHkxPSIxNi4wOTMxIiB4Mj0iMTUuMzU4OSIgeTI9IjI2LjYwNjMiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+PC9saW5lYXJHcmFkaWVudD4KICAgICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXYzIiB4MT0iNi44NjQzMiIgeTE9IjE0LjUzMTQiIHgyPSI5LjU5NzM4IiB5Mj0iMjEuMTE0NyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJhdjQiIHgxPSIxMi43NTAzIiB5MT0iNC45Mjk0MyIgeDI9IjI2Ljc1NSIgeTI9IjExLjg3MzQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+PC9saW5lYXJHcmFkaWVudD4KICAgICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXY1IiB4MT0iMS43NDEzMyIgeTE9IjQuOTI5NDMiIHgyPSIxNS43NDk5IiB5Mj0iMTEuODc4NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJhdjYiIHgxPSIxMy4zNTUiIHkxPSIxLjA3MzEiIHgyPSIxNS41NTM2IiB5Mj0iMS43NjcwMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz48L2xpbmVhckdyYWRpZW50PgogICAgICAgIDwvZGVmcz4KICA8L3N2Zz4=">
-<style>:root{
-    --blue:#1677ff; --blue-deep:#0e56d6; --blue-light:#4a97ff; --blue-ink:#0a2a66;
-    --card:#ffffff;
-    --ink:#1b2a3d; --ink2:#5a6b7d; --muted:#9aa8b8; --line:#e6eefb;
-    --gold-1:#ffd01e; --gold-2:#ff8f17; --gold-deep:#c98a00;
-    --dead:#a8b6c6;
-    --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Arial,sans-serif;
-    /* 记分牌数字：iOS/macOS 自带 DIN Alternate，Windows 自带 Bahnschrift，其余回落系统字体，零下载 */
-    --num:"DIN Alternate","Bahnschrift",-apple-system,"SF Pro Display",system-ui,Roboto,"Segoe UI",sans-serif;
-    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    --out:cubic-bezier(.2,.8,.2,1);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    font-family:var(--sans); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;
-    background:
-      radial-gradient(520px 380px at 100% -60px,rgba(22,119,255,.20),transparent 70%),
-      radial-gradient(420px 360px at -80px 34%,rgba(255,208,30,.10),transparent 70%),
-      linear-gradient(180deg,#dcebff 0%,#eaf3ff 22%,#f3f8ff 100%);
-    background-attachment:fixed; padding-bottom:96px; min-height:100vh;
-  }
-  .app{max-width:500px; margin:0 auto; padding:14px 14px 30px}
-  .brand{display:flex; align-items:center; gap:8px; padding:2px 4px 14px}
-  .brand .nm{font-weight:800; font-size:16px; letter-spacing:-.2px}
-  .brand .nm i{font-style:normal; color:var(--blue)}
-
-  .tab{display:inline-block; position:relative; color:#fff; font-weight:800; font-size:16.5px;
-    padding:7px 22px 7px 16px; border-radius:10px 4px 12px 4px;
-    background:linear-gradient(135deg,var(--blue-light),var(--blue)); box-shadow:0 4px 12px rgba(22,119,255,.28);
-    margin:0 0 -10px 6px; z-index:2}
-  .tab::after{content:""; position:absolute; right:6px; top:50%; transform:translateY(-50%);
-    width:6px; height:6px; border-radius:1px; background:rgba(255,255,255,.85)}
-  .tab.g{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 4px 12px rgba(255,143,23,.3); color:#4a2c00}
-  .card{background:var(--card); border-radius:16px; padding:20px 18px 18px; box-shadow:0 8px 26px rgba(22,89,214,.09); position:relative}
-  section{margin-top:20px}
-
-  /* ---------- 主视觉 ---------- */
-  .hero{border-radius:22px; overflow:hidden; padding:22px 18px 24px; position:relative; min-height:340px;
-    background:linear-gradient(135deg,#eaf3ff 0%,#f7fbff 46%,#fff6e6 100%);
-    box-shadow:0 14px 36px rgba(22,89,214,.18), inset 0 0 0 1px rgba(255,255,255,.7)}
-  .hero::before{content:""; position:absolute; top:0; right:0; bottom:0; left:0; pointer-events:none;   /* 行情图底纹 */
-    background-image:linear-gradient(rgba(14,86,214,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(14,86,214,.06) 1px,transparent 1px);
-    background-size:22px 22px;
-    -webkit-mask-image:linear-gradient(115deg,transparent 35%,#000 80%); mask-image:linear-gradient(115deg,transparent 35%,#000 80%)}
-  .hero .art{position:absolute; right:-6px; bottom:6px; width:220px; height:238px; z-index:0}
-  .hero > *:not(.art){position:relative; z-index:1}
-  .hbadge{display:inline-block; font-size:12.5px; font-weight:700; color:var(--blue-deep);
-    background:rgba(255,255,255,.82); border:1px solid #cfe0fb; padding:5px 13px; border-radius:999px}
-  .hero h1{margin:14px 0 0; font-size:32px; line-height:1.2; font-weight:900; letter-spacing:-1px; color:var(--blue-ink)}
-  .hero h1 em{font-style:normal; display:block}
-  .prize{position:relative; overflow:hidden; display:inline-flex; align-items:baseline; gap:7px; margin-top:16px;
-    padding:8px 20px 9px 16px; border-radius:16px; color:#fff;
-    background:linear-gradient(135deg,#2a7bff 0%,#0e56d6 55%,#0a3a9c 100%);
-    box-shadow:0 10px 24px rgba(14,86,214,.35), inset 0 1px 0 rgba(255,255,255,.28)}
-  .prize .pl{font-size:13.5px; font-weight:700; opacity:.92}
-  .prize .pv{font-family:var(--num); font-weight:700; font-size:40px; line-height:1; min-width:2.2ch; text-align:right;
-    font-variant-numeric:tabular-nums; color:var(--gold-1);
-    background:linear-gradient(180deg,#fff4b8 0%,#ffd01e 48%,#ff9a1f 100%); -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent}
-  .prize .pu{font-family:var(--num); font-weight:700; font-size:20px; color:var(--gold-1)}
-  .prize::after{content:""; position:absolute; top:-10%; bottom:-10%; left:-45%; width:32%; pointer-events:none;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
-    transform:skewX(-20deg); animation:sweep 5s 1.8s ease-in-out infinite}
-  .hdate{margin-top:14px; font-family:var(--mono); font-size:13.5px; color:var(--ink2); font-weight:600}
-  .hsub{margin-top:9px; max-width:62%; color:#33465e; font-size:13.5px; line-height:1.75; font-weight:500}
-
-  .hero .a-bars rect{transform-box:fill-box; transform-origin:50% 100%; animation:grow .8s var(--out) both}
-  .hero .a-bars .b2{animation-delay:.12s} .hero .a-bars .b3{animation-delay:.24s}
-  .hero .a-line{stroke-dasharray:100; animation:draw .9s .4s ease-out both}
-  .hero .a-head{transform-box:fill-box; transform-origin:center; animation:pop .4s 1.2s var(--out) both}
-  .hero .a-cup{animation:float 3.4s 1.3s ease-in-out infinite}
-  .hero .a-glow{transform-box:fill-box; transform-origin:center; animation:breathe 4.2s ease-in-out infinite}
-  .hero .tw{animation:twinkle 2.6s ease-in-out infinite} .hero .t2{animation-delay:.9s} .hero .t3{animation-delay:1.7s}
-
-  /* ---------- 活动时间 ---------- */
-  .trow{display:flex; justify-content:space-between; font-size:15px; color:var(--ink2); padding:3px 0}
-  .trow b{color:var(--ink); font-family:var(--mono); font-weight:600; font-size:14.5px}
-  .cdLabel{margin-top:15px; font-size:12.5px; font-weight:700; letter-spacing:.5px; color:var(--blue-deep)}
-  .cdLabel.ended{color:var(--muted)}
-  .clock{display:flex; gap:8px; margin-top:7px}
-  .seg{flex:1; text-align:center; border-radius:14px; padding:10px 2px 8px; overflow:hidden;
-    background:linear-gradient(180deg,#f8fbff,#eaf2ff); border:1px solid #dbe8fb; box-shadow:inset 0 1px 0 #fff}
-  .seg b{display:block; font-family:var(--num); font-weight:700; font-size:30px; line-height:1.15;
-    font-variant-numeric:tabular-nums; color:var(--blue-deep)}
-  .seg b.tk{animation:tk .38s var(--out)}
-  .seg small{display:block; font-size:11px; color:var(--muted); margin-top:1px}
-  .race{margin-top:15px}
-  .race .rtop{display:flex; justify-content:space-between; align-items:baseline; font-size:12.5px; color:var(--ink2); font-weight:600}
-  .race .rtop b{font-family:var(--num); font-weight:700; color:var(--blue-deep); font-size:15px}
-  .rbar{height:8px; border-radius:99px; background:#e6eefb; overflow:hidden; margin-top:6px}
-  .rbar i{display:block; height:100%; width:0; border-radius:99px; transition:width 1.2s var(--out);
-    background:linear-gradient(90deg,var(--blue-light),var(--blue))}
-  .race.on .rbar i{background-image:
-      linear-gradient(45deg,rgba(255,255,255,.22) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.22) 50%,rgba(255,255,255,.22) 75%,transparent 75%),
-      linear-gradient(90deg,var(--blue-light),var(--blue));
-    background-size:16px 16px,100% 100%; animation:stripes 1s linear infinite}
-
-  /* ---------- 参与方式 ---------- */
-  .steps{counter-reset:s; margin:0; padding:0; list-style:none}
-  .steps li{counter-increment:s; position:relative; padding:0 0 15px 36px; font-size:14.5px; line-height:1.7}
-  .steps li:last-child{padding-bottom:0}
-  .steps li::before{content:counter(s); position:absolute; left:0; top:2px; width:24px; height:24px; border-radius:8px;
-    background:linear-gradient(135deg,var(--blue-light),var(--blue)); color:#fff; font-size:14px; font-weight:700;
-    display:flex; align-items:center; justify-content:center; font-family:var(--num);
-    box-shadow:0 3px 8px rgba(22,119,255,.28)}
-  .steps li::after{content:""; position:absolute; left:11.5px; top:28px; bottom:4px; width:1.5px; background:var(--line)}
-  .steps li:last-child::after{display:none}
-  .steps b{color:var(--blue-deep)}
-
-  /* ---------- 成绩怎么算 ---------- */
-  .calc{margin:0; padding:0; list-style:none}
-  .calc li{position:relative; padding:11px 0 11px 26px; font-size:14.5px; border-top:1px solid var(--line); line-height:1.65}
-  .calc li:first-child{border-top:none}
-  .calc li::before{position:absolute; left:0; top:11px; font-weight:800; font-size:14px}
-  .calc li.yes::before{content:"＋"; color:var(--blue)}
-  .calc li.no::before{content:"－"; color:var(--dead)}
-  .calc li.no{color:var(--dead)}
-  .calc li.no s{text-decoration-thickness:1.5px}
-  .calc b{color:var(--blue-deep)}
-  .hl{margin-top:14px; font-size:13.5px; color:var(--blue-deep); line-height:1.75;
-    background:#f2f7ff; border:1px solid #d8e8ff; border-radius:12px; padding:12px 14px}
-  .hl b{font-weight:800}
-  .gate{margin-top:14px; font-size:13.5px; color:var(--blue-deep); line-height:1.75;
-    background:#f2f7ff; border:1px dashed #b9d5ff; border-radius:12px; padding:12px 14px}
-  .gate b{font-weight:800}
-
-  /* ---------- 奖励表 ---------- */
-  .ptTitle{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink2); margin:0 0 10px 2px}
-  .ptTitle .pill{display:inline-block; font-size:12.5px; font-weight:800; color:#fff; padding:4px 12px; border-radius:999px;
-    background:linear-gradient(135deg,var(--blue-light),var(--blue))}
-  .ptable{border:1px solid var(--line); border-radius:12px; overflow:hidden}
-  .ph{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:12px 15px; font-size:12.5px; font-weight:700;
-    color:var(--ink2); background:#f7fbff}
-  .ph .r{text-align:right; color:var(--blue-deep)}
-  .pr{display:grid; grid-template-columns:1fr 1.35fr; gap:8px; padding:13px 15px; align-items:center; border-top:1px solid var(--line)}
-  .pr.top{background:linear-gradient(92deg,rgba(255,208,30,.12),rgba(255,143,23,.02))}
-  .pr .nm{font-weight:700; font-size:15px; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:9px}
-  .pr .dot{width:10px; height:10px; border-radius:50%; flex-shrink:0; background:#c4d2e6}
-  .pr .dot.g1{background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 0 0 3px rgba(255,208,30,.22)}
-  .pr .dot.g2{background:linear-gradient(135deg,#e7edf4,#b9c5d4); box-shadow:0 0 0 3px rgba(185,197,212,.25)}
-  .pr .dot.g3{background:linear-gradient(135deg,#ffcfa0,#e0955a); box-shadow:0 0 0 3px rgba(224,149,90,.2)}
-  .pr .a{font-family:var(--num); font-weight:700; font-size:20px; line-height:1; color:var(--blue-deep); text-align:right}
-  .pr .a small{font-size:13px}
-  .pr .a.gold{color:#e8a200; background:linear-gradient(180deg,#ffc21a,#ff8a12); -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent}
-  .fine{margin-top:13px; font-size:12.5px; color:var(--muted); line-height:1.7}
-
-  /* ---------- 实时榜单 ---------- */
-  .lbHead{display:flex; align-items:center; justify-content:space-between; gap:10px}
-  .lbHead .t{font-weight:800; font-size:16px}
-  .lbHead .t small{font-weight:600; font-size:12.5px; color:var(--muted); margin-left:6px}
-  .live{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; color:var(--blue-deep);
-    background:#eaf3ff; border:1px solid #d3e4ff; padding:3px 9px 3px 8px; border-radius:999px; white-space:nowrap}
-  .live i{position:relative; width:7px; height:7px; border-radius:50%; background:var(--blue)}
-  .live i::after{content:""; position:absolute; top:0; right:0; bottom:0; left:0; border-radius:50%; background:var(--blue); animation:ping 1.6s ease-out infinite}
-  .live.stale{color:var(--ink2); background:#f1f4f8; border-color:#e3e8ef}
-  .live.stale i{background:var(--dead)} .live.stale i::after{display:none}
-  .lbSum{margin:7px 0 0; font-size:12.5px; color:var(--ink2); line-height:1.6}
-  .lbSum b{font-family:var(--num); font-weight:700; color:var(--blue-deep); font-size:14px}
-  .lbSum .nw{white-space:nowrap}
-  .upd{display:block; margin-top:2px; font-size:11.5px; color:var(--muted)}
-
-  .podium{display:grid; grid-template-columns:1fr 1.14fr 1fr; gap:8px; align-items:end; margin:14px 0 2px; padding-top:22px}
-  .pd{position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0}
-  .pd.p2{order:1} .pd.p1{order:2} .pd.p3{order:3}
-  .pd .av{position:relative; width:50px; height:50px; margin-bottom:8px; flex-shrink:0}
-  .pd .av::before{content:""; position:absolute; top:0; right:0; bottom:0; left:0; border-radius:50%; background:var(--ring)}
-  .pd .av span{position:absolute; top:3px; right:3px; bottom:3px; left:3px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    background:var(--face); color:var(--faceInk); font-weight:800; font-size:19px; line-height:1}
-  .p1{--ring:conic-gradient(#ffd01e,#fff6c8,#ff8f17,#ffd01e,#fff6c8,#ff8f17,#ffd01e);
-      --face:linear-gradient(160deg,#fff3c4,#ffd23f); --faceInk:#7a4a00}
-  .p2{--ring:linear-gradient(160deg,#f4f7fb,#aebccd); --face:linear-gradient(160deg,#ffffff,#e3e9f1); --faceInk:#3b4757}
-  .p3{--ring:linear-gradient(160deg,#ffe0c2,#d98548); --face:linear-gradient(160deg,#fff4ea,#ffd9b8); --faceInk:#7a3f12}
-  @supports not (background:conic-gradient(red,red)){ .p1{--ring:linear-gradient(160deg,#fff3b0,#ffd01e 50%,#ff8f17)} }
-  .p1 .av{width:62px; height:62px}
-  .p1 .av span{font-size:24px; top:3.5px; right:3.5px; bottom:3.5px; left:3.5px}
-  .p1 .av::before{animation:spin 6s linear infinite, halo 2.4s ease-out infinite}
-  .crown{position:absolute; top:-21px; left:50%; width:34px; height:24px; margin-left:-17px; transform:rotate(-9deg); z-index:2;
-    filter:drop-shadow(0 2px 3px rgba(201,138,0,.35))}
-  .pd .pn{width:100%; font-weight:800; font-size:13.5px; line-height:1.3; color:var(--ink);
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; word-break:break-all}
-  .pd .pv{margin-top:4px; font-family:var(--num); font-weight:700; font-size:16px; line-height:1.1; color:var(--ink);
-    font-variant-numeric:tabular-nums; white-space:nowrap}
-  .pd .pv small{font-size:11px; color:var(--muted); margin-left:2px}
-  .pd.p1 .pv{font-size:19px; color:#b86e00}
-  .pd .pv.long{font-size:13px} .pd.p1 .pv.long{font-size:15px}
-  .pd .pm{font-size:11px; color:var(--muted); margin-top:2px}
-  .pd .prz{margin-top:6px}
-  .plinth{align-self:stretch; position:relative; overflow:hidden; margin-top:9px; border-radius:12px 12px 4px 4px;
-    display:flex; justify-content:center; padding-top:7px; transform-origin:50% 100%}
-  .plinth b{font-family:var(--num); font-weight:700; font-size:26px; line-height:1; color:#fff; text-shadow:0 2px 6px rgba(0,0,0,.14)}
-  .p1 .plinth{height:66px; background:linear-gradient(180deg,#ffd84a,#ff9a1f); box-shadow:0 8px 18px rgba(255,154,31,.3)}
-  .p2 .plinth{height:48px; background:linear-gradient(180deg,#e6ecf3,#aab9ca)}
-  .p3 .plinth{height:38px; background:linear-gradient(180deg,#ffcb98,#d9864a)}
-  .p1 .plinth::after{content:""; position:absolute; top:-20%; bottom:-20%; left:-45%; width:34%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg);
-    animation:sweep 4s 2.2s ease-in-out infinite}
-  .pd.vacant .av span{color:#b3c0cf; background:#f3f6fa} .pd.vacant .pn{color:var(--muted); font-weight:600}
-  .pd.vacant .plinth{opacity:.45}
-
-  .rows{margin-top:10px; border-top:1px solid var(--line)}
-  .lrow{display:grid; grid-template-columns:30px 1fr auto; gap:10px; align-items:center;
-    padding:11px 6px; border-top:1px solid var(--line)}
-  .rows > .lrow:first-child{border-top:none}
-  .lrow.win{background:linear-gradient(92deg,rgba(255,208,30,.11),rgba(255,143,23,.02))}
-  .rk{width:28px; height:28px; border-radius:9px; display:flex; align-items:center; justify-content:center;
-    font-family:var(--num); font-weight:700; font-size:15px; color:var(--ink2); background:#eef3fb}
-  .who{min-width:0}
-  .who .nm{font-weight:700; font-size:14.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .who .mt{font-size:11px; color:var(--muted); margin-top:1px}
-  .who .mt .cd{font-family:var(--mono); margin-right:8px}
-  .bar{height:4px; border-radius:3px; margin-top:6px; background:#eaf0f9; overflow:hidden}
-  .bar i{display:block; height:100%; border-radius:3px; transform-origin:0 50%;
-    background:linear-gradient(90deg,var(--blue-light),var(--blue))}
-  .vc{text-align:right}
-  .vol{font-family:var(--num); font-weight:700; font-size:16.5px; line-height:1.15; color:var(--ink); font-variant-numeric:tabular-nums}
-  .vol small{display:block; font-family:var(--sans); font-size:10px; color:var(--muted); font-weight:400}
-  .prz{display:inline-block; margin-top:5px; font-size:10.5px; font-weight:800; padding:3px 8px;
-    border-radius:7px; white-space:nowrap; color:#4a2c00;
-    background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 2px 6px rgba(255,143,23,.25)}
-  .lrow.zero{padding:8px 4px}
-  .lrow.zero .rk{width:24px; height:24px; font-size:13px; border-radius:8px; background:#f3f6fa; color:var(--muted)}
-  .lrow.zero .nm{font-weight:600; font-size:14px; color:#3b4a5c}
-  .lrow.zero .vol{font-size:14px; color:var(--dead)}
-  .lrow.zero .vol small{display:none}
-  .sep{display:flex; align-items:center; gap:10px; margin:14px 0 4px; font-size:11.5px; color:var(--muted)}
-  .sep::before,.sep::after{content:""; flex:1; height:1px; background:var(--line)}
-  .sep + .lrow{border-top:none}
-  .dlt{display:block; font-style:normal; font-family:var(--num); font-size:12px; font-weight:700; color:var(--blue);
-    animation:dlt 7s ease-out forwards}
-  .lrow.bump,.pd.bump .pn{animation:bump 2.6s ease-out}
-
-  .skel .skp{display:grid; grid-template-columns:1fr 1.14fr 1fr; gap:8px; align-items:end; margin:18px 0 14px}
-  .sk{display:block; border-radius:10px; background:linear-gradient(90deg,#eef3fa 0%,#f8fbff 45%,#eef3fa 90%);
-    background-size:220% 100%; animation:skel 1.3s linear infinite}
-  .skr{height:44px; margin-top:10px}
-  .empty{padding:30px 10px; text-align:center}
-  .empty .big{font-size:15px; font-weight:800; color:var(--ink2)}
-  .empty .sm{font-size:13px; color:var(--muted); margin-top:7px; line-height:1.85}
-
-  /* 榜单入场：台阶从地面升起（3→2→1），皇冠最后落下；只在第一次滚到榜单时播放 */
-  #board.pending .pd, #board.pending .rows{opacity:0}
-  #board.go .plinth{animation:rise .75s cubic-bezier(.22,1,.36,1) both}
-  #board.go .p3 .plinth{animation-delay:.05s} #board.go .p2 .plinth{animation-delay:.2s} #board.go .p1 .plinth{animation-delay:.38s}
-  #board.go .pd > :not(.plinth):not(.crown){animation:fadeUp .5s var(--out) both}
-  #board.go .p3 > :not(.plinth){animation-delay:.3s} #board.go .p2 > :not(.plinth){animation-delay:.45s}
-  #board.go .p1 > :not(.plinth):not(.crown){animation-delay:.62s}
-  #board.go .crown{animation:drop .6s 1s cubic-bezier(.3,1.6,.5,1) both}
-  #board.go .rows{animation:fadeUp .5s .85s var(--out) both}
-  #board.go .bar i{animation:barGrow 1.1s 1s var(--out) both}
-
-  /* ---------- 注意事项 ---------- */
-  .note h4{color:var(--blue); font-size:14.5px; margin:14px 0 5px}
-  .note h4:first-child{margin-top:0}
-  .note p{margin:0; font-size:13.5px; color:var(--ink2); line-height:1.75}
-
-  /* ---------- 固定底栏 ---------- */
-  .cta{position:fixed; left:0; right:0; bottom:0; z-index:20; padding:12px 14px calc(12px + env(safe-area-inset-bottom));
-    background:linear-gradient(180deg,rgba(233,242,255,0),#e9f2ff 40%); display:flex; justify-content:center}
-  .cta button{position:relative; overflow:hidden; max-width:472px; width:100%; border:0; cursor:pointer; color:#fff;
-    font-family:var(--sans); font-weight:800; font-size:16.5px; letter-spacing:.5px;
-    padding:15px; border-radius:14px; background:linear-gradient(135deg,var(--blue-light),var(--blue-deep));
-    box-shadow:0 8px 22px rgba(14,86,214,.36), inset 0 1px 0 rgba(255,255,255,.25); transition:transform .15s}
-  .cta button::after{content:""; position:absolute; top:0; bottom:0; left:-35%; width:26%; pointer-events:none;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent); transform:skewX(-20deg);
-    animation:sweepWide 5.5s 3s ease-in-out infinite}
-  .cta button:active{transform:scale(.985)}
-  .cta button:focus-visible{outline:3px solid #ffd01e; outline-offset:2px}
-  .share{position:fixed; right:16px; bottom:86px; z-index:21; width:44px; height:44px; border-radius:50%; background:var(--blue);
-    display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(22,119,255,.4); cursor:pointer; border:0;
-    transition:transform .2s}
-  .share:focus-visible{outline:3px solid #ffd01e; outline-offset:2px}
-
-  @keyframes grow{from{transform:scaleY(0)}}
-  @keyframes draw{from{stroke-dashoffset:100}}
-  @keyframes pop{from{opacity:0; transform:scale(.3)}}
-  @keyframes float{50%{transform:translateY(-6px)}}
-  @keyframes breathe{50%{opacity:.65; transform:scale(1.07)}}
-  @keyframes twinkle{50%{opacity:.2}}
-  @keyframes sweep{0%{transform:translateX(0) skewX(-20deg)} 30%,100%{transform:translateX(480%) skewX(-20deg)}}
-  @keyframes sweepWide{0%{transform:translateX(0) skewX(-20deg)} 32%,100%{transform:translateX(620%) skewX(-20deg)}}
-  @keyframes tk{from{transform:translateY(-38%); opacity:.15}}
-  @keyframes stripes{from{background-position:16px 0,0 0} to{background-position:0 0,0 0}}
-  @keyframes ping{from{transform:scale(1); opacity:.7} to{transform:scale(2.8); opacity:0}}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,184,28,.55)} 100%{box-shadow:0 0 0 12px rgba(255,184,28,0)}}
-  @keyframes rise{from{transform:scaleY(0)}}
-  @keyframes fadeUp{from{opacity:0; transform:translateY(10px)}}
-  @keyframes drop{from{opacity:0; transform:translateY(-16px) rotate(-30deg) scale(.6)}}
-  @keyframes barGrow{from{transform:scaleX(0)}}
-  @keyframes bump{0%{background-color:rgba(22,119,255,.18)} 100%{background-color:rgba(22,119,255,0)}}
-  @keyframes dlt{0%{opacity:0; transform:translateY(4px)} 8%,75%{opacity:1; transform:none} 100%{opacity:0}}
-  @keyframes skel{to{background-position:-220% 0}}
-
-  @media(max-width:400px){ .hsub{max-width:100%} .hero .art{opacity:.55} }
-  @media(max-width:360px){ .pd .av{width:44px; height:44px} .p1 .av{width:54px; height:54px} .pd .pn{font-size:12.5px}
-    .pd .pv{font-size:14px} .pd.p1 .pv{font-size:16px} .seg b{font-size:26px} }
-  @media(prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important; transition:none!important} }
-:root{--blue:#c57916;--blue-deep:#875014;--blue-light:#eca62b;--blue-ink:#4c2c17;--ink:#30251d;--ink2:#705d4b;--muted:#9b8775;--line:#eadbc2;--gold-1:#ffe07a;--gold-2:#e99a1d;--gold-deep:#9b5d0a;--dead:#a99888}
-    body{background:radial-gradient(520px 380px at 100% -60px,rgba(232,167,46,.24),transparent 70%),radial-gradient(420px 360px at -80px 34%,rgba(194,104,20,.13),transparent 70%),linear-gradient(180deg,#f8e3ad 0%,#fdf1d1 24%,#fffaf0 100%);background-attachment:fixed}
-    .card{box-shadow:0 8px 26px rgba(111,69,20,.09)}
-    .hero{background:linear-gradient(135deg,#f5cf74 0%,#f9e2aa 46%,#fff4d3 100%);box-shadow:0 14px 36px rgba(111,69,20,.18),inset 0 0 0 1px rgba(255,255,255,.72);min-height:340px}
-    .hero::before{background-image:linear-gradient(rgba(111,69,20,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(111,69,20,.055) 1px,transparent 1px)}
-    .hero .art{right:-8px;bottom:5px;width:216px;height:235px}
-    .hero h1{font-size:30px;line-height:1.18;max-width:390px;color:#4c2c17;letter-spacing:-.7px}
-    .hero h1 em{font-size:21px;line-height:1.25;max-width:370px;margin-top:4px}
-    .hbadge{color:#74400c;background:rgba(255,255,255,.78);border-color:#e8c681}
-    .prize{background:linear-gradient(135deg,#bf7210 0%,#8f4d0c 58%,#5d320d 100%);box-shadow:0 10px 24px rgba(111,69,20,.34),inset 0 1px 0 rgba(255,255,255,.26)}
-    .hdate{font-size:12.5px}.hsub{max-width:64%;font-size:12.8px;color:#5f4a35;margin-top:10px}
-    .seg{background:linear-gradient(180deg,#fffdf7,#f8ecd5);border-color:#ead8b7}.rbar{background:#eadcc5}
-    .pots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:16px}
-    .pot{border:1px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center;background:#fffaf1}
-    .pot b{display:block;font-family:var(--num);font-size:23px;line-height:1.2;color:#8f4d0c}
-    .pot span{display:block;font-size:11px;line-height:1.2;font-weight:800;min-height:28px;margin-top:3px}
-    .pot small{display:block;font-size:10px;line-height:1.2;color:var(--muted)}
-    .pot.g{background:linear-gradient(160deg,#fff9e8,#fbe3af);border-color:#e6c77f}
-    .ph{background:#fff9ee}.rewardGrid .ph,.rewardGrid .pr{grid-template-columns:1fr 1fr 1fr;gap:5px}.rewardGrid .nm{font-size:13.5px}.rewardGrid .a{font-size:18px}.rewardGrid .a small{font-size:11px}.pr .dot{background:#d9c5a8}.pr.top{background:linear-gradient(92deg,rgba(232,167,46,.17),rgba(194,104,20,.03))}
-    .draw{border:1px dashed #dfbc74;border-radius:12px;background:linear-gradient(160deg,#fffdf6,#fbedcf);padding:15px;margin-top:16px}
-    .draw h4{margin:0 0 4px;font-size:15px;color:#875014}.draw p{margin:0;color:var(--ink2);font-size:13px;line-height:1.7}.draw b{color:#875014}
-    .tierTable{display:grid;gap:7px;margin-top:11px}.tier{display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center;border:1px solid #ead8b7;border-radius:9px;background:#fff;padding:8px 10px;font-size:12.5px}.tier b{font-family:var(--num);font-size:13px}
-    .calc li{font-size:13.5px}.hl,.gate{background:#fff9ec;border-color:#ead7b4;font-size:13px}
-    .swt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:13px 0 3px}.swt button{border:1px solid #ead8b7;border-radius:9px;background:#fff8e9;color:var(--ink2);font-size:12px;font-weight:800;padding:9px 3px;cursor:pointer;line-height:1.2}.swt button small{display:block;font-size:9.5px;font-weight:600;color:var(--muted);margin-top:4px}.swt button.on{background:linear-gradient(135deg,var(--blue-light),var(--blue));border-color:transparent;color:#fff;box-shadow:0 5px 12px rgba(143,77,12,.23)}.swt button.on small{color:rgba(255,255,255,.9)}.swt button:focus-visible{outline:3px solid #7c4a13;outline-offset:2px}
-    .live{background:#fff5df;border-color:#ead09b;color:#7b470e}.live i{background:#c57916}.live i::after{display:none}.live.stale{color:#7b470e;background:#fff5df;border-color:#ead09b}.live.stale i{background:#c57916}
-    .vacantLine{text-align:center;border:1px dashed #e4d4b7;border-radius:10px;background:#fffaf1;padding:24px 12px;margin:17px 0 12px}.vacantLine b{display:block;color:#7b470e;font-size:16px}.vacantLine small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
-    .podium{margin:23px 0 0;padding-top:24px;gap:10px}.pd .pn{color:#fff4e2}.pd .pv{color:#f7f1e8}.pd.p1 .pv{color:#ffcf73}.pd .pm{color:#bcb7ca}.pd .prz{margin-top:8px;font-size:11px}.pd .plinth{margin-top:12px}.pd.vacant .pn{color:#aaaac4}.pd.vacant .av span{background:#303958;color:#c6c0d4}.pd.vacant .plinth{opacity:.7}
-    .rk{background:#f7eedf}.rows{margin-top:0}.lrow .who .nm{font-size:13px}.lrow .vol{font-size:14px}.lrow .vol small{font-size:10px}.lrow .prz{margin-top:3px}
-    .signupBox{padding:14px;border:1.5px solid #e1ad47;border-radius:12px;background:linear-gradient(150deg,#fffaf0,#fbe6ba)}.signupBox h4{margin:0 0 8px;font-size:15px;color:#7a4308}.signupBox p{font-size:13px;color:var(--ink2);line-height:1.6;margin:5px 0}.signupNeed{padding:9px 10px;margin-top:9px;background:#fff;border-radius:8px;font-size:12px}.promoLead{border-left:4px solid #c97912;border-radius:8px;background:#fff7e7;padding:10px 12px;margin:14px 0 8px;font-size:13px}.promoReq{margin:0;padding-left:18px;color:var(--ink2);font-size:12.5px;line-height:1.65}.promoReq li+li{margin-top:5px}
-    .note h4{color:var(--blue-deep)}.cta{background:linear-gradient(180deg,rgba(248,227,173,0),#f8e3ad 40%)}.cta button{box-shadow:0 8px 22px rgba(111,69,20,.34),inset 0 1px 0 rgba(255,255,255,.25)}.share{background:var(--blue);box-shadow:0 6px 16px rgba(143,77,12,.35)}
-    .shareToast{position:fixed;right:68px;bottom:92px;z-index:22;padding:8px 12px;border-radius:9px;background:#513318;color:#fff;font-size:12px;opacity:0;transform:translateY(5px);transition:.25s;pointer-events:none}.shareToast.show{opacity:1;transform:none}
-    .demo-banner{margin:-4px 0 20px;padding:9px 13px;border:1px solid rgba(247,192,82,.55);border-radius:9px;background:#292449;color:#ffdf91;font-size:12px;font-weight:700;letter-spacing:.01em}
-    @media(max-width:400px){.hero h1{font-size:27px}.hero h1 em{font-size:18px}.hsub{max-width:100%}.hero .art{opacity:.4}.pot span{font-size:10px}.rewardGrid .nm{font-size:12px}.rewardGrid .a{font-size:15px}.rewardGrid .a small{font-size:10px}}
-    @media(max-width:420px){.podium{gap:5px}.pd .pn{font-size:11.5px}.pd .pv,.pd .pv.long{font-size:12px}.pd.p1 .pv,.pd.p1 .pv.long{font-size:14px}.pd .pm{font-size:10px}.pd .prz{font-size:9px;padding:3px 5px}.pd .plinth b{font-size:23px}}
-    /* Poster palette: midnight blue, violet shadows, illuminated gold. */
-    :root{--blue:#e29a2b;--blue-deep:#ffc66b;--blue-light:#f7c052;--blue-ink:#fff1cc;--card:#141b3c;--ink:#f7f1e8;--ink2:#c7c7da;--muted:#aaaac4;--line:#45456a;--gold-1:#ffe596;--gold-2:#e99a2c;--gold-deep:#a46019;--dead:#aaaac4}
-    body{background:radial-gradient(700px 540px at 50% -110px,rgba(107,72,176,.54),transparent 70%),radial-gradient(420px 620px at 7% 52%,rgba(50,61,142,.27),transparent 76%),radial-gradient(390px 560px at 95% 68%,rgba(167,92,38,.12),transparent 76%),linear-gradient(180deg,#101836 0%,#151638 48%,#0a122c 100%);background-attachment:fixed}
-    .brand{color:#fff6df}.brand .nm i{color:#f7bd61}.card{background:linear-gradient(150deg,#192144,#111937);border:1px solid rgba(242,173,72,.22);box-shadow:0 10px 28px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04)}
-    .tab,.tab.g{background:linear-gradient(135deg,#ffe49b,#df9124);color:#342314;box-shadow:0 5px 15px rgba(238,151,37,.25)}.tab::after{background:#573217}
-    .poster-hero{min-height:0;padding:0;background:#0c1534;box-shadow:0 14px 34px rgba(0,0,0,.32),0 0 0 1px rgba(245,166,58,.5)}.poster-hero::before{display:none}.poster-hero img{display:block;width:100%;height:auto}
-    .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .trow{color:#c7c7da}.trow b{color:#fff4dd;font-size:13px}.cdLabel{color:#f9bc62}.seg{background:linear-gradient(180deg,#222950,#151c40);border-color:#514a68;box-shadow:inset 0 1px 0 rgba(255,225,163,.12)}.seg b{color:#ffd779}.seg small{color:#bcb6ce}.rbar{background:#303958}.rbar i{background:linear-gradient(90deg,#f4ad44,#ffe18d)}.race .rtop{color:#c7c7da}.race .rtop b{color:#ffd779}
-    .pot,.pot.g{background:linear-gradient(160deg,#222c58,#131b3c);border-color:#8a633c}.pot b,.pot.g b{color:#ffdc82}.pot span{color:#fff3de}.pot small{color:#beb9cf}.ptTitle{color:#d4cbcf}.ptTitle .pill{background:linear-gradient(135deg,#f6bd5a,#b4671d);color:#26192a}
-    .ptable{border-color:#555070}.ph{background:#202748;color:#c9c6d9}.ph .r{color:#ffe09a}.pr{border-top-color:#454665}.pr.top{background:linear-gradient(90deg,rgba(232,153,43,.19),rgba(131,80,124,.08))}.pr .nm{color:#f7f1e8}.pr .dot{background:#74718a}.pr .a{color:#ffe09a}.pr .a.gold{color:#ffe9ab;background:linear-gradient(180deg,#fff2b8,#ffcb67,#e99b32);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .draw{background:linear-gradient(150deg,#202751,#151c3f);border-color:#9f713e}.draw h4{color:#ffcf73}.draw p{color:#cfcbdd}.draw b{color:#ffe098}.tier{background:#111a3c;border-color:#595273;color:#e6e1ee}.tier b{color:#ffd474}.fine{color:#bcb7ca}
-    .calc li{border-color:#41435f}.calc li::before{color:#f3b857}.calc b,.steps b{color:#ffce74}.hl,.gate{background:#202747;border-color:#746044;color:#d6d1dd}.hl b,.gate b{color:#ffe098}
-    .lbHead .t{color:#fff4e2}.lbHead .t small{color:#b9b8ce}.live,.live.stale{background:#222747;border-color:#80623f;color:#f3c275}.live i,.live.stale i{background:#f6bc52}.swt button{background:#202749;border-color:#5a5368;color:#eee7ed}.swt button small{color:#c4c0d1}.swt button.on{background:linear-gradient(135deg,#ffda79,#d98b2b);color:#2a2130;box-shadow:0 5px 15px rgba(218,133,36,.25)}.swt button.on small{color:#5f401e}.lbSum{color:#c6c2d3}.lbSum .upd{color:#aaaac4}
-    .vacantLine{background:#202747;border-color:#7a5d43}.vacantLine b{color:#ffe095}.vacantLine small{color:#c2bed1}.rows{border-color:#454665}.lrow{border-color:#41435f}.lrow .who .nm{color:#fff2de}.lrow .who .mt{color:#aaa9c0}.rk{background:#303558;color:#fbd284}.vol{color:#fff3e2}.vol small{color:#abaac0}.prz{color:#271d2e;background:linear-gradient(135deg,#ffe38e,#e7a138)}
-    .steps li::before{background:linear-gradient(135deg,#fbd47b,#cf791e);color:#302033;box-shadow:0 3px 9px rgba(235,146,37,.25)}.steps li::after{background:#50465c}
-    .signupBox{background:linear-gradient(145deg,#24294c,#171f43);border-color:#a4753f}.signupBox h4,.signupBox strong{color:#ffe19a}.signupBox p{color:#d1ccdb}.signupNeed{background:#111938;color:#ddd7df}.promoLead{background:#252a4c;border-left-color:#f4b04f;color:#ffe5b1}.promoReq{color:#d0ccda}.note h4{color:#ffd27e}.note p{color:#d0ccda}
-    .cta{background:linear-gradient(180deg,rgba(9,16,42,0),#0b1230 45%)}.cta button{background:linear-gradient(110deg,#efaa3d,#ffd878 50%,#b86a21);color:#28182e;font-weight:900;box-shadow:0 8px 25px rgba(0,0,0,.45),inset 0 1px 0 #fff1bf}.share{background:linear-gradient(145deg,#ffdc81,#d78523);color:#251930;box-shadow:0 6px 18px rgba(0,0,0,.38)}.shareToast{background:#202747;border:1px solid #9f713e;color:#ffe5aa}
-    .app{padding-bottom:52px}
-    .brand{padding:4px 2px 16px;margin-bottom:20px;border-bottom:1px solid rgba(255,213,138,.18)}
-    .tab,.tab.g{display:inline-flex;align-items:center;margin:0 0 8px;padding:0 0 0 14px;border-radius:0;background:none;box-shadow:none;color:#ffd68b;font-size:14px;font-weight:800;letter-spacing:.02em}
-    .tab::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;border-radius:4px;background:linear-gradient(#ffe6a6,#d88a2b)}
-    .tab::after{display:none}
-    .card{border-radius:14px;box-shadow:0 12px 30px rgba(3,8,28,.22),inset 0 1px 0 rgba(255,255,255,.045)}
-    .poster-hero{border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.3),0 0 0 1px rgba(248,185,89,.5)}
-    .intro>.poster-hero{margin-top:0}
-    .prize-summary .card{padding:14px}
-    .prize-summary .pots{margin-bottom:0}
-    .prize-summary .pot{border-color:rgba(246,186,92,.36)}
-    .prize-summary .pot.g{border-color:rgba(255,214,139,.7)}
-    .prize-section .card{padding:22px}
-    .prize-section .ptTitle{margin-bottom:12px}
-    .prize-section .ptTitle .pill{flex:none;white-space:nowrap}
-    .prize-section .draw{margin-top:16px}
-    .prize-section .pr{padding-top:12px;padding-bottom:12px}
-    .board-section .card{padding-top:24px}
-    @media(min-width:720px){
-      .app{max-width:1080px;padding:22px 24px 90px}
-      .intro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
-      .intro-side>section:first-child{margin-top:0}
-      .intro-side>.prize-summary{margin-top:20px}
-      .prize-summary .pot{padding:12px 5px}.prize-summary .pot b{font-size:24px}.prize-summary .pot span{font-size:11px}
-      .prize-section,.lower{margin-top:28px}
-      .prize-detail{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:22px;align-items:start}
-      .prize-section .draw{margin-top:0}
-      .lower{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
-      .lower>section{margin-top:0;min-width:0}
-      .scores-section{grid-column:1;grid-row:1}
-      .participation-section{grid-column:2;grid-row:1}
-      .board-section{grid-column:1/-1;grid-row:2}
-      .promotion-section{grid-column:1;grid-row:3}
-      .notes-section{grid-column:2;grid-row:3}
-      .cta{left:auto;right:24px;bottom:24px;padding:0;background:none!important}
-      .cta button{width:auto;min-width:230px;padding:12px 20px}
-      .share{right:24px;bottom:90px}
-    }
-    @media(min-width:1180px){
-      .app{max-width:1180px;padding:24px 30px 90px}
-      .intro,.lower{grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);gap:28px}
-      .intro-side>.prize-summary{margin-top:22px}
-      .prize-summary .pot{padding:15px 6px}.prize-summary .pot b{font-size:27px}
-      .lower .board-section{grid-column:2;grid-row:1/span 4}
-      .lower .participation-section{grid-column:1;grid-row:2}
-      .lower .promotion-section{grid-column:1;grid-row:3}
-      .lower .notes-section{grid-column:1;grid-row:4}
-      .board-section .lrow{padding:14px 10px}
-    }
-/* Keep the reference page's type scale and responsive layout; use a light winter palette. */
-:root{--blue:#307bbd;--blue-deep:#1e5a8e;--blue-light:#66a9da;--blue-ink:#153d61;--card:#fff;--ink:#20364c;--ink2:#536d85;--muted:#697f94;--line:#dce7f1;--gold-1:#ffe596;--gold-2:#e9aa42;--gold-deep:#a46a18;--dead:#8b9bad}
-body{isolation:isolate;background:radial-gradient(ellipse at 50% 0,#f3fbffb3,transparent 62%),linear-gradient(180deg,#91c5e9,#c8e4f6 44%,#ecf6fc 85%);background-attachment:fixed}
-.app{position:relative;z-index:1}
-.winter-scene,.snowfall{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.winter-scene svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:max(100%,1000px);height:clamp(260px,32vw,480px)}
-.snowflake{position:absolute;top:-24px;left:var(--x);width:var(--size);height:var(--size);border-radius:50%;background:#fff;opacity:0;animation:winter-snowfall var(--duration) var(--delay) linear infinite}
-.snowflake:nth-child(4n+1){border-radius:0;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1v22M2.5 6.5l19 11M2.5 17.5l19-11M9 4l3 3 3-3M9 20l3-3 3 3M4 10l4-1-1-4M20 14l-4 1 1 4M7 19l1-4-4-1M17 5l-1 4 4 1' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
-@keyframes winter-snowfall{0%{transform:translate3d(0,-20px,0) rotate(0);opacity:0}8%,88%{opacity:.8}100%{transform:translate3d(var(--drift),calc(100vh + 48px),0) rotate(100deg);opacity:0}}
-@media(max-width:719px){.snowflake:nth-child(n+15){display:none}.winter-scene svg{width:850px;height:250px}}
-@media(prefers-reduced-motion:reduce){.snowfall{display:none}}
-.brand{color:#20364c;border-bottom-color:#cddfec}.brand .nm i{color:#2b699b}
-.card{background:#fff;border-color:#d6e4f0;box-shadow:0 8px 26px #2155810b,inset 0 1px 0 #fff}
-.tab,.tab.g{color:#255b86}.tab::before{background:linear-gradient(#8cc9ef,#307bbd)}
-.demo-banner{background:#e3f1fc;border-color:#b9d8ef;color:#245c87}
-.poster-hero{background:#e6f3fc;box-shadow:0 12px 30px #20578518,0 0 0 1px #b9d8ed}
-.posterLink{display:block;position:relative;line-height:0}.posterLink>span{position:absolute;right:10px;bottom:10px;padding:5px 8px;border-radius:6px;background:#143e63d9;color:#fff;font-size:10px;line-height:1.6}
-.trow{color:var(--ink2)}.trow b{color:var(--ink)}.cdLabel{color:var(--blue-deep)}
-.seg{background:linear-gradient(#f7fbff,#eaf3fc);border-color:#d5e4f1;box-shadow:inset 0 1px 0 #fff}.seg b{color:#28628e}.seg small{color:var(--muted)}
-.rbar{background:#e1ecf5}.rbar i{background:linear-gradient(90deg,#74b7e4,#307bbd)}.race .rtop{color:var(--ink2)}.race .rtop b{color:var(--blue-deep)}
-.pots{grid-template-columns:repeat(6,minmax(0,1fr))}.pot{grid-column:span 2}.pot:nth-last-child(-n+2){grid-column:span 3}
-.pot,.pot.g{background:linear-gradient(#f9fcff,#edf5fc)}.prize-summary .pot,.prize-summary .pot.g{border-color:#c6ddec}.pot b,.pot.g b{color:#28628e}.pot span{color:#264861}.pot small{color:var(--muted)}
-.ptTitle{color:var(--ink2)}.ptTitle .pill{background:linear-gradient(135deg,#6aaad9,#347bb3);color:white}
-.ptable{border-color:var(--line)}.ph{background:#edf5fc;color:var(--ink2)}.ph .r{color:#275f8a}.pr{border-color:var(--line)}.pr.top{background:linear-gradient(90deg,#fff5d866,#f7fbff)}.pr .nm{color:var(--ink)}.pr .dot{background:#b7cbdc}.pr .a{color:#28628e}.pr .a.gold{color:#9b6a22;background:none;-webkit-text-fill-color:currentColor}
-.rewardGrid .ph,.rewardGrid .pr{grid-template-columns:1fr 1fr 1fr 1fr}
-.draw{background:linear-gradient(150deg,#f5faff,#edf5fc);border-color:#b6d3e9}.draw h4{color:#28628e}.draw p{color:var(--ink2)}.draw b{color:#255c88}.tier{background:#fff;border-color:#d4e4f0;color:var(--ink2)}.tier b{color:#28628e}.fine{color:var(--muted)}
-.calc li{border-color:var(--line)}.calc li::before{color:#4b94ca}.calc b,.steps b{color:#28628e}.hl,.gate{background:#eff7fe;border-color:#c5ddee;color:var(--ink2)}.hl b,.gate b{color:#285d86}
-.lbHead .t{color:#213c55}.lbHead .t small{color:var(--muted)}.live{background:#edf8f3;border-color:#bddfce;color:#28785b}.live i{background:#459d77}.live.stale{background:#f0f5f9;border-color:#d5e0e9;color:#6b7f91}.live.stale i{background:#91a2b3}
-.swt{grid-template-columns:repeat(6,minmax(0,1fr))}.swt button{grid-column:span 2;background:#f0f6fc;border-color:#cbddeb;color:#355672}.swt button:nth-last-child(-n+2){grid-column:span 3}.swt button small{color:#71859a}.swt button.on{background:linear-gradient(135deg,#ffe39c,#efbd63);border-color:#e5ba69;color:#4d391c;box-shadow:0 4px 12px #bf8b2720}.swt button.on small{color:#795b2b}.swt button:focus-visible{outline-color:#397cb1}
-.swt.has-review button{grid-column:span 2}.swt:not(.has-review) button:nth-child(4){grid-column:span 3}.swt button[hidden]{display:none}
-.lbSum{color:var(--ink2)}.lbSum .upd{color:var(--muted)}.vacantLine{background:#f2f8fd;border-color:#c7daeb}.vacantLine b{color:#325d7e}.vacantLine small{color:var(--muted)}
-.pd .pn{color:#24435e}.pd .pv{color:#23455f}.pd.p1 .pv{color:#a26d13}.pd .pm{color:#6f8498}.pd.vacant .pn{color:#8a9cac}.pd.vacant .av span{background:#f2f6fa;color:#a1b1c0}
-.rows{border-color:#dbe7f1}.lrow{border-color:#dbe7f1}.lrow .who .nm{color:#24435e}.lrow .who .mt{color:#6e8396}.rk{background:#eaf2fa;color:#3d6b91}.vol{color:#24435e}.vol small{color:#6f8498}.prz{color:#63471d;background:linear-gradient(135deg,#ffe8a4,#efc475);box-shadow:0 2px 6px #ac7a2017}
-.lrow .who .nm{white-space:normal;overflow-wrap:anywhere}.lrow .who .mt{overflow-wrap:anywhere}
-.pd .review-note{min-height:2.8em;line-height:1.4}.review-note{color:#6e7c8a}
-.steps li::before{background:linear-gradient(135deg,#73b4e2,#347bb3);color:white;box-shadow:0 3px 8px #24649920}.steps li::after{background:#d7e6f1}
-.signupBox{background:linear-gradient(145deg,#f3f9ff,#e9f3fc);border-color:#bed8ec}.signupBox h4,.signupBox strong{color:#285f87}.signupBox p{color:var(--ink2)}.signupBox a{color:#23649a;text-underline-offset:3px}.signupNeed{background:white;color:var(--ink2)}.promoLead{background:#edf6fd;border-left-color:#62a5d4;color:#285c84}.promoReq{color:var(--ink2)}.note h4{color:#28628e}.note p{color:var(--ink2)}
-.cta{background:linear-gradient(180deg,#edf5fd00,#edf5fd 45%)}.cta button{background:linear-gradient(110deg,#3d85ba,#5ca0d0 50%,#2e70a1);color:#fff;box-shadow:0 8px 22px #245c832a,inset 0 1px 0 #cce7fa}.share{background:linear-gradient(145deg,#76b9e3,#377fb5);color:white;box-shadow:0 6px 18px #20578324}.shareToast{background:#255475;border-color:#93c5e7;color:white}
-.foot{margin-top:24px;text-align:center;font-size:11px;color:var(--muted);line-height:1.75}
-.intro{display:block}
-.intro>.poster-hero{width:min(100%,280px);margin:0 auto;aspect-ratio:2/3}
-.posterLink,.poster-hero img{width:100%;height:100%}.poster-hero img{object-fit:contain}
-.intro-side{display:grid;gap:16px;margin-top:16px}
-.intro-side>section,.intro-side>.prize-summary{margin:0;min-width:0}
-.intro-side .card{height:100%;padding:14px 20px;border:1px solid #d6e4f0;border-radius:16px}
-.intro-title{margin:0 0 8px;font-size:18px;line-height:1.4;font-weight:800;color:#24435e}
-.intro-side .trow{font-size:16px;padding:2px 0}.intro-side .trow b{font-size:15px}
-.intro-side .cdLabel{font-size:14px;margin-top:6px}.intro-side .clock{margin-top:6px}
-.intro-side .seg{padding:6px 2px}.intro-side .seg b{font-size:34px}.intro-side .seg small{font-size:12px}
-.intro-side .race{margin-top:6px}.intro-side .rtop{font-size:12px}
-.prize-summary .pots{gap:8px;margin:0}.prize-summary .pot{padding:8px 6px}
-.prize-summary .pot b{font-size:28px}.prize-summary .pot span{font-size:15px;line-height:1.3;min-height:0;margin:4px 0}
-.prize-summary .pot small{font-size:12px;line-height:1.4}
-.community-criteria{margin:0}.community-criteria>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.community-criteria>div:first-child{padding-top:0}.community-criteria>div:last-child{border-bottom:0;padding-bottom:0}
-.community-criteria dt{font-size:16px;font-weight:800;color:#285f87}.community-criteria dd{margin:0;font-size:15px;line-height:1.7;color:var(--ink2)}
-.community-criteria dd b{color:#24435e}.criteria-note{font-size:12px;color:var(--muted);margin:16px 0 0;line-height:1.7}
-.board-section .card{display:flex;flex-direction:column;height:740px;height:clamp(520px,82svh,740px);overflow:hidden}
-.board-section .lbHead,.board-section .swt,.board-section .lbSum,.board-scroll-hint{flex-shrink:0}
-.board-scroll-hint{margin:0 0 8px;font-size:11px;line-height:1.5;color:var(--muted)}
-#board{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#9fbfd7 #edf5fc;padding-right:6px}
-#board:focus-visible{outline:2px solid #6aaad9;outline-offset:-2px;border-radius:8px}
-.lottery-odds{margin:0 0 14px;padding:14px 12px;background:#f0f7fd;border:1px solid #cbdfee;border-radius:10px}
-.lottery-odds h4{margin:0 0 10px;font-size:14px;color:#285f87}.odds-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
-.odds-grid span,.odds-grid small{display:block;color:var(--ink2);font-size:12px}.odds-grid b{display:block;font:700 22px/1.5 var(--num);color:#245d88}.odds-grid small{font-size:10px;color:var(--muted)}
-.lottery-odds p{font-size:11px;line-height:1.6;color:var(--ink2);margin:10px 0 6px}.lottery-odds a,.draw-rule-link a,.draw-verification a{color:#23649a;text-underline-offset:3px}.lottery-odds a{font-size:12px}
-.draw-rule-link{margin-top:12px!important}.draw-method{margin:0;padding-left:20px;font-size:13.5px;line-height:1.75;color:var(--ink2)}.draw-method li{margin:0 0 10px}.draw-method b{color:#285f87}
-#lottery-method{scroll-margin-top:20px}.draw-verification{margin:12px 0 20px;padding:12px;background:#f2f8fd;border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--ink2)}
-.draw-verification summary{cursor:pointer;color:#285f87;font-weight:700}.draw-verification code{display:block;overflow-wrap:anywhere;font-size:12px;line-height:1.7;margin-bottom:10px}.draw-verification p{margin:10px 0 0}
-@media(max-width:360px){.odds-grid b{font-size:18px}.odds-grid span{font-size:11px}}
-@media(min-width:1000px){
-  .intro{display:grid;grid-template-columns:373.333px minmax(0,1fr);gap:24px;align-items:stretch}
-  .intro>.poster-hero{width:100%;height:560px;margin:0;aspect-ratio:auto}
-  .intro-side{height:560px;grid-template-rows:minmax(0,1fr) minmax(0,1fr);margin-top:0}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13294b">
+  <title>Ave.ai 踏雪返佣社区交易赛｜2,000 U 奖池</title>
+  <meta name="description" content="2026年11月18日18:00至11月30日24:00（UTC+8），Ave.ai 踏雪返佣社区交易赛：存量社区交易榜、新社区榜、用户交易榜三榜齐开，总奖池 2,000 U，共 40 个获奖名额。">
+  <meta property="og:title" content="Ave.ai 踏雪返佣社区交易赛">
+  <meta property="og:description" content="2,000 U 奖池，三个榜单、40 个获奖名额。2026.11.18 18:00 — 11.30 24:00（UTC+8）。">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjM2OTcgMTkuNjc3M0wyMS4yMzk3IDE3Ljc3MzdINS4wMDAzOUwxMy4xMzI3IDMuNzAzMzlMMTEuMDA5MiAwSDguMjY4OThDNy42ODA1NiAwLjAwMTMyMDYgNy4xMDMwMyAwLjE1ODgwOCA2LjU5NTM5IDAuNDU2Mzc0QzYuMDg3NzUgMC43NTM5NCA1LjY2ODIgMS4xODA5MiA1LjM3OTU4IDEuNjkzN0wwLjQ2NTMxOSAxMC4zNjQ0QzAuMTc5NTgyIDEwLjg2NDkgMC4wMjkyOTY5IDExLjQzMTMgMC4wMjkyOTY5IDEyLjAwNzZDMC4wMjkyOTY5IDEyLjU4MzkgMC4xNzk1ODIgMTMuMTUwMiAwLjQ2NTMxOSAxMy42NTA3TDMuOTA1ODEgMTkuNzE3N0w1LjM3OTU4IDIyLjMxNjRDNS42MzIxOSAyMi43NjIxIDUuOTg0NTYgMjMuMTQzNCA2LjQwOTA5IDIzLjQzMDJDNi44MzM2MiAyMy43MTcgNy4zMTg3OSAyMy45MDE2IDcuODI2NiAyMy45Njk3QzcuOTcyMzMgMjMuOTkgOC4xMTkzMSAyNC4wMDAxIDguMjY2NDYgMjRIMTcuOTg2M0MxOC41NzQ1IDI0LjAwMDMgMTkuMTUyMyAyMy44NDQ3IDE5LjY2MDggMjMuNTQ4OUMyMC4xNjkyIDIzLjI1MzIgMjAuNTkwMiAyMi44Mjc5IDIwLjg4MDcgMjIuMzE2NEwyMi4zNDQ0IDE5LjcxNzdMMjIuMzY5NyAxOS42NzczWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBkPSJNMjEuMjM5NyAxNy43NzQ0SDUuMDMwNzZMNS4wOTkwMiAxNy43MzRMMTAuNTM5MSAxNC40NjI5QzExLjM3ODQgMTMuOTE2OSAxMi4wMTAzIDEzLjU5ODMgMTIuNjA0NCAxMy40OTQ3QzEyLjYxNzggMTMuNDkzNSAxMi42MzE0IDEzLjQ5MzUgMTIuNjQ0OCAxMy40OTQ3TDEyLjc2MTEgMTMuNDc5NUwxMi45NjM0IDEzLjQ2NDRIMTMuMDg0N0MxMy4xODE5IDEzLjQ2NyAxMy4yNzg5IDEzLjQ3NDYgMTMuMzc1NCAxMy40ODcxQzEzLjk5NDcgMTMuNTcwNSAxNC42NTk2IDEzLjg3ODkgMTUuNTY0NiAxNC40MDIyTDIxLjIwOTQgMTcuNzU0MkwyMS4yMzk3IDE3Ljc3NDRaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGcgb3BhY2l0eT0iMC41Ij4KPHBhdGggZD0iTTE1LjU0MzYgMTQuMzkyNUMxMy4zOTk5IDEzLjE0MzcgMTIuNTk4NiAxMy4xMDU4IDEwLjUxODEgMTQuNDYwOEw1LjAwOTc3IDE3Ljc3MjNMMTAuNTE4MSAxNS4xNjZDMTIuNTk4NiAxMy44MDg2IDEzLjM5MjMgMTMuODU2NiAxNS41NDM2IDE1LjA5NTNMMjEuMjIxMyAxNy43NzQ5TDE1LjU0MzYgMTQuMzkyNVoiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPC9nPgo8cGF0aCBkPSJNMjUuNzkwNSAxMy42NTA3TDIyLjM0NDkgMTkuNzE3N0wyMi4zNzI3IDE5LjY2OTdMMjEuMjQwMiAxNy43NzM4TDEzLjE1MDkgMy42ODU3VjMuNzAzMzlMMTEuMDA5OCAwSDE3Ljk4OTNDMTguNTc4IDAuMDAxNjU0ODYgMTkuMTU1OCAwLjE1OTI1OCAxOS42NjM4IDAuNDU2NzY4QzIwLjE3MTcgMC43NTQyNzcgMjAuNTkxOCAxLjE4MTA3IDIwLjg4MTMgMS42OTM3TDI1Ljc5MDUgMTAuMzY0NEMyNi4wNzUgMTAuODY1MyAyNi4yMjQ2IDExLjQzMTUgMjYuMjI0NiAxMi4wMDc2QzI2LjIyNDYgMTIuNTgzNiAyNi4wNzUgMTMuMTQ5OCAyNS43OTA1IDEzLjY1MDdaIiBmaWxsPSJ1cmwoI3BhaW50NF9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNwYWludDVfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUxIiBkPSJNMTUuMjIyIDBMMTMuMTEzOCAzLjY2OEwxMy41MDU2IDQuMjkyNEwxNS4yMjIgMFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjIuNTg0OTgiIHkxPSI2IiB4Mj0iMjEuNDUzNCIgeTI9IjE3LjI4NTkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iNi44ODUwMyIgeTE9IjE0LjU0MTkiIHgyPSI5LjYwMjY5IiB5Mj0iMjEuMTA5MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50Ml9saW5lYXJfMzY3NTlfNzY3ODUiIHgxPSI2LjAxNzk4IiB5MT0iMTYuMDkzMSIgeDI9IjE1LjM1ODkiIHkyPSIyNi42MDYzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjYuODY0MzIiIHkxPSIxNC41MzE0IiB4Mj0iOS41OTczOCIgeTI9IjIxLjExNDciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDRfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTIuNzUwMyIgeTE9IjQuOTI5NDMiIHgyPSIyNi43NTUiIHkyPSIxMS44NzM0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ1X2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjEuNzQxMzMiIHkxPSI0LjkyOTQzIiB4Mj0iMTUuNzQ5OSIgeTI9IjExLjg3ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTMuMzU1IiB5MT0iMS4wNzMxIiB4Mj0iMTUuNTUzNiIgeTI9IjEuNzY3MDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
+  <style>
+:root{
+  color-scheme:light;
+  --bg:#f3f6fa;--paper:#fff;--soft:#f7f9fc;--line:#dde4ec;--line-soft:#e9eef4;
+  --ink:#13294b;--text:#34465e;--muted:#5f7087;
+  --indigo:#3047b8;--indigo-hover:#253a9c;--indigo-soft:#eef1fb;
+  --tier1:#13294b;--tier2:#4a63d0;--tier3:#bfcbea;
+  --live:#0f8f69;--green:#12b886;--warn:#a5672a;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
 }
-@media(max-width:719px){
-  .intro-side .card{padding:16px}.intro-side .trow{font-size:14px}.intro-side .trow b{font-size:13px}
-  .prize-summary .pot{grid-column:span 3}.prize-summary .pot:last-child{grid-column:span 6}
-  .prize-summary .pot b{font-size:26px}.prize-summary .pot span{font-size:14px}.prize-summary .pot small{font-size:11px}
-  .community-criteria>div{grid-template-columns:1fr;gap:5px;padding:12px 0}.community-criteria dd{font-size:14px}
-  .board-section .card{height:clamp(380px,calc(100svh - 140px),700px)}
-}</style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 var(--sans);-webkit-text-size-adjust:100%;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+button,a{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #6f84e0;outline-offset:3px}
+h1,h2,h3,p{margin:0}
+strong,b{font-weight:650}
+img{display:block}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-70px;background:#fff;padding:10px;z-index:50}
+.skip-link:focus{top:10px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+.topbar,.band{background-color:var(--ink);color:#fff}
+.topbar{border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;min-height:64px}
+.brand{display:inline-flex;align-items:center;color:#fff;font-size:23px;font-weight:750;letter-spacing:-.8px;line-height:1}
+.brand span{font-weight:500}
+.brand .ave-logo{width:30px;height:26px;object-fit:contain;margin-right:9px}
+.topnav{display:flex;gap:28px;margin-left:auto;font-size:16px;color:#c9d4e6}
+.topnav a{padding:6px 0;border-bottom:2px solid transparent}
+.topnav a:hover{color:#fff;border-bottom-color:var(--green)}
+
+.band{position:relative;overflow:hidden;border-bottom:4px solid var(--green);background:radial-gradient(120% 80% at 75% 0%,#27498f 0%,rgba(39,73,143,0) 60%),linear-gradient(180deg,#0b1a3c 0%,#13294b 45%,#24467f 100%)}
+.band:before{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201600%20420%22%20preserveAspectRatio%3D%22none%22%3E%20%3Cpath%20d%3D%22M0%20300%20L120%20210%20L210%20260%20L330%20120%20L420%20200%20L520%20150%20L640%20250%20L760%20140%20L880%20230%20L1000%20110%20L1120%20210%20L1240%20160%20L1360%20240%20L1480%20170%20L1600%20230%20L1600%20420%20L0%20420Z%22%20fill%3D%22%236f8fc7%22%20fill-opacity%3D%22.35%22/%3E%20%3Cpath%20d%3D%22M330%20120%20L300%20148%20L322%20142%20L338%20158%20L356%20140%20L372%20150Z%20M1000%20110%20L968%20140%20L990%20134%20L1006%20150%20L1026%20132%20L1044%20144Z%20M760%20140%20L734%20166%20L754%20160%20L768%20174%20L786%20158Z%22%20fill%3D%22%23eaf2ff%22%20fill-opacity%3D%22.55%22/%3E%20%3Cpath%20d%3D%22M0%20360%20L160%20270%20L280%20320%20L420%20230%20L560%20300%20L700%20240%20L860%20320%20L1010%20250%20L1150%20310%20L1300%20240%20L1450%20300%20L1600%20260%20L1600%20420%20L0%20420Z%22%20fill%3D%22%239db6e2%22%20fill-opacity%3D%22.45%22/%3E%20%3Cpath%20d%3D%22M0%20395%20C200%20370%20380%20380%20560%20390%20C760%20402%20960%20372%201160%20384%20C1340%20395%201480%20380%201600%20386%20L1600%20420%20L0%20420Z%22%20fill%3D%22%23eef4ff%22%20fill-opacity%3D%22.9%22/%3E%20%3C/svg%3E") bottom/100% 100% no-repeat}
+.band:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.55) 1px,transparent 1.4px),radial-gradient(rgba(255,255,255,.3) 1px,transparent 1.3px);background-size:140px 120px,90px 80px;background-position:20px 30px,60px 10px;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 55%);mask-image:linear-gradient(180deg,#000 0%,transparent 55%)}
+.snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero{z-index:1}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px;align-items:center;padding-top:40px;padding-bottom:48px}
+.status-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:22px;font-size:15px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:3px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#dbe3f0;line-height:1.6}
+.chip.status{color:#c3cbff;border-color:rgba(195,203,255,.45)}
+.chip.status:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip.status[data-phase="live"]{color:#5fe3b5;border-color:rgba(95,227,181,.5);background:rgba(18,184,134,.12)}
+.chip.status[data-phase="ended"]{color:#b8c3d4;border-color:rgba(255,255,255,.22)}
+.lockup{display:flex;align-items:center;margin-bottom:20px}
+.lockup-tile{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#fff}
+.lockup-tile img{width:34px;height:30px;object-fit:contain}
+.hero h1{color:#fff;font-weight:800;line-height:1.14;letter-spacing:-1.5px}
+.hero h1 .h1-partners{display:block;font-size:24px;letter-spacing:-.3px;color:#c9d4e6;font-weight:700;margin-bottom:8px}
+.hero h1 .h1-main{display:block;font-size:52px}
+.tagline{margin-top:14px;font-size:30px;line-height:1.3;font-weight:800;color:var(--green);letter-spacing:-.4px}
+.lede{margin-top:12px;font-size:17px;color:#c9d4e6;max-width:30em}
+.lede strong{color:#fff}
+.when{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)}
+.time-label{font-size:15px;color:#aab8cc;display:inline-flex;align-items:center;gap:8px}
+.tz{font-size:14px;color:#dbe3f0;border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:0 6px;line-height:1.7}
+.event-date{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;font-size:18px;font-weight:650;color:#fff}
+.event-date .time-label{margin-right:4px}
+.event-date time,.event-date .date-end{white-space:nowrap}
+.event-date .dash{color:rgba(255,255,255,.45);font-weight:400}
+.countdown-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:16px}
+.countdown{display:flex;flex-wrap:wrap;gap:8px}
+.cd{display:inline-flex;align-items:baseline;gap:5px;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.cd b{min-width:2ch;text-align:center;font-size:28px;line-height:1.15;font-weight:800;color:#fff}
+.cd span{font-size:14px;color:#aab8cc}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 22px;border-radius:6px;font-size:16px;font-weight:650;white-space:nowrap;border:1px solid transparent;transition:background .15s,border-color .15s}
+.btn-secondary{background:var(--paper);color:var(--ink);border-color:#c6d1de}
+.btn-secondary:hover{border-color:var(--ink)}
+.btn-cta{background:var(--green);color:#06231a}
+.btn-cta:hover{background:#2fd19e}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+
+/* Prize card: 40 award units */
+.pool{background:var(--paper);color:var(--text);border-radius:12px;padding:28px 30px 26px;border-top:5px solid var(--green);box-shadow:0 24px 48px -24px rgba(0,0,0,.55)}
+.pool-label{font-size:16px;color:var(--muted)}
+.pool-value{font-size:64px;line-height:1.05;font-weight:800;color:var(--ink);letter-spacing:-2.5px;white-space:nowrap}
+.pool-value small{font-size:26px;letter-spacing:0;margin-left:6px;font-weight:700;color:var(--indigo)}
+.pool-sub{font-size:16px;color:var(--muted);margin-top:4px}
+.seat-title{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:16px}
+.seat-title b{color:var(--ink);font-size:17px}
+.seats{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:12px}
+.seats i{display:block;aspect-ratio:1;border-radius:3px;background:var(--tier3)}
+.seats.is-animating i{animation:seat-in .35s ease-out both;animation-delay:calc(var(--i) * 18ms + 100ms)}
+.seats i.g1{background:var(--tier1)}
+.seats i.g2{background:var(--tier2)}
+.seats i.g3{background:var(--green)}
+.seats i.g4{background:var(--tier3)}
+@keyframes seat-in{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+.tiers{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.tiers li{display:grid;grid-template-columns:14px 1fr auto;align-items:center;gap:10px;font-size:16px}
+.tiers li:before{content:"";width:14px;height:14px;border-radius:3px;background:var(--tier3)}
+.tiers li.g1:before{background:var(--tier1)}
+.tiers li.g2:before{background:var(--tier2)}
+.tiers li.g3:before{background:var(--green)}
+.tiers li b{color:var(--ink);font-size:17px;white-space:nowrap}
+.tiers li b small{font-size:15px;font-weight:500;color:var(--muted);margin-left:4px}
+
+.content{padding-top:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;margin-bottom:28px;overflow:hidden}
+.panel-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px;padding:24px 28px 18px;border-bottom:1px solid var(--line-soft)}
+.panel-head h2{font-size:22px;line-height:1.4;color:var(--ink);font-weight:750;letter-spacing:-.3px}
+.panel-head p{font-size:16px;color:var(--muted);margin-top:4px}
+.panel-body{padding:24px 28px 28px}
+.head-link{font-size:16px;color:var(--indigo);font-weight:600;white-space:nowrap}
+.head-link:hover{text-decoration:underline;text-underline-offset:4px}
+.note{margin-top:16px;font-size:16px;color:var(--muted)}
+
+/* Board summary + full prize ladder */
+.board-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.bcard{border:1px solid var(--line-soft);border-radius:8px;padding:16px 18px;background:var(--soft);border-top:4px solid var(--tier3)}
+.bcard.g1{border-top-color:var(--tier1)}.bcard.g2{border-top-color:var(--tier2)}.bcard.g3{border-top-color:var(--green)}
+.bcard h3{font-size:17px;color:var(--ink);font-weight:700}
+.bcard .amt{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1.3;margin-top:4px}
+.bcard .amt small{font-size:16px;font-weight:600;color:var(--indigo);margin-left:3px;letter-spacing:0}
+.bcard p{font-size:15px;color:var(--muted);line-height:1.6;margin-top:6px}
+.prize-table{width:100%;border-collapse:collapse;font-size:17px;margin-top:22px}
+.prize-table th,.prize-table td{padding:11px 16px;border-bottom:1px solid var(--line-soft);text-align:right;white-space:nowrap}
+.prize-table thead th{font-size:16px;font-weight:500;color:var(--muted);background:var(--soft)}
+.prize-table tr>:first-child{text-align:left}
+.prize-table tbody th{font-weight:600;color:var(--ink)}
+.prize-table td{color:var(--ink);font-weight:600}
+.prize-table tbody tr:first-child td{color:var(--indigo);font-size:19px;font-weight:750}
+.prize-table tfoot th,.prize-table tfoot td{border-bottom:0;padding-top:14px;font-weight:750;color:var(--ink)}
+.prize-table .unit{font-size:14px;font-weight:500;color:var(--muted);margin-left:2px}
+.table-scroll{overflow-x:auto;overscroll-behavior-x:contain}
+
+/* Leaderboard */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line-soft);padding:0 28px;overflow-x:auto}
+.tab{position:relative;background:none;border:0;padding:16px 4px 14px;margin-right:30px;font-size:17px;font-weight:650;color:var(--muted);white-space:nowrap}
+.tab small{font-size:15px;font-weight:500;margin-left:6px;color:#7c8a9d}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:2px;background:var(--green)}
+.board-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:14px 28px;font-size:16px;color:var(--muted);background:var(--soft);border-bottom:1px solid var(--line-soft)}
+.data-status{display:inline-flex;align-items:center;gap:7px}
+.data-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#8a98ab}
+.data-status[data-state="ready"]{color:var(--live)}
+.data-status[data-state="loading"]{color:var(--indigo)}
+.data-status[data-state="error"]{color:var(--warn)}
+.data-status[data-state]:before{background:currentColor}
+#updated-at{color:var(--text)}
+.refresh-button{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:6px 16px;border:1px solid #c6d1de;border-radius:6px;background:var(--paper);color:var(--ink);font-size:16px;font-weight:600}
+.refresh-button:hover:not(:disabled){border-color:var(--ink)}
+.refresh-button:disabled{cursor:default;color:#98a5b6;background:var(--soft);border-color:var(--line)}
+.board-intro{padding:14px 28px;font-size:16px;color:var(--text);border-bottom:1px solid var(--line-soft)}
+.board-intro b{color:var(--ink)}
+.thresholds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line-soft)}
+.th-item{padding:14px 28px 14px 24px;border-left:4px solid var(--tier1)}
+.th-item+.th-item{box-shadow:inset 1px 0 0 var(--line-soft);border-left-color:var(--tier2)}
+.th-value{font-size:16px;color:var(--ink);font-weight:600}
+.th-value b{font-size:21px;font-weight:750;color:var(--ink)}
+.th-value.is-open b{font-size:19px;color:var(--live)}
+.th-hint{margin-top:4px;font-size:14px;color:#7c8a9d}
+.th-note{padding:10px 28px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--line-soft)}
+.empty-state{padding:18px 28px;border-bottom:1px solid var(--line-soft);background:#fbfcfe}
+.empty-state h3{font-size:17px;color:var(--ink);font-weight:650}
+.empty-state p{font-size:16px;color:var(--muted)}
+.board-scroll{max-height:640px;overflow:auto;overscroll-behavior:contain}
+.board-table{width:100%;min-width:640px;border-collapse:collapse;table-layout:fixed}
+.board-table thead th{position:sticky;top:0;z-index:1;background:var(--paper);box-shadow:inset 0 -1px 0 var(--line);text-align:left;font-size:16px;font-weight:500;color:var(--muted);padding:12px 18px}
+.board-table th,.board-table td{padding:13px 18px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:middle}
+.board-table thead th:first-child,.board-table .rank-cell{padding-left:28px}
+.board-table thead th:last-child,.board-table .reward-cell{padding-right:28px}
+.board-table .numeric,.board-table thead th.numeric{text-align:right}
+.rank-cell{font-size:17px;font-weight:650;color:var(--text);white-space:nowrap}
+.rank-cell:before{content:"";display:inline-block;width:4px;height:18px;border-radius:2px;background:transparent;vertical-align:-3px;margin-right:12px}
+.prize-row .rank-cell{color:var(--ink)}
+.prize-row .rank-cell:before{background:var(--tier1)}
+.prize-row{background:#f8f9fd}
+.cut-row>*{border-top:2px solid var(--line)}
+.c-name{font-size:17px;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
+.c-sub{display:block;font-size:14px;color:#7c8a9d;font-weight:400;line-height:1.5}
+.numeric{font-size:17px;color:var(--ink);white-space:nowrap}
+.reward-cell{font-weight:700;color:var(--indigo)}
+.reward-cell.none{color:#9aa6b6;font-weight:500}
+.tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:14px;font-weight:600;line-height:1.6;white-space:nowrap}
+.tag.ok{background:#e3f6ef;color:var(--live)}
+.tag.wait{background:#fdf2e4;color:var(--warn)}
+.tag.no{background:var(--soft);color:var(--muted)}
+.board-table tbody tr:hover{background:#f1f4fb}
+.board-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding:16px 28px;font-size:16px;color:var(--muted);border-top:1px solid var(--line-soft)}
+.board-foot b{color:var(--ink)}
+.board-foot a{color:var(--indigo);font-weight:600}
+
+/* Join */
+.steps{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:step}
+.steps li{counter-increment:step;padding:18px 20px;border:1px solid var(--line-soft);border-radius:8px;background:var(--soft)}
+.steps li:before{content:counter(step);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-size:16px;font-weight:700;margin-bottom:12px}
+.steps h3{font-size:17px;color:var(--ink);font-weight:650}
+.steps p{font-size:16px;color:var(--muted);margin-top:4px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;border:1px solid #c9d2f1;background:var(--indigo-soft);border-radius:8px;padding:18px 20px}
+.contact p{font-size:16px;color:var(--text)}
+.contact strong{color:var(--ink)}
+.contact a.inline{color:var(--indigo);font-weight:650}
+
+/* Rules */
+.rules{display:grid;gap:22px}
+.rules section{display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 28px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)}
+.rules section:last-child{border-bottom:0;padding-bottom:0}
+.rules h3{font-size:17px;color:var(--ink);font-weight:650;line-height:1.6}
+.rules p,.rules li{font-size:16px;line-height:1.8;color:var(--text)}
+.rules p+p{margin-top:8px}
+.rules ol{margin:0;padding-left:1.3em}
+.rules strong{color:var(--ink)}
+
+.notice{padding:4px 0 28px}
+.notice h2{font-size:18px;color:var(--ink);margin-bottom:12px}
+.notice dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0}
+.notice dt{font-size:16px;color:var(--ink);font-weight:650;margin-bottom:4px}
+.notice dd{margin:0;font-size:16px;line-height:1.8;color:var(--muted)}
+footer{border-top:1px solid var(--line);background:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding-top:22px;padding-bottom:26px}
+footer .brand{color:var(--ink);font-size:20px}
+footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
+.footer-event{font-size:16px;color:var(--muted)}
+.mobile-action{display:none}
+.m-only{display:none}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-top:36px}
+  .hero h1 .h1-main{font-size:46px}
+  .pool{max-width:560px}
+  .board-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .topbar .wrap{min-height:56px}
+  .brand{font-size:20px}
+  .brand .ave-logo{width:26px;height:23px;margin-right:7px}
+  .topnav a{display:none}
+  .topnav a.nav-board{display:inline-block;font-weight:650;color:var(--green)}
+  .hero{padding-top:26px;padding-bottom:30px;gap:26px}
+  .band:before{height:22%}
+  .status-row{margin-bottom:18px}
+  .lockup{margin-bottom:16px}
+  .lockup-tile{width:48px;height:48px}
+  .lockup-tile img{width:28px;height:25px}
+  .hero h1 .h1-partners{font-size:20px;margin-bottom:4px}
+  .hero h1 .h1-main{font-size:36px;letter-spacing:-.8px}
+  .tagline{font-size:24px;margin-top:10px}
+  .lede{font-size:16px}
+  .event-date{font-size:17px}
+  .event-date .time-label{flex-basis:100%}
+  .countdown{gap:6px;flex-wrap:nowrap}
+  .cd{padding:5px 8px;gap:3px}
+  .cd b{font-size:22px}
+  .cd span{font-size:13px}
+  .actions{display:none}
+  .pool{padding:22px 18px 20px}
+  .pool-value{font-size:48px}
+  .pool-value small{font-size:20px}
+  .content{padding-top:24px}
+  .panel{margin-bottom:22px}
+  .panel-head{padding:18px 16px 14px}
+  .panel-head h2{font-size:20px}
+  .panel-body{padding:18px 16px 20px}
+  .board-cards{gap:10px}
+  .bcard{padding:12px 14px}
+  .bcard .amt{font-size:24px}
+  .prize-table{font-size:15px}
+  .prize-table th,.prize-table td{padding:10px 6px}
+  .prize-table tbody tr:first-child td{font-size:17px}
+  .tabs{padding:0 16px}
+  .tabs{padding:0}
+  .tab{flex:1;margin-right:0;padding:14px 2px 12px;font-size:15px}
+  .tab small{display:none}
+  .board-meta,.board-intro,.th-note,.empty-state{padding-left:16px;padding-right:16px}
+  .thresholds{grid-template-columns:1fr}
+  .th-item{padding:12px 16px 12px 12px}
+  .th-item+.th-item{box-shadow:inset 0 1px 0 var(--line-soft)}
+  .board-scroll{max-height:560px}
+  .board-table{min-width:0;table-layout:auto}
+  .board-table thead th{white-space:nowrap}
+  .board-table th,.board-table td{padding:12px 6px}
+  .board-table thead th{font-size:14px}
+  .board-table thead th:first-child,.board-table .rank-cell{padding-left:12px}
+  .board-table thead th:last-child,.board-table .reward-cell{padding-right:12px}
+  .rank-cell{font-size:16px}
+  .rank-cell:before{display:none}
+  .prize-row .rank-cell{box-shadow:inset 3px 0 0 var(--tier1)}
+  .c-name{font-size:15px;word-break:break-all}
+  .numeric{font-size:15px;white-space:nowrap}
+  .reward-cell{white-space:nowrap}
+  .hide-m{display:none}
+  .m-only{display:block}
+  .board-foot{padding:14px 16px}
+  .steps{grid-template-columns:1fr;gap:12px}
+  .steps li{display:grid;grid-template-columns:30px 1fr;column-gap:14px;padding:14px 16px}
+  .steps li:before{margin:2px 0 0;grid-row:span 2}
+  .steps p{margin-top:0}
+  .contact .btn{width:100%}
+  .rules section{grid-template-columns:1fr;gap:4px}
+  .notice dl{grid-template-columns:1fr;gap:14px}
+  footer .wrap{padding-bottom:100px}
+  .mobile-action{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+  .mobile-action .btn{flex:1;min-height:48px;padding:10px;font-size:16px}
+  .mobile-action .btn-secondary{flex:0 0 38%}
+}
+@media(max-width:370px){
+  .hero h1 .h1-main{font-size:32px}
+  .tagline{font-size:22px}
+  .pool-value{font-size:42px}
+  .cd{padding:4px 6px}
+  .cd b{font-size:20px}
+  .bcard .amt{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  </style>
 </head>
 <body>
-<div class="winter-scene" aria-hidden="true"><svg viewBox="0 0 1600 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <defs>
-    <linearGradient id="snow-ridge" x2="0" y2="1"><stop stop-color="#91bddb"/><stop offset="1" stop-color="#d6eaf7"/></linearGradient>
-    <linearGradient id="snow-foreground" x2="0" y2="1"><stop stop-color="#edf8ff"/><stop offset="1" stop-color="#fff"/></linearGradient>
-    <g id="snow-pine"><path d="M0 0L-15 28H-9L-25 51H-15L-34 78H34L15 51H25L9 28H15L0 0Z" fill="#90b8cf"/><path d="M0 0L-15 28H-5L0 20L6 28H15L0 0ZM-9 28L-25 51H-14L-4 40L4 51H25L9 28L0 35L-9 28ZM-15 51L-34 78H-20L-7 65L4 78H34L15 51L3 62L-15 51Z" fill="#f5fbff"/><path d="M-3 78H3V92H-3Z" fill="#8baec4"/></g>
-  </defs>
-  <path d="M0 143L95 66L166 131L262 40L359 169L458 111L558 219L668 142L772 241L884 165L1004 223L1120 98L1226 161L1342 27L1457 146L1556 82L1600 119V480H0Z" fill="url(#snow-ridge)"/>
-  <path d="M43 108L95 66L140 107L111 98L97 114L83 93L66 114ZM204 104L262 40L311 105L279 84L264 111L249 83L226 107ZM1081 145L1120 98L1160 142L1138 131L1124 150L1111 131L1095 144ZM1288 88L1342 27L1400 99L1363 75L1343 101L1325 65L1308 92ZM1516 115L1556 82L1592 111L1570 105L1555 120L1541 105Z" fill="#f6fbff"/>
-  <path d="M0 231L143 120L283 287L392 197L540 327L669 244L829 345L954 261L1107 322L1261 175L1408 289L1540 147L1600 209V480H0Z" fill="#b9d8eb"/>
-  <path d="M67 179L143 120L221 213L176 185L147 205L128 169L108 188ZM1202 232L1261 175L1328 239L1291 222L1266 241L1247 215L1221 236ZM1483 207L1540 147L1600 209L1564 190L1543 212L1529 187L1505 207Z" fill="#fff"/>
-  <path d="M0 328C167 264 290 326 420 361C616 417 738 368 879 376C1060 390 1188 290 1349 320C1458 342 1512 303 1600 302V480H0Z" fill="url(#snow-foreground)"/>
-  <g opacity=".85"><use href="#snow-pine" transform="translate(42 275) scale(1.1)"/><use href="#snow-pine" transform="translate(99 311) scale(.72)"/><use href="#snow-pine" transform="translate(154 289) scale(.95)"/><use href="#snow-pine" transform="translate(1465 298) scale(.8)"/><use href="#snow-pine" transform="translate(1534 254) scale(1.2)"/><use href="#snow-pine" transform="translate(1591 303) scale(.7)"/></g>
-  <path d="M0 410C212 352 330 415 516 432C778 459 973 400 1141 420C1323 446 1450 369 1600 390V480H0Z" fill="#fff"/>
-  <path d="M0 410C212 352 330 415 516 432M1141 420C1323 446 1450 369 1600 390" stroke="#dceef9" stroke-width="3"/>
-</svg></div>
-<div class="snowfall" aria-hidden="true"><i class="snowflake" style="--x:7%;--size:10px;--drift:-50px;--duration:15s;--delay:-0s"></i><i class="snowflake" style="--x:44%;--size:4px;--drift:-31px;--duration:16s;--delay:-7s"></i><i class="snowflake" style="--x:81%;--size:5px;--drift:-12px;--duration:17s;--delay:-14s"></i><i class="snowflake" style="--x:18%;--size:6px;--drift:7px;--duration:18s;--delay:-21s"></i><i class="snowflake" style="--x:55%;--size:14px;--drift:26px;--duration:19s;--delay:-28s"></i><i class="snowflake" style="--x:92%;--size:4px;--drift:45px;--duration:20s;--delay:-6s"></i><i class="snowflake" style="--x:29%;--size:5px;--drift:-36px;--duration:21s;--delay:-13s"></i><i class="snowflake" style="--x:66%;--size:6px;--drift:-17px;--duration:22s;--delay:-20s"></i><i class="snowflake" style="--x:3%;--size:13px;--drift:2px;--duration:23s;--delay:-27s"></i><i class="snowflake" style="--x:40%;--size:4px;--drift:21px;--duration:24s;--delay:-5s"></i><i class="snowflake" style="--x:77%;--size:5px;--drift:40px;--duration:25s;--delay:-12s"></i><i class="snowflake" style="--x:14%;--size:6px;--drift:-41px;--duration:26s;--delay:-19s"></i><i class="snowflake" style="--x:51%;--size:12px;--drift:-22px;--duration:27s;--delay:-26s"></i><i class="snowflake" style="--x:88%;--size:4px;--drift:-3px;--duration:28s;--delay:-4s"></i><i class="snowflake" style="--x:25%;--size:5px;--drift:16px;--duration:15s;--delay:-11s"></i><i class="snowflake" style="--x:62%;--size:6px;--drift:35px;--duration:16s;--delay:-18s"></i><i class="snowflake" style="--x:99%;--size:11px;--drift:-46px;--duration:17s;--delay:-25s"></i><i class="snowflake" style="--x:36%;--size:4px;--drift:-27px;--duration:18s;--delay:-3s"></i><i class="snowflake" style="--x:73%;--size:5px;--drift:-8px;--duration:19s;--delay:-10s"></i><i class="snowflake" style="--x:10%;--size:6px;--drift:11px;--duration:20s;--delay:-17s"></i><i class="snowflake" style="--x:47%;--size:10px;--drift:30px;--duration:21s;--delay:-24s"></i><i class="snowflake" style="--x:84%;--size:4px;--drift:49px;--duration:22s;--delay:-2s"></i><i class="snowflake" style="--x:21%;--size:5px;--drift:-32px;--duration:23s;--delay:-9s"></i><i class="snowflake" style="--x:58%;--size:6px;--drift:-13px;--duration:24s;--delay:-16s"></i><i class="snowflake" style="--x:95%;--size:14px;--drift:6px;--duration:25s;--delay:-23s"></i><i class="snowflake" style="--x:32%;--size:4px;--drift:25px;--duration:26s;--delay:-1s"></i><i class="snowflake" style="--x:69%;--size:5px;--drift:44px;--duration:27s;--delay:-8s"></i><i class="snowflake" style="--x:6%;--size:6px;--drift:-37px;--duration:28s;--delay:-15s"></i></div>
-<main class="app">
-  <div class="brand"><svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ave.ai">
-        <path d="M22.3697 19.6773L21.2397 17.7737H5.00039L13.1327 3.70339L11.0092 0H8.26898C7.68056 0.0013206 7.10303 0.158808 6.59539 0.456374C6.08775 0.75394 5.6682 1.18092 5.37958 1.6937L0.465319 10.3644C0.179582 10.8649 0.0292969 11.4313 0.0292969 12.0076C0.0292969 12.5839 0.179582 13.1502 0.465319 13.6507L3.90581 19.7177L5.37958 22.3164C5.63219 22.7621 5.98456 23.1434 6.40909 23.4302C6.83362 23.717 7.31879 23.9016 7.8266 23.9697C7.97233 23.99 8.11931 24.0001 8.26646 24H17.9863C18.5745 24.0003 19.1523 23.8447 19.6608 23.5489C20.1692 23.2532 20.5902 22.8279 20.8807 22.3164L22.3444 19.7177L22.3697 19.6773Z" fill="url(#av0)"/>
-        <path d="M21.2397 17.7744H5.03076L5.09902 17.734L10.5391 14.4629C11.3784 13.9169 12.0103 13.5983 12.6044 13.4947C12.6178 13.4935 12.6314 13.4935 12.6448 13.4947L12.7611 13.4795L12.9634 13.4644H13.0847C13.1819 13.467 13.2789 13.4746 13.3754 13.4871C13.9947 13.5705 14.6596 13.8789 15.5646 14.4022L21.2094 17.7542L21.2397 17.7744Z" fill="url(#av1)"/>
-        <path d="M22.3696 19.679L22.3418 19.727L20.8756 22.3156C20.5863 22.827 20.1663 23.2524 19.6587 23.5482C19.151 23.844 18.5738 23.9996 17.9862 23.9992H8.26641C8.11927 23.9993 7.97229 23.9892 7.82655 23.9688C7.31791 23.9014 6.83181 23.717 6.40638 23.4301C5.98094 23.1433 5.62774 22.7618 5.37448 22.3156L3.90576 19.7194L5.02816 17.778L5.0863 17.7426L10.5365 14.4563C11.3783 13.9103 12.0077 13.5892 12.6043 13.4881C12.6178 13.4869 12.6313 13.4869 12.6448 13.4881L12.761 13.4729L12.9633 13.4578H13.0846C13.1818 13.4604 13.2789 13.468 13.3753 13.4805C13.9947 13.5639 14.657 13.8749 15.562 14.3956L21.2093 17.7552L21.2422 17.7754L22.3696 19.679Z" fill="url(#av2)"/>
-        <g opacity="0.5">
-          <path d="M15.5436 14.3925C13.3999 13.1437 12.5986 13.1058 10.5181 14.4608L5.00977 17.7723L10.5181 15.166C12.5986 13.8086 13.3923 13.8566 15.5436 15.0953L21.2213 17.7749L15.5436 14.3925Z" fill="url(#av3)"/>
-        </g>
-        <path d="M25.7905 13.6507L22.3449 19.7177L22.3727 19.6697L21.2402 17.7738L13.1509 3.6857V3.70339L11.0098 0H17.9893C18.578 0.00165486 19.1558 0.159258 19.6638 0.456768C20.1717 0.754277 20.5918 1.18107 20.8813 1.6937L25.7905 10.3644C26.075 10.8653 26.2246 11.4315 26.2246 12.0076C26.2246 12.5836 26.075 13.1498 25.7905 13.6507Z" fill="url(#av4)"/>
-        <path d="M0.436022 13.6507L3.88409 19.7177L3.85629 19.6697L4.98626 17.7662L13.0756 3.67811V3.69581L15.2218 0H8.23969C7.65126 0.0013206 7.07373 0.158808 6.5661 0.456374C6.05846 0.75394 5.6389 1.18092 5.35028 1.6937L0.436022 10.3644C0.150285 10.8649 0 11.4313 0 12.0076C0 12.5839 0.150285 13.1502 0.436022 13.6507Z" fill="url(#av5)"/>
-        <path opacity="0.51" d="M15.222 0L13.1138 3.668L13.5056 4.2924L15.222 0Z" fill="url(#av6)"/>
-        <defs>
-          <linearGradient id="av0" x1="2.58498" y1="6" x2="21.4534" y2="17.2859" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av1" x1="6.88503" y1="14.5419" x2="9.60269" y2="21.1092" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av2" x1="6.01798" y1="16.0931" x2="15.3589" y2="26.6063" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av3" x1="6.86432" y1="14.5314" x2="9.59738" y2="21.1147" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av4" x1="12.7503" y1="4.92943" x2="26.755" y2="11.8734" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av5" x1="1.74133" y1="4.92943" x2="15.7499" y2="11.8785" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-          <linearGradient id="av6" x1="13.355" y1="1.0731" x2="15.5536" y2="1.76702" gradientUnits="userSpaceOnUse"><stop stop-color="#12B886"/><stop offset="1" stop-color="#424ADF"/></linearGradient>
-        </defs>
-  </svg><span class="nm">Ave.ai<i> · 社区交易赛</i></span></div>
-  <div class="demo-banner">燃冬新赛季 · 11月5日—11月15日 · 单期总奖池 2,000 U</div>
-  <div class="intro">
-    <section class="hero poster-hero">
-      <h1 class="sr-only">燃冬新赛季 · Ave.ai 社区交易赛</h1>
-      <a class="posterLink" href="assets/winter-race-202611.png" target="_blank" rel="noopener" aria-label="查看燃冬交易赛完整海报"><img src="assets/winter-race-202611.png" width="1024" height="1536" alt="燃冬返佣交易赛：11月5日18:00至11月15日18:00，总奖池2,000 U" fetchpriority="high"><span>查看完整海报 ↗</span></a>
-    </section>
-    <div class="intro-side">
-      <section class="event-section">
-        <div class="card">
-          <h2 class="intro-title">赛事状态</h2>
-          <div class="trow"><span>开始时间</span><b>11/05 18:00（UTC+8）</b></div>
-          <div class="trow"><span>结束时间</span><b>11/15 18:00（UTC+8）</b></div>
-          <div class="cdLabel" id="cdLabel">距开赛</div>
-          <div class="clock"><div class="seg"><b id="dd">00</b><small>天</small></div><div class="seg"><b id="hh">00</b><small>时</small></div><div class="seg"><b id="mm">00</b><small>分</small></div><div class="seg"><b id="ss">00</b><small>秒</small></div></div>
-          <div class="race"><div class="rtop"><span id="raceText">赛程进度</span><b id="racePct">0%</b></div><div class="rbar"><i id="raceFill"></i></div></div>
+  <a class="skip-link" href="#main">跳转至活动内容</a>
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="https://ave.ai/" target="_blank" rel="noopener noreferrer" aria-label="打开 Ave.ai 官网"><img class="ave-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjM2OTcgMTkuNjc3M0wyMS4yMzk3IDE3Ljc3MzdINS4wMDAzOUwxMy4xMzI3IDMuNzAzMzlMMTEuMDA5MiAwSDguMjY4OThDNy42ODA1NiAwLjAwMTMyMDYgNy4xMDMwMyAwLjE1ODgwOCA2LjU5NTM5IDAuNDU2Mzc0QzYuMDg3NzUgMC43NTM5NCA1LjY2ODIgMS4xODA5MiA1LjM3OTU4IDEuNjkzN0wwLjQ2NTMxOSAxMC4zNjQ0QzAuMTc5NTgyIDEwLjg2NDkgMC4wMjkyOTY5IDExLjQzMTMgMC4wMjkyOTY5IDEyLjAwNzZDMC4wMjkyOTY5IDEyLjU4MzkgMC4xNzk1ODIgMTMuMTUwMiAwLjQ2NTMxOSAxMy42NTA3TDMuOTA1ODEgMTkuNzE3N0w1LjM3OTU4IDIyLjMxNjRDNS42MzIxOSAyMi43NjIxIDUuOTg0NTYgMjMuMTQzNCA2LjQwOTA5IDIzLjQzMDJDNi44MzM2MiAyMy43MTcgNy4zMTg3OSAyMy45MDE2IDcuODI2NiAyMy45Njk3QzcuOTcyMzMgMjMuOTkgOC4xMTkzMSAyNC4wMDAxIDguMjY2NDYgMjRIMTcuOTg2M0MxOC41NzQ1IDI0LjAwMDMgMTkuMTUyMyAyMy44NDQ3IDE5LjY2MDggMjMuNTQ4OUMyMC4xNjkyIDIzLjI1MzIgMjAuNTkwMiAyMi44Mjc5IDIwLjg4MDcgMjIuMzE2NEwyMi4zNDQ0IDE5LjcxNzdMMjIuMzY5NyAxOS42NzczWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBkPSJNMjEuMjM5NyAxNy43NzQ0SDUuMDMwNzZMNS4wOTkwMiAxNy43MzRMMTAuNTM5MSAxNC40NjI5QzExLjM3ODQgMTMuOTE2OSAxMi4wMTAzIDEzLjU5ODMgMTIuNjA0NCAxMy40OTQ3QzEyLjYxNzggMTMuNDkzNSAxMi42MzE0IDEzLjQ5MzUgMTIuNjQ0OCAxMy40OTQ3TDEyLjc2MTEgMTMuNDc5NUwxMi45NjM0IDEzLjQ2NDRIMTMuMDg0N0MxMy4xODE5IDEzLjQ2NyAxMy4yNzg5IDEzLjQ3NDYgMTMuMzc1NCAxMy40ODcxQzEzLjk5NDcgMTMuNTcwNSAxNC42NTk2IDEzLjg3ODkgMTUuNTY0NiAxNC40MDIyTDIxLjIwOTQgMTcuNzU0MkwyMS4yMzk3IDE3Ljc3NDRaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGcgb3BhY2l0eT0iMC41Ij4KPHBhdGggZD0iTTE1LjU0MzYgMTQuMzkyNUMxMy4zOTk5IDEzLjE0MzcgMTIuNTk4NiAxMy4xMDU4IDEwLjUxODEgMTQuNDYwOEw1LjAwOTc3IDE3Ljc3MjNMMTAuNTE4MSAxNS4xNjZDMTIuNTk4NiAxMy44MDg2IDEzLjM5MjMgMTMuODU2NiAxNS41NDM2IDE1LjA5NTNMMjEuMjIxMyAxNy43NzQ5TDE1LjU0MzYgMTQuMzkyNVoiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPC9nPgo8cGF0aCBkPSJNMjUuNzkwNSAxMy42NTA3TDIyLjM0NDkgMTkuNzE3N0wyMi4zNzI3IDE5LjY2OTdMMjEuMjQwMiAxNy43NzM4TDEzLjE1MDkgMy42ODU3VjMuNzAzMzlMMTEuMDA5OCAwSDE3Ljk4OTNDMTguNTc4IDAuMDAxNjU0ODYgMTkuMTU1OCAwLjE1OTI1OCAxOS42NjM4IDAuNDU2NzY4QzIwLjE3MTcgMC43NTQyNzcgMjAuNTkxOCAxLjE4MTA3IDIwLjg4MTMgMS42OTM3TDI1Ljc5MDUgMTAuMzY0NEMyNi4wNzUgMTAuODY1MyAyNi4yMjQ2IDExLjQzMTUgMjYuMjI0NiAxMi4wMDc2QzI2LjIyNDYgMTIuNTgzNiAyNi4wNzUgMTMuMTQ5OCAyNS43OTA1IDEzLjY1MDdaIiBmaWxsPSJ1cmwoI3BhaW50NF9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNwYWludDVfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUxIiBkPSJNMTUuMjIyIDBMMTMuMTEzOCAzLjY2OEwxMy41MDU2IDQuMjkyNEwxNS4yMjIgMFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjIuNTg0OTgiIHkxPSI2IiB4Mj0iMjEuNDUzNCIgeTI9IjE3LjI4NTkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iNi44ODUwMyIgeTE9IjE0LjU0MTkiIHgyPSI5LjYwMjY5IiB5Mj0iMjEuMTA5MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50Ml9saW5lYXJfMzY3NTlfNzY3ODUiIHgxPSI2LjAxNzk4IiB5MT0iMTYuMDkzMSIgeDI9IjE1LjM1ODkiIHkyPSIyNi42MDYzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjYuODY0MzIiIHkxPSIxNC41MzE0IiB4Mj0iOS41OTczOCIgeTI9IjIxLjExNDciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDRfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTIuNzUwMyIgeTE9IjQuOTI5NDMiIHgyPSIyNi43NTUiIHkyPSIxMS44NzM0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ1X2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjEuNzQxMzMiIHkxPSI0LjkyOTQzIiB4Mj0iMTUuNzQ5OSIgeTI9IjExLjg3ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTMuMzU1IiB5MT0iMS4wNzMxIiB4Mj0iMTUuNTUzNiIgeTI9IjEuNzY3MDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" width="34" height="30" alt="">Ave<span>.ai</span></a>
+    <nav class="topnav" aria-label="活动导航"><a class="nav-board" href="#leaderboard">实时榜单</a><a href="#rewards">奖励分配</a><a href="#join">报名方式</a><a href="#rules">参赛规则</a></nav>
+  </div></header>
+
+  <main id="main">
+  <section class="band" aria-labelledby="event-title"><canvas class="snow" id="snow" aria-hidden="true"></canvas><div class="wrap hero">
+      <div class="hero-copy">
+        <div class="status-row"><span class="chip status" id="event-status">活动时间见下方</span><span class="chip">返佣社区专属</span></div>
+        <div class="lockup" aria-hidden="true"><span class="lockup-tile"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjM2OTcgMTkuNjc3M0wyMS4yMzk3IDE3Ljc3MzdINS4wMDAzOUwxMy4xMzI3IDMuNzAzMzlMMTEuMDA5MiAwSDguMjY4OThDNy42ODA1NiAwLjAwMTMyMDYgNy4xMDMwMyAwLjE1ODgwOCA2LjU5NTM5IDAuNDU2Mzc0QzYuMDg3NzUgMC43NTM5NCA1LjY2ODIgMS4xODA5MiA1LjM3OTU4IDEuNjkzN0wwLjQ2NTMxOSAxMC4zNjQ0QzAuMTc5NTgyIDEwLjg2NDkgMC4wMjkyOTY5IDExLjQzMTMgMC4wMjkyOTY5IDEyLjAwNzZDMC4wMjkyOTY5IDEyLjU4MzkgMC4xNzk1ODIgMTMuMTUwMiAwLjQ2NTMxOSAxMy42NTA3TDMuOTA1ODEgMTkuNzE3N0w1LjM3OTU4IDIyLjMxNjRDNS42MzIxOSAyMi43NjIxIDUuOTg0NTYgMjMuMTQzNCA2LjQwOTA5IDIzLjQzMDJDNi44MzM2MiAyMy43MTcgNy4zMTg3OSAyMy45MDE2IDcuODI2NiAyMy45Njk3QzcuOTcyMzMgMjMuOTkgOC4xMTkzMSAyNC4wMDAxIDguMjY2NDYgMjRIMTcuOTg2M0MxOC41NzQ1IDI0LjAwMDMgMTkuMTUyMyAyMy44NDQ3IDE5LjY2MDggMjMuNTQ4OUMyMC4xNjkyIDIzLjI1MzIgMjAuNTkwMiAyMi44Mjc5IDIwLjg4MDcgMjIuMzE2NEwyMi4zNDQ0IDE5LjcxNzdMMjIuMzY5NyAxOS42NzczWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBkPSJNMjEuMjM5NyAxNy43NzQ0SDUuMDMwNzZMNS4wOTkwMiAxNy43MzRMMTAuNTM5MSAxNC40NjI5QzExLjM3ODQgMTMuOTE2OSAxMi4wMTAzIDEzLjU5ODMgMTIuNjA0NCAxMy40OTQ3QzEyLjYxNzggMTMuNDkzNSAxMi42MzE0IDEzLjQ5MzUgMTIuNjQ0OCAxMy40OTQ3TDEyLjc2MTEgMTMuNDc5NUwxMi45NjM0IDEzLjQ2NDRIMTMuMDg0N0MxMy4xODE5IDEzLjQ2NyAxMy4yNzg5IDEzLjQ3NDYgMTMuMzc1NCAxMy40ODcxQzEzLjk5NDcgMTMuNTcwNSAxNC42NTk2IDEzLjg3ODkgMTUuNTY0NiAxNC40MDIyTDIxLjIwOTQgMTcuNzU0MkwyMS4yMzk3IDE3Ljc3NDRaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGcgb3BhY2l0eT0iMC41Ij4KPHBhdGggZD0iTTE1LjU0MzYgMTQuMzkyNUMxMy4zOTk5IDEzLjE0MzcgMTIuNTk4NiAxMy4xMDU4IDEwLjUxODEgMTQuNDYwOEw1LjAwOTc3IDE3Ljc3MjNMMTAuNTE4MSAxNS4xNjZDMTIuNTk4NiAxMy44MDg2IDEzLjM5MjMgMTMuODU2NiAxNS41NDM2IDE1LjA5NTNMMjEuMjIxMyAxNy43NzQ5TDE1LjU0MzYgMTQuMzkyNVoiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPC9nPgo8cGF0aCBkPSJNMjUuNzkwNSAxMy42NTA3TDIyLjM0NDkgMTkuNzE3N0wyMi4zNzI3IDE5LjY2OTdMMjEuMjQwMiAxNy43NzM4TDEzLjE1MDkgMy42ODU3VjMuNzAzMzlMMTEuMDA5OCAwSDE3Ljk4OTNDMTguNTc4IDAuMDAxNjU0ODYgMTkuMTU1OCAwLjE1OTI1OCAxOS42NjM4IDAuNDU2NzY4QzIwLjE3MTcgMC43NTQyNzcgMjAuNTkxOCAxLjE4MTA3IDIwLjg4MTMgMS42OTM3TDI1Ljc5MDUgMTAuMzY0NEMyNi4wNzUgMTAuODY1MyAyNi4yMjQ2IDExLjQzMTUgMjYuMjI0NiAxMi4wMDc2QzI2LjIyNDYgMTIuNTgzNiAyNi4wNzUgMTMuMTQ5OCAyNS43OTA1IDEzLjY1MDdaIiBmaWxsPSJ1cmwoI3BhaW50NF9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNwYWludDVfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUxIiBkPSJNMTUuMjIyIDBMMTMuMTEzOCAzLjY2OEwxMy41MDU2IDQuMjkyNEwxNS4yMjIgMFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjIuNTg0OTgiIHkxPSI2IiB4Mj0iMjEuNDUzNCIgeTI9IjE3LjI4NTkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iNi44ODUwMyIgeTE9IjE0LjU0MTkiIHgyPSI5LjYwMjY5IiB5Mj0iMjEuMTA5MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50Ml9saW5lYXJfMzY3NTlfNzY3ODUiIHgxPSI2LjAxNzk4IiB5MT0iMTYuMDkzMSIgeDI9IjE1LjM1ODkiIHkyPSIyNi42MDYzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjYuODY0MzIiIHkxPSIxNC41MzE0IiB4Mj0iOS41OTczOCIgeTI9IjIxLjExNDciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDRfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTIuNzUwMyIgeTE9IjQuOTI5NDMiIHgyPSIyNi43NTUiIHkyPSIxMS44NzM0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ1X2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjEuNzQxMzMiIHkxPSI0LjkyOTQzIiB4Mj0iMTUuNzQ5OSIgeTI9IjExLjg3ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTMuMzU1IiB5MT0iMS4wNzMxIiB4Mj0iMTUuNTUzNiIgeTI9IjEuNzY3MDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" width="40" height="36" alt=""></span></div>
+        <h1 id="event-title"><span class="h1-partners">Ave.ai 踏雪</span><span class="h1-main">返佣社区交易赛</span></h1>
+        <p class="tagline">2,000 U 奖池 · 三榜齐开</p>
+        <p class="lede">存量社区、新社区、普通用户各走一条榜单，互不交叉。社区按 <strong>本人＋一级＋二级</strong> 交易量排名，用户按个人交易量排名，共 <strong>40</strong> 个获奖名额。</p>
+        <div class="when" aria-label="活动时间">
+          <p class="event-date"><span class="time-label">活动时间 <span class="tz">UTC+8</span></span><time datetime="2026-11-18T18:00:00+08:00">2026.11.18 18:00</time><span class="date-end"><span class="dash">—</span> <time datetime="2026-12-01T00:00:00+08:00">2026.11.30 24:00</time></span></p>
+          <div class="countdown-wrap" id="countdown-wrap" hidden><span class="time-label" id="countdown-label">距离活动开始</span><div class="countdown" role="timer" aria-label="活动倒计时"><span class="cd"><b id="days">00</b><span>天</span></span><span class="cd"><b id="hours">00</b><span>时</span></span><span class="cd"><b id="minutes">00</b><span>分</span></span><span class="cd"><b id="seconds">00</b><span>秒</span></span></div></div>
         </div>
-      </section>
-      <section class="prize-summary">
-        <div class="card"><h2 class="intro-title">奖励分配</h2><div class="pots">
-          <div class="pot"><b>700 U</b><span>存量社区增长</span><small>头部 5 名＋成长 8 名</small></div>
-          <div class="pot"><b>200 U</b><span>沉默社区破零</span><small>20 个名额</small></div>
-          <div class="pot"><b>500 U</b><span>新社区签约达成</span><small>10 个名额</small></div>
-          <div class="pot"><b>400 U</b><span>新社区破冰</span><small>前 6 名</small></div>
-          <div class="pot g"><b>200 U</b><span>用户达标抽奖</span><small>20 人 × 10 U</small></div>
-        </div></div>
-      </section>
-    </div>
-  </div>
-  <section class="classification-section">
-    <span class="tab">社区赛道判定标准</span>
-    <div class="card">
-      <dl class="community-criteria">
-        <div><dt>① 新签约社区</dt><dd><b>历史无返佣记录</b>，且<b>首次开通 VIP 时间在 Q4，即10月1日后</b>。归新社区赛道，<b>不判沉默</b>。</dd></div>
-        <div><dt>② 沉默社区</dt><dd>已合作社区，基线窗口（<b>赛前30天</b>）存量交易量 <b>&lt; 10,000 U（含 0）</b>。</dd></div>
-        <div><dt>③ 存量活跃</dt><dd>除新签约社区、沉默社区以外的其余社区，归存量活跃。</dd></div>
-      </dl>
-      <p class="criteria-note" id="classificationReference">优先判断新签约社区，再判断沉默社区，其余归存量活跃。赛前30天用于社区分类；增长率仍按上期同期10天比较。</p>
-    </div>
-  </section>
-  <section class="prize-section">
-    <span class="tab g">奖励与门槛</span>
-    <div class="card"><div class="prize-detail">
-      <div class="prize-main">
-        <div class="ptTitle"><span class="pill">社区排名奖励</span>存量增长奖 · 新社区破冰榜</div>
-        <div class="ptable rewardGrid">
-          <div class="ph"><span>名次</span><span class="r">存量头部</span><span class="r">存量成长</span><span class="r">新社区</span></div>
-          <div class="pr top"><span class="nm"><i class="dot g1"></i>第 1 名</span><span class="a gold">120<small> U</small></span><span class="a gold">90<small> U</small></span><span class="a gold">120<small> U</small></span></div>
-<div class="pr top"><span class="nm"><i class="dot g2"></i>第 2 名</span><span class="a gold">85<small> U</small></span><span class="a gold">65<small> U</small></span><span class="a gold">90<small> U</small></span></div>
-<div class="pr top"><span class="nm"><i class="dot g3"></i>第 3 名</span><span class="a gold">65<small> U</small></span><span class="a gold">55<small> U</small></span><span class="a gold">70<small> U</small></span></div>
-<div class="pr"><span class="nm"><i class="dot"></i>第 4 名</span><span class="a">50<small> U</small></span><span class="a">45<small> U</small></span><span class="a">55<small> U</small></span></div>
-<div class="pr"><span class="nm"><i class="dot"></i>第 5 名</span><span class="a">30<small> U</small></span><span class="a">40<small> U</small></span><span class="a">40<small> U</small></span></div>
-<div class="pr"><span class="nm"><i class="dot"></i>第 6 名</span><span class="a">—</span><span class="a">25<small> U</small></span><span class="a">25<small> U</small></span></div>
-<div class="pr"><span class="nm"><i class="dot"></i>第 7 名</span><span class="a">—</span><span class="a">20<small> U</small></span><span class="a">—</span></div>
-<div class="pr"><span class="nm"><i class="dot"></i>第 8 名</span><span class="a">—</span><span class="a">10<small> U</small></span><span class="a">—</span></div>
+        <div class="actions"><a class="btn btn-cta" href="https://ave.ai/" target="_blank" rel="noopener noreferrer">去 Ave 交易 <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#leaderboard">查看实时榜单</a></div>
+      </div>
+      <aside class="pool" aria-label="总奖池 2,000 U，40 个获奖名额">
+        <div class="pool-label">活动总奖池</div>
+        <div class="pool-value">2,000<small>U</small></div>
+        <div class="pool-sub">三个榜单 · 外加 BD 推荐奖</div>
+        <div class="seat-title"><span>获奖名额</span><b>40 个</b></div>
+        <div class="seats" aria-hidden="true"><i class="g1" style="--i:1"></i><i class="g1" style="--i:2"></i><i class="g1" style="--i:3"></i><i class="g1" style="--i:4"></i><i class="g1" style="--i:5"></i><i class="g1" style="--i:6"></i><i class="g1" style="--i:7"></i><i class="g1" style="--i:8"></i><i class="g1" style="--i:9"></i><i class="g1" style="--i:10"></i><i class="g2" style="--i:11"></i><i class="g2" style="--i:12"></i><i class="g2" style="--i:13"></i><i class="g2" style="--i:14"></i><i class="g2" style="--i:15"></i><i class="g2" style="--i:16"></i><i class="g2" style="--i:17"></i><i class="g2" style="--i:18"></i><i class="g2" style="--i:19"></i><i class="g2" style="--i:20"></i><i class="g3" style="--i:21"></i><i class="g3" style="--i:22"></i><i class="g3" style="--i:23"></i><i class="g3" style="--i:24"></i><i class="g3" style="--i:25"></i><i class="g3" style="--i:26"></i><i class="g3" style="--i:27"></i><i class="g3" style="--i:28"></i><i class="g3" style="--i:29"></i><i class="g3" style="--i:30"></i><i class="g4" style="--i:31"></i><i class="g4" style="--i:32"></i><i class="g4" style="--i:33"></i><i class="g4" style="--i:34"></i><i class="g4" style="--i:35"></i><i class="g4" style="--i:36"></i><i class="g4" style="--i:37"></i><i class="g4" style="--i:38"></i><i class="g4" style="--i:39"></i><i class="g4" style="--i:40"></i></div>
+        <ul class="tiers">
+          <li class="g1"><span>存量社区交易榜 · 前 10 名</span><b>800 U</b></li>
+          <li class="g2"><span>新社区榜 · 前 10 名</span><b>500 U</b></li>
+          <li class="g3"><span>BD 推荐奖 · 10 个</span><b>200 U</b></li>
+          <li class="g4"><span>用户交易榜 · 前 10 名</span><b>500 U</b></li>
+        </ul>
+      </aside>
+  </div></section>
+
+  <div class="wrap content">
+
+    <section id="leaderboard" class="panel" aria-labelledby="board-title">
+      <div class="panel-head"><div><h2 id="board-title">实时榜单</h2><p id="board-sub">三个榜单分开排名，每 2 分钟同步一次数据</p></div><button type="button" id="refresh-button" class="refresh-button" disabled><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.3 7a7 7 0 0 1 11.4-1L20 9M4 15l2.3 3A7 7 0 0 0 17.7 17"/></svg>刷新榜单</button></div>
+      <div class="tabs" role="tablist" aria-label="选择榜单">
+        <button type="button" class="tab" role="tab" id="tab-stock" aria-controls="board-panel" aria-selected="true" data-board="stock">存量社区交易榜<small>800 U</small></button>
+        <button type="button" class="tab" role="tab" id="tab-new" aria-controls="board-panel" aria-selected="false" data-board="new">新社区榜<small>500 U</small></button>
+        <button type="button" class="tab" role="tab" id="tab-user" aria-controls="board-panel" aria-selected="false" data-board="user">用户交易榜<small>500 U</small></button>
+      </div>
+      <div id="board-panel" role="tabpanel" aria-labelledby="tab-stock">
+        <div class="board-meta"><span id="data-status" class="data-status" role="status" aria-live="polite">连接中</span><span>数据更新：<time id="updated-at">—</time></span></div>
+        <p class="board-intro" id="board-intro"></p>
+        <div class="thresholds" id="thresholds" role="group" aria-label="当前门槛">
+          <div class="th-item"><p class="th-value" id="th-a">—</p><p class="th-hint" id="th-a-hint"></p></div>
+          <div class="th-item"><p class="th-value" id="th-b">—</p><p class="th-hint" id="th-b-hint"></p></div>
         </div>
-        <div class="fine">存量增长奖：较上期增长 ≥15%，本期存量 ≥50,000 U，有效用户 ≥5 人。头部组与成长组分别排名。</div>
-        <div class="fine">新社区破冰榜：新签约社区按本期交易量排名，取前 6 名。</div>
-      </div>
-      <div class="prize-side">
-        <div class="draw"><h4>用户达标抽奖 · 20 人 × 10 U</h4><p>直属一级用户交易满 <b>500 U</b>，获得抽奖号码；每人最多中奖一次。</p><div class="tierTable"><div class="tier"><span>500–2,999.99 U</span><b>1 个号码</b></div><div class="tier"><span>3,000–9,999.99 U</span><b>2 个号码</b></div><div class="tier"><span>10,000 U 及以上</span><b>3 个号码</b></div></div><p class="draw-rule-link">采用预先公布的未来比特币区块哈希开奖，<a href="#lottery-method">查看完整抽奖方法</a>。预计中奖率见用户抽奖资格榜。</p></div>
-        <div class="draw"><h4>沉默社区破零 · 200 U</h4><p>赛前确认的沉默社区，本期存量达到 <b>10,000 U</b>、有效用户 ≥3 人，获得 <b>10 U</b>。共 20 个名额，先到先得。</p></div>
-        <div class="draw"><h4>新社区签约达成 · 500 U</h4><p>完成签约、首量 ≥<b>30,000 U</b>、有效用户 ≥10 人，并完成社群公告。每个社区 <b>50 U</b>（社区长 30 U＋BD 20 U），共 10 个名额。</p></div>
-        <div class="fine">所有奖励以活动结束后的审核封榜数据为准。</div>
-      </div>
-    </div></div>
-  </section>
-  <div class="lower">
-    <section class="scores-section">
-      <span class="tab">成绩怎么算</span>
-      <div class="card"><ul class="calc">
-        <li class="yes">只统计社区长本人和邀请码下的<b>直属一级用户</b>，二级及以下不计入。</li>
-        <li class="yes"><b>存量</b>＝社区长本人＋原有一级用户交易量；<b>增量</b>＝本期新注册一级用户交易量。</li>
-        <li class="yes"><b>存量增长率</b>＝（本期存量 ÷ 上期同期 10 天存量 − 1）×100%，增长率越高名次越靠前。</li>
-        <li class="yes">新社区不参加存量榜，只进入签约达成奖和新社区破冰榜。</li>
-      </ul><div class="hl">社区类型按上述标准判定；存量头部/成长分组、有效用户口径、增长基线与达标线由 BD 确认。</div><div class="gate"><b>同一社区长多个邀请码合并，只占一个名次；同一笔交易不重复计分。</b></div></div>
-    </section>
-    <section class="board-section">
-      <span class="tab">实时榜单</span>
-      <div class="card">
-        <div class="lbHead"><span class="t" id="boardTitle">存量社区增长榜</span><span class="live stale" id="status"><i></i><span>连接中</span></span></div>
-        <div class="swt switch"><button class="on" data-board="head">存量社区增长榜<small>存量活跃社区</small></button><button data-board="silent">沉默破零<small>20 个名额</small></button><button data-board="sign">签约达成<small>10 个名额</small></button><button data-board="new">新社区破冰<small>前 6 名</small></button><button data-board="lottery">用户抽奖资格<small>1–3 个号码</small></button><button data-board="review" hidden>分类待核实<small>补齐资料后分组</small></button></div>
-        <p class="lbSum" id="boardMeta">等待本期数据</p><p class="board-scroll-hint">在榜单内上下滚动，查看完整名单</p><div id="board" role="region" aria-label="榜单内容，可上下滚动" tabindex="0" aria-live="polite"></div>
+        <p class="th-note" id="th-note">门槛按当前榜单计算，其他参赛者继续交易后会上涨，最终以活动结束时的排名为准。</p>
+        <div id="empty-state" class="empty-state"><h3 id="empty-title">榜单加载中</h3><p id="empty-description">正在获取最新排名。</p></div>
+        <div class="board-scroll" tabindex="0" role="region" aria-label="榜单表格，可滚动">
+          <table class="board-table" id="board-table">
+            <colgroup id="board-cols"></colgroup>
+            <thead id="board-head"></thead>
+            <tbody id="board-body"></tbody>
+          </table>
+        </div>
+        <div class="board-foot"><span id="board-foot">—</span><a href="#rules">查看统计口径</a></div>
       </div>
     </section>
-    <section class="participation-section">
-      <span class="tab">参与方式</span>
-      <div class="card"><ol class="steps"><li><b>提交邀请码</b>：多个邀请码须一次性完整提交，由后台合并计算。</li><li><b>锁定数据</b>：开赛前由 BD 确认组别、基线和达标线。</li><li><b>完成宣传</b>：使用统一话术在社群发公告，并提交截图和回链。</li><li><b>持续冲榜</b>：BD 每周发布战报，并推动社区转发重要通知。</li></ol></div>
+
+    <section id="rewards" class="panel" aria-labelledby="rewards-title">
+      <div class="panel-head"><div><h2 id="rewards-title">奖励分配</h2><p>一个社区只进一个榜，一名用户只进用户榜，三条线彼此独立</p></div><a class="head-link" href="#leaderboard">查看实时榜单</a></div>
+      <div class="panel-body">
+        <div class="board-cards">
+          <div class="bcard g1"><h3>存量社区交易榜</h3><div class="amt">800<small>U</small></div><p>赛前已合作的返佣社区，前 10 名有奖</p></div>
+          <div class="bcard g2"><h3>新社区榜</h3><div class="amt">500<small>U</small></div><p>本期首次签约的社区，四项条件齐备才上榜，前 10 名有奖</p></div>
+          <div class="bcard g3"><h3>BD 推荐奖</h3><div class="amt">200<small>U</small></div><p>推荐的新社区达标并进入新社区榜前 10，每个 20 U，共 10 个</p></div>
+          <div class="bcard"><h3>用户交易榜</h3><div class="amt">500<small>U</small></div><p>参赛社区内普通用户，按个人交易量取前 10 名</p></div>
+        </div>
+        <div class="table-scroll"><table class="prize-table"><caption class="sr-only">三个榜单各名次奖励，单位 U</caption>
+          <thead><tr><th scope="col">名次</th><th scope="col">存量社区交易榜</th><th scope="col">新社区榜</th><th scope="col">用户交易榜</th></tr></thead>
+          <tbody><tr><th scope="row">第 1 名</th><td>200<span class="unit">U</span></td><td>120<span class="unit">U</span></td><td>120<span class="unit">U</span></td></tr><tr><th scope="row">第 2 名</th><td>150<span class="unit">U</span></td><td>90<span class="unit">U</span></td><td>90<span class="unit">U</span></td></tr><tr><th scope="row">第 3 名</th><td>120<span class="unit">U</span></td><td>75<span class="unit">U</span></td><td>70<span class="unit">U</span></td></tr><tr><th scope="row">第 4 名</th><td>100<span class="unit">U</span></td><td>60<span class="unit">U</span></td><td>60<span class="unit">U</span></td></tr><tr><th scope="row">第 5 名</th><td>80<span class="unit">U</span></td><td>45<span class="unit">U</span></td><td>50<span class="unit">U</span></td></tr><tr><th scope="row">第 6 名</th><td>60<span class="unit">U</span></td><td>35<span class="unit">U</span></td><td>40<span class="unit">U</span></td></tr><tr><th scope="row">第 7 名</th><td>40<span class="unit">U</span></td><td>30<span class="unit">U</span></td><td>30<span class="unit">U</span></td></tr><tr><th scope="row">第 8 名</th><td>25<span class="unit">U</span></td><td>20<span class="unit">U</span></td><td>20<span class="unit">U</span></td></tr><tr><th scope="row">第 9 名</th><td>15<span class="unit">U</span></td><td>15<span class="unit">U</span></td><td>10<span class="unit">U</span></td></tr><tr><th scope="row">第 10 名</th><td>10<span class="unit">U</span></td><td>10<span class="unit">U</span></td><td>10<span class="unit">U</span></td></tr></tbody>
+          <tfoot><tr><th scope="row">合计</th><td>800<span class="unit">U</span></td><td>500<span class="unit">U</span></td><td>500<span class="unit">U</span></td></tr></tfoot>
+        </table></div>
+        <p class="note">另设 BD 推荐奖 200 U（10 × 20 U），达成即得、不占榜单名额。四项合计 2,000 U，最终获奖以活动结束后的审核结果为准。</p>
+      </div>
     </section>
-    <section class="promotion-section">
-      <span class="tab">报名与推广</span>
-      <div class="card"><div class="signupBox"><h4>报名方式</h4><p><strong>已有对接 BD：</strong>联系负责对接的 BD 报名，确认上期基线。</p><p><strong>新社区或没有对接 BD：</strong><a href="https://t.me/EvainAveai" target="_blank" rel="noopener">私聊 Eva（@EvainAveai）</a>。</p><div class="signupNeed"><strong>报名需提供：</strong>社区长自己的返佣邀请码；多个邀请码须一次性完整提交。</div></div><div class="promoLead"><strong>必须在自己的社群发布活动公告，并向 BD 提交公告截图和消息回链，完成社区用户触达。</strong></div><ul class="promoReq"><li>使用官方统一话术、规则图和活动链接。</li><li>提交社群公告截图及消息回链。</li><li>活动期间配合转发重要战报与冲榜通知。</li></ul></div>
-    </section>
-    <section class="notes-section">
-      <span class="tab">核心规则</span>
-      <div class="card note"><h4>公平计分</h4><p>只统计一级用户，二级及以下不计入。同一笔交易只进入一个榜单，不重复计分。</p><h4>参赛资格</h4><p>对敲、自成交、刷量一律取消资格。社区长及关联账户不得参加用户抽奖。</p>
-        <h4 id="lottery-method">用户抽奖方法 · 比特币区块哈希</h4>
-        <p class="draw-verification" id="formal-draw-status"><b>本期用户抽奖已完成：</b>20 位不同用户，每人 10 U，共 200 U。按活动方指定，使用11月15日18:00后首个比特币区块 <b>975942</b>（18:00:43）；原976070未来区块方案作废。正式资格名单于11月16日复核锁定。<a href="https://studio.ave.ai/race-draw/20261115/index.txt" target="_blank" rel="noopener">查看中奖名单及完整复核记录 ↗</a> · <a href="https://studio.ave.ai/race-draw/20261115/winners.png" target="_blank" rel="noopener">查看中奖结果图片 ↗</a></p>
-        <ol class="draw-method">
-          <li><b>审核资格、分配号码：</b>封榜后审核直属一级用户，按账户去重，排除社区长及关联账户。按交易量分配 1、2、3 个号码，每个号码只属于一位用户。</li>
-          <li><b>先锁定名单：</b>公示资格序号、脱敏用户、所属社区及全部号码，并公布公开名单文件的 SHA-256 校验值。锁定后不得增删用户或调整号码。</li>
-          <li><b>预告未来区块：</b>名单锁定后，在区块产生前公布一个未来比特币区块高度。待该区块达到 6 次确认，取其完整区块哈希作为开奖依据，不得事后挑选其他区块。</li>
-          <li><b>固定算法开奖：</b>将区块哈希、名单校验值和每个号码组合计算 SHA-256，按结果从小到大排序。同一用户只保留首次入选，取前 <b>20 位不同用户，每人 10 U</b>；不足 20 位时按实际合格人数发放。</li>
+
+    <section id="join" class="panel" aria-labelledby="join-title">
+      <div class="panel-head"><div><h2 id="join-title">报名方式</h2><p>社区长报名后，社区成绩和社区内用户的个人成绩一起计入</p></div></div>
+      <div class="panel-body">
+        <ol class="steps">
+          <li><h3>报名登记</h3><p>提供自己的返佣邀请码，多个邀请码一并报上</p></li>
+          <li><h3>社群宣传</h3><p><strong>在自己的社群发布活动公告</strong>，用户通过你的邀请码注册交易</p></li>
+          <li><h3>开赛后交易</h3><p>赛期内交易自动统计，榜单每 2 分钟更新</p></li>
         </ol>
-        <p>开奖时公示名单文件、区块高度与哈希、全部号码排序及中奖结果，任何人均可按相同规则复算。号码越多，预计中奖率越高，但不保证中奖。</p>
-        <details class="draw-verification"><summary>查看复核公式与概率说明</summary><p>每个号码计算：</p><code>SHA-256(block_hash|list_sha256|ticket)</code><p>使用 UTF-8 编码；两个哈希均为完整的小写十六进制字符串，英文竖线分隔，不加空格。号码从 001 连续编号，至少三位。结果按十六进制值升序排列；如值相同，号码较小者优先。同一用户的后续号码跳过，直至选满 20 人。</p><p>预计中奖率按当前各档人数和“用户去重后抽取20人”的规则计算，分别展示持1、2、3个号码用户的入选概率，并非简单的20÷总号码数。某档没有用户时显示“—”；当前合格人数不超过20人时，现有用户预计中奖率为100%，最终仍需通过封榜审核。</p><p>名单及号码如需更正，必须重新公示并锁定，再预告尚未产生的新区块；原抽奖流程作废。比特币区块信息可通过<a href="https://mempool.space/" target="_blank" rel="noopener">公开区块浏览器</a>核验，亦可参阅<a href="https://developer.bitcoin.org/reference/rpc/getblockheader.html" target="_blank" rel="noopener">比特币区块数据说明</a>。</p></details>
-        <h4>最终结果</h4><p>以活动结束后的审核封榜数据为准。</p></div>
+        <div class="contact">
+          <p><strong>已有对接 BD：</strong>直接联系负责对接的 BD 报名。<br><strong>没有对接 BD：</strong>联系 Eva 报名，TG <a class="inline" href="https://t.me/EvainAveai" target="_blank" rel="noopener noreferrer">@EvainAveai</a></p>
+          <a class="btn btn-cta" href="https://t.me/EvainAveai" target="_blank" rel="noopener noreferrer">TG 联系报名 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
+
+    <section id="rules" class="panel" aria-labelledby="rules-title">
+      <div class="panel-head"><div><h2 id="rules-title">参赛规则</h2><p>请在参与前完整阅读</p></div></div>
+      <div class="panel-body"><div class="rules">
+        <section><h3>活动时间</h3><div><p>2026 年 11 月 18 日 18:00 至 11 月 30 日 24:00（UTC+8），只统计赛期内产生的交易。</p></div></section>
+        <section><h3>社区分类</h3><div><p><strong>存量社区：</strong>Q3 前已建立返佣关系，且至少有一个在用的有效邀请码；历届已报名参赛的社区均归存量，进入存量社区交易榜。</p><p><strong>新社区：</strong>Q3 前无返佣关系与有效邀请码，本期首次签约开通并绑定社区长 GUID，与存量社区无关联，进入新社区榜。</p></div></section>
+        <section><h3>社区交易量</h3><div><p>按社区邀请码下 <strong>社区长本人＋一级用户＋二级用户</strong> 的赛期全量交易量计算，新老用户合并，三级及以下不计。</p><p>同一社区多个邀请码合并为一个名次；邀请码之间存在上下级关系时，重复部分只计一次。</p></div></section>
+        <section><h3>新社区四项条件</h3><div><ol><li>Q3 前无返佣关系、无有效邀请码；</li><li>返佣邀请码已开通并绑定社区长 GUID；</li><li>赛期社区交易量（本人＋一级＋二级）不低于 <strong>30,000 U</strong>；</li><li>一级有效交易用户不少于 <strong>3 人</strong>，并完成一次官方公告发布，截图复核。</li></ol><p>四项齐备才进入新社区榜排名，缺一项不计奖。榜单中未达标的社区仅展示进度。</p></div></section>
+        <section><h3>BD 推荐奖</h3><div><p>BD 或代理每成功推荐一个新社区，且该社区达成四项条件并进入新社区榜前 10，即得 20 U，共 10 个名额，不占榜单名额。</p></div></section>
+        <section><h3>用户交易榜</h3><div><p>参赛社区内的普通用户按个人赛期交易量排名，前 10 名直接发奖，不设交易量门槛；社区长本人不参与用户榜。同一用户只能获得一个名次，多账号合并计算。</p></div></section>
+        <section><h3>公平参赛</h3><div><p>刷量、对敲、自成交等行为一经发现，直接取消社区及个人获奖资格，名次不顺延。活动结束后将进行系统及人工审核，最终名次与奖励以审核结果为准。</p></div></section>
+      </div></div>
+    </section>
+
+    <section class="notice" aria-labelledby="notice-title"><h2 id="notice-title">注意事项</h2><dl><div><dt>合规声明</dt><dd>用户需遵守当地法律法规，平台不承担因参赛导致的税务或合规风险。</dd></div><div><dt>数据隐私</dt><dd>榜单中的邀请码与邮箱均已打码，交易数据仅用于排名统计。</dd></div><div><dt>活动解释</dt><dd>活动所有解释权归 Ave.ai 官方所有。</dd></div></dl></section>
   </div>
-  <p class="foot">数据按活动统一口径统计；异常交易将在封榜审核时剔除。<br>活动解释权归 Ave.ai 所有。</p>
-</main>
-<button class="share" id="shareBtn" type="button" aria-label="分享活动">↗</button><span class="shareToast" id="shareToast" role="status">链接已复制</span>
-<div class="cta"><button id="joinBtn" type="button">联系 BD / Eva 报名</button></div>
-<script>(function(){
-"use strict";
-var START=new Date("2026-11-05T18:00:00+08:00").getTime(), END=new Date("2026-11-15T18:00:00+08:00").getTime();
-var FEED="https://studio.ave.ai/race-board", TG="https://t.me/EvainAveai", current="head", DATA={pending:true};
-var configs={
-  head:{title:"存量社区增长榜",key:"existingAll",metric:"本期存量",podium:true,prizes:[]},
-  silent:{title:"沉默社区破零",key:"silent",metric:"本期存量",prizes:Array(20).fill(10)},
-  sign:{title:"新社区签约达成",key:"signing",metric:"首量",prizes:Array(10).fill(50)},
-  new:{title:"新社区破冰榜",key:"newCommunities",metric:"本期交易量",podium:true,prizes:[120, 90, 70, 55, 40, 25]},
-  review:{title:"社区分类待核实",key:"pendingClassification",metric:"本期存量",prizes:[]},
-  lottery:{title:"用户抽奖资格",key:"lottery",metric:"个人交易量",prizes:[]}
-};
-var crown='<svg class="crown" viewBox="-3 -3 54 36" aria-hidden="true"><path d="M5 29L2 8L14 17L24 3L34 17L46 8L43 29Z" fill="#ffcf59" stroke="#e8a73b" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 26H43" stroke="#e2a036" stroke-width="3"/><circle cx="2" cy="8" r="2.8" fill="#ffe8a1"/><circle cx="24" cy="3" r="2.8" fill="#ffe8a1"/><circle cx="46" cy="8" r="2.8" fill="#ffe8a1"/></svg>';
-function $(id){return document.getElementById(id)}
-function pad(n){return String(n).padStart(2,"0")}
-function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-function num(v){return (Number(v)||0).toLocaleString("zh-CN",{maximumFractionDigits:2})}
-function volumeOf(r){return !r||r.dataStatus==="missing"||r.volume==null?null:Number(r.volume)||0}
-function volumeText(r){var value=volumeOf(r);return value==null?"—":num(value)}
-function usersOf(r){return r.effectiveUsers}
-function nameOf(r){return current==="lottery"?(r.user||"脱敏用户"):(r.name||r.community||"社区")}
-function ticketsOf(r){var v=volumeOf(r);return Number(r.tickets)||(v>=10000?3:(v>=3000?2:(v>=500?1:0)))}
-function lotteryOdds(list){
-  var counts=[0,0,0],expected=[0,0,0],winners=Math.min(20,list.length);
-  list.forEach(function(row){counts[ticketsOf(row)-1]++});
-  if(list.length<=20)return counts.map(function(n){return n?1:null});
-  var total=counts[0]+2*counts[1]+3*counts[2],states={"0,0,0":1};
-  // Sorting random ticket scores and skipping duplicate users is weighted sampling without replacement.
-  for(var draw=0;draw<winners;draw++){
-    var next={};
-    Object.keys(states).forEach(function(key){
-      var chosen=key.split(",").map(Number),remaining=total-chosen[0]-2*chosen[1]-3*chosen[2];
-      for(var group=0;group<3;group++){
-        var available=counts[group]-chosen[group];
-        if(!available)continue;
-        var target=chosen.slice();target[group]++;
-        var targetKey=target.join(",");
-        next[targetKey]=(next[targetKey]||0)+states[key]*available*(group+1)/remaining;
-      }
+  </main>
+
+  <footer><div class="wrap">
+    <a class="brand" href="https://ave.ai/" target="_blank" rel="noopener noreferrer"><img class="ave-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjM2OTcgMTkuNjc3M0wyMS4yMzk3IDE3Ljc3MzdINS4wMDAzOUwxMy4xMzI3IDMuNzAzMzlMMTEuMDA5MiAwSDguMjY4OThDNy42ODA1NiAwLjAwMTMyMDYgNy4xMDMwMyAwLjE1ODgwOCA2LjU5NTM5IDAuNDU2Mzc0QzYuMDg3NzUgMC43NTM5NCA1LjY2ODIgMS4xODA5MiA1LjM3OTU4IDEuNjkzN0wwLjQ2NTMxOSAxMC4zNjQ0QzAuMTc5NTgyIDEwLjg2NDkgMC4wMjkyOTY5IDExLjQzMTMgMC4wMjkyOTY5IDEyLjAwNzZDMC4wMjkyOTY5IDEyLjU4MzkgMC4xNzk1ODIgMTMuMTUwMiAwLjQ2NTMxOSAxMy42NTA3TDMuOTA1ODEgMTkuNzE3N0w1LjM3OTU4IDIyLjMxNjRDNS42MzIxOSAyMi43NjIxIDUuOTg0NTYgMjMuMTQzNCA2LjQwOTA5IDIzLjQzMDJDNi44MzM2MiAyMy43MTcgNy4zMTg3OSAyMy45MDE2IDcuODI2NiAyMy45Njk3QzcuOTcyMzMgMjMuOTkgOC4xMTkzMSAyNC4wMDAxIDguMjY2NDYgMjRIMTcuOTg2M0MxOC41NzQ1IDI0LjAwMDMgMTkuMTUyMyAyMy44NDQ3IDE5LjY2MDggMjMuNTQ4OUMyMC4xNjkyIDIzLjI1MzIgMjAuNTkwMiAyMi44Mjc5IDIwLjg4MDcgMjIuMzE2NEwyMi4zNDQ0IDE5LjcxNzdMMjIuMzY5NyAxOS42NzczWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBkPSJNMjEuMjM5NyAxNy43NzQ0SDUuMDMwNzZMNS4wOTkwMiAxNy43MzRMMTAuNTM5MSAxNC40NjI5QzExLjM3ODQgMTMuOTE2OSAxMi4wMTAzIDEzLjU5ODMgMTIuNjA0NCAxMy40OTQ3QzEyLjYxNzggMTMuNDkzNSAxMi42MzE0IDEzLjQ5MzUgMTIuNjQ0OCAxMy40OTQ3TDEyLjc2MTEgMTMuNDc5NUwxMi45NjM0IDEzLjQ2NDRIMTMuMDg0N0MxMy4xODE5IDEzLjQ2NyAxMy4yNzg5IDEzLjQ3NDYgMTMuMzc1NCAxMy40ODcxQzEzLjk5NDcgMTMuNTcwNSAxNC42NTk2IDEzLjg3ODkgMTUuNTY0NiAxNC40MDIyTDIxLjIwOTQgMTcuNzU0MkwyMS4yMzk3IDE3Ljc3NDRaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGcgb3BhY2l0eT0iMC41Ij4KPHBhdGggZD0iTTE1LjU0MzYgMTQuMzkyNUMxMy4zOTk5IDEzLjE0MzcgMTIuNTk4NiAxMy4xMDU4IDEwLjUxODEgMTQuNDYwOEw1LjAwOTc3IDE3Ljc3MjNMMTAuNTE4MSAxNS4xNjZDMTIuNTk4NiAxMy44MDg2IDEzLjM5MjMgMTMuODU2NiAxNS41NDM2IDE1LjA5NTNMMjEuMjIxMyAxNy43NzQ5TDE1LjU0MzYgMTQuMzkyNVoiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPC9nPgo8cGF0aCBkPSJNMjUuNzkwNSAxMy42NTA3TDIyLjM0NDkgMTkuNzE3N0wyMi4zNzI3IDE5LjY2OTdMMjEuMjQwMiAxNy43NzM4TDEzLjE1MDkgMy42ODU3VjMuNzAzMzlMMTEuMDA5OCAwSDE3Ljk4OTNDMTguNTc4IDAuMDAxNjU0ODYgMTkuMTU1OCAwLjE1OTI1OCAxOS42NjM4IDAuNDU2NzY4QzIwLjE3MTcgMC43NTQyNzcgMjAuNTkxOCAxLjE4MTA3IDIwLjg4MTMgMS42OTM3TDI1Ljc5MDUgMTAuMzY0NEMyNi4wNzUgMTAuODY1MyAyNi4yMjQ2IDExLjQzMTUgMjYuMjI0NiAxMi4wMDc2QzI2LjIyNDYgMTIuNTgzNiAyNi4wNzUgMTMuMTQ5OCAyNS43OTA1IDEzLjY1MDdaIiBmaWxsPSJ1cmwoI3BhaW50NF9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNwYWludDVfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUxIiBkPSJNMTUuMjIyIDBMMTMuMTEzOCAzLjY2OEwxMy41MDU2IDQuMjkyNEwxNS4yMjIgMFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjIuNTg0OTgiIHkxPSI2IiB4Mj0iMjEuNDUzNCIgeTI9IjE3LjI4NTkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iNi44ODUwMyIgeTE9IjE0LjU0MTkiIHgyPSI5LjYwMjY5IiB5Mj0iMjEuMTA5MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50Ml9saW5lYXJfMzY3NTlfNzY3ODUiIHgxPSI2LjAxNzk4IiB5MT0iMTYuMDkzMSIgeDI9IjE1LjM1ODkiIHkyPSIyNi42MDYzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjYuODY0MzIiIHkxPSIxNC41MzE0IiB4Mj0iOS41OTczOCIgeTI9IjIxLjExNDciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDRfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTIuNzUwMyIgeTE9IjQuOTI5NDMiIHgyPSIyNi43NTUiIHkyPSIxMS44NzM0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ1X2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjEuNzQxMzMiIHkxPSI0LjkyOTQzIiB4Mj0iMTUuNzQ5OSIgeTI9IjExLjg3ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTMuMzU1IiB5MT0iMS4wNzMxIiB4Mj0iMTUuNTUzNiIgeTI9IjEuNzY3MDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" width="28" height="25" alt="">Ave<span>.ai</span></a>
+    <span class="footer-event">踏雪返佣社区交易赛 · 2026.11.18 — 11.30</span>
+  </div></footer>
+
+  <div class="mobile-action"><a class="btn btn-secondary" href="#leaderboard">查看榜单</a><a class="btn btn-cta" href="https://t.me/EvainAveai" target="_blank" rel="noopener noreferrer">TG 联系报名 <span aria-hidden="true">↗</span></a></div>
+<script>
+const startsAt = Date.parse('2026-11-18T18:00:00+08:00');
+// 11/30 24:00 截止 = 12/1 00:00
+const endsAt = Date.parse('2026-12-01T00:00:00+08:00');
+(() => {
+  const label = document.getElementById('event-status');
+  const wrap = document.getElementById('countdown-wrap');
+  const cdLabel = document.getElementById('countdown-label');
+  const parts = ['days', 'hours', 'minutes', 'seconds'].map(id => document.getElementById(id));
+  function tick() {
+    const now = Date.now(), upcoming = now < startsAt, ended = now >= endsAt;
+    label.textContent = ended ? '活动已结束' : upcoming ? '即将开始' : '活动进行中';
+    label.dataset.phase = ended ? 'ended' : upcoming ? 'upcoming' : 'live';
+    wrap.hidden = ended;
+    if (ended) return;
+    cdLabel.textContent = upcoming ? '距离活动开始' : '距离活动结束';
+    const s = Math.max(0, Math.ceil(((upcoming ? startsAt : endsAt) - now) / 1000));
+    [Math.floor(s / 86400), Math.floor(s / 3600) % 24, Math.floor(s / 60) % 60, s % 60]
+      .forEach((v, i) => { parts[i].textContent = String(v).padStart(2, '0'); });
+  }
+  tick(); setInterval(tick, 1000);
+  const seats = document.querySelector('.seats');
+  if (seats && document.visibilityState === 'visible' && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    seats.classList.add('is-animating');
+    setTimeout(() => seats.classList.remove('is-animating'), 2000);
+  }
+})();
+
+// 轻量飘雪：只在首屏可见且未开启减少动效时运行
+(() => {
+  const canvas = document.getElementById('snow');
+  if (!canvas || !canvas.getContext || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  const ctx = canvas.getContext('2d'), band = canvas.parentElement;
+  let w = 0, h = 0, flakes = [], visible = true, raf = 0;
+  function size() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = band.clientWidth; h = band.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(90, w / 14));
+    flakes = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, r: .8 + Math.random() * 2, v: .25 + Math.random() * .6, d: Math.random() * Math.PI * 2 }));
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(255,255,255,.75)';
+    for (const f of flakes) {
+      f.y += f.v; f.d += .01; f.x += Math.sin(f.d) * .3;
+      if (f.y > h + 4) { f.y = -4; f.x = Math.random() * w; }
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
+    }
+    raf = visible && !document.hidden ? requestAnimationFrame(frame) : 0;
+  }
+  const start = () => { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame); };
+  size(); start();
+  window.addEventListener('resize', size);
+  document.addEventListener('visibilitychange', start);
+  if ('IntersectionObserver' in window) new IntersectionObserver(e => { visible = e[0].isIntersecting; start(); }).observe(band);
+})();
+</script>
+<script>
+// 公开榜单接口：邀请码、邮箱已在服务端打码。结算用的原始 CSV 不得放进本页面。
+const API_URL = 'https://studio.ave.ai/race-board';
+const CAMPAIGN_ID = '2026-11-18_2026-12-01';
+(() => {
+  const BOARDS = {
+    stock: { prizes: [200, 150, 120, 100, 80, 60, 40, 25, 15, 10], label: '存量社区交易榜' },
+    new: { prizes: [120, 90, 75, 60, 45, 35, 30, 20, 15, 10], label: '新社区榜' },
+    user: { prizes: [120, 90, 70, 60, 50, 40, 30, 20, 10, 10], label: '用户交易榜' },
+  };
+  const $ = id => document.getElementById(id);
+  const vol = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const int = new Intl.NumberFormat('en-US');
+  const dateFmt = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+  let current = 'stock', snapshot = null, loading = false;
+
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  const amount = v => typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : null;
+
+  function parse(json) {
+    if (!json || json.campaignId !== CAMPAIGN_ID || !json.boards || typeof json.boards !== 'object') throw new Error('bad payload');
+    const out = { phase: json.phase, note: json.note || '', sourceUpdated: json.sourceUpdated || null, totals: json.totals || {}, boards: {} };
+    for (const key of Object.keys(BOARDS)) {
+      const rows = Array.isArray(json.boards[key]) ? json.boards[key] : [];
+      out.boards[key] = rows.filter(r => r && typeof r === 'object' && amount(r.volume) != null).slice(0, 80);
+    }
+    return out;
+  }
+
+  function setHead(cols) {
+    const colgroup = $('board-cols'), head = $('board-head');
+    colgroup.replaceChildren(...cols.map(c => { const col = el('col'); col.style.width = c.w; if (c.m) col.className = 'hide-m'; return col; }));
+    const tr = el('tr');
+    cols.forEach(c => { const th = el('th', (c.num ? 'numeric ' : '') + (c.m ? 'hide-m' : ''), c.t); th.scope = 'col'; tr.append(th); });
+    head.replaceChildren(tr);
+  }
+
+  function rankCell(text) { const th = el('th', 'rank-cell', text); th.scope = 'row'; return th; }
+  function nameCell(name, sub) { const td = el('td'); td.append(el('span', 'c-name', name)); if (sub) td.append(el('span', 'c-sub', sub)); return td; }
+  function numCell(v, extra) { return el('td', 'numeric' + (extra ? ' ' + extra : ''), v); }
+  function rewardCell(r) { return el('td', 'numeric reward-cell' + (r ? '' : ' none'), r ? r + ' U' : '—'); }
+  const pad = n => String(n).padStart(2, '0');
+
+  function threshold(id, text, hint, open) {
+    const p = $(id); p.classList.toggle('is-open', !!open); p.replaceChildren(); p.innerHTML = text; $(id + '-hint').textContent = hint || '';
+  }
+
+  function renderThresholds(key, rows) {
+    const box = $('thresholds'), note = $('th-note');
+    box.hidden = note.hidden = false;
+    if (key === 'new') {
+      threshold('th-a', '社区交易量满 <b>30,000</b> U', '新社区四项条件之一，按本人＋一级＋二级计算');
+      threshold('th-b', '一级有效交易用户 <b>3</b> 人', '另需完成签约、绑定 GUID 并发布官方公告');
+      note.hidden = true;
+      return;
+    }
+    const tenth = rows.find(r => r.rank === 10), first = rows.find(r => r.rank === 1);
+    const unit = key === 'stock' ? '社区交易量' : '个人交易量';
+    if (tenth) threshold('th-a', unit + '超过 <b>' + int.format(Math.floor(tenth.volume) + 1) + '</b> U', '即可进入前 10 名（当前第 10 名 ' + vol.format(tenth.volume) + ' U）');
+    else threshold('th-a', '<b>任意交易量</b>', '当前上榜不足 10 个，有交易即可进入前 10 名', true);
+    if (first) threshold('th-b', '第 1 名当前 <b>' + int.format(Math.floor(first.volume)) + '</b> U', '第 1 名奖励 ' + BOARDS[key].prizes[0] + ' U');
+    else threshold('th-b', '第 1 名奖励 <b>' + BOARDS[key].prizes[0] + '</b> U', '开赛后按实时交易量排名');
+  }
+
+  function renderPlaceholder(key) {
+    const body = $('board-body'), frag = document.createDocumentFragment();
+    BOARDS[key].prizes.forEach((p, i) => {
+      const tr = el('tr', 'prize-row'); const cols = $('board-head').querySelectorAll('th').length;
+      tr.append(rankCell(pad(i + 1)), nameCell('虚位以待'));
+      for (let c = 2; c < cols - 1; c++) tr.append(numCell('—', c === 2 ? 'hide-m' : ''));
+      tr.append(rewardCell(p));
+      frag.append(tr);
     });
-    states=next;
+    body.replaceChildren(frag);
   }
-  Object.keys(states).forEach(function(key){key.split(",").forEach(function(n,group){expected[group]+=Number(n)*states[key]})});
-  return counts.map(function(n,group){return n?Math.max(0,Math.min(1,expected[group]/n)):null});
-}
-function lotterySummary(list){
-  var odds=lotteryOdds(list);
-  return '<section class="lottery-odds" aria-label="按号码数量预计中奖率"><h4>当前预计中奖率</h4><div class="odds-grid">'+odds.map(function(chance,index){
-    return '<div><span>持 '+(index+1)+' 个号码</span><b>'+(chance==null?'—':(chance*100).toFixed(2)+'%')+'</b><small>'+(chance==null?'当前暂无用户':'用户中奖概率')+'</small></div>';
-  }).join('')+'</div><p>按当前名单抽取 '+Math.min(20,list.length)+' 位不同用户测算，每人最多中奖一次。名单变化后更新，最终以封榜审核为准。</p><a href="#lottery-method">查看比特币区块抽奖规则 ↗</a></section>';
-}
-function rewardOf(r,rank,cfg){
-  if(current==="head"||current==="review")return 0;
-  if(!r)return cfg.prizes[rank-1]||0;
-  if(r.dataStatus==="missing"||r.classificationStatus==="pending"||r.qualificationStatus==="pending")return 0;
-  return Number(r.reward)||0;
-}
-function reviewOf(r,short){
-  if(!r||current==="lottery")return "";
-  if(!short&&r.qualificationNote)return (r.dataStatus==="missing"&&r.qualificationNote.indexOf("待接入")<0?"数据待接入 · ":"")+r.qualificationNote;
-  var notes=[];
-  if(r.classificationStatus==="pending")notes.push(current==="new"||current==="sign"?"新社区身份待复核":"分类待核实");
-  if(r.dataStatus==="missing")notes.push("数据待接入");
-  if(!notes.length&&r.qualificationStatus==="pending")notes.push("奖励资格待审核");
-  return notes.join(" · ");
-}
-function detailOf(r){
-  if(current==="lottery")return r.community||"";
-  var sub=[];
-  if(r.mergedCodes>1)sub.push("合并 "+r.mergedCodes+" 个邀请码");
-  else if(r.code)sub.push("邀请码 "+r.code);
-  if(r.dataStatus!=="missing"&&usersOf(r)!=null)sub.push("交易用户 "+usersOf(r)+" 人");
-  if(r.bd)sub.push("BD "+r.bd);
-  return sub.join(" · ");
-}
-function tick(){
-  var now=Date.now(),left=Math.max(0,(now<START?START:END)-now);
-  $("dd").textContent=pad(Math.floor(left/86400000));$("hh").textContent=pad(Math.floor(left/3600000)%24);
-  $("mm").textContent=pad(Math.floor(left/60000)%60);$("ss").textContent=pad(Math.floor(left/1000)%60);
-  $("cdLabel").textContent=now<START?"距开赛":now<END?"距封榜":"本期已结束";
-  var pct=Math.max(0,Math.min(100,(now-START)/(END-START)*100));
-  $("racePct").textContent=Math.floor(pct)+"%";$("raceFill").style.width=pct+"%";
-  $("raceText").textContent=now>=END?"赛程已完成":"赛程进度";
-}
-function campaignOK(j){return j&&j.campaignId==="2026-11-05_2026-11-15"}
-function podiumSlot(row,rank,cfg){
-  var name=row?nameOf(row):"虚位以待",initial=row?Array.from(name.replace(/^0x/i,""))[0]:"?";
-  var amount=volumeText(row),reward=rewardOf(row,rank,cfg);
-  var detail=row?(row.dataStatus==="missing"?"等待本期数据":usersOf(row)!=null?"交易用户 "+usersOf(row)+" 人":"交易用户待核实"):"等待社区上榜";
-  return '<div class="pd p'+rank+(row?'':' vacant')+'" aria-label="当前第 '+rank+' 名：'+esc(name)+'">'+
-    (rank===1?crown:'')+'<div class="av" aria-hidden="true"><span>'+esc(initial)+'</span></div>'+
-    '<div class="pn">'+esc(name)+'</div><div class="pv'+(amount.length>9?' long':'')+'">'+amount+'<small>U</small></div>'+
-    '<div class="pm">'+esc(detail)+'</div><div class="pm review-note">'+(esc(reviewOf(row,true))||'&nbsp;')+'</div>'+(reward?'<span class="prz reward">'+(row?'预计奖励 ':'名额奖励 ')+reward+' U</span>':'')+
-    '<div class="plinth" aria-hidden="true"><b>'+rank+'</b></div></div>';
-}
-function listRow(row,rank,cfg){
-  var reward=rewardOf(row,rank,cfg),name=row?nameOf(row):"虚位以待";
-  var detail=row?detailOf(row):"等待社区上榜";
-  var review=reviewOf(row,false);
-  var position=row&&(row.dataStatus==="missing"||row.rank===null)?"—":rank;
-  return '<div class="lrow"><span class="rk">'+position+'</span><div class="who"><div class="nm">'+esc(name)+'</div><div class="mt">'+esc(detail)+'</div>'+(review?'<div class="mt review-note">'+esc(review)+'</div>':'')+'</div>'+
-    '<div class="vc"><div class="vol">'+volumeText(row)+'<small>U</small></div>'+
-    (current==="lottery"?'<span class="prz ticketBadge">'+ticketsOf(row)+' 个号码</span>':reward?'<span class="prz reward">'+(row?'预计奖励 ':'名额奖励 ')+reward+' U</span>':'')+'</div></div>';
-}
-function pending(title,detail){$("board").innerHTML='<div class="vacantLine pending"><b>'+esc(title)+'</b><small>'+esc(detail)+'</small></div>'}
-function render(){
-  var hasReview=((DATA.boards||{}).pendingClassification||[]).length>0;
-  document.querySelector('[data-board="review"]').hidden=!hasReview;
-  document.querySelector('.switch').classList.toggle("has-review",hasReview);
-  if(current==="review"&&!hasReview)current="head";
-  var cfg=configs[current],host=$("board"),status=$("status"),now=Date.now();
-  $("boardTitle").textContent=cfg.title;
-  var waiting=!DATA.classificationSummary&&(DATA.pendingBoards||[]).indexOf(cfg.key)>=0,live=!DATA.pending&&!waiting&&!DATA.stale;
-  status.className=live?"live":"live stale";
-  status.lastElementChild.textContent=DATA.stale?"更新延迟":waiting?"待确认":live?"实时更新":"连接中";
-  document.querySelectorAll(".switch button").forEach(function(btn){var on=btn.dataset.board===current;btn.classList.toggle("on",on);btn.setAttribute("aria-pressed",String(on))});
-  if(now<START){pending("尚未开赛","11月5日 18:00 正式开赛，开赛后榜单自动更新。");$("boardMeta").textContent="等待开赛";return}
-  if(DATA.pending){pending("本期榜单准备中","正在连接本期数据，请稍后刷新。");$("boardMeta").textContent="等待本期数据";return}
-  if(waiting){pending("赛道配置中","组别、基线或报名审核信息确认后，将显示本期成绩。");$("boardMeta").textContent="报名与审核信息待确认";return}
-  var list=(DATA.boards||{})[cfg.key]||[],totalTickets=list.reduce(function(sum,row){return sum+ticketsOf(row)},0);
-  var meta=current==="head"?list.length+" 个存量活跃社区 · 按本期存量参考排序，增长奖资格待审核":current==="lottery"?list.length+" 位用户 · "+totalTickets+" 个号码 · 每人最多中奖一次":current==="review"?list.length+" 个社区待核实分类 · 当前成绩保留展示":list.length+(current==="new"||current==="sign"?" 个社区（含待复核候选）":" 个沉默社区")+" · 按"+cfg.metric+"参考排序，奖励资格待审核";
-  var summary=DATA.classificationSummary,extra="";
-  if(summary&&current!=="lottery")extra='<span class="upd">分类：存量活跃 '+num(summary.active)+' · 沉默 '+num(summary.silent)+' · 新社区 '+num(summary.new)+'（含待复核）· 待核实 '+num(summary.pending)+'</span>';
-  if(DATA.classificationPeriod){
-    var period=DATA.classificationPeriod.label||DATA.classificationPeriod.start+"—"+DATA.classificationPeriod.end;
-    $("classificationReference").textContent="优先判断新签约社区，再判断沉默社区，其余归存量活跃。当前分类参考 "+period+" 的整日历史数据，时间边界与资格封榜复核；头部/成长分组待确认，增长率仍按上期同期10天比较。";
+
+  const INTRO = {
+    stock: '赛前已合作的返佣社区按 <b>本人＋一级＋二级</b> 交易量排名，<b>前 10 名</b>瓜分 800 U，第 1 名 200 U。',
+    new: '本期首次签约的社区，<b>四项条件齐备</b>后按交易量排名，<b>前 10 名</b>瓜分 500 U；未达标社区只展示进度。',
+    user: '参赛社区内的普通用户按 <b>个人交易量</b> 排名，<b>前 10 名</b>瓜分 500 U，第 1 名 120 U，不设门槛。',
+  };
+
+  function render() {
+    const key = current, data = snapshot, rows = data ? data.boards[key] : [];
+    $('board-intro').innerHTML = INTRO[key];
+    document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.board === key)));
+    $('board-panel').setAttribute('aria-labelledby', 'tab-' + key);
+    if (key === 'user') setHead([{ t: '排名', w: '14%' }, { t: '用户', w: '30%' }, { t: '所属社区', w: '24%', m: true }, { t: '交易量（U）', w: '18%', num: true }, { t: '预计奖励', w: '14%', num: true }]);
+    else if (key === 'new') setHead([{ t: '排名', w: '13%' }, { t: '社区', w: '29%' }, { t: '有效用户', w: '13%', num: true, m: true }, { t: '交易量（U）', w: '20%', num: true }, { t: '状态', w: '13%' }, { t: '预计奖励', w: '12%', num: true }]);
+    else setHead([{ t: '排名', w: '13%' }, { t: '社区', w: '35%' }, { t: '有效用户', w: '14%', num: true, m: true }, { t: '交易量（U）', w: '22%', num: true }, { t: '预计奖励', w: '16%', num: true }]);
+    renderThresholds(key, rows);
+
+    const empty = $('empty-state');
+    if (!rows.length) {
+      renderPlaceholder(key);
+      empty.hidden = false;
+      const before = Date.now() < startsAt;
+      $('empty-title').textContent = before ? '活动尚未开始' : data && data.note ? data.note : key === 'new' ? '暂无新社区数据' : '暂无排名';
+      $('empty-description').textContent = before ? '11 月 18 日 18:00（UTC+8）开赛后，榜单自动显示实时排名。'
+        : key === 'new' ? '新社区报名并产生交易后会出现在这里，四项条件核实后进入排名。' : '数据同步后自动显示，请稍后刷新。';
+    } else {
+      empty.hidden = true;
+      const frag = document.createDocumentFragment();
+      rows.forEach((r, i) => {
+        const prize = r.reward > 0;
+        const tr = el('tr', (prize ? 'prize-row' : '') + (i > 0 && !prize && rows[i - 1].reward > 0 ? ' cut-row' : ''));
+        if (key === 'user') {
+          const who = el('td'); who.append(el('span', 'c-name', r.user || '—'), el('span', 'c-sub m-only', r.community || ''));
+          tr.append(rankCell(pad(r.rank)), who, el('td', 'hide-m', r.community || '—'), numCell(vol.format(r.volume)), rewardCell(r.reward));
+        } else if (key === 'new') {
+          const tag = el('span', 'tag ' + (r.qualified ? 'ok' : r.volumeMet && r.usersMet ? 'wait' : 'no'), r.qualified ? '已达标' : r.volumeMet && r.usersMet ? '待核实' : '未达标');
+          const st = el('td'); st.append(tag);
+          tr.append(rankCell(r.rank ? pad(r.rank) : '—'), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), numCell(vol.format(r.volume)), st, rewardCell(r.reward));
+        } else {
+          tr.append(rankCell(pad(r.rank)), nameCell(r.name, r.code), numCell(int.format(r.effectiveUsers || 0), 'hide-m'), numCell(vol.format(r.volume)), rewardCell(r.reward));
+        }
+        frag.append(tr);
+      });
+      $('board-body').replaceChildren(frag);
+    }
+    const t = data ? data.totals : {};
+    $('board-foot').innerHTML = data && (t.communities || t.traders)
+      ? '参赛社区 <b>' + int.format(t.communities || 0) + '</b> 个 · 有交易用户 <b>' + int.format(t.traders || 0) + '</b> 人 · 社区总交易量 <b>' + vol.format(t.volume || 0) + '</b> U'
+      : '开赛后显示参赛社区数与总交易量';
   }
-  $("boardMeta").innerHTML=esc(meta)+extra+'<span class="upd">更新于 '+esc(new Date(DATA.updated||Date.now()).toLocaleString("zh-CN",{hour12:false}))+'</span>';
-  if(!list.length&&!cfg.podium){pending(current==="lottery"?"暂无抽奖资格记录":"暂无本类社区",current==="lottery"?"个人交易达到500 U后将在这里展示。":"分类与报名数据更新后，将在这里展示本期成绩。");return}
-  var html=current==="lottery"?lotterySummary(list):'',start=0;
-  if(cfg.podium){html='<div class="podium">'+[1,2,3].map(function(rank){return podiumSlot(list[rank-1],rank,cfg)}).join('')+'</div>';start=3}
-  var count=current==="new"?Math.max(list.length,cfg.prizes.length):list.length;
-  if(count>start){
-    html+='<div class="rows">';
-    for(var i=start;i<count;i++)html+=listRow(list[i],i+1,cfg);
-    html+='</div>';
+
+  async function refresh() {
+    if (loading) return;
+    loading = true;
+    const btn = $('refresh-button'), status = $('data-status');
+    btn.disabled = true; status.textContent = '正在刷新'; status.dataset.state = 'loading';
+    const ctrl = new AbortController(), timer = setTimeout(() => ctrl.abort(), 12000);
+    try {
+      const res = await fetch(API_URL, { headers: { Accept: 'application/json' }, cache: 'no-store', credentials: 'omit', signal: ctrl.signal });
+      if (!res.ok) throw new Error('http');
+      snapshot = parse(await res.json());
+      status.textContent = '自动刷新中'; status.dataset.state = 'ready';
+      const src = snapshot.sourceUpdated ? new Date(snapshot.sourceUpdated.replace(' ', 'T') + '+08:00') : null;
+      $('updated-at').textContent = src && !isNaN(src) && src >= startsAt ? dateFmt.format(src) + '（UTC+8）' : '—';
+    } catch {
+      status.textContent = snapshot ? '刷新失败 · 显示上次结果' : (Date.now() < startsAt ? '等待开赛' : '暂时无法获取');
+      status.dataset.state = snapshot || Date.now() < startsAt ? 'ready' : 'error';
+    } finally {
+      clearTimeout(timer); loading = false; btn.disabled = false; render();
+    }
   }
-  host.innerHTML=html;
-}
-function load(){
-  fetch(FEED+"?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error();return r.json()}).then(function(j){DATA=campaignOK(j)?j:{pending:true};render()}).catch(function(){if(!DATA.pending)DATA.stale=true;render()});
-}
-document.querySelectorAll(".switch button").forEach(function(btn){btn.addEventListener("click",function(){current=btn.dataset.board;render();$("board").scrollTop=0})});
-$("joinBtn").addEventListener("click",function(){window.open(TG,"_blank","noopener")});
-$("shareBtn").addEventListener("click",function(){
-  var url=location.origin+location.pathname,toast=$("shareToast");
-  function copied(){toast.classList.add("show");setTimeout(function(){toast.classList.remove("show")},1700)}
-  if(navigator.share)navigator.share({title:document.title,url:url}).catch(function(){});
-  else if(navigator.clipboard)navigator.clipboard.writeText(url).then(copied);
-});
-tick();setInterval(tick,1000);render();load();setInterval(load,120000);
-})();</script>
-</body></html>
+
+  document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => { current = tab.dataset.board; render(); }));
+  $('refresh-button').addEventListener('click', refresh);
+  render(); refresh();
+  setInterval(() => { if (!document.hidden) refresh(); }, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+})();
+</script>
+</body>
+</html>
