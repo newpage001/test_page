@@ -40,7 +40,7 @@ img{display:block}
 .topbar{border-bottom:1px solid rgba(255,255,255,.1)}
 .topbar .wrap{display:flex;align-items:center;gap:12px;min-height:64px}
 .brand{display:inline-flex;align-items:center;color:#fff;font-size:23px;font-weight:750;letter-spacing:-.8px;line-height:1}
-.brand span{font-weight:500}
+.brand span{font-weight:inherit}
 .brand .ave-logo{width:30px;height:26px;object-fit:contain;margin-right:9px}
 .topnav{display:flex;gap:28px;margin-left:auto;font-size:16px;color:#c9d4e6}
 .topnav a{padding:6px 0;border-bottom:2px solid transparent}
@@ -292,9 +292,111 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
 .mobile-action{display:none}
 .m-only{display:none}
 
+/* Compact layout */
+.hero h1 .h1-theme{display:flex;align-items:center;gap:12px;font-size:64px;line-height:1.08;font-weight:900;letter-spacing:6px;margin:2px 0 6px;color:#fff;background:linear-gradient(180deg,#ffffff 0%,#e6f0ff 55%,#a9c6f5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 18px rgba(150,190,255,.35))}
+.hero h1 .flake{width:36px;height:36px;color:#cfe1ff;flex-shrink:0;-webkit-text-fill-color:initial}
+.hero h1 .h1-main{font-size:34px}
+
+body{font-size:16px;line-height:1.65}
+.hero{gap:44px;padding-top:28px;padding-bottom:34px;grid-template-columns:minmax(0,1fr) minmax(0,380px)}
+.status-row{margin-bottom:14px}
+.hero h1 .h1-partners{font-size:20px;margin-bottom:4px}
+.tagline{font-size:24px;margin-top:10px}
+.lede{font-size:16px;margin-top:8px}
+.when{margin-top:16px;padding-top:14px}
+.event-date{font-size:17px}
+.countdown-wrap{margin-top:10px}
+.cd{padding:4px 10px}
+.cd b{font-size:24px}
+.actions{margin-top:18px}
+.btn{min-height:42px;padding:8px 18px}
+.pool{padding:20px 24px 18px}
+.pool-value{font-size:52px}
+.pool-value small{font-size:22px}
+.seat-title{margin-top:14px;padding-top:12px}
+.seats{gap:3px;margin-top:8px}
+.tiers{margin-top:12px;gap:5px}
+.tiers li{font-size:15px}
+.content{padding-top:22px}
+.panel{margin-bottom:18px}
+.panel-head{padding:16px 24px 12px}
+.panel-head h2{font-size:20px}
+.panel-head p{font-size:15px;margin-top:2px}
+.panel-body{padding:16px 24px 20px}
+.tab{padding:12px 4px 10px;font-size:16px}
+.board-meta{padding:8px 24px;font-size:15px}
+.board-intro{padding:10px 24px;font-size:15px}
+.th-item{padding:10px 24px 10px 20px}
+.th-value b{font-size:19px}
+.th-hint{margin-top:2px;font-size:13px}
+.th-note{padding:6px 24px;font-size:13px}
+.empty-state{padding:10px 24px}
+.empty-state h3{font-size:16px}
+.empty-state p{font-size:15px}
+.podium{padding:22px 24px 14px;gap:12px}
+.pod{padding:18px 12px 12px}
+.pod.p1{padding-top:24px;padding-bottom:14px}
+.pod .medal{width:28px;height:28px;font-size:14px;margin-bottom:4px}
+.pod.p1 .medal{width:32px;height:32px;font-size:15px}
+.pod-name{font-size:16px}.pod.p1 .pod-name{font-size:17px}
+.pod-vol{font-size:14px;margin-top:2px}
+.pod-reward{margin-top:6px;font-size:14px}
+.pod-reward b{font-size:17px}
+.crown{top:-20px}
+.board-scroll{max-height:460px}
+.board-table th,.board-table td{padding:9px 16px}
+.board-table thead th{padding:9px 16px;font-size:15px}
+.board-table thead th:first-child,.board-table .rank-cell{padding-left:24px}
+.board-table thead th:last-child,.board-table .reward-cell{padding-right:24px}
+.c-name{font-size:16px}
+.numeric{font-size:16px}
+.bar{margin-top:4px}
+.board-foot{padding:10px 24px;font-size:15px}
+.prize-table{margin-top:0;font-size:16px}
+.prize-table th,.prize-table td{padding:7px 14px}
+.prize-table tbody tr:first-child td{font-size:17px}
+.note{margin-top:10px;font-size:15px}
+.steps{gap:12px;margin-bottom:14px}
+.steps li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;padding:12px 14px}
+.steps li:before{width:28px;height:28px;font-size:15px;margin:2px 0 0;grid-row:span 2}
+.steps h3{font-size:16px}
+.steps p{font-size:14px;margin-top:0}
+.contact{padding:12px 16px}
+.contact p{font-size:15px}
+.r-key,.r-pair,.r-split{gap:12px}
+.r-pair{margin-top:16px}
+.r-card{padding:14px 16px 12px}
+.r-ico{width:32px;height:32px;margin-bottom:6px}
+.r-ico svg{width:18px;height:18px}
+.r-card h3{font-size:16px}
+.r-card p{font-size:14px;margin-top:4px;line-height:1.65}
+.r-card .r-big{font-size:20px;margin-top:2px}
+.r-formula{margin-top:6px}
+.r-formula span{font-size:14px;padding:2px 10px}
+.r-sub{font-size:16px;margin:20px 0 10px}
+.r-type{padding:12px 16px}
+.r-type h4{font-size:16px}
+.r-type-head{margin-bottom:4px}
+.r-type p{font-size:15px;line-height:1.65}
+.r-type .r-muted{font-size:14px;margin-top:2px}
+.r-steps{gap:10px}
+.r-steps li{padding:12px 14px;gap:6px}
+.r-num{width:26px;height:26px;font-size:14px}
+.r-steps h4{font-size:15px}
+.r-steps p{font-size:13px;margin-top:2px}
+.r-foot{font-size:14px;margin-top:8px}
+.r-warn{margin-top:16px;padding:12px 16px;gap:12px}
+.r-warn h3{font-size:16px}
+.r-warn p{font-size:14px;line-height:1.65}
+.notice{padding:0 0 18px}
+.notice h2{font-size:16px;margin-bottom:6px}
+.notice dl{gap:16px}
+.notice dt{font-size:15px;margin-bottom:0}
+.notice dd{font-size:14px;line-height:1.65}
+footer .wrap{padding-top:14px;padding-bottom:16px}
 @media(max-width:960px){
   .hero{grid-template-columns:1fr;gap:32px;padding-top:36px}
-  .hero h1 .h1-main{font-size:46px}
+  .hero h1 .h1-main{font-size:32px}
   .pool{max-width:560px}
   .board-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .r-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -389,8 +491,41 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   .mobile-action .btn{flex:1;min-height:48px;padding:10px;font-size:16px}
   .mobile-action .btn-secondary{flex:0 0 38%}
 }
+@media(max-width:760px){
+  .hero{padding-top:18px;padding-bottom:22px;gap:18px}
+  .status-row{margin-bottom:10px}
+  .hero h1 .h1-theme{font-size:48px;letter-spacing:4px;gap:8px}
+  .hero h1 .flake{width:28px;height:28px}
+  .hero h1 .h1-main{font-size:26px}
+  .tagline{font-size:21px;margin-top:6px}
+  .lede{font-size:15px}
+  .when{margin-top:12px;padding-top:10px}
+  .event-date{font-size:16px}
+  .countdown-wrap{margin-top:6px}
+  .cd b{font-size:20px}
+  .pool{padding:16px 16px 14px}
+  .pool-value{font-size:40px}
+  .seat-title,.seats{display:none}
+  .tiers{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .content{padding-top:16px}
+  .panel{margin-bottom:14px}
+  .panel-head{padding:14px 14px 10px}
+  .panel-head h2{font-size:18px}
+  .panel-body{padding:14px 14px 16px}
+  .board-meta,.board-intro,.th-note,.empty-state{padding-left:14px;padding-right:14px}
+  .board-scroll{max-height:420px}
+  .board-table th,.board-table td{padding:9px 6px}
+  .steps{gap:8px}
+  .steps li{padding:10px 12px}
+  .r-steps li{padding:10px 12px}
+  .r-card,.r-type{padding:12px 14px}
+  .r-card .r-big{font-size:18px}
+  .r-sub{margin:16px 0 8px}
+}
 @media(max-width:370px){
-  .hero h1 .h1-main{font-size:32px}
+  .hero h1 .h1-theme{font-size:48px;letter-spacing:4px;gap:8px}
+  .hero h1 .flake{width:28px;height:28px}
+  .hero h1 .h1-main{font-size:26px}
   .tagline{font-size:22px}
   .pool-value{font-size:42px}
   .cd{padding:4px 6px}
@@ -411,8 +546,7 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
   <section class="band" aria-labelledby="event-title"><canvas class="snow" id="snow" aria-hidden="true"></canvas><div class="wrap hero">
       <div class="hero-copy">
         <div class="status-row"><span class="chip status" id="event-status">活动时间见下方</span><span class="chip">返佣社区专属</span></div>
-        <div class="lockup" aria-hidden="true"><span class="lockup-tile"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNyAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjM2OTcgMTkuNjc3M0wyMS4yMzk3IDE3Ljc3MzdINS4wMDAzOUwxMy4xMzI3IDMuNzAzMzlMMTEuMDA5MiAwSDguMjY4OThDNy42ODA1NiAwLjAwMTMyMDYgNy4xMDMwMyAwLjE1ODgwOCA2LjU5NTM5IDAuNDU2Mzc0QzYuMDg3NzUgMC43NTM5NCA1LjY2ODIgMS4xODA5MiA1LjM3OTU4IDEuNjkzN0wwLjQ2NTMxOSAxMC4zNjQ0QzAuMTc5NTgyIDEwLjg2NDkgMC4wMjkyOTY5IDExLjQzMTMgMC4wMjkyOTY5IDEyLjAwNzZDMC4wMjkyOTY5IDEyLjU4MzkgMC4xNzk1ODIgMTMuMTUwMiAwLjQ2NTMxOSAxMy42NTA3TDMuOTA1ODEgMTkuNzE3N0w1LjM3OTU4IDIyLjMxNjRDNS42MzIxOSAyMi43NjIxIDUuOTg0NTYgMjMuMTQzNCA2LjQwOTA5IDIzLjQzMDJDNi44MzM2MiAyMy43MTcgNy4zMTg3OSAyMy45MDE2IDcuODI2NiAyMy45Njk3QzcuOTcyMzMgMjMuOTkgOC4xMTkzMSAyNC4wMDAxIDguMjY2NDYgMjRIMTcuOTg2M0MxOC41NzQ1IDI0LjAwMDMgMTkuMTUyMyAyMy44NDQ3IDE5LjY2MDggMjMuNTQ4OUMyMC4xNjkyIDIzLjI1MzIgMjAuNTkwMiAyMi44Mjc5IDIwLjg4MDcgMjIuMzE2NEwyMi4zNDQ0IDE5LjcxNzdMMjIuMzY5NyAxOS42NzczWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBkPSJNMjEuMjM5NyAxNy43NzQ0SDUuMDMwNzZMNS4wOTkwMiAxNy43MzRMMTAuNTM5MSAxNC40NjI5QzExLjM3ODQgMTMuOTE2OSAxMi4wMTAzIDEzLjU5ODMgMTIuNjA0NCAxMy40OTQ3QzEyLjYxNzggMTMuNDkzNSAxMi42MzE0IDEzLjQ5MzUgMTIuNjQ0OCAxMy40OTQ3TDEyLjc2MTEgMTMuNDc5NUwxMi45NjM0IDEzLjQ2NDRIMTMuMDg0N0MxMy4xODE5IDEzLjQ2NyAxMy4yNzg5IDEzLjQ3NDYgMTMuMzc1NCAxMy40ODcxQzEzLjk5NDcgMTMuNTcwNSAxNC42NTk2IDEzLjg3ODkgMTUuNTY0NiAxNC40MDIyTDIxLjIwOTQgMTcuNzU0MkwyMS4yMzk3IDE3Ljc3NDRaIiBmaWxsPSJ1cmwoI3BhaW50MV9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0yMi4zNjk2IDE5LjY3OUwyMi4zNDE4IDE5LjcyN0wyMC44NzU2IDIyLjMxNTZDMjAuNTg2MyAyMi44MjcgMjAuMTY2MyAyMy4yNTI0IDE5LjY1ODcgMjMuNTQ4MkMxOS4xNTEgMjMuODQ0IDE4LjU3MzggMjMuOTk5NiAxNy45ODYyIDIzLjk5OTJIOC4yNjY0MUM4LjExOTI3IDIzLjk5OTMgNy45NzIyOSAyMy45ODkyIDcuODI2NTUgMjMuOTY4OEM3LjMxNzkxIDIzLjkwMTQgNi44MzE4MSAyMy43MTcgNi40MDYzOCAyMy40MzAxQzUuOTgwOTQgMjMuMTQzMyA1LjYyNzc0IDIyLjc2MTggNS4zNzQ0OCAyMi4zMTU2TDMuOTA1NzYgMTkuNzE5NEw1LjAyODE2IDE3Ljc3OEw1LjA4NjMgMTcuNzQyNkwxMC41MzY1IDE0LjQ1NjNDMTEuMzc4MyAxMy45MTAzIDEyLjAwNzcgMTMuNTg5MiAxMi42MDQzIDEzLjQ4ODFDMTIuNjE3OCAxMy40ODY5IDEyLjYzMTMgMTMuNDg2OSAxMi42NDQ4IDEzLjQ4ODFMMTIuNzYxIDEzLjQ3MjlMMTIuOTYzMyAxMy40NTc4SDEzLjA4NDZDMTMuMTgxOCAxMy40NjA0IDEzLjI3ODkgMTMuNDY4IDEzLjM3NTMgMTMuNDgwNUMxMy45OTQ3IDEzLjU2MzkgMTQuNjU3IDEzLjg3NDkgMTUuNTYyIDE0LjM5NTZMMjEuMjA5MyAxNy43NTUyTDIxLjI0MjIgMTcuNzc1NEwyMi4zNjk2IDE5LjY3OVoiIGZpbGw9InVybCgjcGFpbnQyX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGcgb3BhY2l0eT0iMC41Ij4KPHBhdGggZD0iTTE1LjU0MzYgMTQuMzkyNUMxMy4zOTk5IDEzLjE0MzcgMTIuNTk4NiAxMy4xMDU4IDEwLjUxODEgMTQuNDYwOEw1LjAwOTc3IDE3Ljc3MjNMMTAuNTE4MSAxNS4xNjZDMTIuNTk4NiAxMy44MDg2IDEzLjM5MjMgMTMuODU2NiAxNS41NDM2IDE1LjA5NTNMMjEuMjIxMyAxNy43NzQ5TDE1LjU0MzYgMTQuMzkyNVoiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPC9nPgo8cGF0aCBkPSJNMjUuNzkwNSAxMy42NTA3TDIyLjM0NDkgMTkuNzE3N0wyMi4zNzI3IDE5LjY2OTdMMjEuMjQwMiAxNy43NzM4TDEzLjE1MDkgMy42ODU3VjMuNzAzMzlMMTEuMDA5OCAwSDE3Ljk4OTNDMTguNTc4IDAuMDAxNjU0ODYgMTkuMTU1OCAwLjE1OTI1OCAxOS42NjM4IDAuNDU2NzY4QzIwLjE3MTcgMC43NTQyNzcgMjAuNTkxOCAxLjE4MTA3IDIwLjg4MTMgMS42OTM3TDI1Ljc5MDUgMTAuMzY0NEMyNi4wNzUgMTAuODY1MyAyNi4yMjQ2IDExLjQzMTUgMjYuMjI0NiAxMi4wMDc2QzI2LjIyNDYgMTIuNTgzNiAyNi4wNzUgMTMuMTQ5OCAyNS43OTA1IDEzLjY1MDdaIiBmaWxsPSJ1cmwoI3BhaW50NF9saW5lYXJfMzY3NTlfNzY3ODUpIi8+CjxwYXRoIGQ9Ik0wLjQzNjAyMiAxMy42NTA3TDMuODg0MDkgMTkuNzE3N0wzLjg1NjI5IDE5LjY2OTdMNC45ODYyNiAxNy43NjYyTDEzLjA3NTYgMy42NzgxMVYzLjY5NTgxTDE1LjIyMTggMEg4LjIzOTY5QzcuNjUxMjYgMC4wMDEzMjA2IDcuMDczNzMgMC4xNTg4MDggNi41NjYxIDAuNDU2Mzc0QzYuMDU4NDYgMC43NTM5NCA1LjYzODkgMS4xODA5MiA1LjM1MDI4IDEuNjkzN0wwLjQzNjAyMiAxMC4zNjQ0QzAuMTUwMjg1IDEwLjg2NDkgMCAxMS40MzEzIDAgMTIuMDA3NkMwIDEyLjU4MzkgMC4xNTAyODUgMTMuMTUwMiAwLjQzNjAyMiAxMy42NTA3WiIgZmlsbD0idXJsKCNwYWludDVfbGluZWFyXzM2NzU5Xzc2Nzg1KSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUxIiBkPSJNMTUuMjIyIDBMMTMuMTEzOCAzLjY2OEwxMy41MDU2IDQuMjkyNEwxNS4yMjIgMFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8zNjc1OV83Njc4NSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjIuNTg0OTgiIHkxPSI2IiB4Mj0iMjEuNDUzNCIgeTI9IjE3LjI4NTkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iNi44ODUwMyIgeTE9IjE0LjU0MTkiIHgyPSI5LjYwMjY5IiB5Mj0iMjEuMTA5MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTJCODg2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNEFERiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50Ml9saW5lYXJfMzY3NTlfNzY3ODUiIHgxPSI2LjAxNzk4IiB5MT0iMTYuMDkzMSIgeDI9IjE1LjM1ODkiIHkyPSIyNi42MDYzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQzX2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjYuODY0MzIiIHkxPSIxNC41MzE0IiB4Mj0iOS41OTczOCIgeTI9IjIxLjExNDciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDRfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTIuNzUwMyIgeTE9IjQuOTI5NDMiIHgyPSIyNi43NTUiIHkyPSIxMS44NzM0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMxMkI4ODYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI0QURGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ1X2xpbmVhcl8zNjc1OV83Njc4NSIgeDE9IjEuNzQxMzMiIHkxPSI0LjkyOTQzIiB4Mj0iMTUuNzQ5OSIgeTI9IjExLjg3ODUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzM2NzU5Xzc2Nzg1IiB4MT0iMTMuMzU1IiB5MT0iMS4wNzMxIiB4Mj0iMTUuNTUzNiIgeTI9IjEuNzY3MDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzEyQjg4NiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjRBREYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" width="40" height="36" alt=""></span></div>
-        <h1 id="event-title"><span class="h1-partners">Ave.ai 踏雪</span><span class="h1-main">返佣社区交易赛</span></h1>
+        <h1 id="event-title"><span class="h1-partners">Ave.ai 社区交易赛 · 2026 冬季</span><span class="h1-theme">踏雪<svg class="flake" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3.2 9.6l3.4.9-.9 3.4M20.8 14.4l-3.4-.9.9-3.4M3.2 14.4l3.4-.9-.9-3.4M20.8 9.6l-3.4.9.9 3.4"/></svg></span><span class="h1-main">返佣社区交易赛</span></h1>
         <p class="tagline">2,000 U 奖池 · 三榜齐开</p>
         <p class="lede">存量社区、新社区、普通用户各走一条榜单，互不交叉。社区按 <strong>本人＋一级＋二级</strong> 交易量排名，用户按个人交易量排名，共 <strong>40</strong> 个获奖名额。</p>
         <div class="when" aria-label="活动时间">
@@ -469,12 +603,6 @@ footer .brand .ave-logo{width:28px;height:25px;margin-right:7px}
     <section id="rewards" class="panel" aria-labelledby="rewards-title">
       <div class="panel-head"><div><h2 id="rewards-title">奖励分配</h2><p>一个社区只进一个榜，一名用户只进用户榜，三条线彼此独立</p></div><a class="head-link" href="#leaderboard">查看实时榜单</a></div>
       <div class="panel-body">
-        <div class="board-cards">
-          <div class="bcard g1"><h3>存量社区交易榜</h3><div class="amt">800<small>U</small></div><p>赛前已合作的返佣社区，前 10 名有奖</p></div>
-          <div class="bcard g2"><h3>新社区榜</h3><div class="amt">500<small>U</small></div><p>本期首次签约的社区，四项条件齐备才上榜，前 10 名有奖</p></div>
-          <div class="bcard g3"><h3>BD 推荐奖</h3><div class="amt">200<small>U</small></div><p>推荐的新社区达标并进入新社区榜前 10，每个 20 U，共 10 个</p></div>
-          <div class="bcard"><h3>用户交易榜</h3><div class="amt">500<small>U</small></div><p>参赛社区内普通用户，按个人交易量取前 10 名</p></div>
-        </div>
         <div class="table-scroll"><table class="prize-table"><caption class="sr-only">三个榜单各名次奖励，单位 U</caption>
           <thead><tr><th scope="col">名次</th><th scope="col">存量社区交易榜</th><th scope="col">新社区榜</th><th scope="col">用户交易榜</th></tr></thead>
           <tbody><tr><th scope="row">第 1 名</th><td>200<span class="unit">U</span></td><td>120<span class="unit">U</span></td><td>120<span class="unit">U</span></td></tr><tr><th scope="row">第 2 名</th><td>150<span class="unit">U</span></td><td>90<span class="unit">U</span></td><td>90<span class="unit">U</span></td></tr><tr><th scope="row">第 3 名</th><td>120<span class="unit">U</span></td><td>75<span class="unit">U</span></td><td>70<span class="unit">U</span></td></tr><tr><th scope="row">第 4 名</th><td>100<span class="unit">U</span></td><td>60<span class="unit">U</span></td><td>60<span class="unit">U</span></td></tr><tr><th scope="row">第 5 名</th><td>80<span class="unit">U</span></td><td>45<span class="unit">U</span></td><td>50<span class="unit">U</span></td></tr><tr><th scope="row">第 6 名</th><td>60<span class="unit">U</span></td><td>35<span class="unit">U</span></td><td>40<span class="unit">U</span></td></tr><tr><th scope="row">第 7 名</th><td>40<span class="unit">U</span></td><td>30<span class="unit">U</span></td><td>30<span class="unit">U</span></td></tr><tr><th scope="row">第 8 名</th><td>25<span class="unit">U</span></td><td>20<span class="unit">U</span></td><td>20<span class="unit">U</span></td></tr><tr><th scope="row">第 9 名</th><td>15<span class="unit">U</span></td><td>15<span class="unit">U</span></td><td>10<span class="unit">U</span></td></tr><tr><th scope="row">第 10 名</th><td>10<span class="unit">U</span></td><td>10<span class="unit">U</span></td><td>10<span class="unit">U</span></td></tr></tbody>
