@@ -891,7 +891,7 @@ const CAMPAIGN_ID = '2026-11-18_2026-12-01';
     loading = true;
     const btn = $('refresh-button'), status = $('data-status');
     btn.disabled = true; status.textContent = '正在刷新'; status.dataset.state = 'loading';
-    const ctrl = new AbortController(), timer = setTimeout(() => ctrl.abort(), 12000);
+    const ctrl = new AbortController(), timer = setTimeout(() => ctrl.abort(), 30000);
     try {
       const res = await fetch(API_URL, { headers: { Accept: 'application/json' }, cache: 'no-store', credentials: 'omit', signal: ctrl.signal });
       if (!res.ok) throw new Error('http');
